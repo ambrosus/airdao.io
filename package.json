@@ -1,0 +1,29 @@
+{
+  "name": "airdao.io",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "slicemachine": "start-slicemachine"
+  },
+  "dependencies": {
+    "@prismicio/client": "^7.1.0",
+    "@prismicio/next": "^1.3.2",
+    "@prismicio/react": "^2.7.1",
+    "eslint": "8.43.0",
+    "eslint-config-next": "13.4.7",
+    "next": "13.4.7",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@slicemachine/adapter-next": "^0.3.1",
+    "slice-machine-ui": "^1.3.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "prettier": "^2.3.2"
+  }
+}

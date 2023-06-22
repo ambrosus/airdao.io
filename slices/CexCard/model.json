@@ -1,0 +1,46 @@
+{
+  "id": "cex_card",
+  "type": "SharedSlice",
+  "name": "CexCard",
+  "description": "CexCard",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "name": {
+          "type": "StructuredText",
+          "config": {
+            "label": "name",
+            "placeholder": "name",
+            "allowTargetBlank": false,
+            "single": "paragraph"
+          }
+        },
+        "icon": {
+          "type": "Image",
+          "config": { "label": "icon", "constraint": {}, "thumbnails": [] }
+        }
+      },
+      "items": {
+        "pair_name": {
+          "type": "Text",
+          "config": { "label": "pair name", "placeholder": "" }
+        },
+        "pair_link": {
+          "type": "Link",
+          "config": {
+            "label": "pair link",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null
+          }
+        }
+      }
+    }
+  ]
+}

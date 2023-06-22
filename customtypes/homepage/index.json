@@ -1,0 +1,415 @@
+{
+  "id": "homepage",
+  "label": "homepage",
+  "format": "page",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "top_bar_announcement": {
+        "type": "StructuredText",
+        "config": {
+          "label": "top bar announcement",
+          "placeholder": "(hidden if empty)",
+          "allowTargetBlank": true,
+          "single": "paragraph,strong,em,hyperlink"
+        }
+      },
+      "title_heading": {
+        "type": "StructuredText",
+        "config": {
+          "label": "title heading",
+          "placeholder": "title heading (h1)",
+          "allowTargetBlank": false,
+          "single": "heading1"
+        }
+      },
+      "title_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "title lead text",
+          "placeholder": "Title lead text",
+          "allowTargetBlank": false,
+          "single": "paragraph"
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": { "choices": {} }
+      }
+    },
+    "Mobile App": {
+      "mobile_heading": {
+        "type": "StructuredText",
+        "config": {
+          "label": "mobile heading",
+          "placeholder": "Heading (bold will be white)",
+          "allowTargetBlank": false,
+          "single": "heading2,strong"
+        }
+      },
+      "mobile_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "mobile text",
+          "placeholder": "mobile lead text",
+          "allowTargetBlank": false,
+          "single": "paragraph"
+        }
+      },
+      "mobile_button_text": {
+        "type": "Text",
+        "config": { "label": "mobile button text", "placeholder": "" }
+      },
+      "mobile_button_link": {
+        "type": "Link",
+        "config": {
+          "label": "mobile button link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      }
+    },
+    "Products": {
+      "products_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "products text",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "single": "paragraph"
+        }
+      },
+      "products_cards": {
+        "type": "Group",
+        "config": {
+          "label": "products cards",
+          "fields": {
+            "name": {
+              "type": "Text",
+              "config": { "label": "name", "placeholder": "" }
+            },
+            "text": {
+              "type": "StructuredText",
+              "config": {
+                "label": "text",
+                "placeholder": "product description (bold will be white, regular will be gray)",
+                "allowTargetBlank": false,
+                "multi": "paragraph,strong"
+              }
+            },
+            "button_text": {
+              "type": "Text",
+              "config": { "label": "button text", "placeholder": "" }
+            },
+            "button_link": {
+              "type": "Link",
+              "config": {
+                "label": "button link",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "select": null
+              }
+            },
+            "is_connect": {
+              "type": "Boolean",
+              "config": {
+                "label": "is connect wallet button",
+                "default_value": false,
+                "placeholder_true": "true",
+                "placeholder_false": "false"
+              }
+            },
+            "guide_button_text": {
+              "type": "Text",
+              "config": { "label": "guide button text", "placeholder": "" }
+            },
+            "guide_button_link": {
+              "type": "Link",
+              "config": {
+                "label": "guide button link",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "select": null
+              }
+            },
+            "image": {
+              "type": "Image",
+              "config": { "label": "image", "constraint": {}, "thumbnails": [] }
+            }
+          }
+        }
+      }
+    },
+    "Trade": {
+      "trade_pre_text": {
+        "type": "Text",
+        "config": { "label": "trade pre text", "placeholder": "" }
+      },
+      "trade_heading": {
+        "type": "StructuredText",
+        "config": {
+          "label": "trade_heading",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "trade_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "trade_text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "slices3": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": { "choices": { "cex_card": { "type": "SharedSlice" } } }
+      }
+    },
+    "Stats": {
+      "stats_pre_text": {
+        "type": "Text",
+        "config": { "label": "stats pre text", "placeholder": "" }
+      },
+      "stats_heading": {
+        "type": "StructuredText",
+        "config": {
+          "label": "stats heading",
+          "placeholder": "stats heading (bold will be white)",
+          "allowTargetBlank": false,
+          "single": "heading2,strong"
+        }
+      },
+      "stats_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "stats text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "stats_order": {
+        "type": "Group",
+        "config": {
+          "label": "stats_order",
+          "fields": {
+            "stat_name": {
+              "type": "Select",
+              "config": {
+                "label": "stat name",
+                "placeholder": "",
+                "options": [
+                  "Total Supply",
+                  "Total Transactions",
+                  "Market Cap",
+                  "Nodes",
+                  "Holders"
+                ],
+                "default_value": "Total Supply"
+              }
+            }
+          }
+        }
+      },
+      "stats_button_text": {
+        "type": "Text",
+        "config": { "label": "stats_button_text", "placeholder": "" }
+      },
+      "stats_button_link": {
+        "type": "Link",
+        "config": {
+          "label": "stats_button_link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      }
+    },
+    "Ambassadors": {
+      "ambassadors_pre_text": {
+        "type": "Text",
+        "config": { "label": "ambassadors pre test", "placeholder": "" }
+      },
+      "ambassadors_heading": {
+        "type": "StructuredText",
+        "config": {
+          "label": "ambassadors heading",
+          "placeholder": "heading",
+          "allowTargetBlank": false,
+          "single": "heading2"
+        }
+      },
+      "ambassadors_action_button_text": {
+        "type": "Text",
+        "config": { "label": "action button text", "placeholder": "" }
+      },
+      "ambassadors_action_button_link": {
+        "type": "Link",
+        "config": {
+          "label": "action button link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "ambassadors_learn_button_text": {
+        "type": "Text",
+        "config": { "label": "learn button text", "placeholder": "" }
+      },
+      "ambassadors_learn_button_link": {
+        "type": "Link",
+        "config": {
+          "label": "ambassadors learn button link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      }
+    },
+    "Governance": {
+      "governance_pre_text": {
+        "type": "Text",
+        "config": { "label": "governance pre text", "placeholder": "" }
+      },
+      "governance_heading": {
+        "type": "StructuredText",
+        "config": {
+          "label": "governance heading",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "single": "heading2"
+        }
+      },
+      "governance_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "governance text",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "single": "paragraph"
+        }
+      },
+      "governance_action_button_text": {
+        "type": "Text",
+        "config": {
+          "label": "governance action button text",
+          "placeholder": ""
+        }
+      },
+      "governance_action_button_link": {
+        "type": "Link",
+        "config": {
+          "label": "governance action button link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "governance_learn_button_text": {
+        "type": "Text",
+        "config": { "label": "governance learn button text", "placeholder": "" }
+      },
+      "governance_learn_button_link": {
+        "type": "Link",
+        "config": {
+          "label": "governance learn button link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      }
+    },
+    "Community": {
+      "community_pre_text": {
+        "type": "Text",
+        "config": { "label": "community pre text", "placeholder": "" }
+      },
+      "community_heading": {
+        "type": "StructuredText",
+        "config": {
+          "label": "community heading",
+          "placeholder": "community heading (bold will be white)",
+          "allowTargetBlank": false,
+          "single": "heading2,strong"
+        }
+      },
+      "community_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "community text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "community_socials_cards": {
+        "type": "Group",
+        "config": {
+          "label": "community_socials_cards",
+          "fields": {
+            "name": {
+              "type": "Select",
+              "config": {
+                "label": "name",
+                "placeholder": "",
+                "options": [
+                  "Discord",
+                  "Telegram",
+                  "Twitter",
+                  "Medium",
+                  "LinkedIn",
+                  "Reddit"
+                ],
+                "default_value": "Discord"
+              }
+            },
+            "followers_amount_text": {
+              "type": "Text",
+              "config": { "label": "followers amount text", "placeholder": "" }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "link",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "select": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "StructuredText"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": { "height": 1260, "width": 2400 },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      }
+    }
+  }
+}
