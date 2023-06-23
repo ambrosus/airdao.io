@@ -4,4 +4,5 @@ import dynamic from "next/dynamic";
 
 export const components = {
   cex_card: dynamic(() => import("./CexCard")),
+  nav_item: dynamic(() => import("./NavItem")),
 };

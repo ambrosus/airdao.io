@@ -1,0 +1,17 @@
+.ui-modal {
+  position: fixed;
+  z-index: 9999;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #FFFFFF;
+  box-shadow: 0px 8px 24px rgba(47, 43, 67, 0.1);
+  border-radius: 24px;
+  padding: 32px;
+}
+
+.ui-modal__close {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+}
