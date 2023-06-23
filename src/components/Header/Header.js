@@ -1,4 +1,3 @@
-'use client';
 import Image from 'next/image';
 import HeaderNav from './HeaderNav';
 import { useEffect, useState } from 'react';
@@ -8,17 +7,9 @@ import { useWeb3React } from '@web3-react/core';
 // import { useAuthorization } from 'airdao-components-and-tools/hooks';
 import LoginModal from '../LoginModal/LoginModal';
 import styles from './Header.module.scss';
-import {createClient} from "@/prismicio";
+import { createClient } from '@/prismicio';
 
-let isTablet;
-let isMobile;
-
-if (typeof window !== 'undefined') {
-  isTablet = window.innerWidth < 950;
-  isMobile = window.innerWidth < 560;
-}
-
-const Header = ({ header }) => {
+const Header = ({ header, isTablet, isMobile }) => {
   const [address, setAddress] = useState('');
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isConnectedNavOpen, setIsConnectedNavOpen] = useState(false);
@@ -29,7 +20,6 @@ const Header = ({ header }) => {
   const { account } = useWeb3React();
 
   useEffect(() => {
-    console.log(header);
     if (account) {
       setAddress(account);
       setIsLoginModalOpen(false);
@@ -118,9 +108,9 @@ const Header = ({ header }) => {
           </>
         ) : (
           <>
-            {!isTablet && <HeaderNav close={handleNav} />}
+            {isTablet === false && <HeaderNav close={handleNav} />}
             <button className={styles['ui-button']} onClick={handleLoginModal}>
-              {isMobile ? (
+              {isMobile === true ? (
                 <Image
                   src="/pocket.svg"
                   height="20"
@@ -131,7 +121,7 @@ const Header = ({ header }) => {
                 'Connect wallet'
               )}
             </button>
-            {isTablet && (
+            {isTablet === true && (
               <>
                 <button onClick={handleNav}>
                   <Image
@@ -157,7 +147,6 @@ const Header = ({ header }) => {
     </>
   );
 };
-
 
 export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
