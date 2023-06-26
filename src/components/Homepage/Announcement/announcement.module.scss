@@ -42,5 +42,22 @@
 }
 
 .announcement__button {
+  display: flex;
+  padding: 12px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 
+  width: fit-content;
+
+  border-radius: 1000px;
+  background: var(--neutral-0, #FFF);
+
+  color: var(--blue-600-primary, #3568DD);
+  text-align: center;
+  font-size: 16px;
+  font-family: var(--font-inter);
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.16px;
 }
