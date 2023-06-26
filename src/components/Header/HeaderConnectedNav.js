@@ -4,10 +4,9 @@ import { useRef } from 'react';
 import styles from './Header.module.scss';
 import { asText } from '@prismicio/client';
 
-const HeaderConnectedNav = ({ close, headerInfo }) => {
+const HeaderConnectedNav = ({ close, headerInfo, isOpen }) => {
   const ref = useRef(null);
-  useClickOutside(ref, close);
-  console.log(headerInfo);
+  useClickOutside(ref, close, isOpen);
 
   const findSlice = (key) =>
     headerInfo.slices.find((el) => asText(el.primary.navlabel) === key).items;

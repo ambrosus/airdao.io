@@ -45,6 +45,9 @@
   padding: 12px 16px;
   border: 0;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @media screen and (max-width: 950px) {
     margin-left: auto;
@@ -92,11 +95,21 @@
 }
 
 .nav-item {
-  margin-right: 80px;
+  &:not(:last-child) {
+    margin-right: 80px;
+
+    @media screen and (max-width: 1100px) {
+      margin-right: 40px;
+    }
+
+    @media screen and (max-width: 950px) {
+      margin-right: 0;
+    }
+  }
 
   @media screen and (max-width: 950px) {
-    margin-right: 0;
     width: 100%;
+
     &:not(:first-child) {
       margin-top: 16px;
     }
@@ -180,6 +193,10 @@
 .header__product {
   &:not(:last-child) {
     margin-right: 40px;
+
+    @media screen and (max-width: 1100px) {
+      margin-right: 20px;
+    }
   }
 }
 
@@ -216,19 +233,29 @@
   @media screen and (max-width: 610px) {
     margin-left: auto;
   }
+
+  @media screen and (max-width: 365px) {
+    img {
+      display: none;
+    }
+  }
 }
 
 .header__address-text {
   margin-left: 8px;
   line-height: 24px;
+
+  @media screen and (max-width: 365px) {
+    margin-left: 0;
+  }
 }
 
 .header__hamburger {
   margin-left: 32px;
   height: 24px;
 
-  @media screen and (max-width: 610px) {
-    margin-left: 24px;
+  @media screen and (max-width: 660px) {
+    margin-left: 12px;
   }
 }
 
@@ -239,7 +266,7 @@
   max-height: 70vh;
   overflow: auto;
 
-  @media screen and (min-width: 609px) {
+  @media screen and (min-width: 611px) {
     padding: 39px 32px 32px;
     background: #FFFFFF;
     box-shadow: 0px 12px 36px rgba(47, 43, 67, 0.12);
@@ -384,7 +411,7 @@
 .connected-nav__products {
   display: none;
 
-  @media screen and (max-width: 950px) {
+  @media screen and (max-width: 1024px) {
     display: flex;
     flex-direction: column;
   }
@@ -402,5 +429,41 @@
 
   img {
     width: 100%;
+  }
+}
+
+.connect-wallet-img {
+  display: none;
+
+  @media screen and (max-width: 610px) {
+    display: block;
+  }
+}
+
+.connect-wallet-text {
+  color: inherit;
+
+  @media screen and (max-width: 610px) {
+    display: none;
+  }
+}
+
+.hamburger-btn {
+  display: none;
+
+  @media screen and (max-width: 950px) {
+    display: block;
+  }
+}
+
+.nav-item-wrapper_desktop {
+  @media screen and (max-width: 950px) {
+    display: none;
+  }
+}
+
+.nav-item-wrapper_not-desktop {
+  @media screen and (min-width: 951px) {
+    display: none;
   }
 }

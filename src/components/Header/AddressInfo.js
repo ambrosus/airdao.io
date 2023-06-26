@@ -3,9 +3,9 @@ import useClickOutside from '../../hooks/useClickOutside';
 import { useRef } from 'react';
 import styles from './Header.module.scss';
 
-const AddressInfo = ({ address, logout, close }) => {
+const AddressInfo = ({ address, logout, close, isOpen }) => {
   const ref = useRef(null);
-  useClickOutside(ref, close);
+  useClickOutside(ref, close, isOpen);
 
   return (
     <div className={styles['address-info']} ref={ref}>

@@ -3,23 +3,28 @@ import useClickOutside from '../../hooks/useClickOutside';
 import styles from './Header.module.scss';
 import { asText } from '@prismicio/client';
 
-const HeaderNav = ({ close, headerInfo }) => {
+const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
   const [activeList, setActiveList] = useState('');
 
   const ref = useRef(null);
-  useClickOutside(ref, () => {
-    close();
-    setActiveList('');
-  });
+  useClickOutside(
+    ref,
+    () => {
+      close();
+      setActiveList('');
+    },
+    isOpen
+  );
 
   const handleList = (key) => {
     setActiveList((state) => (state === key ? '' : key));
   };
 
-  console.log(headerInfo);
-
   return (
-    <div ref={ref} className={styles['nav-item-wrapper']}>
+    <div
+      ref={ref}
+      className={`${styles['nav-item-wrapper']} ${styles[className]}`}
+    >
       {headerInfo.slices.map((el) => (
         <div className={styles['nav-item']} key={asText(el.primary.navlabel)}>
           <span

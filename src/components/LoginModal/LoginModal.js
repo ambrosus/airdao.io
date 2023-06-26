@@ -4,9 +4,14 @@ import useClickOutside from '../../hooks/useClickOutside';
 import { useRef } from 'react';
 import styles from './LoginModal.module.scss';
 
-const LoginModal = ({ closeModal, loginMetamask, loginWalletConnect }) => {
+const LoginModal = ({
+  closeModal,
+  loginMetamask,
+  loginWalletConnect,
+  isOpen,
+}) => {
   const ref = useRef(null);
-  useClickOutside(ref, closeModal);
+  useClickOutside(ref, closeModal, isOpen);
 
   return (
     <div ref={ref}>

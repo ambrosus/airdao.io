@@ -10,7 +10,7 @@ import styles from './Header.module.scss';
 import { createClient } from '@/prismicio';
 import { asText } from '@prismicio/client';
 
-const Header = ({ header, isTablet, isMobile }) => {
+const Header = ({ header }) => {
   const [address, setAddress] = useState('');
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isConnectedNavOpen, setIsConnectedNavOpen] = useState(false);
@@ -100,10 +100,12 @@ const Header = ({ header, isTablet, isMobile }) => {
               <HeaderConnectedNav
                 close={handleConnectedNav}
                 headerInfo={header}
+                isOpen={isConnectedNavOpen}
               />
             )}
             {isAddressInfoOpen && (
               <AddressInfo
+                isOpen={isAddressInfoOpen}
                 logout={handleLogout}
                 address={address}
                 close={handleAddressInfo}
@@ -112,39 +114,41 @@ const Header = ({ header, isTablet, isMobile }) => {
           </>
         ) : (
           <>
-            {!isTablet && <HeaderNav close={handleNav} headerInfo={header} />}
+            <HeaderNav
+              close={handleNav}
+              headerInfo={header}
+              className="nav-item-wrapper_desktop"
+              isOpen={isNavOpen}
+            />
             <button className={styles['ui-button']} onClick={handleLoginModal}>
-              {isMobile ? (
-                <Image
-                  src="/pocket.svg"
-                  height="20"
-                  width="20"
-                  alt="connect wallet"
-                />
-              ) : (
-                'Connect wallet'
-              )}
+              <Image
+                src="/pocket.svg"
+                height="20"
+                width="20"
+                alt="connect wallet"
+                className={styles['connect-wallet-img']}
+              />
+              <span className={styles['connect-wallet-text']}>
+                Connect wallet
+              </span>
             </button>
-            {isTablet && (
-              <>
-                <button onClick={handleNav}>
-                  <Image
-                    src="/hamburger.svg"
-                    width="24"
-                    height="24"
-                    alt="menu"
-                  />
-                </button>
-                {isNavOpen && (
-                  <HeaderNav close={handleNav} headerInfo={header} />
-                )}
-              </>
+            <button onClick={handleNav} className={styles['hamburger-btn']}>
+              <Image src="/hamburger.svg" width="24" height="24" alt="menu" />
+            </button>
+            {isNavOpen && (
+              <HeaderNav
+                isOpen={isNavOpen}
+                close={handleNav}
+                headerInfo={header}
+                className="nav-item-wrapper_not-desktop"
+              />
             )}
           </>
         )}
       </header>
       {isLoginModalOpen && (
         <LoginModal
+          isOpen={isLoginModalOpen}
           closeModal={handleLoginModal}
           loginMetamask={loginMetamask}
           loginWalletConnect={loginWalletConnect}

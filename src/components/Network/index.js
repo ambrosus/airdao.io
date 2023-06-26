@@ -10,7 +10,9 @@ const Network = () => (
         <span className={styles['network__text-left-first']}>
           DeFi Doesn&apos;t Have to Be Risky.{' '}
         </span>
-        <span className={styles['network__text-left-second']}>DeFi Can Be Safe and Secure.</span>
+        <span className={styles['network__text-left-second']}>
+          DeFi Can Be Safe and Secure.
+        </span>
       </span>
       <span className={styles['network__text-wrapper-right']}>
         AirDAO is powered by an ultra-secure and lightning-fast layer-1
