@@ -409,7 +409,8 @@
 .blur-overlay {
   position: fixed;
   width: 100vw;
-  height: 100vh;
+  height: 130vh;
+  top: -200px;
   backdrop-filter: blur(6px);
 }
 
