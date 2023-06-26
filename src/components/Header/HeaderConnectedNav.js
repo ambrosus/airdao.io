@@ -27,20 +27,23 @@ const HeaderConnectedNav = ({ close, headerInfo }) => {
       <div className={`${styles['connected-nav__hr']} ${styles['connected-nav__hr_balance']}`} />
       <div className={styles['connected-nav__products']}>
         {headerInfo.products.map((el) => (
-          <a href="/" key={asText(el.productname)} className={styles['connected-nav__product']}>
+          <a
+            key={asText(el.productname)}
+            className={styles['connected-nav__product']}
+          >
             {asText(el.productname)}
           </a>
         ))}
       </div>
       <span className={styles['connected-nav__title']}>About</span>
       {findSlice('About').map((el) => (
-        <a href="/" className={styles['connected-nav__link']} key={asText(el.navitemlabel)}>
+        <a className={styles['connected-nav__link']} key={asText(el.navitemlabel)}>
           {asText(el.navitemlabel)}
         </a>
       ))}
       <span className={styles['connected-nav__title']}>Learn</span>
       {findSlice('Learn').map((el) => (
-        <a href="/" className={styles['connected-nav__link']} key={asText(el.navitemlabel)}>
+        <a className={styles['connected-nav__link']} key={asText(el.navitemlabel)}>
           {asText(el.navitemlabel)}
         </a>
       ))}
@@ -48,7 +51,7 @@ const HeaderConnectedNav = ({ close, headerInfo }) => {
       <span className={styles['connected-nav__title']}>Community</span>
       <div className={styles['connected-nav__community']}>
         {findSlice('Community').map((el) => (
-          <a href="/" className={styles['connected-nav__community-item']}>
+          <a key={asText(el.navitemlabel)} className={styles['connected-nav__community-item']}>
             <img src={el.navitemimg.url} alt={asText(el.navitemlabel)} />
           </a>
         ))}

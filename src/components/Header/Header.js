@@ -58,7 +58,7 @@ const Header = ({ header, isTablet, isMobile }) => {
           <>
             <div className={styles.header__products}>
               {header.products.map((el) => (
-                <a key={asText(el.productname)} href="/" className={styles.header__product}>
+                <a key={asText(el.productname)} className={styles.header__product}>
                   {asText(el.productname)}
                 </a>
               ))}
