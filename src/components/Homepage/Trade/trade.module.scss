@@ -1,0 +1,67 @@
+.trade {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 120px;
+}
+
+.trade__preText {
+  width: fit-content;
+  padding: 5px 17px;
+  border-radius: 30px;
+  border: 1px solid var(--neutral-100, #E6E6E6);
+  background: var(--alpha-black-5, rgba(14, 14, 14, 0.05));
+
+  color: var(--neutral-800, #191919);
+  text-align: center;
+  font-size: 14px;
+  font-family: var(--font-inter);
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 2.66px;
+
+  margin-bottom: 24px;
+}
+
+.trade__heading {
+  color: var(--neutral-800, #191919);
+  font-size: 48px;
+  font-family: var(--font-mersad);
+  //todo: add proper font weight
+  font-weight: 800;
+  line-height: 54px;
+  letter-spacing: -0.96px;
+
+  margin-bottom: 24px;
+}
+
+.trade__text {
+  color: var(--neutral-400, #676B73);
+  text-align: center;
+
+  font-size: 20px;
+  font-family: var(--font-inter);
+  line-height: 28px;
+  letter-spacing: -0.28px;
+
+  margin-bottom: 62px;
+}
+
+.trade__statsMock {
+  margin-bottom: 80px;
+}
+
+.trade__cexCards {
+  display: flex;
+  flex-flow: row nowrap;
+  column-gap: 32px;
+}
+
+.trade__cexCard {
+  padding: 20px 30px;
+  border-radius: 30px;
+  border: 1px solid var(--neutral-100, #E6E6E6);
+  background: var(--neutral-0, #FFF);
+}

@@ -3,10 +3,12 @@ import HeaderWrapper from '@/components/Header';
 import Banner from '@/components/Homepage/Banner';
 import Hero from '@/components/Homepage/Hero';
 import Announcement from '@/components/Homepage/Announcement';
+import Products from '@/components/Homepage/Products';
 import Community from '@/components/Homepage/Community';
 import Governance from '@/components/Homepage/Governance';
 import Ambassadors from '@/components/Homepage/Ambassadors';
-import Network from "@/components/Network";
+import Network from '@/components/Network';
+import Trade from '@/components/Homepage/Trade';
 
 export default function Home({ page, header }) {
   const { data } = page;
@@ -21,6 +23,13 @@ export default function Home({ page, header }) {
         text={data.mobile_text}
         buttonText={data.mobile_button_text}
         buttonLink={data.mobile_button_link}
+      />
+      <Products text={data.products_text} cards={data.products_cards} />
+      <Trade
+        preText={data.trade_pre_text}
+        heading={data.trade_heading}
+        text={data.trade_text}
+        cards={data.slices3}
       />
       <Network />
       <Ambassadors />
