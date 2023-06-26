@@ -1,3 +1,4 @@
+'use client';
 import Header from './Header';
 import { Web3ReactProvider } from '@web3-react/core';
 import { ethers } from 'ethers';
