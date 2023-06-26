@@ -8,10 +8,10 @@ const Modal = ({ children, closeModal }) => {
     <div className={styles['ui-modal']}>
       {children}
       <button className={styles['ui-modal__close']} onClick={closeModal}>
-        <Image src='/cross.svg' width='24' height='24' alt='close'/>
+        <Image src="/cross.svg" width="24" height="24" alt="close" />
       </button>
     </div>
-  )
+  );
 };
 
 export default Modal;

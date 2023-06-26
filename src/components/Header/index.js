@@ -1,7 +1,7 @@
-import Header from "./Header";
-import {Web3ReactProvider} from "@web3-react/core";
-import {ethers} from "ethers";
-import {useEffect, useState} from "react";
+import Header from './Header';
+import { Web3ReactProvider } from '@web3-react/core';
+import { ethers } from 'ethers';
+import { useEffect, useState } from 'react';
 
 const getLibrary = (provider) => new ethers.providers.JsonRpcProvider(provider);
 function isBoolean(val) {
@@ -24,7 +24,7 @@ const HeaderWrapper = ({ header }) => {
         <Header header={header.data} isTablet={isTablet} isMobile={isMobile} />
       )}
     </Web3ReactProvider>
-  )
+  );
 };
 
 export default HeaderWrapper;

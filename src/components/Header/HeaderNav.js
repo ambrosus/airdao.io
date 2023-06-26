@@ -1,4 +1,4 @@
-import {useRef, useState} from "react";
+import { useRef, useState } from 'react';
 import useClickOutside from '../../hooks/useClickOutside';
 import styles from './Header.module.scss';
 import { asText } from '@prismicio/client';
@@ -20,7 +20,10 @@ const HeaderNav = ({ close, headerInfo }) => {
     <div ref={ref} className={styles['nav-item-wrapper']}>
       {headerInfo.slices.map((el) => (
         <div className={styles['nav-item']} key={asText(el.primary.navlabel)}>
-          <span className={styles['nav-item__label']} onClick={() => handleList(asText(el.primary.navlabel))}>
+          <span
+            className={styles['nav-item__label']}
+            onClick={() => handleList(asText(el.primary.navlabel))}
+          >
             {asText(el.primary.navlabel)}
             <img
               src="/caret.svg"
@@ -35,7 +38,10 @@ const HeaderNav = ({ close, headerInfo }) => {
           {activeList === asText(el.primary.navlabel) && (
             <div className={styles['nav-item__list']}>
               {el.items.map((item) => (
-                <div key={asText(item.navitemlabel)} className={styles['nav-item__list-item']}>
+                <div
+                  key={asText(item.navitemlabel)}
+                  className={styles['nav-item__list-item']}
+                >
                   <img
                     src={item.navitemimg.url}
                     width="40"
@@ -58,7 +64,7 @@ const HeaderNav = ({ close, headerInfo }) => {
         </div>
       ))}
     </div>
-  )
+  );
 };
 
 export default HeaderNav;

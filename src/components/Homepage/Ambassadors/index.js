@@ -9,7 +9,9 @@ const Ambassadors = () => (
         Become an ambassador and spread awareness about AirDAO in your
         community.
       </p>
-      <button className={styles['ambassadors__btn-primary']}>Become an Ambassador</button>
+      <button className={styles['ambassadors__btn-primary']}>
+        Become an Ambassador
+      </button>
       <button>Learn more</button>
     </div>
   </section>

@@ -58,7 +58,10 @@ const Header = ({ header, isTablet, isMobile }) => {
           <>
             <div className={styles.header__products}>
               {header.products.map((el) => (
-                <a key={asText(el.productname)} className={styles.header__product}>
+                <a
+                  key={asText(el.productname)}
+                  className={styles.header__product}
+                >
                   {asText(el.productname)}
                 </a>
               ))}
@@ -87,11 +90,17 @@ const Header = ({ header, isTablet, isMobile }) => {
                 )}`}
               </span>
             </div>
-            <button className={styles.header__hamburger} onClick={handleConnectedNav}>
+            <button
+              className={styles.header__hamburger}
+              onClick={handleConnectedNav}
+            >
               <Image src="/hamburger.svg" width="24" height="24" alt="menu" />
             </button>
             {isConnectedNavOpen && (
-              <HeaderConnectedNav close={handleConnectedNav} headerInfo={header} />
+              <HeaderConnectedNav
+                close={handleConnectedNav}
+                headerInfo={header}
+              />
             )}
             {isAddressInfoOpen && (
               <AddressInfo
@@ -126,7 +135,9 @@ const Header = ({ header, isTablet, isMobile }) => {
                     alt="menu"
                   />
                 </button>
-                {isNavOpen && <HeaderNav close={handleNav} headerInfo={header} />}
+                {isNavOpen && (
+                  <HeaderNav close={handleNav} headerInfo={header} />
+                )}
               </>
             )}
           </>
