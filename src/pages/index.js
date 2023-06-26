@@ -6,6 +6,7 @@ import Announcement from '@/components/Homepage/Announcement';
 import Community from '@/components/Homepage/Community';
 import Governance from '@/components/Homepage/Governance';
 import Ambassadors from '@/components/Homepage/Ambassadors';
+import Network from "@/components/Network";
 
 export default function Home({ page, header }) {
   const { data } = page;
@@ -21,6 +22,7 @@ export default function Home({ page, header }) {
         buttonText={data.mobile_button_text}
         buttonLink={data.mobile_button_link}
       />
+      <Network />
       <Ambassadors />
       <Governance />
       <Community />

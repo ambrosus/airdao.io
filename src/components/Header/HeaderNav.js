@@ -16,6 +16,8 @@ const HeaderNav = ({ close, headerInfo }) => {
     setActiveList((state) => (state === key ? '' : key));
   };
 
+  console.log(headerInfo);
+
   return (
     <div ref={ref} className={styles['nav-item-wrapper']}>
       {headerInfo.slices.map((el) => (

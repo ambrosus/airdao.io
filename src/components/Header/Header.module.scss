@@ -9,10 +9,10 @@
   background: white;
   box-shadow: 0px 12px 36px rgba(47, 43, 67, 0.12);
   border-radius: 24px;
-  position: fixed;
+  position: sticky;
   color: #222426;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 0 auto;
+  top: 20px;
   width: calc(100% - 140px);
 
   @media screen and (max-width: 950px) {
@@ -109,6 +109,7 @@
 .nav-item__label {
   display: flex;
   align-items: center;
+  cursor: pointer;
 
   @media screen and (max-width: 950px) {
     width: 100%;

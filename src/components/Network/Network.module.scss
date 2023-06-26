@@ -1,0 +1,101 @@
+.network {
+  width: 100%;
+  padding: 96px 84px;
+  margin-top: 120px;
+  border-radius: 130px;
+  background: var(--blue-500, #457EFF);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.network__label {
+  width: fit-content;
+  color: var(--neutral-0, #FFF);
+  text-align: center;
+  font-size: 14px;
+  font-family: var(--font-inter);
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 2.66px;
+  border-radius: 30px;
+  border: 1px solid var(--alpha-white-20, rgba(255, 255, 255, 0.20));
+  background: var(--alpha-white-10, rgba(255, 255, 255, 0.10));
+  padding: 5px 17px;
+  margin-bottom: 64px;
+}
+
+.network__text-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.network__text-wrapper-left {
+  display: block;
+  max-width: 50%;
+  color: #7DA3F9;
+  font-size: 48px;
+  font-family: var(--font-mersad);
+  font-weight: 655;
+  line-height: 54px;
+  letter-spacing: -0.96px;
+}
+
+.network__text-left-first {
+  color: #7DA3F9;
+}
+
+.network__text-left-second {
+  color: #fff;
+}
+
+.network__text-wrapper-right {
+  display: block;
+  max-width: 450px;
+  color: var(--neutral-0, #FFF);
+  font-size: 18px;
+  font-family: var(--font-inter);
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: -0.216px;
+}
+
+.network__info {
+  display: flex;
+  justify-content: space-between;
+  max-width: 871px;
+  width: 100%;
+  margin: 64px 0;
+}
+
+.network__info-primary {
+  color: var(--neutral-0, #FFF);
+  text-align: center;
+  font-size: 48px;
+  font-family: var(--font-inter);
+  font-weight: 700;
+  line-height: 54px;
+  letter-spacing: -0.96px;
+}
+
+.network__info-secondary {
+  color: var(--blue-200, #C9D9FF);
+  font-size: 18px;
+  font-family: var(--font-inter);
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: -0.216px;
+}
+
+.network__btn {
+  border-radius: 1000px;
+  background: var(--neutral-0, #FFF);
+  padding: 12px 16px;
+  color: var(--neutral-800, #191919);
+  font-family: var(--font-inter);
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.16px;;
+}
