@@ -6,7 +6,7 @@ const Network = () => (
     <div>AMB NETWORK</div>
     <div>
       <span>
-        <span>DeFi Doesn't Have to Be Risky. </span>
+        <span>DeFi Doesn&apos;t Have to Be Risky. </span>
         <span>DeFi Can Be Safe and Secure.</span>
       </span>
       <span>AirDAO is powered by an ultra-secure and lightning-fast layer-1 blockchain with minimal transaction fees.</span>
