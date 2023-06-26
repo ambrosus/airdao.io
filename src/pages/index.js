@@ -3,6 +3,8 @@ import HeaderWrapper from '@/components/Header';
 import Banner from '@/components/Homepage/Banner';
 import Hero from '@/components/Homepage/Hero';
 import Announcement from '@/components/Homepage/Announcement';
+import Community from '@/components/Homepage/Community';
+import Governance from '@/components/Homepage/Governance';
 
 export default function Home({ page, header }) {
   const { data } = page;
@@ -18,6 +20,8 @@ export default function Home({ page, header }) {
         buttonText={data.mobile_button_text}
         buttonLink={data.mobile_button_link}
       />
+      <Governance />
+      <Community />
     </>
   );
 }

@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react';
 import HeaderConnectedNav from './HeaderConnectedNav';
 import AddressInfo from './AddressInfo';
 import { useWeb3React } from '@web3-react/core';
-// import { useAuthorization } from 'airdao-components-and-tools/hooks';
+import { useAuthorization } from 'airdao-components-and-tools/hooks';
 import LoginModal from '../LoginModal/LoginModal';
 import styles from './Header.module.scss';
 import { createClient } from '@/prismicio';
+import { asText } from '@prismicio/client';
 
 const Header = ({ header, isTablet, isMobile }) => {
   const [address, setAddress] = useState('');
@@ -26,8 +27,8 @@ const Header = ({ header, isTablet, isMobile }) => {
     }
   }, [account]);
 
-  const { loginMetamask, loginWalletConnect, logout } = {}
-    // useAuthorization(web3ReactInstance);
+  const { loginMetamask, loginWalletConnect, logout } =
+    useAuthorization(web3ReactInstance);
 
   const handleLogout = () => {
     logout();
@@ -44,7 +45,8 @@ const Header = ({ header, isTablet, isMobile }) => {
 
   return (
     <>
-      <div className={styles.header}>
+      {isLoginModalOpen && <div className={styles['blur-overlay']} />}
+      <header className={styles.header}>
         <Image
           src="/logo.svg"
           width="160"
@@ -54,19 +56,12 @@ const Header = ({ header, isTablet, isMobile }) => {
         />
         {address ? (
           <>
-            <div className="header__products">
-              <a href="/" className={styles.header__product}>
-                FirepotSwap
-              </a>
-              <a href="/" className={styles.header__product}>
-                Bridge
-              </a>
-              <a href="/" className={styles.header__product}>
-                Staking
-              </a>
-              <a href="/" className={styles.header__product}>
-                Explorer
-              </a>
+            <div className={styles.header__products}>
+              {header.products.map((el) => (
+                <a key={asText(el.productname)} href="/" className={styles.header__product}>
+                  {asText(el.productname)}
+                </a>
+              ))}
             </div>
             <div className={styles.header__balance}>
               <Image
@@ -96,7 +91,7 @@ const Header = ({ header, isTablet, isMobile }) => {
               <Image src="/hamburger.svg" width="24" height="24" alt="menu" />
             </button>
             {isConnectedNavOpen && (
-              <HeaderConnectedNav close={handleConnectedNav} />
+              <HeaderConnectedNav close={handleConnectedNav} headerInfo={header} />
             )}
             {isAddressInfoOpen && (
               <AddressInfo
@@ -108,9 +103,9 @@ const Header = ({ header, isTablet, isMobile }) => {
           </>
         ) : (
           <>
-            {isTablet === false && <HeaderNav close={handleNav} />}
+            {!isTablet && <HeaderNav close={handleNav} headerInfo={header} />}
             <button className={styles['ui-button']} onClick={handleLoginModal}>
-              {isMobile === true ? (
+              {isMobile ? (
                 <Image
                   src="/pocket.svg"
                   height="20"
@@ -121,7 +116,7 @@ const Header = ({ header, isTablet, isMobile }) => {
                 'Connect wallet'
               )}
             </button>
-            {isTablet === true && (
+            {isTablet && (
               <>
                 <button onClick={handleNav}>
                   <Image
@@ -131,12 +126,12 @@ const Header = ({ header, isTablet, isMobile }) => {
                     alt="menu"
                   />
                 </button>
-                {isNavOpen && <HeaderNav close={handleNav} />}
+                {isNavOpen && <HeaderNav close={handleNav} headerInfo={header} />}
               </>
             )}
           </>
         )}
-      </div>
+      </header>
       {isLoginModalOpen && (
         <LoginModal
           closeModal={handleLoginModal}

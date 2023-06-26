@@ -1,4 +1,3 @@
-'use client'
 import Header from "./Header";
 import {Web3ReactProvider} from "@web3-react/core";
 import {ethers} from "ethers";
@@ -14,14 +13,16 @@ const HeaderWrapper = ({ header }) => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setIsMobile(window.innerWidth < 560);
+      setIsMobile(window.innerWidth < 610);
       setIsTablet(window.innerWidth < 950);
     }
   }, []);
 
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
-      {isBoolean(isMobile) && <Header header={header} isTablet={isTablet} isMobile={isMobile}/>}
+      {isBoolean(isMobile) && (
+        <Header header={header.data} isTablet={isTablet} isMobile={isMobile} />
+      )}
     </Web3ReactProvider>
   )
 };
