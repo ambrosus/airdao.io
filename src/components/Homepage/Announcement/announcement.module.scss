@@ -1,0 +1,46 @@
+.announcement {
+  border-radius: 138px 138px 0 0;
+  background: var(--blue-600-primary);
+  padding-top: 88px;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+
+  gap: 100px;
+}
+
+.announcement__textBlock {
+  width: 524px;
+}
+
+.announcement__heading {
+  color: var(--blue-400);
+  font-size: 48px;
+  font-family: var(--font-inter);
+  font-weight: 700;
+  line-height: 54px;
+  letter-spacing: -0.96px;
+
+  margin-bottom: 32px;
+}
+
+.announcement__heading_white {
+  color: var(--neutral-0);
+}
+
+.announcement__text {
+  color: var(--neutral-0, #FFF);
+  font-size: 24px;
+  font-family: var(--font-inter);
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.384px;
+
+  margin-bottom: 32px;
+}
+
+.announcement__button {
+
+}

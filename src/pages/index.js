@@ -1,17 +1,25 @@
-import { createClient } from "@/prismicio";
-import HeaderWrapper from "@/components/Header";
+import { createClient } from '@/prismicio';
+import HeaderWrapper from '@/components/Header';
+import Banner from '@/components/Homepage/Banner';
+import Hero from '@/components/Homepage/Hero';
+import Announcement from '@/components/Homepage/Announcement';
 
 export default function Home({ page, header }) {
+  const { data } = page;
+
   return (
     <>
-      <div>
-        <HeaderWrapper header={header} />
-        {
-          JSON.stringify(page, null, 2)
-        }
-      </div>
+      <Banner data={data.top_bar_announcement} />
+      <HeaderWrapper header={header} />
+      <Hero heading={data.title_heading} text={data.title_text} />
+      <Announcement
+        heading={data.mobile_heading}
+        text={data.mobile_text}
+        buttonText={data.mobile_button_text}
+        buttonLink={data.mobile_button_link}
+      />
     </>
-  )
+  );
 }
 
 export async function getStaticProps({ params, previewData }) {

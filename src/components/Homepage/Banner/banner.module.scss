@@ -1,0 +1,21 @@
+.banner {
+  width: 100%;
+  display: flex;
+  padding: 24px 70px;
+  justify-content: center;
+  align-items: center;
+  background: var(--purple-500);
+
+  p, a {
+    color: #FFF;
+    font-size: 16px;
+    font-family: var(--font-inter);
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.16px;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}

@@ -13,22 +13,22 @@
     "@prismicio/client": "^7.1.0",
     "@prismicio/next": "^1.3.2",
     "@prismicio/react": "^2.7.1",
+    "@web3-react/core": "^6.1.9",
+    "airdao-components-and-tools": "https://github.com/ambrosus/airdao-components-and-tools",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
+    "ethers": "^5.6.9",
     "next": "13.4.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "scss": "^0.2.4",
-    "sass": "^1.63.4",
-    "@web3-react/core": "^6.1.9",
-    "airdao-components-and-tools": "https://github.com/ambrosus/airdao-components-and-tools",
-    "ethers": "^5.6.9"
+    "scss": "^0.2.4"
   },
   "devDependencies": {
     "@slicemachine/adapter-next": "^0.3.1",
-    "slice-machine-ui": "^1.3.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^3.1.3",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "sass": "^1.63.6",
+    "slice-machine-ui": "^1.3.0"
   }
 }
