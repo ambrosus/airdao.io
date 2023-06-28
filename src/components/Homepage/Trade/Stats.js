@@ -4,14 +4,16 @@ import styles from './trade.module.scss';
 import logo from './logo.png';
 import Image from 'next/image';
 import graphMock from './graph-mock.png';
-import {useEffect, useState} from "react";
+import { useEffect, useState } from 'react';
 
 function numberWithCommas(x) {
   return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 export default function Stats() {
-  const [ambInfo, setAmbInfo] = useState({});
+  const [ambInfo, setAmbInfo] = useState({
+    price_usd: '',
+  });
 
   useEffect(() => {
     getStats();
@@ -20,8 +22,9 @@ export default function Stats() {
   const getStats = async () => {
     const response = await fetch('https://token.ambrosus.io/');
     const json = await response.json();
+    const priceUsd = json.data.price_usd.toFixed(3);
 
-    setAmbInfo(json.data);
+    setAmbInfo({ ...json.data, price_usd: priceUsd });
   };
 
   return (
@@ -30,9 +33,7 @@ export default function Stats() {
         <div className={styles.chart_top}>
           <Image src={logo} alt={'logo'} className={styles.chart_logo} />
           <div className={styles.chart_top_left}>AirDAO</div>
-          <div className={styles.chart_top_right}>
-            ${ambInfo.price_usd.toFixed(3)}
-          </div>
+          <div className={styles.chart_top_right}>${ambInfo.price_usd}</div>
           <div className={styles.chart_bottom_left}>AMB</div>
           <div
             className={styles.chart_bottom_right}

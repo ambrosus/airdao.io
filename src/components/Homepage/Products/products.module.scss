@@ -17,6 +17,11 @@
     border-radius: 72px;
     padding: 96px 72px;
   }
+
+  @include device(mobile) {
+    border-radius: 40px;
+    padding: 40px;
+  }
 }
 
 .products__text {
@@ -38,6 +43,14 @@
     letter-spacing: -0.28px;
 
     margin-bottom: 48px;
+  }
+
+  @include device(mobile) {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.16px;
+
+    margin-bottom: 32px;
   }
 }
 
@@ -68,6 +81,10 @@
   @include device(tablet) {
     padding: 32px;
     border-radius: 40px;
+  }
+
+  @include device(tablet) {
+    width: 100%;
   }
 }
 
