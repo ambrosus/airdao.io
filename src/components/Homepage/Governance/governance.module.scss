@@ -1,10 +1,19 @@
 .governance {
-  margin: 95px auto;
   max-width: 1300px;
+  width: calc(100% - 140px);
   background-size: cover;
   position: relative;
   background: #0E0E0E;
   border-radius: 60px;
+  margin: 32px auto;
+
+  @media screen and (max-width: 950px) {
+    border-radius: 40px;
+  }
+
+  @media screen and (max-width: 650px) {
+    width: calc(100% - 32px);
+  }
 }
 
 .governance-img {
@@ -12,21 +21,34 @@
   z-index: 0;
   background-image: url("/governance.png");
   background-position: top right;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   right: 0;
   top: 0;
   width: 80%;
   height: 100%;
   border-radius: 60px;
+
+  @media screen and (max-width: 950px) {
+    border-radius: 40px;
+  }
 }
 
 .governance__wrapper {
-  padding: 95px 50% 95px 114px;
+  padding: 95px 114px;
   background: linear-gradient(72deg, rgba(53,104,221,1) 32%, rgba(0,0,0,0) 100%);
   position: relative;
   z-index: 1;
   border-radius: 60px;
+
+  @media screen and (max-width: 950px) {
+    padding: 65px 56px;
+    border-radius: 40px;
+  }
+
+  @media screen and (max-width: 650px) {
+    padding: 52px 30px;
+  }
 }
 
 .governance__label {
@@ -42,26 +64,48 @@
   border: 1px solid var(--alpha-white-20, rgba(255, 255, 255, 0.20));
   background: var(--alpha-white-10, rgba(255, 255, 255, 0.10));
   width: fit-content;
+
+  @media screen and (max-width: 950px) {
+    font-size: 12px;
+  }
 }
 
 .governance__title {
   color: var(--neutral-0, #FFF);
-  margin: 40px 0;
+  margin: 24px 0;
   font-size: 48px;
   font-family: var(--font-mersad);
   font-weight: 700;
   line-height: 54px;
   letter-spacing: -0.96px;
+  max-width: 483px;
+
+  @media screen and (max-width: 950px) {
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 16px;
+  }
 }
 
 .governance__text {
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   color: var(--neutral-0, #FFF);
-  font-size: 24px;
+  font-size: 18px;
   font-family: var(--font-inter);
   font-weight: 500;
-  line-height: 32px;
+  line-height: 26px;
   letter-spacing: -0.384px;
+  max-width: 529px;
+
+  @media screen and (max-width: 950px) {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  @media screen and (max-width: 650px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 
 .governance__btn-primary {
@@ -87,4 +131,9 @@
   font-weight: 500;
   line-height: 24px;
   letter-spacing: -0.16px;
+
+  @media screen and (max-width: 650px) {
+    display: block;
+    margin-top: 24px;
+  }
 }

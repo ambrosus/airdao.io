@@ -7,8 +7,9 @@ import Products from '@/components/Homepage/Products';
 import Community from '@/components/Homepage/Community';
 import Governance from '@/components/Homepage/Governance';
 import Ambassadors from '@/components/Homepage/Ambassadors';
-import Network from '@/components/Network';
+import Network from '@/components/Homepage/Network';
 import Trade from '@/components/Homepage/Trade';
+import Footer from "@/components/Footer";
 
 export default function Home({ page, header }) {
   const { data } = page;
@@ -35,6 +36,7 @@ export default function Home({ page, header }) {
       <Ambassadors />
       <Governance />
       <Community />
+      <Footer />
     </>
   );
 }

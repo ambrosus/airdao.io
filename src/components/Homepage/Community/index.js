@@ -12,8 +12,8 @@ const Community = () => (
     <div className={styles['community-block__left']}>
       <div className={styles['community-block__label']}>COMMUNITY</div>
       <p className={styles['community-block__title']}>
-        Be a Part of Something Bigger: Your Chance to Influence the DeFi
-        Landscape!
+        Be a Part of Something Bigger: <span className={styles['community-block__title-span']}>Your Chance to Influence the DeFi
+        Landscape!</span>
       </p>
       <p className={styles['community-block__text']}>
         Join AirDAO&apos;s vibrant community of supporters and developers.
@@ -23,33 +23,45 @@ const Community = () => (
     </div>
     <div className={styles['community-block__right']}>
       <div className={styles['community-block-item']}>
-        <p className={styles['community-block-item__title']}>Discord</p>
-        <p className={styles['community-block-item__text']}>3k members</p>
+        <div>
+          <p className={styles['community-block-item__title']}>Discord</p>
+          <p className={styles['community-block-item__text']}>3k members</p>
+        </div>
         <Image src={discord} alt="discord" />
       </div>
       <div className={styles['community-block-item']}>
-        <p className={styles['community-block-item__title']}>Telegram</p>
-        <p className={styles['community-block-item__text']}>3k members</p>
+        <div>
+          <p className={styles['community-block-item__title']}>Telegram</p>
+          <p className={styles['community-block-item__text']}>3k members</p>
+        </div>
         <Image src={telegram} alt="discord" />
       </div>
       <div className={styles['community-block-item']}>
-        <p className={styles['community-block-item__title']}>Twitter</p>
-        <p className={styles['community-block-item__text']}>3k members</p>
+        <div>
+          <p className={styles['community-block-item__title']}>Twitter</p>
+          <p className={styles['community-block-item__text']}>3k members</p>
+        </div>
         <Image src={twitter} alt="discord" />
       </div>
       <div className={styles['community-block-item']}>
-        <p className={styles['community-block-item__title']}>Medium</p>
-        <p className={styles['community-block-item__text']}>3k members</p>
+        <div>
+          <p className={styles['community-block-item__title']}>Medium</p>
+          <p className={styles['community-block-item__text']}>3k members</p>
+        </div>
         <Image src={medium} alt="discord" />
       </div>
       <div className={styles['community-block-item']}>
-        <p className={styles['community-block-item__title']}>LinkedIn</p>
-        <p className={styles['community-block-item__text']}>3k members</p>
+        <div>
+          <p className={styles['community-block-item__title']}>LinkedIn</p>
+          <p className={styles['community-block-item__text']}>3k members</p>
+        </div>
         <Image src={linkedin} alt="discord" />
       </div>
       <div className={styles['community-block-item']}>
-        <p className={styles['community-block-item__title']}>Reddit</p>
-        <p className={styles['community-block-item__text']}>3k members</p>
+        <div>
+          <p className={styles['community-block-item__title']}>Reddit</p>
+          <p className={styles['community-block-item__text']}>3k members</p>
+        </div>
         <Image src={reddit} alt="discord" />
       </div>
     </div>
