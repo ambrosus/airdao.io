@@ -44,7 +44,7 @@ export default function Stats() {
           >
             {`${ambInfo.percent_change_24h > 0 ? '+' : ''}${
               ambInfo.percent_change_24h
-            } `}
+            }% `}
             <span className={styles.gray}>(24hrs)</span>
           </div>
         </div>
