@@ -20,7 +20,7 @@ export default function Stats() {
   const getStats = async () => {
     const response = await fetch('https://token.ambrosus.io/');
     const json = await response.json();
-    console.log(json);
+
     setAmbInfo(json.data);
   };
 
