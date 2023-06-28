@@ -1,6 +1,23 @@
 import styles from './footer.module.scss';
 import Image from "next/image";
 import phones from './phones.png';
+import discord from './discord.svg';
+import linkedin from './linkedin.svg';
+import medium from './medium.svg';
+import reddit from './reddit.svg';
+import telegram from './telegram.svg';
+import twitter from './twitter.svg';
+import youtube from './youtube.svg';
+
+const socials = [
+  discord,
+  linkedin,
+  medium,
+  reddit,
+  telegram,
+  twitter,
+  youtube,
+];
 
 const Footer = () => (
   <footer className={styles.footer}>
@@ -101,6 +118,11 @@ const Footer = () => (
             <a href="">Feedback Form & Bug Reports</a>
           </li>
         </ul>
+      </div>
+      <div className={styles.footer__socials}>
+        {socials.map((el) => (
+          <Image src={el} alt={el} key={el} />
+        ))}
       </div>
     </div>
   </footer>

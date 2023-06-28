@@ -82,6 +82,11 @@
   font-weight: 500;
   line-height: 24px;
   letter-spacing: -0.16px;
+
+  @media screen and (max-width: 650px) {
+    display: block;
+    margin: 0 auto 36px;
+  }
 }
 
 .ambassadors__img {
