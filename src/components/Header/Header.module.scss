@@ -158,6 +158,10 @@
     gap: 32px 0;
     flex-wrap: wrap;
   }
+
+  @media screen and (max-width: 1100px) {
+    right: 0;
+  }
 }
 
 .nav-item__list-img {
