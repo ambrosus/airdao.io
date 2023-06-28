@@ -9,6 +9,19 @@
   align-items: center;
 
   gap: 100px;
+
+  position: relative;
+}
+
+.announcement::after {
+  content: '';
+  position: absolute;
+  bottom: -138px;
+  left: 0;
+  width: 100%;
+  height: 138px;
+  background: var(--blue-600-primary);
+  z-index: 1;
 }
 
 .announcement__textBlock {

@@ -15,6 +15,16 @@ const mersad = localFont({
       weight: '800',
       style: 'normal',
     },
+    {
+      path: '../assets/fonts/Mersad_SemiBold.woff',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../assets/fonts/Mersad_Bold.woff',
+      weight: '600',
+      style: 'normal',
+    },
   ],
   variable: '--font-mersad',
 });

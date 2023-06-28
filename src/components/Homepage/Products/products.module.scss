@@ -1,5 +1,7 @@
+@import '../../../styles/mixins';
+
 .products {
-  padding: 136px;
+  padding: 136px 0;
   border-radius: 138px;
   background: var(--neutral-700, #222426);
 
@@ -7,6 +9,14 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+
+  position: relative;
+  z-index: 5;
+
+  @include device(tablet){
+    border-radius: 72px;
+    padding: 96px 72px;
+  }
 }
 
 .products__text {
@@ -21,6 +31,14 @@
   letter-spacing: -0.384px;
 
   margin-bottom: 64px;
+
+  @include device(tablet) {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -0.28px;
+
+    margin-bottom: 48px;
+  }
 }
 
 .products__cards {
@@ -28,6 +46,12 @@
   flex-flow: row wrap;
   justify-content: center;
   gap: 40px;
+  width: 100%;
+  max-width: 1140px;
+
+  @include device(tablet) {
+    gap: 24px;
+  }
 }
 
 .products__card {
@@ -36,7 +60,15 @@
   border: 1px solid var(--alpha-white-20, rgba(255, 255, 255, 0.20));
   background: var(--alpha-white-5, rgba(255, 255, 255, 0.05));
 
-  max-width: 555px;
+  display: flex;
+  flex-flow: column nowrap;
+
+  width: calc(50% - 20px);
+
+  @include device(tablet) {
+    padding: 32px;
+    border-radius: 40px;
+  }
 }
 
 .products__cardName {
@@ -56,6 +88,13 @@
   width: fit-content;
 
   margin-bottom: 32px;
+
+  @include device(tablet) {
+    font-size: 12px;
+    letter-spacing: 2.28px;
+
+    margin-bottom: 24px;
+  }
 }
 
 .products__cardText {
@@ -67,6 +106,15 @@
   color: var(--neutral-400, rgba(103, 107, 115, 1));
 
   margin-bottom: 32px;
+
+  @include device(tablet) {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: -0.48px;
+
+    margin-bottom: 24px;
+  }
 }
 
 .products__cardText_white {
@@ -81,6 +129,13 @@
   gap: 24px;
 
   margin-bottom: 56px;
+
+  @include device(tablet) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-bottom: 16px;
+  }
 }
 
 .products__button_orange {
@@ -121,6 +176,9 @@
 
 .products__cardImage {
   width: 100%;
+  height: auto;
   object-fit: contain;
   object-position: center;
+
+  margin-top: auto;
 }

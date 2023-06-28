@@ -3,6 +3,7 @@ import { PrismicRichText } from '@prismicio/react';
 import Image from 'next/image';
 import statsMock from './stats-mock.png';
 import CexCard from './CexCard';
+import Stats from '@/components/Homepage/Trade/Stats';
 
 export default function Trade({ preText, heading, text, cards }) {
   return (
@@ -24,11 +25,7 @@ export default function Trade({ preText, heading, text, cards }) {
           ),
         }}
       />
-      <Image
-        src={statsMock}
-        alt={'amb-stats'}
-        className={styles.trade__statsMock}
-      />
+      <Stats />
       <div className={styles.trade__preText}>BUY AMB HERE</div>
       <div className={styles.trade__cexCards}>
         {cards.map((card) => (

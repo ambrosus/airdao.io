@@ -1,31 +1,58 @@
 import styles from './hero.module.scss';
+import utilityStyles from '@/styles/utils.module.scss';
 import { PrismicRichText } from '@prismicio/react';
 import Image from 'next/image';
-import devicesIllustration from './devices-illustration.png';
+import devicesIllustration from './devices-illustration.jpg';
+import circlesIllustration from './hero-circles.png';
+import starsIllustration from './stars-illustration.png';
+import Button from '@/components/Button';
 
 export default function Hero({ heading, text }) {
   return (
-    <section className={styles.hero}>
-      <PrismicRichText
-        field={heading}
-        components={{
-          heading1: ({ children }) => (
-            <h1 className={styles.hero__heading}>{children}</h1>
-          ),
-        }}
+    <section className={`${styles.hero} ${utilityStyles.container}`}>
+      <Image
+        src={circlesIllustration}
+        alt={'circles-illustration'}
+        className={styles.circles}
       />
-      <PrismicRichText
-        field={text}
-        components={{
-          paragraph: ({ children }) => (
-            <p className={styles.hero__text}>{children}</p>
-          ),
-        }}
+      <Image
+        src={starsIllustration}
+        alt={'stars-illustration'}
+        className={styles.stars}
+        width={1004}
+        height={445}
       />
-      <a className={styles.hero__button} href={'google.com'}>
-        Buy AMB
-      </a>
-      <Image src={devicesIllustration} alt={'devices-illustration'} />
+      <div className={styles.content}>
+        <PrismicRichText
+          field={heading}
+          components={{
+            heading1: ({ children }) => (
+              <h1 className={styles.hero__heading}>{children}</h1>
+            ),
+          }}
+        />
+        <PrismicRichText
+          field={text}
+          components={{
+            paragraph: ({ children }) => (
+              <p className={styles.hero__text}>{children}</p>
+            ),
+          }}
+        />
+        <Button
+          type={'primary'}
+          size={'large'}
+          hasTailArrow
+          className={styles.button}
+        >
+          Buy AMB
+        </Button>
+        <Image
+          src={devicesIllustration}
+          alt={'devices-illustration'}
+          className={styles.devices}
+        />
+      </div>
     </section>
   );
 }
