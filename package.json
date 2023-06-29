@@ -22,7 +22,8 @@
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "victory": "^36.6.11"
   },
   "devDependencies": {
     "@slicemachine/adapter-next": "^0.3.1",

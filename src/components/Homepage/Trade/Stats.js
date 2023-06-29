@@ -3,8 +3,8 @@
 import styles from './trade.module.scss';
 import logo from './logo.png';
 import Image from 'next/image';
-import graphMock from './graph-mock.png';
 import { useEffect, useState } from 'react';
+import BezierChart from './BezierChrt';
 
 function numberWithCommas(x) {
   return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -14,9 +14,11 @@ export default function Stats() {
   const [ambInfo, setAmbInfo] = useState({
     price_usd: '',
   });
+  const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
     getStats();
+    getChartData();
   }, []);
 
   const getStats = async () => {
@@ -25,6 +27,22 @@ export default function Stats() {
     const priceUsd = json.data.price_usd.toFixed(3);
 
     setAmbInfo({ ...json.data, price_usd: priceUsd });
+  };
+
+  const getChartData = async () => {
+    const response = await fetch(
+      'https://wallet-api.ambrosus-test.io/api/v1/watcher-historical-prices'
+    );
+    const json = await response.json();
+
+    const dayInMs = 86400000;
+    const dayBefore = new Date().getTime() - dayInMs;
+
+    const pricesForDay = json.prices
+      .filter((item) => item[0] >= dayBefore)
+      .map((item) => item[1]);
+
+    setChartData(pricesForDay);
   };
 
   return (
@@ -49,7 +67,9 @@ export default function Stats() {
             <span className={styles.gray}>(24hrs)</span>
           </div>
         </div>
-        <Image src={graphMock} alt={'graph'} className={styles.chart_graph} />
+        <div className={styles.chart_container}>
+          <BezierChart data={chartData} />
+        </div>
       </div>
 
       <div className={`${styles.floating_container} ${styles.max_supply}`}>
