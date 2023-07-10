@@ -1,127 +1,73 @@
 import styles from './footer.module.scss';
-import Image from "next/image";
+import Image from 'next/image';
 import phones from './phones.png';
-import discord from './discord.svg';
-import linkedin from './linkedin.svg';
-import medium from './medium.svg';
-import reddit from './reddit.svg';
-import telegram from './telegram.svg';
-import twitter from './twitter.svg';
-import youtube from './youtube.svg';
+import { asText } from '@prismicio/client';
+import {PrismicRichText} from "@prismicio/react";
 
-const socials = [
-  discord,
-  linkedin,
-  medium,
-  reddit,
-  telegram,
-  twitter,
-  youtube,
-];
-
-const Footer = () => (
+const Footer = ({
+  slices,
+  socials,
+  mobileLink,
+  mobileLinkText,
+  mobileText,
+}) => (
   <footer className={styles.footer}>
     <div className={styles.footer__inner}>
       <div className={styles['footer-app']}>
-        <p className={styles['footer-app__title']}>
-          Experience the ease of tracking token addresses{' '}
-          <span className={styles['footer-app__title-span']}>on-the-go!</span>
-        </p>
-        <button className={styles['footer-app__btn']}>Download App</button>
+        <span className={styles['footer-app__title']}>
+          <PrismicRichText
+            field={mobileText}
+            components={{
+              paragraph: ({ children }) => <p>{children}</p>,
+              strong: ({ children }) => (
+                <span className={styles['footer-app__title-span']}>
+                  {children}
+                </span>
+              ),
+            }}
+          />
+        </span>
+        <a href={mobileLink.url}>
+          <button className={styles['footer-app__btn']}>{asText(mobileLinkText)}</button>
+        </a>
         <div className={styles['footer-app__img']}>
           <Image src={phones} alt="mobile app" />
         </div>
       </div>
       <div className={styles.footer__lists}>
-        <ul className={styles.footer__list}>
-          <li className={styles['footer__lists-title']}>
-            About
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">About us</a>
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">Team</a>
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">Governance</a>
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">Ambassador Program</a>
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">Blog</a>
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">FAQs</a>
-          </li>
-        </ul>
-        <ul className={styles.footer__list}>
-          <li className={styles['footer__lists-title']}>
-            Products
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">FirepotSwap</a>
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">Staking</a>
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">Bridge</a>
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">Network Explorer</a>
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">AirBond marketplace</a>
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">DAO Tools</a>
-            <span className={styles['footer__lists-soon']}>COMING SOON</span>
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">Stablecoin</a>
-            <span className={styles['footer__lists-soon']}>COMING SOON</span>
-          </li>
-        </ul>
-        <ul className={styles.footer__list}>
-          <li className={styles['footer__lists-title']}>
-            Be involved
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">Become an Ambassador</a>
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">Job openings</a>
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">Community Contribution</a>
-          </li>
-          <li className={styles['footer__lists-title']}>
-            Resources
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">Press & PR kit</a>
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">Change Log</a>
-          </li>
-        </ul>
-        <ul className={styles.footer__list}>
-          <li className={styles['footer__lists-title']}>
-            Contact
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">support@airdao.io</a>
-          </li>
-          <li className={styles['footer__lists-item']}>
-            <a href="">Feedback Form & Bug Reports</a>
-          </li>
-        </ul>
+        {slices.map((el, i) => (
+          <ul key={i} className={styles.footer__list}>
+            {el.items.map((item, j) => (
+              <li
+                key={asText(item.footer_item_text)}
+                className={
+                  styles[
+                    item.footer_item_is_title
+                      ? 'footer__lists-title'
+                      : 'footer__lists-item'
+                  ]
+                }
+              >
+                {item.footer_item_is_title ? (
+                  asText(item.footer_item_text)
+                ) : (
+                  <a href={asText(item.footer_item_url)}>{asText(item.footer_item_text)}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        ))}
       </div>
       <div className={styles.footer__socials}>
-        {socials.map((el) => (
-          <Image src={el} alt={el} key={el} />
+        {socials.map((el, i) => (
+          <a key={i} href={asText(el.footer_social_img)}>
+            <Image
+              src={el.footer_social_img.url}
+              width="32"
+              height="32"
+              alt="social"
+            />
+          </a>
         ))}
       </div>
     </div>

@@ -11,9 +11,9 @@ import Network from '@/components/Homepage/Network';
 import Trade from '@/components/Homepage/Trade';
 import Footer from '@/components/Footer';
 
-export default function Home({ page, header }) {
+export default function Home({ page, header, footerText }) {
   const { data } = page;
-
+  console.log(page);
   return (
     <>
       <Banner data={data.top_bar_announcement} />
@@ -57,8 +57,19 @@ export default function Home({ page, header }) {
         learnButtonText={data.governance_learn_button_text}
         learnButtonLink={data.governance_learn_button_link}
       />
-      <Community />
-      <Footer />
+      <Community
+        heading={data.community_heading}
+        preText={data.community_pre_text}
+        socials={data.community_socials_cards}
+        text={data.community_text}
+      />
+      <Footer
+        slices={footerText.data.slices}
+        mobileLink={footerText.data.footer_mobile_link_url}
+        mobileLinkText={footerText.data.footer_mobile_link_text}
+        mobileText={footerText.data.footer_mobile_text}
+        socials={footerText.data.footer_social}
+      />
     </>
   );
 }
@@ -68,8 +79,9 @@ export async function getStaticProps({ params, previewData }) {
 
   const page = await client.getSingle('homepage');
   const header = await client.getSingle('header');
+  const footer = await client.getSingle('footer');
 
   return {
-    props: { page, header },
+    props: { page, header, footerText: footer },
   };
 }

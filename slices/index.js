@@ -4,5 +4,6 @@ import dynamic from "next/dynamic";
 
 export const components = {
   cex_card: dynamic(() => import("./CexCard")),
+  footer_item: dynamic(() => import("./FooterItem")),
   nav_item: dynamic(() => import("./NavItem")),
 };

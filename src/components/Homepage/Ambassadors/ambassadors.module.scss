@@ -73,6 +73,8 @@
 }
 
 .ambassadors__btn-primary {
+  display: inline-block;
+  height: 48px;
   border-radius: 1000px;
   background: var(--blue-600-primary, #3568DD);
   padding: 12px 16px;

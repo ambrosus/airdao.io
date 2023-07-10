@@ -382,6 +382,10 @@
                 "allowTargetBlank": true,
                 "select": null
               }
+            },
+            "img": {
+              "type": "Image",
+              "config": { "label": "img", "constraint": {}, "thumbnails": [] }
             }
           }
         }

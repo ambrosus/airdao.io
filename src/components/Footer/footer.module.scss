@@ -93,10 +93,11 @@
   }
 }
 
-.footer-app__title {
+.footer-app__title p {
   font-size: 48px;
   font-family: var(--font-mersad);
-  font-weight: 700;
+  font-weight: 786;
+  letter-spacing: -0.8px;
   line-height: 54px;
   color: #FFFFFF;
   margin-bottom: 32px;
@@ -116,6 +117,7 @@
 
 .footer-app__title-span {
   color: rgba(125, 163, 249, 1);
+  font-family: var(--font-mersad);
 }
 
 .footer-app__img {
