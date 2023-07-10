@@ -32,9 +32,31 @@ export default function Home({ page, header }) {
         text={data.trade_text}
         cards={data.slices3}
       />
-      <Network />
-      <Ambassadors />
-      <Governance />
+      <Network
+        preText={data.stats_pre_text}
+        heading={data.stats_heading}
+        text={data.stats_text}
+        order={data.stats_order}
+        buttonText={data.stats_button_text}
+        buttonLink={data.stats_button_link}
+      />
+      <Ambassadors
+        preText={data.ambassadors_pre_text}
+        heading={data.ambassadors_heading}
+        actionButtonText={data.ambassadors_action_button_text}
+        actionButtonLink={data.ambassadors_action_button_link}
+        learnButtonText={data.ambassadors_learn_button_text}
+        learnButtonLink={data.ambassadors_learn_button_link}
+      />
+      <Governance
+        preText={data.governance_pre_text}
+        heading={data.governance_heading}
+        text={data.governance_text}
+        actionButtonText={data.governance_action_button_text}
+        actionButtonLink={data.governance_action_button_link}
+        learnButtonText={data.governance_learn_button_text}
+        learnButtonLink={data.governance_learn_button_link}
+      />
       <Community />
       <Footer />
     </>
