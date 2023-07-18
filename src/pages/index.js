@@ -13,7 +13,6 @@ import Footer from '@/components/Footer';
 
 export default function Home({ page, header, footerText }) {
   const { data } = page;
-  console.log(page);
   return (
     <>
       <Banner data={data.top_bar_announcement} />

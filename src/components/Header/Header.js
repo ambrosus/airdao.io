@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import HeaderNav from './HeaderNav';
-import {useEffect, useRef, useState} from 'react';
+import { useEffect, useRef, useState } from 'react';
 import HeaderConnectedNav from './HeaderConnectedNav';
 import AddressInfo from './AddressInfo';
 import { useWeb3React } from '@web3-react/core';
@@ -67,7 +67,10 @@ const Header = ({ header }) => {
   return (
     <>
       {isLoginModalOpen && <div className={styles['blur-overlay']} />}
-      <header className={`${styles.header} ${isFixed ? styles.header_fixed : ''}`} ref={headerRef}>
+      <header
+        className={`${styles.header} ${isFixed ? styles.header_fixed : ''}`}
+        ref={headerRef}
+      >
         <Image
           src="/logo.svg"
           width="160"
@@ -153,7 +156,10 @@ const Header = ({ header }) => {
                 Connect wallet
               </span>
             </button>
-            <button onClick={handleMobileNav} className={styles['hamburger-btn']}>
+            <button
+              onClick={handleMobileNav}
+              className={styles['hamburger-btn']}
+            >
               <Image src="/hamburger.svg" width="24" height="24" alt="menu" />
             </button>
             {isMobileNavOpen && (

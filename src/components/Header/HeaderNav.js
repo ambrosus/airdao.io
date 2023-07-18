@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import useClickOutside from '../../hooks/useClickOutside';
 import styles from './Header.module.scss';
 import { asText } from '@prismicio/client';
+import Link from 'next/link';
 
 const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
   const [activeList, setActiveList] = useState('');
@@ -19,7 +20,7 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
   const handleList = (key) => {
     setActiveList((state) => (state === key ? '' : key));
   };
-
+  console.log(headerInfo);
   return (
     <div
       ref={ref}
@@ -45,7 +46,8 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
           {activeList === asText(el.primary.navlabel) && (
             <div className={styles['nav-item__list']}>
               {el.items.map((item) => (
-                <div
+                <Link
+                  href={asText(item.navitemurl)}
                   key={asText(item.navitemlabel)}
                   className={styles['nav-item__list-item']}
                 >
@@ -64,7 +66,7 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
                       {asText(item.navitemdescr)}
                     </p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           )}

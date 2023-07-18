@@ -2,7 +2,7 @@ import styles from './footer.module.scss';
 import Image from 'next/image';
 import phones from './phones.png';
 import { asText } from '@prismicio/client';
-import {PrismicRichText} from "@prismicio/react";
+import { PrismicRichText } from '@prismicio/react';
 
 const Footer = ({
   slices,
@@ -28,7 +28,9 @@ const Footer = ({
           />
         </span>
         <a href={mobileLink.url}>
-          <button className={styles['footer-app__btn']}>{asText(mobileLinkText)}</button>
+          <button className={styles['footer-app__btn']}>
+            {asText(mobileLinkText)}
+          </button>
         </a>
         <div className={styles['footer-app__img']}>
           <Image src={phones} alt="mobile app" />
@@ -51,7 +53,9 @@ const Footer = ({
                 {item.footer_item_is_title ? (
                   asText(item.footer_item_text)
                 ) : (
-                  <a href={asText(item.footer_item_url)}>{asText(item.footer_item_text)}</a>
+                  <a href={asText(item.footer_item_url)}>
+                    {asText(item.footer_item_text)}
+                  </a>
                 )}
               </li>
             ))}
