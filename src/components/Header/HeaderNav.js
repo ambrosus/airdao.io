@@ -20,7 +20,6 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
   const handleList = (key) => {
     setActiveList((state) => (state === key ? '' : key));
   };
-  console.log(headerInfo);
   return (
     <div
       ref={ref}

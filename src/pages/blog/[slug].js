@@ -31,7 +31,6 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   const client = createClient();
   const pages = await client.getAllByType('blog');
-
   return {
     paths: pages.map((page) => `/blog/${page.uid}`),
     fallback: true, // false or "blocking"
