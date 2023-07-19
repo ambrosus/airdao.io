@@ -3,9 +3,11 @@ import HeaderWrapper from '@/components/Header';
 import Footer from '@/components/Footer';
 import { PrismicRichText } from '@prismicio/react';
 import styles from './blog.module.scss';
+import bottomBlockStyles from './blog-list.module.scss';
 import { PrismicNextImage } from '@prismicio/next';
-import * as prismic from '@prismicio/client';
 import { getTimePassed } from '@/utils/getTimePassed';
+import BlogLink from "@/pages/blog/components/BlogLink";
+import Link from "next/link";
 
 export async function getStaticProps(context) {
   const client = createClient({ previewData: context.previewData });
@@ -14,17 +16,16 @@ export async function getStaticProps(context) {
 
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
-  const pages = await client.getByType('blog', {
-    pageSize: 2,
+  const latestArticles = await client.getAllByType('blog', {
+    limit: 3,
     orderings: {
       field: 'document.first_publication_date',
       direction: 'desc',
     },
-    filters: [prismic.filter.at('my.blog.blog_type', 'governance')],
   });
 
   return {
-    props: { blog, footerText: footer, header, pages },
+    props: { blog, footerText: footer, header, latestArticles },
   };
 }
 
@@ -37,7 +38,7 @@ export async function getStaticPaths() {
   };
 }
 
-export default function BlogArticle({ blog, header, footerText, pages }) {
+export default function BlogArticle({ blog, header, footerText, latestArticles }) {
   if (!blog) {
     return null;
   }
@@ -90,6 +91,19 @@ export default function BlogArticle({ blog, header, footerText, pages }) {
           />
         </div>
         <div>{data.slices.map((el) => renderBlogItem(el))}</div>
+        <div className={bottomBlockStyles['articles-wrapper']}>
+          <div className={bottomBlockStyles['articles-top-block']}>
+            <h2 className={bottomBlockStyles['articles-title']}>More Articles</h2>
+            <Link href="/blog" className={bottomBlockStyles['articles-btn']}>
+              See all
+            </Link>
+          </div>
+          <div className={bottomBlockStyles['articles-list']}>
+            {latestArticles.map((article) => (
+              <BlogLink key={article.uid} article={article} />
+            ))}
+          </div>
+        </div>
       </div>
       {footerText && (
         <Footer

@@ -2,7 +2,16 @@
   max-width: 1300px;
   width: calc(100% - 140px);
   margin: 0 auto;
-  padding-top: 218px;
+  padding-top: 180px;
+
+  @media screen and (max-width: 950px) {
+    padding-top: 150px;
+  }
+
+  @media screen and (max-width: 650px) {
+    padding-top: 140px;
+    width: calc(100% - 30px);
+  }
 }
 
 .blog-page__title {
@@ -16,12 +25,32 @@
   letter-spacing: -1.14px;
   max-width: 770px;
   margin: 0 auto;
+
+  @media screen and (max-width: 950px) {
+    font-size: 40px;
+    line-height: 54px; /* 135% */
+    letter-spacing: -0.8px;
+  }
+
+  @media screen and (max-width: 650px) {
+    font-size: 30px;
+    line-height: 40px; /* 133.333% */
+    letter-spacing: -0.6px;
+  }
 }
 
 .blog-page__info-wrapper {
   margin-top: 18px;
   text-align: center;
   margin-bottom: 88px;
+
+  @media screen and (max-width: 950px) {
+    margin-bottom: 48px;
+  }
+
+  @media screen and (max-width: 650px) {
+    margin-bottom: 40px;
+  }
 }
 
 .blog-page__info {
@@ -61,6 +90,20 @@
   letter-spacing: -0.54px;
   max-width: 1080px;
   margin: 0 auto 88px;
+
+  @media screen and (max-width: 950px) {
+    font-size: 24px;
+    line-height: 32px; /* 133.333% */
+    letter-spacing: -0.384px;
+    margin-bottom: 48px;
+  }
+
+  @media screen and (max-width: 650px) {
+    font-size: 20px;
+    line-height: 28px; /* 140% */
+    letter-spacing: -0.28px;
+    margin-bottom: 40px;
+  }
 }
 
 .blog-page__img {
@@ -68,6 +111,14 @@
   object-fit: contain;
   height: auto;
   margin-bottom: 88px;
+
+  @media screen and (max-width: 950px) {
+    margin-bottom: 48px;
+  }
+
+  @media screen and (max-width: 650px) {
+    margin-bottom: 40px;
+  }
 }
 
 .blog-page__text {
@@ -80,6 +131,17 @@
   font-weight: 400;
   line-height: 32px; /* 133.333% */
   letter-spacing: -0.384px;
+
+  @media screen and (max-width: 950px) {
+    font-size: 18px;
+    line-height: 26px; /* 144.444% */
+    letter-spacing: -0.216px;
+    margin-bottom: 48px;
+  }
+
+  @media screen and (max-width: 650px) {
+    margin-bottom: 40px;
+  }
 }
 
 .blog-page__text-wrapper {
@@ -88,6 +150,16 @@
   background: var(--neutral-100, #E6E6E6);
   max-width: 1080px;
   margin: 0 auto 88px;
+
+  @media screen and (max-width: 950px) {
+    margin-bottom: 48px;
+    padding: 44px;
+  }
+
+  @media screen and (max-width: 650px) {
+    margin-bottom: 40px;
+    padding: 43px 5px;
+  }
 
   p {
     color: var(--neutral-800, #191919);
@@ -98,5 +170,11 @@
     font-weight: 600;
     line-height: 36px; /* 120% */
     letter-spacing: -0.54px;
+
+    @media screen and (max-width: 950px) {
+      font-size: 24px;
+      line-height: 32px; /* 133.333% */
+      letter-spacing: -0.384px;
+    }
   }
 }
