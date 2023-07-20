@@ -6,17 +6,19 @@ import styles from './blog.module.scss';
 import bottomBlockStyles from './blog-list.module.scss';
 import { PrismicNextImage } from '@prismicio/next';
 import { getTimePassed } from '@/utils/getTimePassed';
-import BlogLink from "@/pages/blog/components/BlogLink";
-import Link from "next/link";
+import BlogLink from '@/pages/blog/components/BlogLink';
+import Link from 'next/link';
+import * as prismic from '@prismicio/client';
 
 export async function getStaticProps(context) {
   const client = createClient({ previewData: context.previewData });
+  const newClient = prismic.createClient('airdao-blog');
 
-  const blog = await client.getByUID('blog', context.params.slug);
+  const blog = await newClient.getByUID('blog', context.params.slug);
 
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
-  const latestArticles = await client.getAllByType('blog', {
+  const latestArticles = await newClient.getAllByType('blog', {
     limit: 3,
     orderings: {
       field: 'document.first_publication_date',
@@ -30,7 +32,7 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-  const client = createClient();
+  const client = prismic.createClient('airdao-blog');
   const pages = await client.getAllByType('blog');
   return {
     paths: pages.map((page) => `/blog/${page.uid}`),
@@ -38,7 +40,12 @@ export async function getStaticPaths() {
   };
 }
 
-export default function BlogArticle({ blog, header, footerText, latestArticles }) {
+export default function BlogArticle({
+  blog,
+  header,
+  footerText,
+  latestArticles,
+}) {
   if (!blog) {
     return null;
   }
@@ -93,7 +100,9 @@ export default function BlogArticle({ blog, header, footerText, latestArticles }
         <div>{data.slices.map((el) => renderBlogItem(el))}</div>
         <div className={bottomBlockStyles['articles-wrapper']}>
           <div className={bottomBlockStyles['articles-top-block']}>
-            <h2 className={bottomBlockStyles['articles-title']}>More Articles</h2>
+            <h2 className={bottomBlockStyles['articles-title']}>
+              More Articles
+            </h2>
             <Link href="/blog" className={bottomBlockStyles['articles-btn']}>
               See all
             </Link>
@@ -139,7 +148,7 @@ const BlogImage = ({ data }) => (
 
 const BlogText = ({ data }) => (
   <PrismicRichText
-    field={data.items[0].text}
+    field={data.items.text}
     components={{
       paragraph: ({ children }) => (
         <p className={styles['blog-page__text']}>{children}</p>
