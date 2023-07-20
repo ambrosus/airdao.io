@@ -128,11 +128,11 @@ export default function Blog({ header, footerText, lastArticles }) {
                     <BlogLink key={el.uid} article={el} />
                   ))}
                 </div>
-                {/*<Pagination*/}
-                {/*  currentPage={paginatedData.page}*/}
-                {/*  totalPages={paginatedData.total_pages}*/}
-                {/*  onPageChange={setPaginatedArticles}*/}
-                {/*/>*/}
+                <Pagination
+                  currentPage={paginatedData.page}
+                  totalPages={paginatedData.total_pages}
+                  onPageChange={setPaginatedArticles}
+                />
               </>
             )}
       </div>

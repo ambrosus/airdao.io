@@ -114,20 +114,29 @@
   flex-wrap: wrap;
   gap: 48px 0;
 
+  &_pagination {
+    margin-bottom: 56px;
+  }
+
   &:not(&_pagination) .blog-link {
     @media screen and (max-width: 950px) {
-      max-width: 48%;
-
       &:nth-child(3) {
         display: none;
       }
     }
     @media screen and (max-width: 650px) {
-      max-width: 100%;
-
       &:nth-child(2) {
         display: none;
       }
+    }
+  }
+
+  .blog-link {
+    @media screen and (max-width: 950px) {
+      max-width: 48%;
+    }
+    @media screen and (max-width: 650px) {
+      max-width: 100%;
     }
   }
 }

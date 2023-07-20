@@ -54,13 +54,13 @@ export default function BlogArticle({
   const renderBlogItem = (itemData) => {
     switch (itemData.slice_type) {
       case 'blog_subtitle':
-        return <BlogSubtitle data={itemData} />;
+        return <BlogSubtitle key={itemData.id} data={itemData} />;
       case 'blog_img':
-        return <BlogImage data={itemData} />;
+        return <BlogImage key={itemData.id} data={itemData} />;
       case 'blog_text':
-        return <BlogText data={itemData} />;
+        return <BlogText key={itemData.id} data={itemData} />;
       case 'blog_wrapped_text':
-        return <BlogWrappedText data={itemData} />;
+        return <BlogWrappedText key={itemData.id} data={itemData} />;
     }
   };
 
