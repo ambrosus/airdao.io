@@ -37,7 +37,7 @@
 }
 
 .blog-link {
-  max-width: 32%;
+  width: 32%;
   padding: 16px;
   border-radius: 24px;
   border: 1px solid var(--blue-200, #C9D9FF);
@@ -165,10 +165,10 @@
 
   .blog-link {
     @media screen and (max-width: 950px) {
-      max-width: 48%;
+      width: 48%;
     }
     @media screen and (max-width: 650px) {
-      max-width: 100%;
+      width: 100%;
     }
   }
 }
