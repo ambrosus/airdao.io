@@ -1,5 +1,4 @@
 import styles from '../blog-list.module.scss';
-import img from './article.png';
 import Image from 'next/image';
 import { PrismicRichText } from '@prismicio/react';
 import { getTimePassed } from '@/utils/getTimePassed';
@@ -12,8 +11,9 @@ const BlogLink = ({ article }) => {
         href={article ? `/blog/${article.uid}` : '/'}
         className={styles['blog-link']}
       >
-        <Image
-          src={img}
+        <img
+          src={article.data.article_link_img.url || '/article.png'}
+          layout="fill"
           alt={'article image'}
           className={styles['blog-link__img']}
         />
