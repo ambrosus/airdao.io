@@ -8,12 +8,11 @@ import { useEffect, useMemo, useState } from 'react';
 import Pagination from '@/components/Pagination/Pagination';
 import Slider from 'react-slick';
 import img from './components/article.png';
-import Image from 'next/image';
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { PrismicRichText } from '@prismicio/react';
 import { getTimePassed } from '@/utils/getTimePassed';
+
 const articleTypes = ['news', 'governance', 'academy', 'events'];
 
 const getLastArticlesByType = async (type) => {
@@ -133,7 +132,7 @@ export default function Blog({
     });
     setPaginatedData(articles);
   };
-  console.log(lastArticles);
+
   return (
     <>
       {header && <HeaderWrapper header={header} />}
