@@ -187,8 +187,8 @@ export default function Blog({
                 <Slider {...settings}>
                   {lastArticles.map((el) => (
                     <div key={el.uid} className={styles['slider-item']}>
-                      <Image
-                        src={el.data.article_link_img.url || img}
+                      <img
+                        src={el.data.article_link_img.url || '/article.png'}
                         alt="slider image"
                         className={styles['slider-item__img']}
                       />

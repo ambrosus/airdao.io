@@ -247,7 +247,7 @@
 
 .slider-item {
   display: flex!important;
-  align-items: center;
+  align-items: stretch;
   max-width: 1190px;
   margin: 0 auto;
 
@@ -264,7 +264,7 @@
 .slider-item__img {
   border-radius: 40px;
   width: 45%;
-  height: auto;
+  height: 430px;
   object-fit: cover;
   padding-left: 2px;
 
@@ -272,6 +272,7 @@
     width: 100%;
     max-width: 600px;
     margin-bottom: 48px;
+    height: 305px;
   }
 
   @media screen and (max-width: 650px) {
@@ -285,10 +286,12 @@
   padding: 15px 35px 15px 75px;
   display: flex;
   flex-direction: column;
+  width: 55%;
 
   @media screen and (max-width: 1050px) {
     padding-left: 0;
     padding-right: 0;
+    width: 100%;
   }
 }
 
