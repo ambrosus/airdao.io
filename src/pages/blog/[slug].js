@@ -26,6 +26,7 @@ export async function getStaticProps(context) {
     },
   });
 
+
   return {
     props: { blog, footerText: footer, header, latestArticles },
   };
@@ -148,7 +149,7 @@ const BlogImage = ({ data }) => (
 
 const BlogText = ({ data }) => (
   <PrismicRichText
-    field={data.items.text}
+    field={data.primary.text}
     components={{
       paragraph: ({ children }) => (
         <p className={styles['blog-page__text']}>{children}</p>
