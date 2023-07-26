@@ -1,0 +1,79 @@
+.not-found {
+  min-height: 1000px;
+  position: relative;
+  overflow: hidden;
+
+  @media screen and (max-width: 950px) {
+    min-height: 700px;
+  }
+
+  @media screen and (max-width: 650px) {
+    min-height: 500px;
+  }
+}
+
+.not-found__circles {
+  width: 1660px!important;
+  left: 50% !important;
+  top: -150px!important;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.not-found__img {
+  position: relative!important;
+  max-width: 820px;
+  display: block;
+  margin: 374px auto 100px;
+
+  @media screen and (max-width: 950px) {
+    margin-top: 288px;
+    margin-bottom: 72px;
+    max-width: 620px;
+  }
+
+  @media screen and (max-width: 650px) {
+    max-width: 80%;
+    margin-top: 206px;
+    margin-bottom: 46px;
+  }
+}
+
+.not-found__text {
+  text-align: center;
+  color: #1D1D1D;
+  font-family: var(--font-inter);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: -0.384px;
+  max-width: 655px;
+  margin: 0 auto 24px;
+
+  @media screen and (max-width: 950px) {
+    font-size: 20px;
+    line-height: 28px; /* 140% */
+    letter-spacing: -0.28px;
+  }
+
+  @media screen and (max-width: 650px) {
+    max-width: 80%;
+    font-size: 18px;
+    line-height: 26px; /* 144.444% */
+    letter-spacing: -0.216px;
+  }
+}
+
+.not-found__home {
+  border-radius: 1000px;
+  background: var(--gradients-simple-blue-vertical, linear-gradient(180deg, #457EFF 0%, #3568DD 100%));
+  color: var(--neutral-0, #FFF);
+  font-family: var(--font-inter);
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
+  padding: 10px 16px;
+  margin: 0 auto;
+  width: fit-content;
+  display: block;
+}
