@@ -1,0 +1,93 @@
+.select_container {
+  position: relative;
+  display: flex;
+  height: 48px;
+  align-items: center;
+  gap: 12px;
+  align-self: stretch;
+
+  --children-length: 0; // passed from js
+
+  transition: height 0.2s ease-in-out;
+
+  //&.focused {
+  //  height: calc(48px + 8px + (var(--children-length) * 44px));
+  //}
+}
+
+.input {
+  width: 100%;
+  border-radius: 162px;
+  border: 1px solid rgba(47, 43, 67, 0.10);
+  background: #FFF;
+  height: 48px;
+  padding: 0px 16px;
+
+  color: rgba(47, 43, 67, 0.60);
+  font-family: var(--font-inter);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  align-self: stretch;
+
+  &.has_value {
+    color: #222;
+  }
+
+  &:hover {
+    border: 1px solid rgba(47, 43, 67, 0.20);
+  }
+
+}
+
+.arrow {
+  transform: rotate(0.25turn);
+  transition: transform 0.2s ease-in-out;
+}
+
+.focused .arrow {
+  transform: rotate(0.75turn);
+}
+
+.dropdown {
+  display: flex;
+  flex-flow: column nowrap;
+  border-radius: 12px;
+  background: #FFF;
+
+  position: absolute;
+  top: calc(48px + 8px);
+  left: 0;
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+
+  transition: height 0.2s ease-in;
+}
+
+.select_container.focused .dropdown {
+  height: calc(var(--children-length) * 44px);
+  border: 1px solid rgba(47, 43, 67, 0.10);
+  box-shadow: 0px -1px 0px 0px rgba(47, 43, 67, 0.10) inset, 0px 4px 8px 0px rgba(47, 43, 67, 0.10);
+}
+
+.option {
+  height: 44px;
+  display: flex;
+  padding: 10px 16px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(47, 43, 67, 0.05);
+  }
+}
