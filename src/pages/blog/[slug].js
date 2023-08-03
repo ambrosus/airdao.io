@@ -85,7 +85,7 @@ export default function BlogArticle({
             field={data.read_time}
             components={{
               paragraph: ({ children }) => (
-                <span className={styles['blog-page__info']}>{children}</span>
+                <span className={styles['blog-page__info']}>{children} read</span>
               ),
             }}
           />

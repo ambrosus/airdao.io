@@ -7,6 +7,7 @@
 
 .pagination__arrow {
   button, span {
+    padding: 6px;
     border-radius: 8px;
     border: 1px solid var(--tertiary-gray-200-light, #E4E4E7);
     background: var(--tertiary-gray-100-light, #F4F4F5);
@@ -51,10 +52,11 @@
   line-height: 20px; /* 142.857% */
   letter-spacing: -0.14px;
   margin: 0 4px;
+
   &_active {
     color: var(--base-900-light, #1A1A1A);
     border-radius: 8px;
     border: 1px solid var(--tertiary-gray-200-light, #E4E4E7);
-    background: var(--base-00-light-primary, #FFF);    border: 1px solid #F4F4F5;
+    background: var(--base-00-light-primary, #FFF);
   }
 }

@@ -18,6 +18,13 @@
 .blog-types {
   margin: 0 auto;
   width: fit-content;
+
+  @media screen and (max-width: 700px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 0;
+  }
 }
 
 .blog-types__item {
@@ -25,6 +32,7 @@
   border-radius: 101px;
   background: var(--alpha-black-5, rgba(14, 14, 14, 0.05));
   text-transform: capitalize;
+  font-weight: 600;
 
   &:not(:last-child) {
     margin-right: 32px;
@@ -194,6 +202,7 @@
 }
 
 .articles-btn {
+  font-size: 16px;
   border-radius: 1000px;
   background: var(--blue-100-secondary, #EDF3FF);
   padding: 12px 16px;

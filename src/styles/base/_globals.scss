@@ -24,9 +24,11 @@
 
 .slick-prev {
   transform: scale(-1, 1) !important;
+  left: -45px!important;
 
   @media screen and (max-width: 1050px) {
     top: 44% !important;
+    left: -25px!important;
   }
   @media screen and (max-width: 650px) {
     left: -10px!important;

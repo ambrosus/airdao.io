@@ -4,7 +4,7 @@ import HeaderWrapper from '@/components/Header';
 import Footer from '@/components/Footer';
 import styles from './blog-list.module.scss';
 import BlogLink from '@/pages/blog/components/BlogLink';
-import { useEffect, useMemo, useState } from 'react';
+import {useEffect, useMemo, useRef, useState} from 'react';
 import Pagination from '@/components/Pagination/Pagination';
 import Slider from 'react-slick';
 import img from './components/article.png';
@@ -53,6 +53,7 @@ export async function getStaticProps(context) {
     props: { footerText: footer, header, lastArticlesByType, lastArticles },
   };
 }
+
 const settings = {
   dots: true,
   infinite: true,
@@ -90,6 +91,7 @@ const settings = {
     </svg>
   ),
 };
+
 export default function Blog({
   header,
   footerText,
@@ -98,6 +100,8 @@ export default function Blog({
 }) {
   const [selectedType, setSelectedType] = useState('all');
   const [paginatedData, setPaginatedData] = useState(null);
+
+  const articleList = useRef(null);
 
   const activeTypes = useMemo(() => {
     const arr = [];
@@ -118,7 +122,7 @@ export default function Blog({
     }
   }, [selectedType]);
 
-  const setPaginatedArticles = async (page) => {
+  const setPaginatedArticles = async (page, scrollTo) => {
     const newClient = prismic.createClient('airdao-blog');
 
     const articles = await newClient.getByType('blog', {
@@ -131,6 +135,15 @@ export default function Blog({
       filters: [prismic.filter.at('my.blog.blog_type', selectedType)],
     });
     setPaginatedData(articles);
+
+    if (scrollTo) {
+      window.scrollTo(0, scrollTo - 150);
+    }
+  };
+
+  const handleSelectedType = (type) => {
+    setSelectedType(type);
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -165,7 +178,7 @@ export default function Blog({
                       <h2 className={styles['articles-title']}>{el}</h2>
                       <button
                         className={styles['articles-btn']}
-                        onClick={() => setSelectedType(el)}
+                        onClick={() => handleSelectedType(el)}
                       >
                         See all
                       </button>
@@ -226,7 +239,7 @@ export default function Blog({
                                 <span
                                   className={styles['slider-item__subinfo']}
                                 >
-                                  {children}
+                                  {children} read
                                 </span>
                               ),
                             }}
@@ -238,6 +251,7 @@ export default function Blog({
                 </Slider>
               </div>
               <div
+                ref={articleList}
                 className={`${styles['articles-list']} ${styles['articles-list_pagination']}`}
               >
                 {paginatedData.results.map((el) => (
@@ -247,7 +261,7 @@ export default function Blog({
               <Pagination
                 currentPage={paginatedData.page}
                 totalPages={paginatedData.total_pages}
-                onPageChange={setPaginatedArticles}
+                onPageChange={(e) => setPaginatedArticles(e, articleList.current.offsetTop)}
               />
             </>
           )

@@ -42,7 +42,7 @@ const BlogLink = ({ article }) => {
             field={article.data.read_time}
             components={{
               paragraph: ({ children }) => (
-                <span className={styles['blog-link__info']}>{children}</span>
+                <span className={styles['blog-link__info']}>{children} read</span>
               ),
             }}
           />

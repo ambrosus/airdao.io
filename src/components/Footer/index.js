@@ -57,6 +57,9 @@ const Footer = ({
                     {asText(item.footer_item_text)}
                   </a>
                 )}
+                {item.footer_item_is_soon && (
+                  <span className={styles['footer__lists-soon']}>COMING SOON</span>
+                )}
               </li>
             ))}
           </ul>
