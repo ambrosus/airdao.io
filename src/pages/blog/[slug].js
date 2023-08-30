@@ -90,7 +90,7 @@ export default function BlogArticle({
             field={data.author}
             components={{
               paragraph: ({ children }) => (
-                <span className={styles['blog-page__info']}>{children}</span>
+                <span className={styles['blog-page__info']}>by {children}</span>
               ),
             }}
           />
