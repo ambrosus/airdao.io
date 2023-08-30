@@ -148,6 +148,7 @@ export default function Blog({
 
   return (
     <>
+      <div className={styles['blog-gradient']} />
       {header && <HeaderWrapper header={header} />}
       <div className={styles['blog-list-page']}>
         <div className={styles['blog-types']}>

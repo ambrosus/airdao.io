@@ -77,6 +77,10 @@
       top: 9px;
     }
   }
+
+  &_type {
+    text-transform: capitalize;
+  }
 }
 
 .blog-page__subtitle {

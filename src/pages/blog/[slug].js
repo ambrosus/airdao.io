@@ -15,7 +15,6 @@ export async function getStaticProps(context) {
   const newClient = prismic.createClient('airdao-blog');
 
   const blog = await newClient.getByUID('blog', context.params.slug);
-
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
   const latestArticles = await newClient.getAllByType('blog', {
@@ -25,8 +24,6 @@ export async function getStaticProps(context) {
       direction: 'desc',
     },
   });
-
-
   return {
     props: { blog, footerText: footer, header, latestArticles },
   };
@@ -37,7 +34,7 @@ export async function getStaticPaths() {
   const pages = await client.getAllByType('blog');
   return {
     paths: pages.map((page) => `/blog/${page.uid}`),
-    fallback: true, // false or "blocking"
+    fallback: true,
   };
 }
 
@@ -97,6 +94,11 @@ export default function BlogArticle({
               ),
             }}
           />
+          <span
+            className={`${styles['blog-page__info']} ${styles['blog-page__info_type']}`}
+          >
+            {data.blog_type}
+          </span>
         </div>
         <div>{data.slices.map((el) => renderBlogItem(el))}</div>
         <div className={bottomBlockStyles['articles-wrapper']}>
