@@ -412,6 +412,7 @@
 }
 
 .blur-overlay {
+  z-index: 99;
   position: fixed;
   width: 100vw;
   height: 130vh;
