@@ -12,7 +12,11 @@ import Community from '@/components/Homepage/Community';
 import * as prismic from '@prismicio/client';
 import ArticlesList from '@/components/ArticlesList';
 import styles from '../components/Homepage/homepage.module.scss';
-
+import Marquee from '@/components/Marquee';
+import Image from 'next/image';
+import marqueeImg from '@/components/Marquee/marquee-img.svg';
+import React from 'react';
+import styles2 from '../components/Marquee/marquee.module.scss';
 export default function Home({ page, header, footerText, latestArticles }) {
   const { data } = page;
   return (
@@ -22,6 +26,7 @@ export default function Home({ page, header, footerText, latestArticles }) {
       <Community />
       <Products />
       <Mission />
+      <Marquee />
       <Team />
       <Network />
       <Ambassadors />
