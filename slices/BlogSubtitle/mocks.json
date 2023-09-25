@@ -1,0 +1,20 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"blog_subtitle_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Culpa ea nisi laborum eiusmod non laborum anim ex dolor nisi nulla labore commodo voluptate."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

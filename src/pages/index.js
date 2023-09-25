@@ -17,6 +17,7 @@ import Image from 'next/image';
 import marqueeImg from '@/components/Marquee/marquee-img.svg';
 import React from 'react';
 import styles2 from '../components/Marquee/marquee.module.scss';
+import App from '@/components/Homepage/App';
 export default function Home({ page, header, footerText, latestArticles }) {
   const { data } = page;
   return (
@@ -31,6 +32,7 @@ export default function Home({ page, header, footerText, latestArticles }) {
       <Network />
       <Ambassadors />
       <Semiblocks />
+      <App />
       <div className={styles['articles-wrapper']}>
         <ArticlesList
           title="Blog"
