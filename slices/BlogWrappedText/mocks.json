@@ -1,0 +1,20 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"blog_wrapped_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Duis exercitation veniam aliquip non sunt et cupidatat occaecat exercitation consectetur excepteur."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

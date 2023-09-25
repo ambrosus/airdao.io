@@ -8,7 +8,7 @@ import Benefits from './components/Benefits';
 const AmbassadorPage = ({ header, footerText }) => (
   <>
     {header && <HeaderWrapper header={header} />}
-    <div>
+    <div style={{ overflow: 'auto' }}>
       <Hero />
       <Roles />
       <Benefits />

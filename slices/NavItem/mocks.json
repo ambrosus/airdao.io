@@ -1,0 +1,94 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"navlabel": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Anim consequat occaecat esse fugiat fugiat et. Officia commodo amet sunt in occaecat id voluptate commodo aute consectetur."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"navitemimg",
+						{
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1560762484-813fc97650a0",
+								"width": 3344,
+								"height": 2509
+							},
+							"url": "https://images.unsplash.com/photo-1560762484-813fc97650a0",
+							"width": 3344,
+							"height": 2509,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					],
+					[
+						"navitemlabel",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Voluptate reprehenderit fugiat deserunt ex ipsum sunt. Exercitation magna non irure incididunt culpa aliquip deserunt id do."
+									}
+								}
+							]
+						}
+					],
+					[
+						"navitemdescr",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Qui dolor mollit deserunt fugiat sit commodo duis in id veniam mollit. Labore excepteur duis dolor. Pariatur id dolor reprehenderit labore eiusmod quis sint amet."
+									}
+								}
+							]
+						}
+					],
+					[
+						"navitemurl",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Ad dolor reprehenderit nostrud qui proident reprehenderit qui reprehenderit incididunt reprehenderit nulla magna."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
+]
