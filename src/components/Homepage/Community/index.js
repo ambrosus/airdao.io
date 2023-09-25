@@ -1,46 +1,29 @@
 import styles from './community.module.scss';
 import Image from 'next/image';
-import { PrismicRichText } from '@prismicio/react';
-import { asText } from '@prismicio/client';
+import chats from './chats.png';
+import { Button } from '@airdao/ui-library';
 
-const Community = ({ heading, preText, text, socials }) => (
-  <section className={styles['community-block']}>
-    <div className={styles['community-block__left']}>
-      <div className={styles['community-block__label']}>{preText}</div>
-      <span className={styles['community-block__title']}>
-        <PrismicRichText
-          field={heading}
-          components={{
-            paragraph: ({ children }) => <p>{children}</p>,
-            strong: ({ children }) => (
-              <span className={styles['community-block__title-span']}>
-                {children}
-              </span>
-            ),
-          }}
-        />
-      </span>
-      <p className={styles['community-block__text']}>{asText(text)}</p>
+const Community = () => {
+  return (
+    <div className={`container ${styles['community']}`}>
+      <div className={styles['community__img']}>
+        <Image src={chats} alt="chats" />
+      </div>
+      <div className={styles['community__right']}>
+        <p className={styles['community__title']}>
+          We&apos;re at the forefront of true decentralization and community
+          participation. We put power into the hands of our community, giving
+          you complete control over our future.
+        </p>
+        <Button className={styles['community__btn']} type="primary" size="large">
+          Join community
+        </Button>
+        <Button type="tetiary" size="large">
+          Learn more
+        </Button>
+      </div>
     </div>
-    <div className={styles['community-block__right']}>
-      {socials.map((el) => (
-        <a
-          target="_blank"
-          href={el.link.url}
-          key={el.name}
-          className={styles['community-block-item']}
-        >
-          <div>
-            <p className={styles['community-block-item__title']}>{el.name}</p>
-            <p className={styles['community-block-item__text']}>
-              {el.followers_amount_text}
-            </p>
-          </div>
-          <Image src={el.img.url} width="48" height="48" alt={el.name} />
-        </a>
-      ))}
-    </div>
-  </section>
-);
+  )
+};
 
 export default Community;

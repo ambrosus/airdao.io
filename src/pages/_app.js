@@ -29,9 +29,22 @@ const mersad = localFont({
   variable: '--font-mersad',
 });
 
+const rationell = localFont({
+  src: [
+    {
+      path: '../assets/fonts/Rationell-regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-rationell',
+});
+
 export default function App({ Component, pageProps }) {
   return (
-    <main className={`${inter.variable} ${mersad.variable}`}>
+    <main
+      className={`${inter.variable} ${mersad.variable} ${rationell.variable}`}
+    >
       <Component {...pageProps} />
     </main>
   );

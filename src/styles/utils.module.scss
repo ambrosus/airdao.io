@@ -1,13 +1,7 @@
 @import "mixins";
 
 .container {
-  @include device(desktop) {
-    padding-left: 70px;
-    padding-right: 70px;
-  }
-
-  @include device(mobile) {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
+  max-width: 1330px;
+  margin: 0 auto;
+  padding: 0 15px;
 }

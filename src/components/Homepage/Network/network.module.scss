@@ -1,0 +1,41 @@
+.network {
+  margin-top: 128px;
+  display: flex;
+  justify-content: space-between;
+  gap: 45px;
+}
+
+.network__title {
+  color: var(--neutral-700, #222426);
+  font-family: var(--font-rationell);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 57px; /* 142.5% */
+  margin: 24px 0 40px;
+}
+
+.network__list {
+  display: flex;
+  gap: 41px;
+  margin-bottom: 40px;
+}
+
+.network-list__value {
+  color: var(--blue-600-primary, #3568DD);
+  font-family: var(--font-rationell);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 34.426px; /* 86.066% */
+  margin-bottom: 8px;
+}
+
+.network-list__text {
+  color: var(--neutral-300, #A1A6B2);
+  font-family: var(--font-inter);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px; /* 144.444% */
+}
+
+.network__img {
+}

@@ -1,75 +1,50 @@
-import styles from './ambassadors.module.scss';
-import a1 from './ambassador1.png';
-import a2 from './ambassador2.png';
-import a3 from './ambassador3.png';
-import a4 from './ambassador4.png';
-import a5 from './ambassador5.png';
-import a6 from './ambassador6.png';
+import styles from './ambassarods.module.scss';
+import BlockLabel from '@/components/BlockLabel';
+import ambassador1 from './ambassador-1.png';
+import ambassador2 from './ambassador-2.png';
+import ambassador3 from './ambassador-3.png';
+import ambassador4 from './ambassador-4.png';
+import ambassador5 from './ambassador-5.png';
+import ambassador6 from './ambassador-6.png';
+import ambassador7 from './ambassador-7.png';
+import ambassador8 from './ambassador-8.png';
+import ambassador9 from './ambassador-9.png';
 import Image from 'next/image';
-import { PrismicRichText } from '@prismicio/react';
-import { PrismicNextLink } from '@prismicio/next';
+import {Button} from '@airdao/ui-library';
 
-const Ambassadors = ({
-  preText,
-  heading,
-  actionButtonText,
-  actionButtonLink,
-  learnButtonText,
-  learnButtonLink,
-}) => (
-  <section className={styles.ambassadors}>
-    <div className={styles.ambassadors__overlay}></div>
-    <div className={styles.ambassadors__inner}>
-      <Image
-        src={a1}
-        alt="ambassador"
-        className={`${styles.ambassadors__img} ${styles.ambassadors__img_1}`}
-      />
-      <Image
-        src={a2}
-        alt="ambassador"
-        className={`${styles.ambassadors__img} ${styles.ambassadors__img_2}`}
-      />
-      <Image
-        src={a3}
-        alt="ambassador"
-        className={`${styles.ambassadors__img} ${styles.ambassadors__img_3}`}
-      />
-      <Image
-        src={a4}
-        alt="ambassador"
-        className={`${styles.ambassadors__img} ${styles.ambassadors__img_4}`}
-      />
-      <Image
-        src={a5}
-        alt="ambassador"
-        className={`${styles.ambassadors__img} ${styles.ambassadors__img_5}`}
-      />
-      <Image
-        src={a6}
-        alt="ambassador"
-        className={`${styles.ambassadors__img} ${styles.ambassadors__img_6}`}
-      />
-      <div className={styles.ambassadors__label}>{preText}</div>
-      <PrismicRichText
-        components={{
-          heading2: ({ children }) => (
-            <p className={styles.ambassadors__title}>{children}</p>
-          ),
-        }}
-        field={heading}
-      />
-      <PrismicNextLink
-        className={styles['ambassadors__btn-primary']}
-        field={actionButtonLink}
-      >
-        {actionButtonText}
-      </PrismicNextLink>
-      <PrismicNextLink field={learnButtonLink}>
-        {learnButtonText}
-      </PrismicNextLink>
+const Ambassadors = () => (
+  <div className={styles['ambassadors']}>
+    <BlockLabel className={styles['ambassadors__label']}>
+      AMBASSADORS
+    </BlockLabel>
+    <h3 className={styles['ambassadors__title']}>
+      Join the <span>Ambassador Program</span>
+    </h3>
+    <p className={styles['ambassadors__text']}>
+      We support individuals from diverse backgrounds eager to spread the word
+      about our thriving ecosystem. We&apos;re welcoming and inclusive and want
+      every ambassador to feel valued and inspired.
+    </p>
+    <div className={styles['ambassadors__list']}>
+      <Image src={ambassador1} alt="ambassador1" />
+      <Image src={ambassador2} alt="ambassador2" />
+      <Image src={ambassador3} alt="ambassador3" />
+      <Image src={ambassador4} alt="ambassador4" />
+      <Image src={ambassador5} alt="ambassador5" />
+      <Image src={ambassador6} alt="ambassador6" />
+      <Image src={ambassador7} alt="ambassador7" />
+      <Image src={ambassador8} alt="ambassador8" />
+      <Image src={ambassador9} alt="ambassador9" />
     </div>
-  </section>
+    <div className={styles['ambassadors__btns']}>
+      <Button type="primary" size="large">
+        Become an Ambassador
+      </Button>
+      <Button type="tetiary" size="large">
+        Learn more
+      </Button>
+    </div>
+  </div>
 );
 
 export default Ambassadors;

@@ -25,7 +25,8 @@
     "react-slick": "^0.29.0",
     "scss": "^0.2.4",
     "slick-carousel": "^1.8.1",
-    "victory": "^36.6.11"
+    "victory": "^36.6.11",
+    "@airdao/ui-library": "latest"
   },
   "devDependencies": {
     "@slicemachine/adapter-next": "^0.3.1",

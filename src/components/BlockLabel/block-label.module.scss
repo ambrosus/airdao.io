@@ -1,0 +1,16 @@
+.block-label {
+  padding: 5px 17px;
+  border-radius: 30px;
+  border: 1px solid var(--alpha-black-10, rgba(14, 14, 14, 0.10));
+  background: var(--alpha-black-5, rgba(14, 14, 14, 0.05));
+  color: var(--neutral-800, #191919);
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: 2.66px;
+  width: fit-content;
+  text-transform: uppercase;
+}
