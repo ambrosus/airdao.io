@@ -1,0 +1,67 @@
+{
+  "id": "footer",
+  "label": "Footer",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "footer_social": {
+        "type": "Group",
+        "config": {
+          "label": "footer_social",
+          "fields": {
+            "footer_social_img": {
+              "type": "Image",
+              "config": {
+                "label": "footer_social_img",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "footer_social_link": {
+              "type": "Link",
+              "config": {
+                "label": "footer_social_link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "footer_mobile_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "footer_mobile_text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "footer_mobile_link_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "footer_mobile_link_text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "footer_mobile_link_url": {
+        "type": "StructuredText",
+        "config": {
+          "label": "footer_mobile_link_url",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": { "choices": { "footer_item": { "type": "SharedSlice" } } }
+      }
+    }
+  }
+}

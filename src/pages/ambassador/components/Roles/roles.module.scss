@@ -1,0 +1,53 @@
+.roles {
+  padding: 127px 0;
+  background: var(--alpha-black-5, rgba(14, 14, 14, 0.05));
+}
+
+.roles__title {
+  color: var(--neutral-700, #222426);
+  font-family: var(--font-rationell);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 57px; /* 142.5% */
+  max-width: 750px;
+}
+
+.roles__list {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 19px;
+}
+
+.roles__item {
+  border-radius: 32px;
+  background: var(--neutral-100, #E6E6E6);
+  padding: 35px 30px;
+}
+
+.roles__item-title {
+  color: var(--neutral-700, #222426);
+  font-family: var(--font-rationell);
+  font-size: 27.541px;
+  font-weight: 600;
+  line-height: 34.426px; /* 125% */
+  margin: 44px 0 16px;
+}
+
+.roles__item-text {
+  color: var(--neutral-700, #222426);
+  font-family: var(--font-inter);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px; /* 144.444% */
+}
+
+.roles__subtext {
+  color: var(--neutral-700, #222426);
+  font-family: var(--font-rationell);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 57px; /* 142.5% */
+  margin: 48px 0 40px;
+  max-width: 1090px;
+}
