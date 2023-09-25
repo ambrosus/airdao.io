@@ -1,0 +1,338 @@
+{
+  "id": "team",
+  "label": "Team",
+  "format": "page",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": { "label": "link", "placeholder": "" }
+      },
+      "story": {
+        "type": "StructuredText",
+        "config": {
+          "label": "story",
+          "placeholder": "Our story",
+          "allowTargetBlank": false,
+          "multi": "paragraph,heading2"
+        }
+      },
+      "illustration": {
+        "type": "Image",
+        "config": {
+          "label": "illustration",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "mission": {
+        "type": "StructuredText",
+        "config": {
+          "label": "mission",
+          "placeholder": "Our mission",
+          "allowTargetBlank": false,
+          "multi": "paragraph,heading2"
+        }
+      },
+      "vision": {
+        "type": "StructuredText",
+        "config": {
+          "label": "vision",
+          "placeholder": "Our vision",
+          "allowTargetBlank": true,
+          "multi": "paragraph,heading2"
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": { "choices": {} }
+      }
+    },
+    "Team": {
+      "team_heading": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Heading",
+          "placeholder": "Heading",
+          "allowTargetBlank": true,
+          "single": "heading2"
+        }
+      },
+      "council_and_operations": {
+        "type": "Group",
+        "config": {
+          "label": "Council and Operations",
+          "fields": {
+            "avatar": {
+              "type": "Image",
+              "config": {
+                "label": "avatar",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "name": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Name",
+                "placeholder": "Name",
+                "allowTargetBlank": true,
+                "single": "heading3"
+              }
+            },
+            "position": {
+              "type": "Link",
+              "config": {
+                "label": "Position",
+                "placeholder": "",
+                "select": "media"
+              }
+            },
+            "twitter": {
+              "type": "Link",
+              "config": {
+                "label": "Twitter",
+                "placeholder": "Twitter",
+                "allowTargetBlank": true,
+                "select": null
+              }
+            },
+            "linkedin": {
+              "type": "Link",
+              "config": {
+                "label": "LinkedIn",
+                "placeholder": "LinkedIn",
+                "allowTargetBlank": true,
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "tech": {
+        "type": "Group",
+        "config": {
+          "label": "Council and Operations",
+          "fields": {
+            "avatar": {
+              "type": "Image",
+              "config": {
+                "label": "avatar",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "name": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Name",
+                "placeholder": "Name",
+                "allowTargetBlank": true,
+                "single": "heading3"
+              }
+            },
+            "position": {
+              "type": "Link",
+              "config": {
+                "label": "Position",
+                "placeholder": "",
+                "select": "media"
+              }
+            },
+            "twitter": {
+              "type": "Link",
+              "config": {
+                "label": "Twitter",
+                "placeholder": "Twitter",
+                "allowTargetBlank": true,
+                "select": null
+              }
+            },
+            "linkedin": {
+              "type": "Link",
+              "config": {
+                "label": "LinkedIn",
+                "placeholder": "LinkedIn",
+                "allowTargetBlank": true,
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "community": {
+        "type": "Group",
+        "config": {
+          "label": "Council and Operations",
+          "fields": {
+            "avatar": {
+              "type": "Image",
+              "config": {
+                "label": "avatar",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "name": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Name",
+                "placeholder": "Name",
+                "allowTargetBlank": true,
+                "single": "heading3"
+              }
+            },
+            "position": {
+              "type": "Link",
+              "config": {
+                "label": "Position",
+                "placeholder": "",
+                "select": "media"
+              }
+            },
+            "twitter": {
+              "type": "Link",
+              "config": {
+                "label": "Twitter",
+                "placeholder": "Twitter",
+                "allowTargetBlank": true,
+                "select": null
+              }
+            },
+            "linkedin": {
+              "type": "Link",
+              "config": {
+                "label": "LinkedIn",
+                "placeholder": "LinkedIn",
+                "allowTargetBlank": true,
+                "select": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "Structure": {
+      "structure_heading": {
+        "type": "StructuredText",
+        "config": {
+          "label": "structure heading",
+          "placeholder": "Heading",
+          "allowTargetBlank": false,
+          "single": "heading2"
+        }
+      },
+      "structure_cards": {
+        "type": "Group",
+        "config": {
+          "label": "structure cards",
+          "fields": {
+            "illustration": {
+              "type": "Image",
+              "config": {
+                "label": "illustration",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "name": {
+              "type": "StructuredText",
+              "config": {
+                "label": "name",
+                "placeholder": "Card title",
+                "allowTargetBlank": false,
+                "single": "paragraph"
+              }
+            },
+            "description": {
+              "type": "StructuredText",
+              "config": {
+                "label": "description",
+                "placeholder": "Description",
+                "allowTargetBlank": false,
+                "single": "paragraph"
+              }
+            }
+          }
+        }
+      },
+      "structure_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "structure text",
+          "placeholder": "text",
+          "allowTargetBlank": false,
+          "multi": "paragraph"
+        }
+      }
+    },
+    "Ambassadors": {
+      "ambassadors_pre_text": {
+        "type": "Text",
+        "config": { "label": "ambassadors pre test", "placeholder": "" }
+      },
+      "ambassadors_heading": {
+        "type": "StructuredText",
+        "config": {
+          "label": "ambassadors heading",
+          "placeholder": "heading",
+          "allowTargetBlank": false,
+          "single": "heading2"
+        }
+      },
+      "ambassadors_action_button_text": {
+        "type": "Text",
+        "config": { "label": "action button text", "placeholder": "" }
+      },
+      "ambassadors_action_button_link": {
+        "type": "Link",
+        "config": {
+          "label": "action button link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "ambassadors_learn_button_text": {
+        "type": "Text",
+        "config": { "label": "learn button text", "placeholder": "" }
+      },
+      "ambassadors_learn_button_link": {
+        "type": "Link",
+        "config": {
+          "label": "ambassadors learn button link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": { "height": 1260, "width": 2400 },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      }
+    }
+  }
+}
