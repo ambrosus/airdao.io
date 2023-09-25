@@ -1,6 +1,5 @@
 import styles from './main-block.module.scss';
 import BlockLabel from '@/components/BlockLabel';
-import bg from './bg.svg';
 import Image from 'next/image';
 import ku from './kucoin.svg';
 

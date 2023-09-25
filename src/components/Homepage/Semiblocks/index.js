@@ -38,25 +38,25 @@ const Semiblocks = () => (
       </p>
       <div className={styles['community__btns']}>
         <div className={styles['community__socials']}>
-          <a href="/">
+          <a href="google">
             <Image src={x} alt="x" />
           </a>
-          <a href="/">
+          <a href="google">
             <Image src={telegram} alt="telegram" />
           </a>
-          <a href="/">
+          <a href="google">
             <Image src={discord} alt="discord" />
           </a>
-          <a href="/">
+          <a href="google">
             <Image src={reddit} alt="reddit" />
           </a>
-          <a href="/">
+          <a href="google">
             <Image src={youtube} alt="youtube" />
           </a>
-          <a href="/">
+          <a href="google">
             <Image src={discord} alt="discord" />
           </a>
-          <a href="/">
+          <a href="google">
             <Image src={linkedin} alt="linkedin" />
           </a>
         </div>
