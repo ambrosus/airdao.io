@@ -16,7 +16,7 @@ const Hero = () => (
         Become an Ambassador
       </Button>
     </div>
-    <Image src={ambassadors} alt="ambassadors" />
+    <Image src={ambassadors} alt="ambassadors" className={styles.hero__img} />
   </div>
 );
 

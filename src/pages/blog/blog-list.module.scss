@@ -81,6 +81,11 @@
   font-weight: 700;
   line-height: 28px; /* 140% */
   letter-spacing: -0.28px;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 
 .blog-link__descr {
@@ -94,6 +99,12 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 12px;
+    line-height: 16px;
+    margin: 8px 0;
+  }
 }
 
 .blog-link__info {
@@ -119,7 +130,16 @@
       height: 5px;
       border-radius: 50%;
       background: #676B73;
+
+      @media screen and (max-width: 1024px) {
+        top: 5px;
+      }
     }
+  }
+
+  @media screen and (max-width: 1024px) {
+    font-size: 12px;
+    line-height: 16px;
   }
 }
 

@@ -17,7 +17,7 @@ const App = () => (
           <li className={styles['app__list-item']}>Watch AMB wallets</li>
         </ul>
         <Image className={styles.app__appstore} src={appStore} alt="app store" />
-        <Image src={googlePlay} alt="google play" />
+        <Image className={styles.app__google} src={googlePlay} alt="google play" />
       </div>
       <div className={styles.app__right}>
         <Image src={app} alt="app"/>

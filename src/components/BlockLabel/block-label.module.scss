@@ -13,4 +13,12 @@
   letter-spacing: 2.66px;
   width: fit-content;
   text-transform: uppercase;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+  }
 }

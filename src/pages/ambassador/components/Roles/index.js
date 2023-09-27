@@ -40,21 +40,6 @@ const Roles = () => (
           <p className={styles['roles__item-title']}>Influencers & partners</p>
           <p className={styles['roles__item-text']}>Grow our community and brand, and get involved in our governance.</p>
         </div>
-        <div className={styles.roles__item}>
-          <Image src={img} alt="role" />
-          <p className={styles['roles__item-title']}>Influencers & partners</p>
-          <p className={styles['roles__item-text']}>Grow our community and brand, and get involved in our governance.</p>
-        </div>
-        <div className={styles.roles__item}>
-          <Image src={img} alt="role" />
-          <p className={styles['roles__item-title']}>Influencers & partners</p>
-          <p className={styles['roles__item-text']}>Grow our community and brand, and get involved in our governance.</p>
-        </div>
-        <div className={styles.roles__item}>
-          <Image src={img} alt="role" />
-          <p className={styles['roles__item-title']}>Influencers & partners</p>
-          <p className={styles['roles__item-text']}>Grow our community and brand, and get involved in our governance.</p>
-        </div>
       </div>
       <p className={styles.roles__subtext}>
         Our ambassador program is open to all, and you can participate in endless ways. Whether by engaging your online and local communities or creating captivating content, everyone has an opportunity to make an impact.

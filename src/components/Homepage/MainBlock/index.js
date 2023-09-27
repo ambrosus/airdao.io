@@ -2,9 +2,12 @@ import styles from './main-block.module.scss';
 import BlockLabel from '@/components/BlockLabel';
 import Image from 'next/image';
 import ku from './kucoin.svg';
+import blueCircle from '@/assets/img/blue-circle.svg';
+import orangeCircle from '@/assets/img/orange-circle.svg';
 
 const MainBlock = () => (
   <section className={`container ${styles['main-block']}`}>
+
     <h1 className={styles['main-block__title']}>Redefining Governance</h1>
     <p className={styles['main-block__subtitle']}>
       AirDAO is a community-governed layer one blockchain and ecosystem of web3

@@ -17,10 +17,12 @@ const ArticlesList = ({
       </div>
       <a href={goToLink} className={styles['articles__link']}>{goToText}</a>
     </div>
-    <div className={styles['articles__list']}>
-      {articles.map((el) => (
-        <BlogLink key={el.uid} article={el} />
-      ))}
+    <div className={styles['articles__list-wrapper']}>
+      <div className={styles['articles__list']}>
+        {articles.map((el) => (
+          <BlogLink key={el.uid} article={el} className={styles['blog-link_home']} />
+        ))}
+      </div>
     </div>
   </div>
 );

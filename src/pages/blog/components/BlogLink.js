@@ -3,12 +3,12 @@ import { PrismicRichText } from '@prismicio/react';
 import { getTimePassed } from '@/utils/getTimePassed';
 import Link from 'next/link';
 
-const BlogLink = ({ article }) => {
+const BlogLink = ({ article, className }) => {
   return (
     article && (
       <Link
         href={article ? `/blog/${article.uid}` : '/'}
-        className={styles['blog-link']}
+        className={`${styles['blog-link']} ${className}`}
       >
         <img
           src={article.data.article_link_img.url || '/article.png'}

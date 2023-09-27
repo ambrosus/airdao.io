@@ -14,26 +14,61 @@ import ArticlesList from '@/components/ArticlesList';
 import styles from '../components/Homepage/homepage.module.scss';
 import Marquee from '@/components/Marquee';
 import Image from 'next/image';
-import marqueeImg from '@/components/Marquee/marquee-img.svg';
 import React from 'react';
-import styles2 from '../components/Marquee/marquee.module.scss';
 import App from '@/components/Homepage/App';
+import blueCircle from '@/assets/img/blue-circle.svg';
+import orangeCircle from '@/assets/img/orange-circle.svg';
+
 export default function Home({ page, header, footerText, latestArticles }) {
   const { data } = page;
   return (
-    <>
+    <div className={styles['homepage']}>
       <HeaderWrapper header={header} />
-      <MainBlock />
+      <div className={styles['main-block-wrapper']}>
+        <Image
+          className={styles['blue-circle']}
+          src={blueCircle}
+          alt="blue circle"
+        />
+        <Image
+          className={styles['orange-circle']}
+          src={orangeCircle}
+          alt="orange circle"
+        />
+        <MainBlock />
+      </div>
       <Community />
       <Products />
       <Mission />
       <Marquee />
       <Team />
       <Network />
-      <Ambassadors />
+      <div className={styles['ambassadors-wrapper']}>
+        <Image
+          className={styles['blue-circle']}
+          src={orangeCircle}
+          alt="blue circle"
+        />
+        <Image
+          className={styles['orange-circle']}
+          src={blueCircle}
+          alt="orange circle"
+        />
+        <Ambassadors />
+      </div>
       <Semiblocks />
       <App />
       <div className={styles['articles-wrapper']}>
+        <Image
+          className={styles['blue-circle']}
+          src={blueCircle}
+          alt="blue circle"
+        />
+        <Image
+          className={styles['orange-circle']}
+          src={orangeCircle}
+          alt="orange circle"
+        />
         <ArticlesList
           title="Blog"
           subtitle="Discover articles, governance insights, events, and more"
@@ -49,7 +84,7 @@ export default function Home({ page, header, footerText, latestArticles }) {
         mobileText={footerText.data.footer_mobile_text}
         socials={footerText.data.footer_social}
       />
-    </>
+    </div>
   );
 }
 
