@@ -44,11 +44,6 @@
           "allowTargetBlank": true,
           "multi": "paragraph,heading2"
         }
-      },
-      "slices": {
-        "type": "Slices",
-        "fieldset": "Slice Zone",
-        "config": { "choices": {} }
       }
     },
     "Team": {
@@ -84,11 +79,12 @@
               }
             },
             "position": {
-              "type": "Link",
+              "type": "StructuredText",
               "config": {
-                "label": "Position",
-                "placeholder": "",
-                "select": "media"
+                "label": "position",
+                "placeholder": "Position",
+                "allowTargetBlank": false,
+                "single": "paragraph"
               }
             },
             "twitter": {
@@ -135,11 +131,12 @@
               }
             },
             "position": {
-              "type": "Link",
+              "type": "StructuredText",
               "config": {
-                "label": "Position",
-                "placeholder": "",
-                "select": "media"
+                "label": "position",
+                "placeholder": "Position",
+                "allowTargetBlank": false,
+                "single": "paragraph"
               }
             },
             "twitter": {
@@ -186,11 +183,12 @@
               }
             },
             "position": {
-              "type": "Link",
+              "type": "StructuredText",
               "config": {
-                "label": "Position",
-                "placeholder": "",
-                "select": "media"
+                "label": "position",
+                "placeholder": "Position",
+                "allowTargetBlank": false,
+                "single": "paragraph"
               }
             },
             "twitter": {
