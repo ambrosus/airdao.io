@@ -1,0 +1,37 @@
+.container {
+  padding-top: 207px;
+}
+
+.block {
+  display: flex;
+  flex-flow: row nowrap;
+
+}
+
+.text {
+
+}
+
+.heading {
+  color: var(--neutral-700, #222426);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 57px; /* 142.5% */
+  letter-spacing: -0.8px;
+}
+
+.paragraph {
+  color: var(--neutral-700, #222426);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: -0.384px;
+}
+
+.illustration {
+
+}
