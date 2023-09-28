@@ -3,8 +3,8 @@ import BlockLabel from '@/components/BlockLabel';
 import Image from 'next/image';
 import amb from './amb.svg';
 import { Button } from '@airdao/ui-library';
-import {PrismicRichText} from '@prismicio/react';
-import {asText} from '@prismicio/client';
+import { PrismicRichText } from '@prismicio/react';
+import { asText } from '@prismicio/client';
 
 const Network = ({ label, title, primaryLink, primaryText, info }) => (
   <div className={`container ${styles['network']}`}>
@@ -12,9 +12,7 @@ const Network = ({ label, title, primaryLink, primaryText, info }) => (
       <PrismicRichText
         field={label}
         components={{
-          paragraph: ({ children }) => (
-            <BlockLabel>{children}</BlockLabel>
-          ),
+          paragraph: ({ children }) => <BlockLabel>{children}</BlockLabel>,
         }}
       />
       <PrismicRichText

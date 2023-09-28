@@ -1,6 +1,6 @@
 import styles from './hero.module.scss';
 import { Button } from '@airdao/ui-library';
-import {PrismicRichText} from '@prismicio/react';
+import { PrismicRichText } from '@prismicio/react';
 
 const Hero = ({ title, text, primaryLink, primaryText, image }) => (
   <div className={`container ${styles.hero}`}>

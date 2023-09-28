@@ -4,7 +4,7 @@ import HeaderWrapper from '@/components/Header';
 import Footer from '@/components/Footer';
 import styles from './blog-list.module.scss';
 import BlogLink from '@/pages/blog/components/BlogLink';
-import {useEffect, useMemo, useRef, useState} from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Pagination from '@/components/Pagination/Pagination';
 import Slider from 'react-slick';
 import img from './components/article.png';
@@ -262,7 +262,9 @@ export default function Blog({
               <Pagination
                 currentPage={paginatedData.page}
                 totalPages={paginatedData.total_pages}
-                onPageChange={(e) => setPaginatedArticles(e, articleList.current.offsetTop)}
+                onPageChange={(e) =>
+                  setPaginatedArticles(e, articleList.current.offsetTop)
+                }
               />
             </>
           )

@@ -2,7 +2,7 @@ import styles from './community.module.scss';
 import Image from 'next/image';
 import chats from './chats.png';
 import { Button } from '@airdao/ui-library';
-import {PrismicRichText} from '@prismicio/react';
+import { PrismicRichText } from '@prismicio/react';
 
 const Community = ({
   text,
@@ -29,11 +29,11 @@ const Community = ({
           field={primaryText}
           components={{
             paragraph: ({ children }) => (
-                <a href={primaryLink.url} className={styles['community__btn']}>
-                  <Button type="primary" size="large">
-                    {children}
-                  </Button>
-                </a>
+              <a href={primaryLink.url} className={styles['community__btn']}>
+                <Button type="primary" size="large">
+                  {children}
+                </Button>
+              </a>
             ),
           }}
         />
@@ -41,17 +41,17 @@ const Community = ({
           field={secondaryText}
           components={{
             paragraph: ({ children }) => (
-                <a href={secondaryLink.url}>
-                  <Button type="tetiary" size="large">
-                    {children}
-                  </Button>
-                </a>
+              <a href={secondaryLink.url}>
+                <Button type="tetiary" size="large">
+                  {children}
+                </Button>
+              </a>
             ),
           }}
         />
       </div>
     </div>
-  )
+  );
 };
 
 export default Community;

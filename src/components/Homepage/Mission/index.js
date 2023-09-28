@@ -1,6 +1,6 @@
 import styles from './mission.module.scss';
 import BlockLabel from '@/components/BlockLabel';
-import {PrismicRichText} from '@prismicio/react';
+import { PrismicRichText } from '@prismicio/react';
 
 const Mission = ({ label, title, text }) => (
   <div className={styles['mission']}>
@@ -9,7 +9,9 @@ const Mission = ({ label, title, text }) => (
         field={label}
         components={{
           paragraph: ({ children }) => (
-            <BlockLabel className={styles['mission__label']}>{children}</BlockLabel>
+            <BlockLabel className={styles['mission__label']}>
+              {children}
+            </BlockLabel>
           ),
         }}
       />

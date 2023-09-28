@@ -9,7 +9,7 @@ import telegram from './telegram.svg';
 import x from './x.svg';
 import youtube from './youtube.svg';
 import Image from 'next/image';
-import {PrismicRichText} from '@prismicio/react';
+import { PrismicRichText } from '@prismicio/react';
 
 const Semiblocks = (props) => (
   <div className={styles['semiblocks']}>
@@ -58,7 +58,11 @@ const Semiblocks = (props) => (
           components={{
             paragraph: ({ children }) => (
               <a href={props.governanceSecondaryLink.url}>
-                <Button className={styles['semiblocks__btn']} type="primary" size="large">
+                <Button
+                  className={styles['semiblocks__btn']}
+                  type="primary"
+                  size="large"
+                >
                   {children}
                 </Button>
               </a>

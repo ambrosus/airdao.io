@@ -1,8 +1,8 @@
 import BlockLabel from '@/components/BlockLabel';
 import { Button } from '@airdao/ui-library';
 import styles from './products.module.scss';
-import {PrismicRichText} from '@prismicio/react';
-import {asText} from '@prismicio/client';
+import { PrismicRichText } from '@prismicio/react';
+import { asText } from '@prismicio/client';
 
 const Products = ({ title, products }) => (
   <section className="container">
@@ -11,11 +11,7 @@ const Products = ({ title, products }) => (
         field={title}
         components={{
           paragraph: ({ children }) => <>{children}</>,
-          strong: ({ children }) => (
-            <span>
-              {children}
-            </span>
-          ),
+          strong: ({ children }) => <span>{children}</span>,
         }}
       />
     </p>
@@ -44,7 +40,11 @@ const Products = ({ title, products }) => (
               components={{
                 paragraph: ({ children }) => (
                   <a href={el.primary_link.url}>
-                    <Button type="secondary" size="large" className={styles['product__btn']}>
+                    <Button
+                      type="secondary"
+                      size="large"
+                      className={styles['product__btn']}
+                    >
                       {children}
                     </Button>
                   </a>

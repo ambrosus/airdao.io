@@ -18,7 +18,7 @@ import React from 'react';
 import App from '@/components/Homepage/App';
 import blueCircle from '@/assets/img/blue-circle.svg';
 import orangeCircle from '@/assets/img/orange-circle.svg';
-import {asText} from '@prismicio/client';
+import { asText } from '@prismicio/client';
 
 export default function Home({ page, header, footerText, latestArticles }) {
   const { data } = page;
@@ -98,7 +98,7 @@ export default function Home({ page, header, footerText, latestArticles }) {
         communityPrimaryLink={data.community_primary_link}
         communitySocials={data.community_socials}
       />
-      <App title={data.app_title} list={data.app_list}  />
+      <App title={data.app_title} list={data.app_list} />
       <div className={styles['articles-wrapper']}>
         <Image
           className={styles['blue-circle']}

@@ -1,6 +1,6 @@
 import styles from './team.module.scss';
 import { Button } from '@airdao/ui-library';
-import {PrismicRichText} from '@prismicio/react';
+import { PrismicRichText } from '@prismicio/react';
 
 const Team = ({ title, primaryLink, primaryText, image }) => (
   <div className={styles['team']}>
@@ -11,11 +11,7 @@ const Team = ({ title, primaryLink, primaryText, image }) => (
             field={title}
             components={{
               paragraph: ({ children }) => <>{children}</>,
-              strong: ({ children }) => (
-                <span>
-                  {children}
-                </span>
-              ),
+              strong: ({ children }) => <span>{children}</span>,
             }}
           />
         </h3>

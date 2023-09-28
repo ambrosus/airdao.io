@@ -1,10 +1,10 @@
 import styles from './roles.module.scss';
 import img from './infl.svg';
 import Image from 'next/image';
-import {Button} from '@airdao/ui-library';
-import {PrismicRichText} from '@prismicio/react';
+import { Button } from '@airdao/ui-library';
+import { PrismicRichText } from '@prismicio/react';
 
-const Roles = ({ title, text, primaryText, list, primaryLink}) => (
+const Roles = ({ title, text, primaryText, list, primaryLink }) => (
   <div className={styles.roles}>
     <div className="container">
       <PrismicRichText

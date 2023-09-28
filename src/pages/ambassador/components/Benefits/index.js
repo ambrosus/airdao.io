@@ -1,7 +1,7 @@
 import styles from './benefits.module.scss';
 import img from './amb.svg';
 import Image from 'next/image';
-import {PrismicRichText} from '@prismicio/react';
+import { PrismicRichText } from '@prismicio/react';
 
 const Benefits = ({ title, list }) => (
   <div className={`container ${styles.benefits}`}>
