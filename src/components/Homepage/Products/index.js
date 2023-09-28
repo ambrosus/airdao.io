@@ -1,80 +1,72 @@
 import BlockLabel from '@/components/BlockLabel';
 import { Button } from '@airdao/ui-library';
-import staking from './staking.svg';
-import bridge from './bridge.svg';
-import Image from 'next/image';
 import styles from './products.module.scss';
+import {PrismicRichText} from '@prismicio/react';
+import {asText} from '@prismicio/client';
 
-const Products = () => (
+const Products = ({ title, products }) => (
   <section className="container">
     <p className={styles.products__title}>
-      <span>Our products</span> supercharge your DeFi journey
+      <PrismicRichText
+        field={title}
+        components={{
+          paragraph: ({ children }) => <>{children}</>,
+          strong: ({ children }) => (
+            <span>
+              {children}
+            </span>
+          ),
+        }}
+      />
     </p>
     <div className={styles.products}>
-      <div className={styles['product']}>
-        <div>
-          <BlockLabel>staking</BlockLabel>
-          <p className={styles['product__title']}>
-            Help secure the AirDAO network and earn AMB rewards
-          </p>
-          <Button type="secondary" size="large" className={styles['product__btn']}>
-            Start earning
-          </Button>
-          <Button type="tetiary" size="large">
-            Learn more
-          </Button>
+      {products.map((el) => (
+        <div key={asText(el.label)} className={styles['product']}>
+          <div>
+            <PrismicRichText
+              field={el.label}
+              components={{
+                paragraph: ({ children }) => (
+                  <BlockLabel>{children}</BlockLabel>
+                ),
+              }}
+            />
+            <PrismicRichText
+              field={el.title}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className={styles['product__title']}>{children}</p>
+                ),
+              }}
+            />
+            <PrismicRichText
+              field={el.primary_text}
+              components={{
+                paragraph: ({ children }) => (
+                  <a href={el.primary_link.url}>
+                    <Button type="secondary" size="large" className={styles['product__btn']}>
+                      {children}
+                    </Button>
+                  </a>
+                ),
+              }}
+            />
+            <PrismicRichText
+              field={el.secondary_text}
+              components={{
+                paragraph: ({ children }) => (
+                  <a href={el.secondary_link.url}>
+                    <Button type="tetiary" size="large">
+                      {children}
+                    </Button>
+                  </a>
+                ),
+              }}
+            />
+          </div>
+          <img src={el.image.url} alt="staking" />
         </div>
-        <Image src={staking} alt="staking" />
-      </div>
-      <div className={styles['product']}>
-        <div>
-          <BlockLabel>staking</BlockLabel>
-          <p className={styles['product__title']}>
-            Help secure the AirDAO network and earn AMB rewards
-          </p>
-          <Button type="secondary" size="large" className={styles['product__btn']}>
-            Start earning
-          </Button>
-          <Button type="tetiary" size="large">
-            Learn more
-          </Button>
-        </div>
-        <Image src={bridge} alt="staking" />
-      </div>
-      <div className={styles['product']}>
-        <div>
-          <BlockLabel>staking</BlockLabel>
-          <p className={styles['product__title']}>
-            Help secure the AirDAO network and earn AMB rewards
-          </p>
-          <Button type="secondary" size="large" className={styles['product__btn']}>
-            Start earning
-          </Button>
-          <Button type="tetiary" size="large">
-            Learn more
-          </Button>
-        </div>
-        <Image src={staking} alt="staking" />
-      </div>
-      <div className={styles['product']}>
-        <div>
-          <BlockLabel>staking</BlockLabel>
-          <p className={styles['product__title']}>
-            Help secure the AirDAO network and earn AMB rewards
-          </p>
-          <Button
-            type="secondary"
-            size="large"
-            className={styles['product__btn']}
-          >
-            Start earning
-          </Button>
-          <Button type="tetiary" size="large">
-            Learn more
-          </Button>
-        </div>
-        <Image src={staking} alt="staking" />
-      </div>
+      ))}
     </div>
   </section>
 );

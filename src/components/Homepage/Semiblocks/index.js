@@ -9,60 +9,115 @@ import telegram from './telegram.svg';
 import x from './x.svg';
 import youtube from './youtube.svg';
 import Image from 'next/image';
+import {PrismicRichText} from '@prismicio/react';
 
-const Semiblocks = () => (
+const Semiblocks = (props) => (
   <div className={styles['semiblocks']}>
     <div className={styles['governance']}>
-      <BlockLabel className={styles['semiblocks__label']}>
-        governance
-      </BlockLabel>
-      <p className={styles['semiblocks__title']}>Democracy, decentralized</p>
-      <p className={styles['semiblocks__text']}>Our community-led DAO governance puts power in your hands.</p>
+      <PrismicRichText
+        field={props.governanceLabel}
+        components={{
+          paragraph: ({ children }) => (
+            <BlockLabel className={styles['semiblocks__label']}>
+              {children}
+            </BlockLabel>
+          ),
+        }}
+      />
+      <PrismicRichText
+        field={props.governanceTitle}
+        components={{
+          paragraph: ({ children }) => (
+            <p className={styles['semiblocks__title']}>{children}</p>
+          ),
+        }}
+      />
+      <PrismicRichText
+        field={props.governanceText}
+        components={{
+          paragraph: ({ children }) => (
+            <p className={styles['semiblocks__text']}>{children}</p>
+          ),
+        }}
+      />
       <div className={styles['governance__btns']}>
-        <Button type="primary" size="large">
-          See recent votes
-        </Button>
-        <Button className={styles['semiblocks__btn']} type="tetiary" size="large">
-          Learn more
-        </Button>
+        <PrismicRichText
+          field={props.governancePrimaryText}
+          components={{
+            paragraph: ({ children }) => (
+              <a href={props.governancePrimaryLink.url}>
+                <Button type="primary" size="large">
+                  {children}
+                </Button>
+              </a>
+            ),
+          }}
+        />
+        <PrismicRichText
+          field={props.governanceSecondaryText}
+          components={{
+            paragraph: ({ children }) => (
+              <a href={props.governanceSecondaryLink.url}>
+                <Button className={styles['semiblocks__btn']} type="primary" size="large">
+                  {children}
+                </Button>
+              </a>
+            ),
+          }}
+        />
       </div>
     </div>
     <div className={styles['community']}>
-      <BlockLabel className={styles['semiblocks__label']}>
-        COMMUNITY
-      </BlockLabel>
-      <p className={styles['semiblocks__title']}>Be a part of something bigger</p>
-      <p className={styles['semiblocks__text']}>
-        Join our vibrant community of supporters and developers. Engage in
-        discussions, follow our socials, and be a part of the AirDAO revolution.
-      </p>
+      <PrismicRichText
+        field={props.communityLabel}
+        components={{
+          paragraph: ({ children }) => (
+            <BlockLabel className={styles['semiblocks__label']}>
+              {children}
+            </BlockLabel>
+          ),
+        }}
+      />
+      <PrismicRichText
+        field={props.communityTitle}
+        components={{
+          paragraph: ({ children }) => (
+            <p className={styles['semiblocks__title']}>{children}</p>
+          ),
+        }}
+      />
+      <PrismicRichText
+        field={props.communityText}
+        components={{
+          paragraph: ({ children }) => (
+            <p className={styles['semiblocks__text']}>{children}</p>
+          ),
+        }}
+      />
       <div className={styles['community__btns']}>
         <div className={styles['community__socials']}>
-          <a href="google">
-            <Image src={x} alt="x" />
-          </a>
-          <a href="google">
-            <Image src={telegram} alt="telegram" />
-          </a>
-          <a href="google">
-            <Image src={discord} alt="discord" />
-          </a>
-          <a href="google">
-            <Image src={reddit} alt="reddit" />
-          </a>
-          <a href="google">
-            <Image src={youtube} alt="youtube" />
-          </a>
-          <a href="google">
-            <Image src={discord} alt="discord" />
-          </a>
-          <a href="google">
-            <Image src={linkedin} alt="linkedin" />
-          </a>
+          {props.communitySocials.map((el) => (
+            <a key={el.link.url} href={el.link.url}>
+              <img src={el.image.url} alt="social" />
+            </a>
+          ))}
         </div>
-        <Button className={styles['semiblocks__btn']} type="tetiary" size="large">
-          Contact us
-        </Button>
+        <PrismicRichText
+          field={props.communityPrimaryText}
+          components={{
+            paragraph: ({ children }) => (
+              <a href={props.communityPrimaryLink.url}>
+                <Button
+                  className={styles['semiblocks__btn']}
+                  type="tetiary"
+                  size="large"
+                >
+                  {children}
+                </Button>
+              </a>
+            ),
+          }}
+        />
       </div>
     </div>
   </div>

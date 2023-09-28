@@ -9,5 +9,6 @@ export const components = {
   blog_wrapped_text: dynamic(() => import("./BlogWrappedText")),
   cex_card: dynamic(() => import("./CexCard")),
   footer_item: dynamic(() => import("./FooterItem")),
+  multi_line: dynamic(() => import("./MultiLine")),
   nav_item: dynamic(() => import("./NavItem")),
 };

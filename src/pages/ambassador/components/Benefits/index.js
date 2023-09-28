@@ -1,84 +1,40 @@
 import styles from './benefits.module.scss';
 import img from './amb.svg';
 import Image from 'next/image';
+import {PrismicRichText} from '@prismicio/react';
 
-const Benefits = () => (
+const Benefits = ({ title, list }) => (
   <div className={`container ${styles.benefits}`}>
-    <h2 className={styles.benefits__title}>Why join our Ambassador Program?</h2>
+    <PrismicRichText
+      field={title}
+      components={{
+        paragraph: ({ children }) => (
+          <h2 className={styles.benefits__title}>{children}</h2>
+        ),
+      }}
+    />
     <div className={styles.benefits__list}>
-      <div className={styles.benefits__item}>
-        <Image src={img} alt="benefit" />
-        <p className={styles['benefits__item-title']}>AMB token rewards</p>
-        <p className={styles['benefits__item-text']}>
-          Earn AMB for growing our community, creating content, organizing
-          events, and developing tools.
-        </p>
-      </div>
-      <div className={styles.benefits__item}>
-        <Image src={img} alt="benefit" />
-        <p className={styles['benefits__item-title']}>AMB token rewards</p>
-        <p className={styles['benefits__item-text']}>
-          Earn AMB for growing our community, creating content, organizing
-          events, and developing tools.
-        </p>
-      </div>
-      <div className={styles.benefits__item}>
-        <Image src={img} alt="benefit" />
-        <p className={styles['benefits__item-title']}>AMB token rewards</p>
-        <p className={styles['benefits__item-text']}>
-          Earn AMB for growing our community, creating content, organizing
-          events, and developing tools.
-        </p>
-      </div>
-      <div className={styles.benefits__item}>
-        <Image src={img} alt="benefit" />
-        <p className={styles['benefits__item-title']}>AMB token rewards</p>
-        <p className={styles['benefits__item-text']}>
-          Earn AMB for growing our community, creating content, organizing
-          events, and developing tools.
-        </p>
-      </div>
-      <div className={styles.benefits__item}>
-        <Image src={img} alt="benefit" />
-        <p className={styles['benefits__item-title']}>AMB token rewards</p>
-        <p className={styles['benefits__item-text']}>
-          Earn AMB for growing our community, creating content, organizing
-          events, and developing tools.
-        </p>
-      </div>
-      <div className={styles.benefits__item}>
-        <Image src={img} alt="benefit" />
-        <p className={styles['benefits__item-title']}>AMB token rewards</p>
-        <p className={styles['benefits__item-text']}>
-          Earn AMB for growing our community, creating content, organizing
-          events, and developing tools.
-        </p>
-      </div>
-      <div className={styles.benefits__item}>
-        <Image src={img} alt="benefit" />
-        <p className={styles['benefits__item-title']}>AMB token rewards</p>
-        <p className={styles['benefits__item-text']}>
-          Earn AMB for growing our community, creating content, organizing
-          events, and developing tools.
-        </p>
-      </div>
-      <div className={styles.benefits__item}>
-        <Image src={img} alt="benefit" />
-        <p className={styles['benefits__item-title']}>AMB token rewards</p>
-        <p className={styles['benefits__item-text']}>
-          Earn AMB for growing our community, creating content, organizing
-          events, and developing tools.
-        </p>
-      </div>
-      <div className={styles.benefits__item}>
-        <Image src={img} alt="benefit" />
-        <p className={styles['benefits__item-title']}>AMB token rewards</p>
-        <p className={styles['benefits__item-text']}>
-          Earn AMB for growing our community, creating content, organizing
-          Earn AMB for growing our community, creating content, organizing
-          events, and developing tools.
-        </p>
-      </div>
+      {list.map((el) => (
+        <div key={el.image.url} className={styles.benefits__item}>
+          <img src={el.image.url} alt="benefit" />
+          <PrismicRichText
+            field={el.title}
+            components={{
+              paragraph: ({ children }) => (
+                <p className={styles['benefits__item-title']}>{children}</p>
+              ),
+            }}
+          />
+          <PrismicRichText
+            field={el.text}
+            components={{
+              paragraph: ({ children }) => (
+                <p className={styles['benefits__item-text']}>{children}</p>
+              ),
+            }}
+          />
+        </div>
+      ))}
     </div>
   </div>
 );

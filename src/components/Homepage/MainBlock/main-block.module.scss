@@ -1,5 +1,5 @@
 .main-block {
-  overflow: auto;
+  position: relative;
 }
 
 .main-block__title {
@@ -94,5 +94,27 @@
 
   img:nth-child(3), img:nth-child(8) {
     opacity: 0.6;
+  }
+}
+
+.shape {
+  position: absolute;
+  width: 150px;
+  left: -50px;
+  transform: rotate(-10deg);
+  top: -150px;
+  height: auto;
+}
+
+.shape-right {
+  left: unset;
+  right: -50px;
+  width: 120px;
+  top: unset;
+  bottom: 200px;
+  transform: scale(1, -1) rotate(-10deg);
+
+  @media screen and (max-width: 768px) {
+    bottom: 70px;
   }
 }

@@ -1,21 +1,39 @@
 import styles from './team.module.scss';
 import { Button } from '@airdao/ui-library';
-import Image from 'next/image';
-import teamImg from './team.png';
+import {PrismicRichText} from '@prismicio/react';
 
-const Team = () => (
+const Team = ({ title, primaryLink, primaryText, image }) => (
   <div className={styles['team']}>
     <div className={`container ${styles['team__wrapper']}`}>
       <div className={styles['team__left']}>
         <h3 className={styles['team__title']}>
-          More than <span>30 people</span> worldwide working for the AirDAO community
+          <PrismicRichText
+            field={title}
+            components={{
+              paragraph: ({ children }) => <>{children}</>,
+              strong: ({ children }) => (
+                <span>
+                  {children}
+                </span>
+              ),
+            }}
+          />
         </h3>
-        <Button size="large" type="primary">
-          Meet the team
-        </Button>
+        <PrismicRichText
+          field={primaryText}
+          components={{
+            paragraph: ({ children }) => (
+              <a href={primaryLink.url}>
+                <Button size="large" type="primary">
+                  {children}
+                </Button>
+              </a>
+            ),
+          }}
+        />
       </div>
       <div className={styles['team__right']}>
-        <Image src={teamImg} alt="team" className={styles['team__img']} />
+        <img src={image.url} alt="team" className={styles['team__img']} />
       </div>
     </div>
   </div>

@@ -30,6 +30,10 @@
     font-size: 14px;
     line-height: 20px; /* 142.857% */
   }
+
+  @media screen and (max-width: 768px) {
+    max-width: 215px;
+  }
 }
 
 .articles__link {
