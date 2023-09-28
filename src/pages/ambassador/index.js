@@ -12,45 +12,47 @@ import orangeCircle from '@/assets/img/orange-circle.svg';
 
 const AmbassadorPage = ({ header, footerText, page }) => {
   return (
-    <div className={styles.ambassador}>
-      {header && <HeaderWrapper header={header} />}
-      <Hero
-        title={page.hero_title}
-        text={page.hero_text}
-        image={page.hero_image}
-        primaryLink={page.hero_primary_link}
-        primaryText={page.hero_primary_text}
-      />
-      <Roles
-        title={page.roles_title}
-        list={page.roles_list}
-        text={page.roles_text}
-        primaryText={page.roles_primary_text}
-        primaryLink={page.roles_primary_link}
-      />
-      <div className={homeStyles['articles-wrapper']}>
-        <Image
-          className={homeStyles['blue-circle']}
-          src={blueCircle}
-          alt="blue circle"
+    page && (
+      <div className={styles.ambassador}>
+        {header && <HeaderWrapper header={header} />}
+        <Hero
+          title={page.hero_title}
+          text={page.hero_text}
+          image={page.hero_image}
+          primaryLink={page.hero_primary_link}
+          primaryText={page.hero_primary_text}
         />
-        <Image
-          className={homeStyles['orange-circle']}
-          src={orangeCircle}
-          alt="orange circle"
+        <Roles
+          title={page.roles_title}
+          list={page.roles_list}
+          text={page.roles_text}
+          primaryText={page.roles_primary_text}
+          primaryLink={page.roles_primary_link}
         />
-        <Benefits title={page.benefits_title} list={page.benefits_list} />
+        <div className={homeStyles['articles-wrapper']}>
+          <Image
+            className={homeStyles['blue-circle']}
+            src={blueCircle}
+            alt="blue circle"
+          />
+          <Image
+            className={homeStyles['orange-circle']}
+            src={orangeCircle}
+            alt="orange circle"
+          />
+          <Benefits title={page.benefits_title} list={page.benefits_list} />
+        </div>
+        {footerText && (
+          <Footer
+            slices={footerText.data.slices}
+            mobileLink={footerText.data.footer_mobile_link_url}
+            mobileLinkText={footerText.data.footer_mobile_link_text}
+            mobileText={footerText.data.footer_mobile_text}
+            socials={footerText.data.footer_social}
+          />
+        )}
       </div>
-      {footerText && (
-        <Footer
-          slices={footerText.data.slices}
-          mobileLink={footerText.data.footer_mobile_link_url}
-          mobileLinkText={footerText.data.footer_mobile_link_text}
-          mobileText={footerText.data.footer_mobile_text}
-          socials={footerText.data.footer_social}
-        />
-      )}
-    </div>
+    )
   );
 };
 

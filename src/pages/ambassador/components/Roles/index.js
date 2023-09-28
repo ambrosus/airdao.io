@@ -4,62 +4,63 @@ import Image from 'next/image';
 import { Button } from '@airdao/ui-library';
 import { PrismicRichText } from '@prismicio/react';
 
-const Roles = ({ title, text, primaryText, list, primaryLink }) => (
-  <div className={styles.roles}>
-    <div className="container">
-      <PrismicRichText
-        field={title}
-        components={{
-          paragraph: ({ children }) => (
-            <p className={styles.roles__title}>{children}</p>
-          ),
-        }}
-      />
-      <div className={styles.roles__list}>
-        {list.map((el) => (
-          <div key={el.image.url} className={styles.roles__item}>
-            <img src={el.image.url} alt="role" />
-            <PrismicRichText
-              field={el.title}
-              components={{
-                paragraph: ({ children }) => (
-                  <p className={styles['roles__item-title']}>{children}</p>
-                ),
-              }}
-            />
-            <PrismicRichText
-              field={el.text}
-              components={{
-                paragraph: ({ children }) => (
-                  <p className={styles['roles__item-text']}>{children}</p>
-                ),
-              }}
-            />
-          </div>
-        ))}
+const Roles = ({ title, text, primaryText, list, primaryLink }) =>
+  title && (
+    <div className={styles.roles}>
+      <div className="container">
+        <PrismicRichText
+          field={title}
+          components={{
+            paragraph: ({ children }) => (
+              <p className={styles.roles__title}>{children}</p>
+            ),
+          }}
+        />
+        <div className={styles.roles__list}>
+          {list.map((el) => (
+            <div key={el.image.url} className={styles.roles__item}>
+              <img src={el.image.url} alt="role" />
+              <PrismicRichText
+                field={el.title}
+                components={{
+                  paragraph: ({ children }) => (
+                    <p className={styles['roles__item-title']}>{children}</p>
+                  ),
+                }}
+              />
+              <PrismicRichText
+                field={el.text}
+                components={{
+                  paragraph: ({ children }) => (
+                    <p className={styles['roles__item-text']}>{children}</p>
+                  ),
+                }}
+              />
+            </div>
+          ))}
+        </div>
+        <PrismicRichText
+          field={text}
+          components={{
+            paragraph: ({ children }) => (
+              <p className={styles.roles__subtext}>{children}</p>
+            ),
+          }}
+        />
+        <PrismicRichText
+          field={primaryText}
+          components={{
+            paragraph: ({ children }) => (
+              <a href={primaryLink.url}>
+                <Button type="secondary" size="large">
+                  {children}
+                </Button>
+              </a>
+            ),
+          }}
+        />
       </div>
-      <PrismicRichText
-        field={text}
-        components={{
-          paragraph: ({ children }) => (
-            <p className={styles.roles__subtext}>{children}</p>
-          ),
-        }}
-      />
-      <PrismicRichText
-        field={primaryText}
-        components={{
-          paragraph: ({ children }) => (
-            <a href={primaryLink.url}>
-              <Button type="secondary" size="large">
-                {children}
-              </Button>
-            </a>
-          ),
-        }}
-      />
     </div>
-  </div>
-);
+  );
 
 export default Roles;
