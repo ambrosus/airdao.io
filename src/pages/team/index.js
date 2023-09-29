@@ -1,10 +1,10 @@
 import { createClient } from '@/prismicio';
 import HeaderWrapper from '@/components/Header';
 import Footer from '@/components/Footer';
-import TextBlock from '@/pages/team/components/TextBlock';
-import Team from '@/pages/team/components/Team';
+import TextBlock from 'src/components/Team/TextBlock';
+import Team from 'src/components/Team/Team';
 import Marquee from '@/components/Marquee';
-import Structure from '@/pages/team/components/Structure';
+import Structure from 'src/components/Team/Structure';
 import Ambassadors from '@/components/Homepage/Ambassadors';
 
 const TeamPage = ({ header, footerText, page }) => (
