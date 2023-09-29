@@ -5,10 +5,22 @@
 .team__wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .team__left {
   padding: 113px 0;
+
+  @media screen and (max-width: 1024px) {
+    padding: 57px 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 44px 0;
+  }
 }
 
 .team__title {
@@ -24,11 +36,27 @@
     color: var(--blue-500, #457EFF);
     font-family: var(--font-rationell);
   }
+
+  @media screen and (max-width: 1024px) {
+    font-size: 28px;
+    line-height: 40px;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 24px;
+  }
 }
 
 .team__right {
   position: relative;
   overflow: hidden;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+  }
 
   &:after {
     content: '';
@@ -36,6 +64,10 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(180deg, #F3F3F3 -2.69%, rgba(255, 255, 255, 0.00) 48.66%, #F3F3F3 102.19%);
+
+    @media screen and (max-width: 768px) {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 48.66%, #F3F3F3 102.19%);
+    }
   }
 }
 
@@ -46,4 +78,12 @@
   position: absolute;
   max-width: 636px;
   object-fit: contain;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    left: unset;
+  }
 }

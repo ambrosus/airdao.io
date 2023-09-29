@@ -14,29 +14,105 @@ import ArticlesList from '@/components/ArticlesList';
 import styles from '../components/Homepage/homepage.module.scss';
 import Marquee from '@/components/Marquee';
 import Image from 'next/image';
-import marqueeImg from '@/components/Marquee/marquee-img.svg';
 import React from 'react';
-import styles2 from '../components/Marquee/marquee.module.scss';
 import App from '@/components/Homepage/App';
+import blueCircle from '@/assets/img/blue-circle.svg';
+import orangeCircle from '@/assets/img/orange-circle.svg';
+import { asText } from '@prismicio/client';
+
 export default function Home({ page, header, footerText, latestArticles }) {
   const { data } = page;
   return (
-    <>
+    <div className={styles['homepage']}>
       <HeaderWrapper header={header} />
-      <MainBlock />
-      <Community />
-      <Products />
-      <Mission />
+      <div className={styles['main-block-wrapper']}>
+        <Image
+          className={styles['blue-circle']}
+          src={blueCircle}
+          alt="blue circle"
+        />
+        <Image
+          className={styles['orange-circle']}
+          src={orangeCircle}
+          alt="orange circle"
+        />
+        <MainBlock
+          title={data.title}
+          subtitle={data.subtitle}
+          label={data.label}
+          partners={data.partners}
+        />
+      </div>
+      <Community
+        text={data.text}
+        primaryLink={data.primary_btn_link}
+        primaryText={data.primary_btn_text}
+        secondaryLink={data.secondary_btn_link}
+        secondaryText={data.secondary_btn_text}
+      />
+      <Products title={data.product_title} products={data.products} />
+      <Mission
+        label={data.mission_label}
+        title={data.mission_title}
+        text={data.mission_text}
+      />
       <Marquee />
-      <Team />
-      <Network />
-      <Ambassadors />
-      <Semiblocks />
-      <App />
+      <Team
+        title={data.team_title}
+        primaryText={data.team_primary_text}
+        primaryLink={data.team_primary_link}
+        image={data.team_image}
+      />
+      <Network
+        title={data.network_title}
+        label={data.network_label}
+        primaryText={data.network_primary_text}
+        primaryLink={data.network_primary_link}
+        info={data.network_info}
+      />
+      <div className={styles['ambassadors-wrapper']}>
+        <Image
+          className={styles['blue-circle']}
+          src={orangeCircle}
+          alt="blue circle"
+        />
+        <Image
+          className={styles['orange-circle']}
+          src={blueCircle}
+          alt="orange circle"
+        />
+        <Ambassadors />
+      </div>
+      <Semiblocks
+        governanceTitle={data.governance_title}
+        governanceText={data.governance_text}
+        governanceLabel={data.governance_label}
+        governancePrimaryLink={data.governance_primary_link}
+        governancePrimaryText={data.governance_primary_text}
+        governanceSecondaryLink={data.governance_secondary_link}
+        governanceSecondaryText={data.governance_secondary_text}
+        communityTitle={data.community_title}
+        communityLabel={data.community_label}
+        communityText={data.community_text}
+        communityPrimaryText={data.community_primary_text}
+        communityPrimaryLink={data.community_primary_link}
+        communitySocials={data.community_socials}
+      />
+      <App title={data.app_title} list={data.app_list} />
       <div className={styles['articles-wrapper']}>
+        <Image
+          className={styles['blue-circle']}
+          src={blueCircle}
+          alt="blue circle"
+        />
+        <Image
+          className={styles['orange-circle']}
+          src={orangeCircle}
+          alt="orange circle"
+        />
         <ArticlesList
-          title="Blog"
-          subtitle="Discover articles, governance insights, events, and more"
+          title={asText(data.blog_title)}
+          subtitle={asText(data.blog_subtitle)}
           goToText="Go to blog"
           goToLink="/"
           articles={latestArticles}
@@ -49,7 +125,7 @@ export default function Home({ page, header, footerText, latestArticles }) {
         mobileText={footerText.data.footer_mobile_text}
         socials={footerText.data.footer_social}
       />
-    </>
+    </div>
   );
 }
 

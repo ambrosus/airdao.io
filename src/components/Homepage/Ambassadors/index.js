@@ -10,7 +10,7 @@ import ambassador7 from './ambassador-7.png';
 import ambassador8 from './ambassador-8.png';
 import ambassador9 from './ambassador-9.png';
 import Image from 'next/image';
-import {Button} from '@airdao/ui-library';
+import { Button } from '@airdao/ui-library';
 
 const Ambassadors = () => (
   <div className={styles['ambassadors']}>

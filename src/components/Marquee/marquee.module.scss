@@ -13,6 +13,17 @@
   gap: 48px;
   padding: 48px 0;
   animation: scroll 20s linear infinite;
+
+  @media screen and (max-width: 1024px) {
+    padding: 16px 0;
+    gap: 16px;
+    animation: scrollMobile 10s linear infinite;
+
+    img {
+      width: 43px;
+      height: 43px;
+    }
+  }
 }
 
 @keyframes scroll {
@@ -24,6 +35,15 @@
   }
 }
 
+@keyframes scrollMobile {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-890px));
+  }
+}
+
 
 .marquee-block__text {
   color: var(--neutral-700, #222426);
@@ -31,4 +51,9 @@
   font-size: 72px;
   font-weight: 600;
   line-height: 57px; /* 79.167% */
+
+  @media screen and (max-width: 1024px) {
+    line-height: 57px; /* 142.5% */
+    font-size: 40px;
+  }
 }

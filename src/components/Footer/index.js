@@ -58,7 +58,9 @@ const Footer = ({
                   </a>
                 )}
                 {item.footer_item_is_soon && (
-                  <span className={styles['footer__lists-soon']}>COMING SOON</span>
+                  <span className={styles['footer__lists-soon']}>
+                    COMING SOON
+                  </span>
                 )}
               </li>
             ))}

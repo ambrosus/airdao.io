@@ -3,24 +3,48 @@ import Image from 'next/image';
 import appStore from './appstore.svg';
 import googlePlay from './googlplay.svg';
 import app from './app.svg';
+import { PrismicRichText } from '@prismicio/react';
+import { asText } from '@prismicio/client';
 
-const App = () => (
+const App = ({ title, list }) => (
   <div className={`container`}>
     <div className={styles.app}>
       <div className={styles.app__left}>
         <p className={styles.app__title}>
-          Take AirDAO <span>everywhere</span>
+          <PrismicRichText
+            field={title}
+            components={{
+              paragraph: ({ children }) => <>{children}</>,
+              strong: ({ children }) => <span>{children}</span>,
+            }}
+          />
         </p>
         <ul className={styles.app__list}>
-          <li className={styles['app__list-item']}>Manage your portfolio</li>
-          <li className={styles['app__list-item']}>Send and receive tokens</li>
-          <li className={styles['app__list-item']}>Watch AMB wallets</li>
+          {list.map((el) => (
+            <PrismicRichText
+              field={el.item}
+              key={asText(el.item)}
+              components={{
+                paragraph: ({ children }) => (
+                  <li className={styles['app__list-item']}>{children}</li>
+                ),
+              }}
+            />
+          ))}
         </ul>
-        <Image className={styles.app__appstore} src={appStore} alt="app store" />
-        <Image src={googlePlay} alt="google play" />
+        <Image
+          className={styles.app__appstore}
+          src={appStore}
+          alt="app store"
+        />
+        <Image
+          className={styles.app__google}
+          src={googlePlay}
+          alt="google play"
+        />
       </div>
       <div className={styles.app__right}>
-        <Image src={app} alt="app"/>
+        <Image src={app} alt="app" />
       </div>
     </div>
   </div>

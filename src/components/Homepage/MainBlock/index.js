@@ -1,27 +1,53 @@
 import styles from './main-block.module.scss';
 import BlockLabel from '@/components/BlockLabel';
 import Image from 'next/image';
-import ku from './kucoin.svg';
+import { PrismicRichText } from '@prismicio/react';
+import shape from './shape.svg';
 
-const MainBlock = () => (
+const MainBlock = ({ title, label, partners, subtitle }) => (
   <section className={`container ${styles['main-block']}`}>
-    <h1 className={styles['main-block__title']}>Redefining Governance</h1>
-    <p className={styles['main-block__subtitle']}>
-      AirDAO is a community-governed layer one blockchain and ecosystem of web3
-      dApps, powered by AMB.
-    </p>
-    <BlockLabel className={styles['main-block__label']}>TRUSTED BY</BlockLabel>
+    <Image className={styles.shape} src={shape} alt="shape" />
+    <Image
+      className={`${styles.shape} ${styles['shape-right']}`}
+      src={shape}
+      alt="shape"
+    />
+    <PrismicRichText
+      field={title}
+      components={{
+        paragraph: ({ children }) => (
+          <h1 className={styles['main-block__title']}>{children}</h1>
+        ),
+      }}
+    />
+    <PrismicRichText
+      field={subtitle}
+      components={{
+        paragraph: ({ children }) => (
+          <p className={styles['main-block__subtitle']}>{children}</p>
+        ),
+      }}
+    />
+    <PrismicRichText
+      field={label}
+      components={{
+        paragraph: ({ children }) => (
+          <BlockLabel className={styles['main-block__label']}>
+            {children}
+          </BlockLabel>
+        ),
+      }}
+    />
     <div className={styles['main-block__partners']}>
-      <Image src={ku} alt="ku" />
-      <Image src={ku} alt="ku" />
-      <Image src={ku} alt="ku" />
-      <Image src={ku} alt="ku" />
-      <Image src={ku} alt="ku" />
-      <Image src={ku} alt="ku" />
-      <Image src={ku} alt="ku" />
-      <Image src={ku} alt="ku" />
-      <Image src={ku} alt="ku" />
-      <Image src={ku} alt="ku" />
+      {partners.map((el) => (
+        <Image
+          width={52}
+          height={52}
+          key={el.partner.url}
+          src={el.partner.url}
+          alt="partner"
+        />
+      ))}
     </div>
   </section>
 );
