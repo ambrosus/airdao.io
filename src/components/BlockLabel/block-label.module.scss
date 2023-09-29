@@ -12,6 +12,8 @@
   line-height: 20px; /* 142.857% */
   letter-spacing: 2.66px;
   width: fit-content;
+  height: fit-content;
+  white-space: nowrap;
   text-transform: uppercase;
 
   @media screen and (max-width: 1024px) {
