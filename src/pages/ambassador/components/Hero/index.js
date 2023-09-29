@@ -1,6 +1,7 @@
 import styles from './hero.module.scss';
 import { Button } from '@airdao/ui-library';
 import { PrismicRichText } from '@prismicio/react';
+import Link from 'next/link';
 
 const Hero = ({ title, text, primaryLink, primaryText, image }) =>
   title && (
@@ -26,11 +27,11 @@ const Hero = ({ title, text, primaryLink, primaryText, image }) =>
           field={primaryText}
           components={{
             paragraph: ({ children }) => (
-              <a href={primaryLink.url} className={styles.hero__btn}>
+              <Link href={primaryLink.url} className={styles.hero__btn}>
                 <Button type="secondary" size="large">
                   {children}
                 </Button>
-              </a>
+              </Link>
             ),
           }}
         />

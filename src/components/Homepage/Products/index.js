@@ -3,6 +3,7 @@ import { Button } from '@airdao/ui-library';
 import styles from './products.module.scss';
 import { PrismicRichText } from '@prismicio/react';
 import { asText } from '@prismicio/client';
+import Link from 'next/link';
 
 const Products = ({ title, products }) => (
   <section className="container">
@@ -39,7 +40,7 @@ const Products = ({ title, products }) => (
               field={el.primary_text}
               components={{
                 paragraph: ({ children }) => (
-                  <a href={el.primary_link.url}>
+                  <Link href={el.primary_link.url.replace('https://', '')}>
                     <Button
                       type="secondary"
                       size="large"
@@ -47,7 +48,7 @@ const Products = ({ title, products }) => (
                     >
                       {children}
                     </Button>
-                  </a>
+                  </Link>
                 ),
               }}
             />
@@ -55,11 +56,11 @@ const Products = ({ title, products }) => (
               field={el.secondary_text}
               components={{
                 paragraph: ({ children }) => (
-                  <a href={el.secondary_link.url}>
+                  <Link href={el.secondary_link.url}>
                     <Button type="tetiary" size="large">
                       {children}
                     </Button>
-                  </a>
+                  </Link>
                 ),
               }}
             />

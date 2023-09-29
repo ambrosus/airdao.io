@@ -1,6 +1,7 @@
 import styles from './team.module.scss';
 import { Button } from '@airdao/ui-library';
 import { PrismicRichText } from '@prismicio/react';
+import Link from 'next/link';
 
 const Team = ({ title, primaryLink, primaryText, image }) => (
   <div className={styles['team']}>
@@ -19,11 +20,11 @@ const Team = ({ title, primaryLink, primaryText, image }) => (
           field={primaryText}
           components={{
             paragraph: ({ children }) => (
-              <a href={primaryLink.url}>
+              <Link href={primaryLink.url.replace('https://', '')}>
                 <Button size="large" type="primary">
                   {children}
                 </Button>
-              </a>
+              </Link>
             ),
           }}
         />

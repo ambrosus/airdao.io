@@ -293,21 +293,20 @@
           "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
-      "network_primary_link": {
-        "type": "StructuredText",
-        "config": {
-          "label": "network primary link",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-        }
-      },
       "network_image": {
         "type": "Image",
         "config": {
           "label": "network image",
           "constraint": {},
           "thumbnails": []
+        }
+      },
+      "network_primary_link": {
+        "type": "Link",
+        "config": {
+          "label": "network primary link",
+          "placeholder": "",
+          "select": null
         }
       }
     },

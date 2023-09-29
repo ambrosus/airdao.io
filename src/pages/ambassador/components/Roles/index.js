@@ -3,6 +3,7 @@ import img from './infl.svg';
 import Image from 'next/image';
 import { Button } from '@airdao/ui-library';
 import { PrismicRichText } from '@prismicio/react';
+import Link from 'next/link';
 
 const Roles = ({ title, text, primaryText, list, primaryLink }) =>
   title && (
@@ -51,11 +52,11 @@ const Roles = ({ title, text, primaryText, list, primaryLink }) =>
           field={primaryText}
           components={{
             paragraph: ({ children }) => (
-              <a href={primaryLink.url}>
+              <Link href={primaryLink.url}>
                 <Button type="secondary" size="large">
                   {children}
                 </Button>
-              </a>
+              </Link>
             ),
           }}
         />

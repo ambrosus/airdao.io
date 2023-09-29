@@ -10,6 +10,7 @@ import x from './x.svg';
 import youtube from './youtube.svg';
 import Image from 'next/image';
 import { PrismicRichText } from '@prismicio/react';
+import Link from 'next/link';
 
 const Semiblocks = (props) => (
   <div className={styles['semiblocks']}>
@@ -45,11 +46,11 @@ const Semiblocks = (props) => (
           field={props.governancePrimaryText}
           components={{
             paragraph: ({ children }) => (
-              <a href={props.governancePrimaryLink.url}>
+              <Link href={props.governancePrimaryLink.url.replace('https://', '')}>
                 <Button type="primary" size="large">
                   {children}
                 </Button>
-              </a>
+              </Link>
             ),
           }}
         />
@@ -57,7 +58,7 @@ const Semiblocks = (props) => (
           field={props.governanceSecondaryText}
           components={{
             paragraph: ({ children }) => (
-              <a href={props.governanceSecondaryLink.url}>
+              <Link href={props.governanceSecondaryLink.url}>
                 <Button
                   className={styles['semiblocks__btn']}
                   type="primary"
@@ -65,7 +66,7 @@ const Semiblocks = (props) => (
                 >
                   {children}
                 </Button>
-              </a>
+              </Link>
             ),
           }}
         />
@@ -101,16 +102,16 @@ const Semiblocks = (props) => (
       <div className={styles['community__btns']}>
         <div className={styles['community__socials']}>
           {props.communitySocials.map((el) => (
-            <a key={el.link.url} href={el.link.url}>
+            <Link key={el.link.url} href={el.link.url}>
               <img src={el.image.url} alt="social" />
-            </a>
+            </Link>
           ))}
         </div>
         <PrismicRichText
           field={props.communityPrimaryText}
           components={{
             paragraph: ({ children }) => (
-              <a href={props.communityPrimaryLink.url}>
+              <Link href={props.communityPrimaryLink.url.replace('https://', '')}>
                 <Button
                   className={styles['semiblocks__btn']}
                   type="tetiary"
@@ -118,7 +119,7 @@ const Semiblocks = (props) => (
                 >
                   {children}
                 </Button>
-              </a>
+              </Link>
             ),
           }}
         />

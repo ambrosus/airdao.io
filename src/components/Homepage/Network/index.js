@@ -5,6 +5,7 @@ import amb from './amb.svg';
 import { Button } from '@airdao/ui-library';
 import { PrismicRichText } from '@prismicio/react';
 import { asText } from '@prismicio/client';
+import Link from 'next/link';
 
 const Network = ({ label, title, primaryLink, primaryText, info }) => (
   <div className={`container ${styles['network']}`}>
@@ -49,11 +50,11 @@ const Network = ({ label, title, primaryLink, primaryText, info }) => (
         field={primaryText}
         components={{
           paragraph: ({ children }) => (
-            <a href={primaryLink.url}>
+            <Link href={primaryLink.url.replace('https://', '')}>
               <Button size="large" type="primary">
                 {children}
               </Button>
-            </a>
+            </Link>
           ),
         }}
       />

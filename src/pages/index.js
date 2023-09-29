@@ -22,6 +22,7 @@ import { asText } from '@prismicio/client';
 
 export default function Home({ page, header, footerText, latestArticles }) {
   const { data } = page;
+  console.log(data);
   return (
     <div className={styles['homepage']}>
       <HeaderWrapper header={header} />
