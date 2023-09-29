@@ -111,7 +111,7 @@
       "tech": {
         "type": "Group",
         "config": {
-          "label": "Council and Operations",
+          "label": "Tech",
           "fields": {
             "avatar": {
               "type": "Image",
@@ -163,7 +163,7 @@
       "community": {
         "type": "Group",
         "config": {
-          "label": "Council and Operations",
+          "label": "Community",
           "fields": {
             "avatar": {
               "type": "Image",
