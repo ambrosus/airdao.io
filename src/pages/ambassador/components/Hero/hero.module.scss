@@ -36,7 +36,9 @@
   font-size: 56px;
   font-weight: 700;
   line-height: 68.5px; /* 122.321% */
-  color: #457EFF;
+  background: -webkit-linear-gradient(#457EFF, #3568DD);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
   max-width: 675px;
 
   @media screen and (max-width: 1024px) {
@@ -51,6 +53,7 @@
   font-size: 24px;
   font-weight: 500;
   line-height: 32px; /* 133.333% */
+  letter-spacing: -0.384px;
 
   @media screen and (max-width: 1024px) {
     font-size: 18px;
