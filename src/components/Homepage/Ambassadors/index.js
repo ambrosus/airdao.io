@@ -1,18 +1,9 @@
 import styles from './ambassarods.module.scss';
 import BlockLabel from '@/components/BlockLabel';
-import ambassador1 from './ambassador-1.png';
-import ambassador2 from './ambassador-2.png';
-import ambassador3 from './ambassador-3.png';
-import ambassador4 from './ambassador-4.png';
-import ambassador5 from './ambassador-5.png';
-import ambassador6 from './ambassador-6.png';
-import ambassador7 from './ambassador-7.png';
-import ambassador8 from './ambassador-8.png';
-import ambassador9 from './ambassador-9.png';
 import chevron from '../../../assets/icons/chevron.svg';
 import Image from 'next/image';
 import { Button } from '@airdao/ui-library';
-import {PrismicRichText} from '@prismicio/react';
+import { PrismicRichText } from '@prismicio/react';
 import Link from 'next/link';
 
 const Ambassadors = ({
@@ -26,10 +17,17 @@ const Ambassadors = ({
   secondaryText,
 }) => (
   <div className={styles['ambassadors']}>
-    <BlockLabel className={styles['ambassadors__label']}>
-      AMBASSADORS
-    </BlockLabel>
-    <h3 className={styles['ambassadors__title']}>
+    <PrismicRichText
+      field={label}
+      components={{
+        paragraph: ({ children }) => (
+          <BlockLabel className={styles['ambassadors__label']}>
+            {children}
+          </BlockLabel>
+        ),
+      }}
+    />
+    <p className={styles['ambassadors__title']}>
       <PrismicRichText
         field={title}
         components={{
@@ -37,7 +35,7 @@ const Ambassadors = ({
           strong: ({ children }) => <span>{children}</span>,
         }}
       />
-    </h3>
+    </p>
     <PrismicRichText
       field={text}
       components={{
@@ -62,7 +60,7 @@ const Ambassadors = ({
         field={primaryText}
         components={{
           paragraph: ({ children }) => (
-            <Link href='/'>
+            <Link href={primaryLink.url.replace('https://', '')}>
               <Button type="primary" size="large">
                 {children}
               </Button>
@@ -77,7 +75,7 @@ const Ambassadors = ({
             <Link href={secondaryLink.url.replace('https://', '')}>
               <Button size="large">
                 {children}
-                <Image src={chevron} alt="chevron"/>
+                <Image src={chevron} alt="chevron" />
               </Button>
             </Link>
           ),

@@ -29,7 +29,16 @@ const TeamPage = ({ header, footerText, page }) => (
         cards={page.data.structure_cards}
         text={page.data.structure_text}
       />
-      <Ambassadors />
+      <Ambassadors
+        label={page.data.ambassadors_label}
+        title={page.data.ambassadors_title}
+        text={page.data.ambassadors_text}
+        images={page.data.ambassadors_images}
+        primaryText={page.data.ambassadors_primary_text}
+        primaryLink={page.data.ambassadors_primary_link}
+        secondaryText={page.data.ambassadors_secondary_text}
+        secondaryLink={page.data.ambassadors_secondary_link}
+      />
     </div>
     {footerText && (
       <Footer

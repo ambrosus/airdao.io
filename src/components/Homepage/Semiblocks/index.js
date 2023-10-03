@@ -40,7 +40,9 @@ const Semiblocks = (props) => (
           field={props.governancePrimaryText}
           components={{
             paragraph: ({ children }) => (
-              <Link href={props.governancePrimaryLink.url.replace('https://', '')}>
+              <Link
+                href={props.governancePrimaryLink.url.replace('https://', '')}
+              >
                 <Button type="primary" size="large">
                   {children}
                 </Button>
@@ -59,7 +61,7 @@ const Semiblocks = (props) => (
                   size="large"
                 >
                   {children}
-                  <Image src={chevron} alt="chevron"/>
+                  <Image src={chevron} alt="chevron" />
                 </Button>
               </Link>
             ),
@@ -106,14 +108,16 @@ const Semiblocks = (props) => (
           field={props.communityPrimaryText}
           components={{
             paragraph: ({ children }) => (
-              <Link href={props.communityPrimaryLink.url.replace('https://', '')}>
+              <Link
+                href={props.communityPrimaryLink.url.replace('https://', '')}
+              >
                 <Button
                   className={styles['semiblocks__btn']}
                   type="tetiary"
                   size="large"
                 >
                   {children}
-                  <Image src={chevron} alt="chevron"/>
+                  <Image src={chevron} alt="chevron" />
                 </Button>
               </Link>
             ),
