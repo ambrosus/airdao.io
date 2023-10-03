@@ -8,7 +8,10 @@
     "Main": {
       "uid": {
         "type": "UID",
-        "config": { "label": "link", "placeholder": "" }
+        "config": {
+          "label": "link",
+          "placeholder": ""
+        }
       },
       "story": {
         "type": "StructuredText",
@@ -270,7 +273,10 @@
     "Ambassadors": {
       "ambassadors_pre_text": {
         "type": "Text",
-        "config": { "label": "ambassadors pre test", "placeholder": "" }
+        "config": {
+          "label": "ambassadors pre test",
+          "placeholder": ""
+        }
       },
       "ambassadors_heading": {
         "type": "StructuredText",
@@ -283,7 +289,10 @@
       },
       "ambassadors_action_button_text": {
         "type": "Text",
-        "config": { "label": "action button text", "placeholder": "" }
+        "config": {
+          "label": "action button text",
+          "placeholder": ""
+        }
       },
       "ambassadors_action_button_link": {
         "type": "Link",
@@ -296,7 +305,10 @@
       },
       "ambassadors_learn_button_text": {
         "type": "Text",
-        "config": { "label": "learn button text", "placeholder": "" }
+        "config": {
+          "label": "learn button text",
+          "placeholder": ""
+        }
       },
       "ambassadors_learn_button_link": {
         "type": "Link",
@@ -318,7 +330,10 @@
       },
       "meta_image": {
         "config": {
-          "constraint": { "height": 1260, "width": 2400 },
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
           "label": "Meta Image",
           "thumbnails": []
         },

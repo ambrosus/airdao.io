@@ -60,7 +60,13 @@
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
-        "config": { "choices": { "footer_item": { "type": "SharedSlice" } } }
+        "config": {
+          "choices": {
+            "footer_item": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     }
   }

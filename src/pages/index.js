@@ -82,7 +82,16 @@ export default function Home({ page, header, footerText, latestArticles }) {
           src={blueCircle}
           alt="orange circle"
         />
-        <Ambassadors />
+        <Ambassadors
+          label={data.ambassadors_label}
+          title={data.ambassadors_title}
+          text={data.ambassadors_text}
+          images={data.ambassadors_images}
+          primaryText={data.ambassadors_primary_text}
+          primaryLink={data.ambassadors_primary_link}
+          secondaryText={data.ambassadors_secondary_text}
+          secondaryLink={data.ambassadors_secondary_link}
+        />
       </div>
       <Semiblocks
         governanceTitle={data.governance_title}
@@ -99,7 +108,12 @@ export default function Home({ page, header, footerText, latestArticles }) {
         communityPrimaryLink={data.community_primary_link}
         communitySocials={data.community_socials}
       />
-      <App title={data.app_title} list={data.app_list} />
+      <App
+        title={data.app_title}
+        list={data.app_list}
+        appstore={data.app_appstore}
+        google={data.app_google}
+      />
       <div className={styles['articles-wrapper']}>
         <Image
           className={styles['blue-circle']}

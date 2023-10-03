@@ -6,7 +6,12 @@
   "status": true,
   "json": {
     "Main": {
-      "uid": { "config": { "label": "UID" }, "type": "UID" },
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
       "title": {
         "type": "StructuredText",
         "config": {
@@ -64,10 +69,18 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "blog_subtitle": { "type": "SharedSlice" },
-            "blog_text": { "type": "SharedSlice" },
-            "blog_wrapped_text": { "type": "SharedSlice" },
-            "blog_img": { "type": "SharedSlice" }
+            "blog_subtitle": {
+              "type": "SharedSlice"
+            },
+            "blog_text": {
+              "type": "SharedSlice"
+            },
+            "blog_wrapped_text": {
+              "type": "SharedSlice"
+            },
+            "blog_img": {
+              "type": "SharedSlice"
+            }
           }
         }
       }
@@ -82,7 +95,10 @@
       },
       "meta_image": {
         "config": {
-          "constraint": { "height": 1260, "width": 2400 },
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
           "label": "Meta Image",
           "thumbnails": []
         },

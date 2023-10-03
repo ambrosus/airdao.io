@@ -9,40 +9,80 @@ import ambassador6 from './ambassador-6.png';
 import ambassador7 from './ambassador-7.png';
 import ambassador8 from './ambassador-8.png';
 import ambassador9 from './ambassador-9.png';
+import chevron from '../../../assets/icons/chevron.svg';
 import Image from 'next/image';
 import { Button } from '@airdao/ui-library';
+import {PrismicRichText} from '@prismicio/react';
+import Link from 'next/link';
 
-const Ambassadors = () => (
+const Ambassadors = ({
+  label,
+  title,
+  text,
+  images,
+  primaryLink,
+  primaryText,
+  secondaryLink,
+  secondaryText,
+}) => (
   <div className={styles['ambassadors']}>
     <BlockLabel className={styles['ambassadors__label']}>
       AMBASSADORS
     </BlockLabel>
     <h3 className={styles['ambassadors__title']}>
-      Join the <span>Ambassador Program</span>
+      <PrismicRichText
+        field={title}
+        components={{
+          paragraph: ({ children }) => <>{children}</>,
+          strong: ({ children }) => <span>{children}</span>,
+        }}
+      />
     </h3>
-    <p className={styles['ambassadors__text']}>
-      We support individuals from diverse backgrounds eager to spread the word
-      about our thriving ecosystem. We&apos;re welcoming and inclusive and want
-      every ambassador to feel valued and inspired.
-    </p>
+    <PrismicRichText
+      field={text}
+      components={{
+        paragraph: ({ children }) => (
+          <p className={styles['ambassadors__text']}>{children}</p>
+        ),
+      }}
+    />
     <div className={styles['ambassadors__list']}>
-      <Image src={ambassador1} alt="ambassador1" />
-      <Image src={ambassador2} alt="ambassador2" />
-      <Image src={ambassador3} alt="ambassador3" />
-      <Image src={ambassador4} alt="ambassador4" />
-      <Image src={ambassador5} alt="ambassador5" />
-      <Image src={ambassador6} alt="ambassador6" />
-      <Image src={ambassador7} alt="ambassador7" />
-      <Image src={ambassador8} alt="ambassador8" />
-      <Image src={ambassador9} alt="ambassador9" />
+      {images.map((el) => (
+        <img
+          width={96}
+          height={85}
+          key={el.image.url}
+          src={el.image.url}
+          alt="ambassador"
+        />
+      ))}
     </div>
     <div className={styles['ambassadors__btns']}>
-      <Button type="primary" size="large">
-        Become an Ambassador
-      </Button>
-      <Button type="tetiary" size="large">
-        Learn more
-      </Button>
+      <PrismicRichText
+        field={primaryText}
+        components={{
+          paragraph: ({ children }) => (
+            <Link href='/'>
+              <Button type="primary" size="large">
+                {children}
+              </Button>
+            </Link>
+          ),
+        }}
+      />
+      <PrismicRichText
+        field={secondaryText}
+        components={{
+          paragraph: ({ children }) => (
+            <Link href={secondaryLink.url.replace('https://', '')}>
+              <Button size="large">
+                {children}
+                <Image src={chevron} alt="chevron"/>
+              </Button>
+            </Link>
+          ),
+        }}
+      />
     </div>
   </div>
 );

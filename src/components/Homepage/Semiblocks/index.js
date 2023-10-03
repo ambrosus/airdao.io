@@ -1,16 +1,10 @@
 import styles from './semiblocks.module.scss';
 import BlockLabel from '@/components/BlockLabel';
 import { Button } from '@airdao/ui-library';
-import discord from './discord.svg';
-import linkedin from './linkedin.svg';
-import medium from './medium.svg';
-import reddit from './reddit.svg';
-import telegram from './telegram.svg';
-import x from './x.svg';
-import youtube from './youtube.svg';
-import Image from 'next/image';
 import { PrismicRichText } from '@prismicio/react';
 import Link from 'next/link';
+import Image from 'next/image';
+import chevron from '@/assets/icons/chevron.svg';
 
 const Semiblocks = (props) => (
   <div className={styles['semiblocks']}>
@@ -65,6 +59,7 @@ const Semiblocks = (props) => (
                   size="large"
                 >
                   {children}
+                  <Image src={chevron} alt="chevron"/>
                 </Button>
               </Link>
             ),
@@ -118,6 +113,7 @@ const Semiblocks = (props) => (
                   size="large"
                 >
                   {children}
+                  <Image src={chevron} alt="chevron"/>
                 </Button>
               </Link>
             ),

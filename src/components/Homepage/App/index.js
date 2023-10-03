@@ -5,8 +5,9 @@ import googlePlay from './googlplay.svg';
 import app from './app.svg';
 import { PrismicRichText } from '@prismicio/react';
 import { asText } from '@prismicio/client';
+import Link from 'next/link';
 
-const App = ({ title, list }) => (
+const App = ({ title, list, appstore, google }) => (
   <div className={`container`}>
     <div className={styles.app}>
       <div className={styles.app__left}>
@@ -32,16 +33,20 @@ const App = ({ title, list }) => (
             />
           ))}
         </ul>
-        <Image
-          className={styles.app__appstore}
-          src={appStore}
-          alt="app store"
-        />
-        <Image
-          className={styles.app__google}
-          src={googlePlay}
-          alt="google play"
-        />
+        <Link href={google.url} className={styles.app__link}>
+          <Image
+            className={styles.app__appstore}
+            src={appStore}
+            alt="app store"
+          />
+        </Link>
+        <Link href={appstore.url} className={styles.app__link}>
+          <Image
+            className={styles.app__google}
+            src={googlePlay}
+            alt="google play"
+          />
+        </Link>
       </div>
       <div className={styles.app__right}>
         <Image src={app} alt="app" />

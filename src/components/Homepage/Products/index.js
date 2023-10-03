@@ -24,7 +24,7 @@ const Products = ({ title, products }) => (
               field={el.label}
               components={{
                 paragraph: ({ children }) => (
-                  <BlockLabel>{children}</BlockLabel>
+                  <BlockLabel className={styles['product__label']}>{children}</BlockLabel>
                 ),
               }}
             />

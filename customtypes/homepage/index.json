@@ -548,6 +548,22 @@
             }
           }
         }
+      },
+      "app_appstore": {
+        "type": "Link",
+        "config": {
+          "label": "app appstore",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "app_google": {
+        "type": "Link",
+        "config": {
+          "label": "app google",
+          "placeholder": "",
+          "select": null
+        }
       }
     },
     "Blog": {
