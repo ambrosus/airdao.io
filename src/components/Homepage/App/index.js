@@ -33,20 +33,24 @@ const App = ({ title, list, appstore, google }) => (
             />
           ))}
         </ul>
-        <Link href={google.url} className={styles.app__link}>
-          <Image
-            className={styles.app__appstore}
-            src={appStore}
-            alt="app store"
-          />
-        </Link>
-        <Link href={appstore.url} className={styles.app__link}>
-          <Image
-            className={styles.app__google}
-            src={googlePlay}
-            alt="google play"
-          />
-        </Link>
+        {google && (
+          <>
+            <Link href={google.url} className={styles.app__link}>
+              <Image
+                className={styles.app__appstore}
+                src={appStore}
+                alt="app store"
+              />
+            </Link>
+            <Link href={appstore.url} className={styles.app__link}>
+              <Image
+                className={styles.app__google}
+                src={googlePlay}
+                alt="google play"
+              />
+            </Link>
+          </>
+        )}
       </div>
       <div className={styles.app__right}>
         <Image src={app} alt="app" />

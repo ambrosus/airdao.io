@@ -45,15 +45,16 @@ const Ambassadors = ({
       }}
     />
     <div className={styles['ambassadors__list']}>
-      {images.map((el) => (
-        <img
-          width={96}
-          height={85}
-          key={el.image.url}
-          src={el.image.url}
-          alt="ambassador"
-        />
-      ))}
+      {images &&
+        images.map((el) => (
+          <img
+            width={96}
+            height={85}
+            key={el.image.url}
+            src={el.image.url}
+            alt="ambassador"
+          />
+        ))}
     </div>
     <div className={styles['ambassadors__btns']}>
       <PrismicRichText
