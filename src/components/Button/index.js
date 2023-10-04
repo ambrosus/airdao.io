@@ -29,6 +29,6 @@ Button.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'plain']),
+  type: PropTypes.oneOf(['primary', 'secondary', 'tetiary', 'plain']),
   hasTailArrow: PropTypes.bool,
 };
