@@ -1,0 +1,114 @@
+.container {
+  padding-top: 80px;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.heading {
+  color: var(--neutral-700, #222426);
+  font-family: var(--font-rationell);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 57px;
+  letter-spacing: -0.96px;
+  margin-bottom: 16px;
+
+  text-align: center;
+
+  @media screen and (max-width: 1250px) {
+    font-size: 28px;
+    line-height: 40px;
+    letter-spacing: -0.56px;
+    margin-bottom: 8px;
+  }
+}
+
+.description {
+  color: var(--neutral-900, #0E0E0E);
+  text-align: center;
+
+  font-family: var(--font-inter);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: -0.216px;
+
+  margin-bottom: 64px;
+  max-width: 740px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 48px;
+  row-gap: 80px;
+
+  padding: 0 70px;
+  margin-bottom: 64px;
+
+  @media screen and (max-width: 935px) {
+    display: flex;
+    flex-flow: row wrap;
+    row-gap: 32px;
+    column-gap: 32px;
+  }
+
+  @media screen and (max-width: 515px) {
+    padding: 0;
+  }
+}
+
+.card {
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.avatar {
+  width: 142px;
+  height: 142px;
+}
+
+.avatar_container {
+  width: 142px;
+  height: 142px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 16px;
+  background: #D9D9D9;
+}
+
+.name {
+  color: var(--neutral-900, #0E0E0E);
+  text-align: center;
+  font-family: var(--font-inter);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: -0.216px;
+
+  margin-bottom: 8px;
+}
+
+.position {
+  color: var(--neutral-900, #0E0E0E);
+  text-align: center;
+
+  font-family: var(--font-inter);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+}
+
+.button {
+  background: var(--blue-100-secondary, #EDF3FF);
+  color: var(--blue-600-primary, #3568DD);
+}

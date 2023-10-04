@@ -1,0 +1,173 @@
+{
+  "id": "governance",
+  "label": "Governance",
+  "format": "page",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": { "label": "link", "placeholder": "" }
+      },
+      "heading": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Heading",
+          "placeholder": "Heading",
+          "allowTargetBlank": false,
+          "single": "heading1"
+        }
+      },
+      "subheading": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Subheading",
+          "placeholder": "Subheading",
+          "allowTargetBlank": false,
+          "single": "heading2"
+        }
+      },
+      "lead": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Lead text",
+          "placeholder": "Lead text",
+          "allowTargetBlank": false,
+          "single": "paragraph"
+        }
+      },
+      "proposals": {
+        "type": "Group",
+        "config": {
+          "label": "Proposals",
+          "fields": {
+            "active": {
+              "type": "Boolean",
+              "config": {
+                "label": "active",
+                "placeholder_false": "false",
+                "placeholder_true": "true",
+                "default_value": false
+              }
+            },
+            "date": {
+              "type": "Date",
+              "config": { "label": "date", "placeholder": "Date" }
+            },
+            "content": {
+              "type": "StructuredText",
+              "config": {
+                "label": "content",
+                "placeholder": "content",
+                "allowTargetBlank": false,
+                "multi": "heading3,paragraph"
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": { "label": "link", "placeholder": "", "select": null }
+            }
+          }
+        }
+      }
+    },
+    "Council": {
+      "council_heading": {
+        "type": "StructuredText",
+        "config": {
+          "label": "council heading",
+          "placeholder": "Heading",
+          "allowTargetBlank": false,
+          "single": "heading2"
+        }
+      },
+      "council_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "council description",
+          "placeholder": "description",
+          "allowTargetBlank": false,
+          "single": "paragraph"
+        }
+      },
+      "council": {
+        "type": "Group",
+        "config": {
+          "label": "Council",
+          "fields": {
+            "avatar": {
+              "type": "Image",
+              "config": {
+                "label": "avatar",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "name": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Name",
+                "placeholder": "Name",
+                "allowTargetBlank": true,
+                "single": "heading3"
+              }
+            },
+            "position": {
+              "type": "StructuredText",
+              "config": {
+                "label": "position",
+                "placeholder": "Position",
+                "allowTargetBlank": false,
+                "single": "paragraph"
+              }
+            },
+            "twitter": {
+              "type": "Link",
+              "config": {
+                "label": "Twitter",
+                "placeholder": "Twitter",
+                "allowTargetBlank": true,
+                "select": null
+              }
+            },
+            "linkedin": {
+              "type": "Link",
+              "config": {
+                "label": "LinkedIn",
+                "placeholder": "LinkedIn",
+                "allowTargetBlank": true,
+                "select": null
+              }
+            }
+          }
+        }
+      }
+
+    },
+    "SEO & Metadata": {
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": { "height": 1260, "width": 2400 },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      }
+    }
+  }
+}
