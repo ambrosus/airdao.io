@@ -1,9 +1,9 @@
-import Hero from '@/pages/governance/components/Hero';
+import Hero from 'src/components/Governance/Hero';
 import { createClient } from '@/prismicio';
 import HeaderWrapper from '@/components/Header';
 import Footer from '@/components/Footer';
-import Proposals from './components/Proposals';
-import Council from './components/Council';
+import Proposals from '../../components/Governance/Proposals';
+import Council from '../../components/Governance/Council';
 import styles from '@/components/Homepage/homepage.module.scss';
 import Image from 'next/image';
 import blueCircle from '@/assets/img/blue-circle.svg';
