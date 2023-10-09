@@ -66,8 +66,10 @@
 }
 
 .hero__img {
+  max-width: 427px;
+  height: auto;
+
   @media screen and (max-width: 1024px) {
     max-width: 258px;
-    height: auto;
   }
 }

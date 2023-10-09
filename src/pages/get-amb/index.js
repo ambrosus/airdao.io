@@ -1,15 +1,15 @@
-import {Fragment} from 'react';
-import {createClient} from '@/prismicio';
+import { Fragment } from 'react';
+import { createClient } from '@/prismicio';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
-import {PrismicRichText} from '@prismicio/react';
+import { PrismicRichText } from '@prismicio/react';
 import styles from './buy-amb.module.scss';
 import homepageStyles from '@/components/Homepage/homepage.module.scss';
 import link from './link.svg';
 import Image from 'next/image';
 import Link from 'next/link';
-import {useEffect, useMemo, useState} from 'react';
-import {Button} from '@airdao/ui-library';
+import { useEffect, useMemo, useState } from 'react';
+import { Button } from '@airdao/ui-library';
 import App from '@/components/Homepage/App';
 import blueCircle from '@/assets/img/blue-circle.svg';
 import orangeCircle from '@/assets/img/orange-circle.svg';
@@ -83,12 +83,17 @@ const BuyAmb = ({ header, footerText, page }) => {
                         ),
                       }}
                     />
-                    <Image src={link} alt="link" className={styles['exchange__link']} />
+                    <Image
+                      src={link}
+                      alt="link"
+                      className={styles['exchange__link']}
+                    />
                   </div>
                 </Link>
-                {(i === 4 || i === 8) && page.links.length === exchangeList.length && (
-                  <div className={styles['exchange-filler']} />
-                )}
+                {(i === 4 || i === 8) &&
+                  page.links.length === exchangeList.length && (
+                    <div className={styles['exchange-filler']} />
+                  )}
               </Fragment>
             ))}
           </div>
@@ -121,7 +126,7 @@ const BuyAmb = ({ header, footerText, page }) => {
       )}
     </>
   );
-}
+};
 
 export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });

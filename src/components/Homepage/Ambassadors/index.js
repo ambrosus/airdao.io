@@ -74,7 +74,11 @@ const Ambassadors = ({
         components={{
           paragraph: ({ children }) => (
             <Link href={secondaryLink.url.replace('https://', '')}>
-              <Button size="large" type="plain">
+              <Button
+                size="large"
+                type="plain"
+                className={styles['ambassadors__plain-btn']}
+              >
                 {children}
                 <Image src={chevron} alt="chevron" />
               </Button>

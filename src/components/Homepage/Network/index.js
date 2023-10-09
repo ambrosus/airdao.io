@@ -13,7 +13,11 @@ const Network = ({ label, title, primaryLink, primaryText, info }) => (
       <PrismicRichText
         field={label}
         components={{
-          paragraph: ({ children }) => <BlockLabel>{children}</BlockLabel>,
+          paragraph: ({ children }) => (
+            <BlockLabel className={styles.network__label}>
+              {children}
+            </BlockLabel>
+          ),
         }}
       />
       <PrismicRichText

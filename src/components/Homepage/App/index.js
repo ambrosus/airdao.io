@@ -35,14 +35,14 @@ const App = ({ title, list, appstore, google }) => (
         </ul>
         {google && (
           <>
-            <Link href={google.url} className={styles.app__link}>
+            <Link href={appstore.url} className={styles.app__link}>
               <Image
                 className={styles.app__appstore}
                 src={appStore}
                 alt="app store"
               />
             </Link>
-            <Link href={appstore.url} className={styles.app__link}>
+            <Link href={google.url} className={styles.app__link}>
               <Image
                 className={styles.app__google}
                 src={googlePlay}
