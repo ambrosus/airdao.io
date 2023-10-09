@@ -8,6 +8,8 @@ export const components = {
   blog_text: dynamic(() => import("./BlogText")),
   blog_wrapped_text: dynamic(() => import("./BlogWrappedText")),
   cex_card: dynamic(() => import("./CexCard")),
+  footer_contact: dynamic(() => import("./FooterContact")),
+  footer_events: dynamic(() => import("./FooterEvents")),
   footer_item: dynamic(() => import("./FooterItem")),
   nav_item: dynamic(() => import("./NavItem")),
 };

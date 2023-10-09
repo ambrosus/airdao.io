@@ -19,9 +19,12 @@ import App from '@/components/Homepage/App';
 import blueCircle from '@/assets/img/blue-circle.svg';
 import orangeCircle from '@/assets/img/orange-circle.svg';
 import { asText } from '@prismicio/client';
+import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
 
 export default function Home({ page, header, footerText, latestArticles }) {
   const { data } = page;
+  const footerSlice = getFooterBlockSlice(data);
+
   return (
     <div className={styles['homepage']}>
       <HeaderWrapper header={header} />
@@ -138,6 +141,7 @@ export default function Home({ page, header, footerText, latestArticles }) {
         mobileLinkText={footerText.data.footer_mobile_link_text}
         mobileText={footerText.data.footer_mobile_text}
         socials={footerText.data.footer_social}
+        footerBlock={footerSlice}
       />
     </div>
   );

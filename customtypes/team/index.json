@@ -375,6 +375,22 @@
         },
         "type": "Text"
       }
+    },
+    "Footer": {
+      "slices5": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "footer_events": {
+              "type": "SharedSlice"
+            },
+            "footer_contact": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
     }
   }
 }

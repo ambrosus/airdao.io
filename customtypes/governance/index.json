@@ -8,7 +8,10 @@
     "Main": {
       "uid": {
         "type": "UID",
-        "config": { "label": "link", "placeholder": "" }
+        "config": {
+          "label": "link",
+          "placeholder": ""
+        }
       },
       "heading": {
         "type": "StructuredText",
@@ -53,7 +56,10 @@
             },
             "date": {
               "type": "Date",
-              "config": { "label": "date", "placeholder": "Date" }
+              "config": {
+                "label": "date",
+                "placeholder": "Date"
+              }
             },
             "content": {
               "type": "StructuredText",
@@ -66,7 +72,11 @@
             },
             "link": {
               "type": "Link",
-              "config": { "label": "link", "placeholder": "", "select": null }
+              "config": {
+                "label": "link",
+                "placeholder": "",
+                "select": null
+              }
             }
           }
         }
@@ -143,7 +153,6 @@
           }
         }
       }
-
     },
     "SEO & Metadata": {
       "meta_description": {
@@ -155,7 +164,10 @@
       },
       "meta_image": {
         "config": {
-          "constraint": { "height": 1260, "width": 2400 },
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
           "label": "Meta Image",
           "thumbnails": []
         },
@@ -167,6 +179,22 @@
           "placeholder": "A title of the page used for social media and search engines"
         },
         "type": "Text"
+      }
+    },
+    "Footer": {
+      "slices3": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "footer_events": {
+              "type": "SharedSlice"
+            },
+            "footer_contact": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     }
   }

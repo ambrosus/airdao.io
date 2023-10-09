@@ -585,6 +585,22 @@
           "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       }
+    },
+    "Footer": {
+      "slices11": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "footer_events": {
+              "type": "SharedSlice"
+            },
+            "footer_contact": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
     }
   }
 }
