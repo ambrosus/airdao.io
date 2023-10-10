@@ -59,7 +59,7 @@ const Footer = ({
         </div>
         <div className={styles.footer__socials}>
           {socials.map((el, i) => (
-            <a key={i} href={asText(el.footer_social_img)}>
+            <a key={i} href={el.footer_social_link.url}>
               <Image
                 src={el.footer_social_img.url}
                 width="32"
