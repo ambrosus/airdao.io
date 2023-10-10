@@ -63,6 +63,8 @@ const Header = ({ header }) => {
   );
 
   const getBalance = async () => {
+    if (!provider) return;
+
     const bnBalance = await provider.getBalance(account);
     const numBalance = ethers.utils.formatEther(bnBalance);
     setBalance((+numBalance).toFixed(2));
