@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import HeaderConnectedNav from './HeaderConnectedNav';
 import AddressInfo from './AddressInfo';
 import { useWeb3React } from '@web3-react/core';
-import { useAuthorization } from 'airdao-components-and-tools/hooks';
+import { useAuthorization, useAutoLogin } from 'airdao-components-and-tools/hooks';
 import LoginModal from '../LoginModal/LoginModal';
 import styles from './Header.module.scss';
 import { createClient } from '@/prismicio';
@@ -28,6 +28,7 @@ const Header = ({ header }) => {
   const [isFixed, setIsFixed] = useState(false);
   const [balance, setBalance] = useState("0");
 
+  const isLoaded = useAutoLogin(metamaskConnector);
   const { account, provider } = useWeb3React();
 
   const headerRef = useRef(null);
