@@ -10,6 +10,14 @@ import styles from './Header.module.scss';
 import { createClient } from '@/prismicio';
 import { asText } from '@prismicio/client';
 
+import {
+  metamaskConnector,
+  metamaskHooks,
+  walletconnectConnector,
+  walletconnectHooks,
+} from 'airdao-components-and-tools/utils';
+import {ethers} from 'ethers';
+
 const Header = ({ header }) => {
   const [address, setAddress] = useState('');
   const [isNavOpen, setIsNavOpen] = useState(true);
@@ -18,13 +26,14 @@ const Header = ({ header }) => {
   const [isAddressInfoOpen, setIsAddressInfoOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
+  const [balance, setBalance] = useState("0");
 
-  const web3ReactInstance = useWeb3React();
-  const { account } = useWeb3React();
+  const { account, provider } = useWeb3React();
 
   const headerRef = useRef(null);
 
   useEffect(() => {
+    getBalance()
     const headerOffsetTop = headerRef.current.offsetTop;
 
     const handleFixed = () => {
@@ -47,8 +56,16 @@ const Header = ({ header }) => {
     }
   }, [account]);
 
-  const { loginMetamask, loginWalletConnect, logout } =
-    useAuthorization(web3ReactInstance);
+  const { loginMetamask, loginWalletConnect, logout } = useAuthorization(
+    metamaskConnector,
+    walletconnectConnector
+  );
+
+  const getBalance = async () => {
+    const bnBalance = await provider.getBalance(account);
+    const numBalance = ethers.utils.formatEther(bnBalance);
+    setBalance((+numBalance).toFixed(2));
+  };
 
   const handleLogout = () => {
     logout();
@@ -98,7 +115,7 @@ const Header = ({ header }) => {
                 className={styles['header__balance-img']}
                 alt="balance"
               />
-              <span>0.00 AMB</span>
+              <span>{balance} AMB</span>
             </div>
             <div className={styles.header__address} onClick={handleAddressInfo}>
               <Image

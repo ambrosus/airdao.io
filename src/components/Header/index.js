@@ -1,13 +1,22 @@
 'use client';
 import Header from './Header';
 import { Web3ReactProvider } from '@web3-react/core';
-import { ethers } from 'ethers';
 
-const getLibrary = (provider) => new ethers.providers.JsonRpcProvider(provider);
+import {
+  metamaskConnector,
+  metamaskHooks,
+  walletconnectConnector,
+  walletconnectHooks,
+} from 'airdao-components-and-tools/utils';
+
+const connectors = [
+  [metamaskConnector, metamaskHooks],
+  [walletconnectConnector, walletconnectHooks],
+];
 
 const HeaderWrapper = ({ header }) => {
   return (
-    <Web3ReactProvider getLibrary={getLibrary}>
+    <Web3ReactProvider connectors={connectors}>
       <Header header={header.data} />
     </Web3ReactProvider>
   );
