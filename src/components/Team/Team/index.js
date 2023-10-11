@@ -1,8 +1,10 @@
 import { PrismicRichText } from '@prismicio/react';
 import styles from './team.module.scss';
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import Slider from 'react-slick';
+import twitterIcon from '../../../assets/icons/twitter.svg';
+import linkedinIcon from '../../../assets/icons/linkedin.svg';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -120,8 +122,16 @@ function TeamCard({ avatar, name, position, twitter, linkedin }) {
         field={position}
       />
       <div className={styles.socials}>
-        <PrismicNextLink field={twitter} />
-        <PrismicNextLink field={linkedin} />
+        {twitter.url && (
+          <PrismicNextLink field={twitter}>
+            <img {...twitterIcon} />
+          </PrismicNextLink>
+        )}
+        {linkedin.url && (
+          <PrismicNextLink field={linkedin}>
+            <img {...linkedinIcon} />
+          </PrismicNextLink>
+        )}
       </div>
     </div>
   );

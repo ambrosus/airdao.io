@@ -43,6 +43,10 @@
 
   scrollbar-width: none;
   -ms-overflow-style: none;
+
+  @media screen and (max-width: 800px) {
+    padding: 0 16px;
+  }
 }
 
 .cards::-webkit-scrollbar {
@@ -58,6 +62,8 @@
 
 .illustration {
   margin-bottom: 24px;
+  width: 260px;
+  height: auto;
 }
 
 .name {

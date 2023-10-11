@@ -7,18 +7,20 @@ export default function TextBlock({ story, illustration, mission, vision }) {
   return (
     <div className={`container ${styles.container}`}>
       <div className={styles.block}>
-        <BlockLabel className={styles.label}>OUR STORY</BlockLabel>
+        <BlockLabel className={`${styles.label} ${styles.label_first}`}>
+          OUR STORY
+        </BlockLabel>
         <PrismicTextWrapper prismicText={story} />
       </div>
 
       <PrismicNextImage field={illustration} className={styles.illustration} />
 
       <div className={`${styles.block} ${styles.mission}`}>
-        <BlockLabel>OUR MISSION</BlockLabel>
+        <BlockLabel className={styles.label}>OUR MISSION</BlockLabel>
         <PrismicTextWrapper prismicText={mission} />
       </div>
       <div className={styles.block}>
-        <BlockLabel>OUR VISION</BlockLabel>
+        <BlockLabel className={styles.label}>OUR VISION</BlockLabel>
         <PrismicTextWrapper prismicText={vision} />
       </div>
     </div>
