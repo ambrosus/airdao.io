@@ -21,7 +21,7 @@ const Footer = ({
         return null;
     }
   };
-
+  console.log(slices);
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__inner}>
@@ -43,7 +43,7 @@ const Footer = ({
                   {item.footer_item_is_title ? (
                     asText(item.footer_item_text)
                   ) : (
-                    <a href={asText(item.footer_item_url)}>
+                    <a href={item.footer_item_url.url}>
                       {asText(item.footer_item_text)}
                     </a>
                   )}

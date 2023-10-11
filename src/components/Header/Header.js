@@ -9,14 +9,13 @@ import LoginModal from '../LoginModal/LoginModal';
 import styles from './Header.module.scss';
 import { createClient } from '@/prismicio';
 import { asText } from '@prismicio/client';
-
 import {
   metamaskConnector,
-  metamaskHooks,
   walletconnectConnector,
-  walletconnectHooks,
 } from 'airdao-components-and-tools/utils';
 import {ethers} from 'ethers';
+import Link from 'next/link';
+import {Button} from '@airdao/ui-library';
 
 const Header = ({ header }) => {
   const [address, setAddress] = useState('');
@@ -34,7 +33,6 @@ const Header = ({ header }) => {
   const headerRef = useRef(null);
 
   useEffect(() => {
-    getBalance()
     const headerOffsetTop = headerRef.current.offsetTop;
 
     const handleFixed = () => {
@@ -52,6 +50,7 @@ const Header = ({ header }) => {
 
   useEffect(() => {
     if (account) {
+      getBalance()
       setAddress(account);
       setIsLoginModalOpen(false);
     }
@@ -91,13 +90,15 @@ const Header = ({ header }) => {
         className={`${styles.header} ${isFixed ? styles.header_fixed : ''}`}
         ref={headerRef}
       >
-        <Image
-          src="/logo.svg"
-          width="160"
-          height="34"
-          className={styles.header__logo}
-          alt="logo"
-        />
+        <Link href="/">
+          <Image
+            src="/logo.svg"
+            width="160"
+            height="34"
+            className={styles.header__logo}
+            alt="logo"
+          />
+        </Link>
         {address ? (
           <>
             <div className={styles.header__products}>
@@ -105,6 +106,7 @@ const Header = ({ header }) => {
                 <a
                   key={asText(el.productname)}
                   className={styles.header__product}
+                  href={el.producturl.url}
                 >
                   {asText(el.productname)}
                 </a>
@@ -164,7 +166,8 @@ const Header = ({ header }) => {
               className="nav-item-wrapper_desktop"
               isOpen={isNavOpen}
             />
-            <button className={styles['ui-button']} onClick={handleLoginModal}>
+
+            <Button type="secondary" size="medium" className={styles['connect-wallet']} onClick={handleLoginModal}>
               <Image
                 src="/pocket.svg"
                 height="20"
@@ -175,7 +178,7 @@ const Header = ({ header }) => {
               <span className={styles['connect-wallet-text']}>
                 Connect wallet
               </span>
-            </button>
+            </Button>
             <button
               onClick={handleMobileNav}
               className={styles['hamburger-btn']}

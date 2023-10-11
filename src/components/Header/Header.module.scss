@@ -44,15 +44,8 @@
   }
 }
 
-.ui-button {
-  background: #FF5E0D;
-  border-radius: 24px;
-  padding: 12px 16px;
-  border: 0;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.connect-wallet {
+  font-weight: 600!important;
 
   @media screen and (max-width: 950px) {
     margin-left: auto;
@@ -100,6 +93,34 @@
 }
 
 .nav-item {
+  @media screen and (min-width: 950px) {
+    &:hover {
+      .nav-item__list-wrapper {
+        display: block;
+      }
+
+      .nav-item__label {
+        color: var(--blue-500, #457EFF);
+      }
+
+      .nav-item__label-img path {
+        fill: #457EFF;
+      }
+    }
+
+    &:hover .nav-item__label-img {
+      transform: scale(1, -1);
+    }
+  }
+
+  &_active .nav-item__label-img {
+    transform: scale(1, -1);
+  }
+
+  &_active .nav-item__list-wrapper {
+    display: block;
+  }
+
   &:not(:last-child) {
     margin-right: 80px;
 
@@ -128,6 +149,12 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  color: var(--neutral-700, #222426);
+  font-family: var(--font-inter);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
 
   @media screen and (max-width: 950px) {
     width: 100%;
@@ -136,18 +163,22 @@
 }
 
 .nav-item__label-img {
-  margin-left: 8px;
+  padding-left: 8px;
 }
 
-.nav-item__label-img_active {
-  transform: rotate(180deg);
+.nav-item__list-wrapper {
+  display: none;
+
+  @media screen and (min-width: 949px) {
+    padding-top: 60px;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+  }
 }
 
 .nav-item__list {
   @media screen and (min-width: 949px) {
-    position: absolute;
-    top: 110px;
-    right: 50px;
     background: #FFFFFF;
     box-shadow: 0px 11px 34px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
@@ -201,6 +232,17 @@
 }
 
 .header__product {
+  color: var(--neutral-700, #222426);
+  font-family: var(--font-innter);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
+
+  &:hover {
+    color: rgba(69, 126, 255, 1);
+  }
+
   &:not(:last-child) {
     margin-right: 40px;
 
