@@ -225,13 +225,19 @@
 }
 
 .nav-item__list-title {
+  color: var(--neutral-700, #222426);
+  font-family: var(--fint-inter);
+  font-size: 16px;
+  font-style: normal;
   font-weight: 600;
-  margin-bottom: 8px;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
 }
 
 .nav-item__list-descr {
   font-size: 14px;
   color: #676B73;
+  margin-top: 8px;
 }
 
 .header__products {

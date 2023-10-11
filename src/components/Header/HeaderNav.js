@@ -63,9 +63,11 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
                     <p className={styles['nav-item__list-title']}>
                       {asText(item.navitemlabel)}
                     </p>
-                    <p className={styles['nav-item__list-descr']}>
-                      {asText(item.navitemdescr)}
-                    </p>
+                    {asText(item.navitemdescr) && (
+                      <p className={styles['nav-item__list-descr']}>
+                        {asText(item.navitemdescr)}
+                      </p>
+                    )}
                   </div>
                 </Link>
               ))}
