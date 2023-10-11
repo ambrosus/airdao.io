@@ -122,9 +122,6 @@ export default function BlogArticle({
       {footerText && (
         <Footer
           slices={footerText.data.slices}
-          mobileLink={footerText.data.footer_mobile_link_url}
-          mobileLinkText={footerText.data.footer_mobile_link_text}
-          mobileText={footerText.data.footer_mobile_text}
           socials={footerText.data.footer_social}
         />
       )}

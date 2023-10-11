@@ -3,12 +3,10 @@ import Image from 'next/image';
 import { asText } from '@prismicio/client';
 import Events from './components/Events';
 import Contact from './components/Contact';
+
 const Footer = ({
   slices,
   socials,
-  mobileLink,
-  mobileLinkText,
-  mobileText,
   footerBlock,
 }) => {
   const block = () => {
@@ -21,6 +19,7 @@ const Footer = ({
         return null;
     }
   };
+  console.log(socials);
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__inner}>
@@ -28,7 +27,7 @@ const Footer = ({
         <div className={styles.footer__lists}>
           {slices.map((el, i) => (
             <ul key={i} className={styles.footer__list}>
-              {el.items.map((item, j) => (
+              {el.items.map((item) => (
                 <li
                   key={asText(item.footer_item_text)}
                   className={
@@ -42,7 +41,7 @@ const Footer = ({
                   {item.footer_item_is_title ? (
                     asText(item.footer_item_text)
                   ) : (
-                    <a href={item.footer_item_url.url}>
+                    <a href={item.footer_item_url.url} target={item.footer_item_url.target}>
                       {asText(item.footer_item_text)}
                     </a>
                   )}
@@ -58,7 +57,7 @@ const Footer = ({
         </div>
         <div className={styles.footer__socials}>
           {socials.map((el, i) => (
-            <a key={i} href={el.footer_social_link.url}>
+            <a key={i} href={el.footer_social_link.url} target={el.footer_social_link.target}>
               <Image
                 src={el.footer_social_img.url}
                 width="32"

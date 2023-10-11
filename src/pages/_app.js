@@ -42,17 +42,17 @@ const rationell = localFont({
       style: 'normal',
     },
     {
-      path: '../assets/fonts/Rationell-Regular.otf',
+      path: '../assets/fonts/Rationell-Medium.otf',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../assets/fonts/Rationell-Regular.otf',
+      path: '../assets/fonts/Rationell-Medium.otf',
       weight: '600',
       style: 'semi-bold',
     },
     {
-      path: '../assets/fonts/Rationell-Medium.otf',
+      path: '../assets/fonts/Rationell-Bold.otf',
       weight: '700',
       style: 'bold',
     },

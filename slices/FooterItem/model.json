@@ -27,6 +27,7 @@
           "config": {
             "label": "footer_item_url",
             "placeholder": "",
+            "allowTargetBlank": true,
             "select": null
           }
         },

@@ -95,8 +95,15 @@
 .nav-item {
   @media screen and (min-width: 950px) {
     &:hover {
+      .nav-item__list {
+        box-shadow: 0px 11px 34px rgba(0, 0, 0, 0.1);
+      }
+
       .nav-item__list-wrapper {
-        display: block;
+        max-height: 600px;
+        overflow: auto;
+        pointer-events: auto;
+        padding-bottom: 40px;
       }
 
       .nav-item__label {
@@ -167,20 +174,22 @@
 }
 
 .nav-item__list-wrapper {
-  display: none;
+  max-height: 0px;
+  transition: .3s max-height;
+  overflow: hidden;
+  pointer-events: none;
 
   @media screen and (min-width: 949px) {
-    padding-top: 60px;
     position: absolute;
     top: 50px;
     right: 50px;
+    padding: 60px 40px 0;
   }
 }
 
 .nav-item__list {
   @media screen and (min-width: 949px) {
     background: #FFFFFF;
-    box-shadow: 0px 11px 34px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     width: 876px;
     padding: 32px;

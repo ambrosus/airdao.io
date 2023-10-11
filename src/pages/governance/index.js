@@ -13,8 +13,8 @@ import * as prismic from '@prismicio/client';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
 
 const GovernancePage = ({ header, footerText, page, latestArticles }) => {
-  console.log(page);
   const footerSlice = getFooterBlockSlice(page.data);
+
   return (
     <>
       {header && <HeaderWrapper header={header} />}
@@ -54,9 +54,6 @@ const GovernancePage = ({ header, footerText, page, latestArticles }) => {
         {footerText && (
           <Footer
             slices={footerText.data.slices}
-            mobileLink={footerText.data.footer_mobile_link_url}
-            mobileLinkText={footerText.data.footer_mobile_link_text}
-            mobileText={footerText.data.footer_mobile_text}
             socials={footerText.data.footer_social}
             footerBlock={footerSlice}
           />
