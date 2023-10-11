@@ -9,7 +9,7 @@ const HeaderConnectedNav = ({ close, headerInfo, isOpen }) => {
   useClickOutside(ref, close, isOpen);
 
   const findSlice = (key) =>
-    headerInfo.slices.find((el) => asText(el.primary.navlabel) === key).items;
+    headerInfo.slices.find((el) => asText(el.primary.navlabel) === key)?.items;
 
   return (
     <div ref={ref} className={styles['connected-nav']}>
@@ -45,15 +45,19 @@ const HeaderConnectedNav = ({ close, headerInfo, isOpen }) => {
           {asText(el.navitemlabel)}
         </a>
       ))}
-      <span className={styles['connected-nav__title']}>Learn</span>
-      {findSlice('Learn').map((el) => (
-        <a
-          className={styles['connected-nav__link']}
-          key={asText(el.navitemlabel)}
-        >
-          {asText(el.navitemlabel)}
-        </a>
-      ))}
+      {findSlice('Learn') && (
+        <>
+          <span className={styles['connected-nav__title']}>Learn</span>
+          {findSlice('Learn').map((el) => (
+            <a
+              className={styles['connected-nav__link']}
+              key={asText(el.navitemlabel)}
+            >
+              {asText(el.navitemlabel)}
+            </a>
+          ))}
+        </>
+      )}
       <div className={styles['connected-nav__hr']} />
       <span className={styles['connected-nav__title']}>Community</span>
       <div className={styles['connected-nav__community']}>
