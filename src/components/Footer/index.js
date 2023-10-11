@@ -21,7 +21,6 @@ const Footer = ({
         return null;
     }
   };
-  console.log(slices);
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__inner}>
