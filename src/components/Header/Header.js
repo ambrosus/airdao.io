@@ -147,6 +147,7 @@ const Header = ({ header }) => {
                 close={handleConnectedNav}
                 headerInfo={header}
                 isOpen={isConnectedNavOpen}
+                balance={balance}
               />
             )}
             {isAddressInfoOpen && (

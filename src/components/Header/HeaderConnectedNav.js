@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import styles from './Header.module.scss';
 import { asText } from '@prismicio/client';
 
-const HeaderConnectedNav = ({ close, headerInfo, isOpen }) => {
+const HeaderConnectedNav = ({ close, headerInfo, isOpen, balance }) => {
   const ref = useRef(null);
   useClickOutside(ref, close, isOpen);
 
@@ -21,7 +21,7 @@ const HeaderConnectedNav = ({ close, headerInfo, isOpen }) => {
           className={styles['connected-nav__balance-img']}
           alt="balance"
         />
-        <span>0.00 AMB</span>
+        <span>{balance} AMB</span>
       </div>
       <div
         className={`${styles['connected-nav__hr']} ${styles['connected-nav__hr_balance']}`}
