@@ -80,6 +80,15 @@
             }
           }
         }
+      },
+      "snapshot": {
+        "type": "Link",
+        "config": {
+          "label": "snapshot",
+          "placeholder": "Link to Snapshot",
+          "allowTargetBlank": true,
+          "select": null
+        }
       }
     },
     "Council": {
