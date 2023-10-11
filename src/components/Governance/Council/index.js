@@ -2,6 +2,9 @@ import styles from './council.module.scss';
 import Button from '@/components/Button';
 import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
+import twitterIcon from '@/assets/icons/twitter.svg';
+import linkedinIcon from '@/assets/icons/linkedin.svg';
+import Link from 'next/link';
 
 export default function Council({ heading, text, council }) {
   return (
@@ -34,28 +37,14 @@ export default function Council({ heading, text, council }) {
           />
         ))}
       </div>
-      <Button className={styles.button} size={'medium'}>
-        See Operational team
-      </Button>
+      <Link href={'/team'}>
+        <Button className={styles.button} size={'medium'}>
+          See Operational team
+        </Button>
+      </Link>
     </div>
   );
 }
-
-// function TeamCard({ avatar, name, position, twitter, linkedin }) {
-//   return (
-//     <div className={styles.card}>
-//       <div className={styles.avatar_container}>
-//         {/*<PrismicNextImage field={avatar} className={styles.avatar} />*/}
-//       </div>
-//       <h3 className={styles.name}>{name}</h3>
-//       <p className={styles.position}>{position}</p>
-//       <div className={styles.socials}>
-//         {/*<PrismicNextLink field={twitter} />*/}
-//         {/*<PrismicNextLink field={linkedin} />*/}
-//       </div>
-//     </div>
-//   );
-// }
 
 function TeamCard({ avatar, name, position, twitter, linkedin }) {
   return (
@@ -80,8 +69,16 @@ function TeamCard({ avatar, name, position, twitter, linkedin }) {
         field={position}
       />
       <div className={styles.socials}>
-        <PrismicNextLink field={twitter} />
-        <PrismicNextLink field={linkedin} />
+        {twitter.url && (
+          <PrismicNextLink field={twitter}>
+            <img {...twitterIcon} alt={'twitter'} />
+          </PrismicNextLink>
+        )}
+        {linkedin.url && (
+          <PrismicNextLink field={linkedin}>
+            <img {...linkedinIcon} alt={'twitter'} />
+          </PrismicNextLink>
+        )}
       </div>
     </div>
   );

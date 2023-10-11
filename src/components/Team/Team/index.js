@@ -124,12 +124,12 @@ function TeamCard({ avatar, name, position, twitter, linkedin }) {
       <div className={styles.socials}>
         {twitter.url && (
           <PrismicNextLink field={twitter}>
-            <img {...twitterIcon} />
+            <img {...twitterIcon} alt={'twitter'} />
           </PrismicNextLink>
         )}
         {linkedin.url && (
           <PrismicNextLink field={linkedin}>
-            <img {...linkedinIcon} />
+            <img {...linkedinIcon} alt={'twitter'} />
           </PrismicNextLink>
         )}
       </div>

@@ -24,33 +24,34 @@ const GovernancePage = ({ header, footerText, page, latestArticles }) => {
           heading={page.data.subheading}
           lead={page.data.lead}
           proposals={page.data.proposals}
+          snapshot={page.data.snapshot}
         />
         <Council
           heading={page.data.council_heading}
           text={page.data.council_text}
           council={page.data.council}
         />
-        <div className={styles['articles-wrapper']}>
-          <Image
-            className={styles['blue-circle']}
-            src={blueCircle}
-            alt="blue circle"
-          />
-          <Image
-            className={styles['orange-circle']}
-            src={orangeCircle}
-            alt="orange circle"
-          />
-          <ArticlesList
-            title={'Blog'}
-            subtitle={
-              'Discover articles, governance insights, events, and more'
-            }
-            goToText="Go to blog"
-            goToLink="/blog"
-            articles={latestArticles}
-          />
-        </div>
+        {/*<div className={styles['articles-wrapper']}>*/}
+        {/*  <Image*/}
+        {/*    className={styles['blue-circle']}*/}
+        {/*    src={blueCircle}*/}
+        {/*    alt="blue circle"*/}
+        {/*  />*/}
+        {/*  <Image*/}
+        {/*    className={styles['orange-circle']}*/}
+        {/*    src={orangeCircle}*/}
+        {/*    alt="orange circle"*/}
+        {/*  />*/}
+        {/*  <ArticlesList*/}
+        {/*    title={'Blog'}*/}
+        {/*    subtitle={*/}
+        {/*      'Discover articles, governance insights, events, and more'*/}
+        {/*    }*/}
+        {/*    goToText="Go to blog"*/}
+        {/*    goToLink="/blog"*/}
+        {/*    articles={latestArticles}*/}
+        {/*  />*/}
+        {/*</div>*/}
         {footerText && (
           <Footer
             slices={footerText.data.slices}

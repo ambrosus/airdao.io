@@ -3,8 +3,9 @@ import Button from '@/components/Button';
 import proposalIcon from './proposal-icon.svg';
 import Image from 'next/image';
 import { PrismicRichText } from '@prismicio/react';
+import { PrismicNextLink } from '@prismicio/next';
 
-export default function Proposals({ heading, lead, proposals }) {
+export default function Proposals({ heading, lead, proposals, snapshot }) {
   return (
     <div className={styles.container}>
       <div className={'container'}>
@@ -31,9 +32,11 @@ export default function Proposals({ heading, lead, proposals }) {
         </div>
         <div className={styles.row}>
           <h3 className={styles.prop_heading}>Recent proposals</h3>
-          <Button size={'large'} type={'tetiary'} className={styles.button}>
-            See all votes
-          </Button>
+          <PrismicNextLink field={snapshot}>
+            <Button size={'large'} type={'tetiary'} className={styles.button}>
+              See all votes
+            </Button>
+          </PrismicNextLink>
         </div>
         <div className={styles.cards}>
           <div className={`${styles.card} ${styles.card_first}`}>
