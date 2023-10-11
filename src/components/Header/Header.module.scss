@@ -195,10 +195,9 @@
     border-radius: 20px;
     width: 876px;
     padding: 32px;
-    display: flex;
-    align-items: flex-start;
     gap: 32px 0;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   @media screen and (max-width: 1100px) {
@@ -216,8 +215,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  width: 50%;
-
+  width: fit-content;
   @media screen and (max-width: 950px) {
     width: 100%;
     margin-top: 40px;
