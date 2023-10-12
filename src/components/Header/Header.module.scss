@@ -180,6 +180,12 @@
   overflow: hidden;
   pointer-events: none;
   max-height: 0px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @media screen and (min-width: 949px) {
     position: absolute;
