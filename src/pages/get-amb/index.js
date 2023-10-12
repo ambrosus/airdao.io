@@ -72,11 +72,11 @@ const BuyAmb = ({ header, footerText, page }) => {
             {exchangeList.map((el, i) => (
               <Fragment key={el.image.url}>
                 <Link
-                  href={el.link.url}
-                  target={el.link.target}
+                  href={el.link.url || ''}
+                  target={el.link.target || ''}
                   className={styles.exchange}
                 >
-                  <img src={el.image.url} alt="exchange" />
+                  <img src={el.image.url} alt="exchange" className={styles.exchange__img} />
                   <div className={styles.exchange__info}>
                     <PrismicRichText
                       field={el.name}
@@ -86,7 +86,7 @@ const BuyAmb = ({ header, footerText, page }) => {
                         ),
                       }}
                     />
-                    <img
+                    <Image
                       src={link}
                       alt="link"
                       className={styles['exchange__link']}
