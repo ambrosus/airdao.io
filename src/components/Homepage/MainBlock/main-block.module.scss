@@ -68,11 +68,6 @@
 
   @media screen and (max-width: 768px) {
     margin-bottom: 30px;
-
-    img {
-      width: 40px;
-      height: 40px;
-    }
   }
 }
 
@@ -99,6 +94,11 @@
 }
 
 .main-block__partner {
-  width: 52px;
+  width: 52px!important;
+  height: auto!important;
   margin: 0 40px;
+
+  @media screen and (max-width: 768px) {
+    width: 40px!important;
+  }
 }

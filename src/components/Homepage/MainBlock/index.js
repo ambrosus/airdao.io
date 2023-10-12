@@ -12,7 +12,6 @@ const settings = {
   infinite: true,
   slidesToShow: 9,
   arrows: false,
-  autoplay: true,
   speed: 2000,
   autoplaySpeed: 0,
   centerMode: false,
@@ -76,7 +75,7 @@ const MainBlock = ({ title, label, partners, subtitle }) => (
     <div className={styles['main-block__partners']}>
       <Slider {...settings}>
         {partners.map((el) => (
-          <Image
+          <img
             className={styles['main-block__partner']}
             width={52}
             height={52}

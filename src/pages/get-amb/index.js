@@ -86,7 +86,7 @@ const BuyAmb = ({ header, footerText, page }) => {
                         ),
                       }}
                     />
-                    <Image
+                    <img
                       src={link}
                       alt="link"
                       className={styles['exchange__link']}
