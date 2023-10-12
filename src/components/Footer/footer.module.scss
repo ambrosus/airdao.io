@@ -103,6 +103,17 @@
   &_contact {
     padding: 76px 56px;
   }
+
+  @media screen and (max-width: 1050px) {
+    padding: 56px;
+  }
+
+  @media screen and (max-width: 650px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 31px;
+  }
 }
 
 .footer-app__info {
@@ -120,9 +131,15 @@
   color: var(--neutral-0, #FFF);
   font-family: var(--font-reationell);
   font-size: 48px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 54px; /* 112.5% */
   letter-spacing: -0.96px;
+
+  @media screen and (max-width: 1050px) {
+    font-size: 24px;
+    line-height: 32px; /* 133.333% */
+    letter-spacing: -0.48px;
+  }
 }
 
 .footer-app__text {
@@ -133,10 +150,25 @@
   font-weight: 400;
   line-height: 28px; /* 140% */
   letter-spacing: -0.28px;
+
+  @media screen and (max-width: 1050px) {
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+  }
 }
 
 .footer-app__btn {
   background: var(--neutral-0, #FFF) !important;
   color: var(--neutral-900, #0E0E0E) !important;
   width: fit-content;
+}
+
+.footer-app__img {
+  max-width: 420px;
+  height: auto;
+
+  @media screen and (max-width: 1050px) {
+    max-width: 250px;
+  }
 }

@@ -17,7 +17,7 @@ const Events = () => (
         Add to Calendar
       </Button>
     </div>
-    <Image src={eventsImage} alt="events" />
+    <Image src={eventsImage} alt="events" className={styles['footer-app__img']} />
   </div>
 );
 
