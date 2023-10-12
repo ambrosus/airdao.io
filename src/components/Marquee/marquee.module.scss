@@ -24,6 +24,10 @@
       height: 43px;
     }
   }
+
+  &_win {
+    font-family: var(--font-inter);
+  }
 }
 
 @keyframes scroll {

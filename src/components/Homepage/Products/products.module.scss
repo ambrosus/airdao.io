@@ -52,6 +52,18 @@
   gap: 24px;
   justify-content: space-between;
 
+  img {
+    max-width: 226px;
+    height: auto;
+  }
+
+  &:nth-child(2) img {
+    max-width: 407px;
+  }
+  &:nth-child(4) img {
+    max-width: 436px;
+  }
+
   @media screen and (min-width: 1201px) {
     &:nth-child(1) {
       grid-area: 1 / 1 / 2 / 2;
