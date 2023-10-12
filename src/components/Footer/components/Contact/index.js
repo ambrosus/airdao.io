@@ -14,7 +14,11 @@ const Events = () => (
         Contact us
       </Button>
     </div>
-    <Image src={contactImg} alt="events" />
+    <Image
+      src={contactImg}
+      alt="events"
+      className={styles['footer-app__img']}
+    />
   </div>
 );
 
