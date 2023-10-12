@@ -32,7 +32,7 @@ export default function Proposals({ heading, lead, proposals, snapshot }) {
         </div>
         <div className={styles.row}>
           <h3 className={styles.prop_heading}>Recent proposals</h3>
-          <PrismicNextLink field={snapshot}>
+          <PrismicNextLink field={snapshot} className={styles.hide_mobile}>
             <Button size={'large'} type={'tetiary'} className={styles.button}>
               See all votes
             </Button>
@@ -60,6 +60,12 @@ export default function Proposals({ heading, lead, proposals, snapshot }) {
               link={proposal.link}
             />
           ))}
+
+          <PrismicNextLink field={snapshot} className={styles.hide_desktop}>
+            <Button size={'large'} type={'tetiary'} className={styles.button}>
+              See all votes
+            </Button>
+          </PrismicNextLink>
         </div>
       </div>
     </div>
