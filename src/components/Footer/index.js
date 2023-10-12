@@ -15,7 +15,7 @@ const Footer = ({ slices, socials, footerBlock }) => {
         return null;
     }
   };
-  console.log(socials);
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__inner}>

@@ -65,30 +65,29 @@ const BuyAmb = ({ header, footerText, page }) => {
           </div>
           <div className={styles['buy-amb__list']}>
             {exchangeList.map((el, i) => (
-              <Fragment key={el.image.url}>
-                <Link
-                  href={el.link.url || ''}
-                  target={el.link.target || ''}
-                  className={styles.exchange}
-                >
-                  <img src={el.image.url} alt="exchange" className={styles.exchange__img} />
-                  <div className={styles.exchange__info}>
-                    <PrismicRichText
-                      field={el.name}
-                      components={{
-                        paragraph: ({ children }) => (
-                          <p className={styles.exchange__title}>{children}</p>
-                        ),
-                      }}
-                    />
-                    <Image
-                      src={link}
-                      alt="link"
-                      className={styles['exchange__link']}
-                    />
-                  </div>
-                </Link>
-              </Fragment>
+              <Link
+                key={el.link.url + el.trade}
+                href={el.link.url || ''}
+                target={el.link.target || ''}
+                className={styles.exchange}
+              >
+                <img src={el.image.url} alt="exchange" className={styles.exchange__img} />
+                <div className={styles.exchange__info}>
+                  <PrismicRichText
+                    field={el.name}
+                    components={{
+                      paragraph: ({ children }) => (
+                        <p className={styles.exchange__title}>{children}</p>
+                      ),
+                    }}
+                  />
+                  <Image
+                    src={link}
+                    alt="link"
+                    className={styles['exchange__link']}
+                  />
+                </div>
+              </Link>
             ))}
           </div>
         </div>
