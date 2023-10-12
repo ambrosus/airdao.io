@@ -20,7 +20,7 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
   const handleList = (key) => {
     setActiveList((state) => (state === key ? '' : key));
   };
-  console.log(headerInfo);
+
   return (
     <div
       ref={ref}
@@ -58,7 +58,8 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
             <div className={`${styles['nav-item__list']} ${asText(el.primary.navlabel) === 'Community' ? styles['nav-item__list_socials'] : ''}`}>
               {el.items.map((item) => (
                 <Link
-                  href={asText(item.navitemurl)}
+                  href={item.navitemurl.url}
+                  target={item.navitemurl.target}
                   key={asText(item.navitemlabel)}
                   className={styles['nav-item__list-item']}
                 >
