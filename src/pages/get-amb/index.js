@@ -15,21 +15,16 @@ import blueCircle from '@/assets/img/blue-circle.svg';
 import orangeCircle from '@/assets/img/orange-circle.svg';
 
 const options = [
-  { title: 'All', value: '' },
   { title: 'AMB/USDT', value: 'usdt' },
   { title: 'AMB/BTC', value: 'btc' },
   { title: 'AMB/ETH', value: 'eth' },
 ];
 
 const BuyAmb = ({ header, footerText, page }) => {
-  const [selectedFilter, setSelectedFilter] = useState('');
+  const [selectedFilter, setSelectedFilter] = useState('usdt');
 
   const exchangeList = useMemo(() => {
-    if (!selectedFilter) {
-      return page.links;
-    } else {
-      return page.links.filter((el) => el.trade === selectedFilter);
-    }
+    return page.links.filter((el) => el.trade === selectedFilter);
   }, [page, selectedFilter]);
 
   return (
@@ -93,10 +88,6 @@ const BuyAmb = ({ header, footerText, page }) => {
                     />
                   </div>
                 </Link>
-                {(i === 4 || i === 8) &&
-                  page.links.length === exchangeList.length && (
-                    <div className={styles['exchange-filler']} />
-                  )}
               </Fragment>
             ))}
           </div>
