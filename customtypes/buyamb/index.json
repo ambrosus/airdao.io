@@ -51,6 +51,7 @@
               "config": {
                 "label": "link",
                 "placeholder": "",
+                "allowTargetBlank": true,
                 "select": null
               }
             },
@@ -133,6 +134,7 @@
         "config": {
           "label": "app appstore",
           "placeholder": "",
+          "allowTargetBlank": true,
           "select": null
         }
       },
@@ -141,6 +143,7 @@
         "config": {
           "label": "app google",
           "placeholder": "",
+          "allowTargetBlank": true,
           "select": null
         }
       }
