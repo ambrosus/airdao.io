@@ -127,13 +127,13 @@ export default function Home({ page, header, footerText, latestArticles }) {
           src={orangeCircle}
           alt="orange circle"
         />
-        <ArticlesList
-          title={asText(data.blog_title)}
-          subtitle={asText(data.blog_subtitle)}
-          goToText="Go to blog"
-          goToLink="/"
-          articles={latestArticles}
-        />
+        {/*<ArticlesList*/}
+        {/*  title={asText(data.blog_title)}*/}
+        {/*  subtitle={asText(data.blog_subtitle)}*/}
+        {/*  goToText="Go to blog"*/}
+        {/*  goToLink="/"*/}
+        {/*  articles={latestArticles}*/}
+        {/*/>*/}
       </div>
       <Footer
         slices={footerText.data.slices}
