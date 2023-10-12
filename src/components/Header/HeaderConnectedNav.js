@@ -3,6 +3,7 @@ import useClickOutside from '../../hooks/useClickOutside';
 import { useRef } from 'react';
 import styles from './Header.module.scss';
 import { asText } from '@prismicio/client';
+import Link from 'next/link';
 
 const HeaderConnectedNav = ({ close, headerInfo, isOpen, balance }) => {
   const ref = useRef(null);
@@ -38,23 +39,27 @@ const HeaderConnectedNav = ({ close, headerInfo, isOpen, balance }) => {
       </div>
       <span className={styles['connected-nav__title']}>About</span>
       {findSlice('About').map((el) => (
-        <a
+        <Link
+          href={el.navitemlink.url || ''}
+          target={el.navitemlink.target || ''}
           className={styles['connected-nav__link']}
           key={asText(el.navitemlabel)}
         >
           {asText(el.navitemlabel)}
-        </a>
+        </Link>
       ))}
       {findSlice('Learn') && (
         <>
           <span className={styles['connected-nav__title']}>Learn</span>
           {findSlice('Learn').map((el) => (
-            <a
+            <Link
+              href={el.navitemlink.url || ''}
+              target={el.navitemlink.target || ''}
               className={styles['connected-nav__link']}
               key={asText(el.navitemlabel)}
             >
               {asText(el.navitemlabel)}
-            </a>
+            </Link>
           ))}
         </>
       )}
@@ -62,12 +67,14 @@ const HeaderConnectedNav = ({ close, headerInfo, isOpen, balance }) => {
       <span className={styles['connected-nav__title']}>Community</span>
       <div className={styles['connected-nav__community']}>
         {findSlice('Community').map((el) => (
-          <a
+          <Link
+            href={el.navitemlink.url || ''}
+            target={el.navitemlink.target || ''}
             key={asText(el.navitemlabel)}
             className={styles['connected-nav__community-item']}
           >
             <img src={el.navitemimg.url} alt={asText(el.navitemlabel)} />
-          </a>
+          </Link>
         ))}
       </div>
     </div>
