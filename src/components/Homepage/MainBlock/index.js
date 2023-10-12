@@ -12,6 +12,7 @@ const settings = {
   infinite: true,
   slidesToShow: 9,
   arrows: false,
+  autoplay: true,
   speed: 2000,
   autoplaySpeed: 0,
   centerMode: false,
