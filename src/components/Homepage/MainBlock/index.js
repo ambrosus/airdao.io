@@ -15,7 +15,27 @@ const settings = {
   autoplay: true,
   speed: 3000,
   autoplaySpeed: 0,
-  cssEase: "linear"
+  cssEase: "linear",
+  responsive: [
+    {
+      breakpoint: 1000,
+      settings: {
+        slidesToShow: 8,
+      },
+    },
+    {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 7,
+      },
+    },
+    {
+      breakpoint: 500,
+      settings: {
+        slidesToShow: 5,
+      },
+    },
+  ]
 }
 
 const MainBlock = ({ title, label, partners, subtitle }) => (
@@ -56,6 +76,7 @@ const MainBlock = ({ title, label, partners, subtitle }) => (
       <Slider {...settings}>
         {partners.map((el) => (
           <Image
+            className={styles['main-block__partner']}
             width={52}
             height={52}
             key={el.partner.url}

@@ -114,3 +114,13 @@
     display: none;
   }
 }
+
+.exchange__title {
+  color: var(--neutral-800, #191919);
+  text-align: center;
+  font-family: var(--font-inteer);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px; /* 144.444% */
+  letter-spacing: -0.216px;
+}

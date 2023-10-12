@@ -23,7 +23,6 @@ const options = [
 
 const BuyAmb = ({ header, footerText, page }) => {
   const [selectedFilter, setSelectedFilter] = useState('');
-  console.log(page);
 
   const exchangeList = useMemo(() => {
     if (!selectedFilter) {
@@ -79,7 +78,7 @@ const BuyAmb = ({ header, footerText, page }) => {
                       field={el.name}
                       components={{
                         paragraph: ({ children }) => (
-                          <p className={styles.ex}>{children}</p>
+                          <p className={styles.exchange__title}>{children}</p>
                         ),
                       }}
                     />
