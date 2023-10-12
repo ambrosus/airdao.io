@@ -1,6 +1,6 @@
 import styles from './community.module.scss';
 import Image from 'next/image';
-import chats from './chats.png';
+import chats from './chats.svg';
 import { Button } from '@airdao/ui-library';
 import { PrismicRichText } from '@prismicio/react';
 import Link from 'next/link';
@@ -30,7 +30,7 @@ const Community = ({
           field={primaryText}
           components={{
             paragraph: ({ children }) => (
-              <Link href={primaryLink.url} className={styles['community__btn']}>
+              <Link href={primaryLink.url} target={primaryLink.target} className={styles['community__btn']}>
                 <Button type="primary" size="large">
                   {children}
                 </Button>
@@ -42,7 +42,7 @@ const Community = ({
           field={secondaryText}
           components={{
             paragraph: ({ children }) => (
-              <Link href={secondaryLink.url.replace('https://', '')}>
+              <Link href={secondaryLink.url.replace('https://', '')} target={secondaryLink.target}>
                 <Button type="tetiary" size="large">
                   {children}
                 </Button>

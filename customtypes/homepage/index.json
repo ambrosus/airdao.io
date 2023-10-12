@@ -74,6 +74,7 @@
         "config": {
           "label": "primary btn link",
           "placeholder": "",
+          "allowTargetBlank": true,
           "select": null
         }
       },
@@ -91,6 +92,7 @@
         "config": {
           "label": "secondary btn link",
           "placeholder": "",
+          "allowTargetBlank": true,
           "select": null
         }
       }
@@ -142,6 +144,7 @@
               "config": {
                 "label": "primary link",
                 "placeholder": "",
+                "allowTargetBlank": true,
                 "select": null
               }
             },
@@ -159,6 +162,7 @@
               "config": {
                 "label": "secondary link",
                 "placeholder": "",
+                "allowTargetBlank": true,
                 "select": null
               }
             },
@@ -227,6 +231,7 @@
         "config": {
           "label": "team primary link",
           "placeholder": "",
+          "allowTargetBlank": true,
           "select": null
         }
       },
@@ -306,6 +311,7 @@
         "config": {
           "label": "network primary link",
           "placeholder": "",
+          "allowTargetBlank": true,
           "select": null
         }
       }
@@ -368,6 +374,7 @@
         "config": {
           "label": "ambassadors primary link",
           "placeholder": "",
+          "allowTargetBlank": true,
           "select": null
         }
       },
@@ -385,6 +392,7 @@
         "config": {
           "label": "ambassadors secondary link",
           "placeholder": "",
+          "allowTargetBlank": true,
           "select": null
         }
       }
@@ -431,6 +439,7 @@
         "config": {
           "label": "governance primary link",
           "placeholder": "",
+          "allowTargetBlank": true,
           "select": null
         }
       },
@@ -448,6 +457,7 @@
         "config": {
           "label": "governance secondary link",
           "placeholder": "",
+          "allowTargetBlank": true,
           "select": null
         }
       }
@@ -498,6 +508,7 @@
               "config": {
                 "label": "link",
                 "placeholder": "",
+                "allowTargetBlank": true,
                 "select": null
               }
             }
@@ -518,6 +529,7 @@
         "config": {
           "label": "community primary link",
           "placeholder": "",
+          "allowTargetBlank": true,
           "select": null
         }
       }
@@ -554,6 +566,7 @@
         "config": {
           "label": "app appstore",
           "placeholder": "",
+          "allowTargetBlank": true,
           "select": null
         }
       },
@@ -562,6 +575,7 @@
         "config": {
           "label": "app google",
           "placeholder": "",
+          "allowTargetBlank": true,
           "select": null
         }
       }

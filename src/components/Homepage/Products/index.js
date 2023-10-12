@@ -42,7 +42,7 @@ const Products = ({ title, products }) => (
               field={el.primary_text}
               components={{
                 paragraph: ({ children }) => (
-                  <Link href={el.primary_link.url.replace('https://', '')}>
+                  <Link href={el.primary_link.url.replace('https://', '')} target={el.primary_link.target}>
                     <Button
                       type="secondary"
                       size="large"
@@ -58,7 +58,7 @@ const Products = ({ title, products }) => (
               field={el.secondary_text}
               components={{
                 paragraph: ({ children }) => (
-                  <Link href={el.secondary_link.url}>
+                  <Link href={el.secondary_link.url} target={el.secondary_link.target}>
                     <Button type="tetiary" size="large">
                       {children}
                     </Button>

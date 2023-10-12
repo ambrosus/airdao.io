@@ -3,6 +3,20 @@ import BlockLabel from '@/components/BlockLabel';
 import Image from 'next/image';
 import { PrismicRichText } from '@prismicio/react';
 import shape from './shape.svg';
+import Slider from 'react-slick';
+
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+const settings = {
+  infinite: true,
+  slidesToShow: 9,
+  arrows: false,
+  autoplay: true,
+  speed: 3000,
+  autoplaySpeed: 0,
+  cssEase: "linear"
+}
 
 const MainBlock = ({ title, label, partners, subtitle }) => (
   <section className={`container ${styles['main-block']}`}>
@@ -39,15 +53,17 @@ const MainBlock = ({ title, label, partners, subtitle }) => (
       }}
     />
     <div className={styles['main-block__partners']}>
-      {partners.map((el) => (
-        <Image
-          width={52}
-          height={52}
-          key={el.partner.url}
-          src={el.partner.url}
-          alt="partner"
-        />
-      ))}
+      <Slider {...settings}>
+        {partners.map((el) => (
+          <Image
+            width={52}
+            height={52}
+            key={el.partner.url}
+            src={el.partner.url}
+            alt="partner"
+          />
+        ))}
+      </Slider>
     </div>
   </section>
 );

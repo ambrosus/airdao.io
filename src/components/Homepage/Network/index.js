@@ -54,7 +54,7 @@ const Network = ({ label, title, primaryLink, primaryText, info }) => (
         field={primaryText}
         components={{
           paragraph: ({ children }) => (
-            <Link href={primaryLink.url.replace('https://', '')}>
+            <Link href={primaryLink.url.replace('https://', '')} target={primaryLink.target}>
               <Button size="large" type="primary">
                 {children}
               </Button>

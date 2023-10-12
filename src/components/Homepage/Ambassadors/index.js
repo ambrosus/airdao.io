@@ -61,7 +61,7 @@ const Ambassadors = ({
         field={primaryText}
         components={{
           paragraph: ({ children }) => (
-            <Link href={primaryLink.url.replace('https://', '')}>
+            <Link href={primaryLink.url.replace('https://', '')} target={primaryLink.target}>
               <Button type="primary" size="large">
                 {children}
               </Button>
@@ -73,7 +73,7 @@ const Ambassadors = ({
         field={secondaryText}
         components={{
           paragraph: ({ children }) => (
-            <Link href={secondaryLink.url}>
+            <Link href={secondaryLink.url} target={secondaryLink.target}>
               <Button
                 size="large"
                 type="plain"

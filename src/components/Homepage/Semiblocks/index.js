@@ -42,6 +42,7 @@ const Semiblocks = (props) => (
             paragraph: ({ children }) => (
               <Link
                 href={props.governancePrimaryLink.url}
+                target={props.governancePrimaryLink.target}
               >
                 <Button type="primary" size="large">
                   {children}
@@ -54,10 +55,10 @@ const Semiblocks = (props) => (
           field={props.governanceSecondaryText}
           components={{
             paragraph: ({ children }) => (
-              <Link href={props.governanceSecondaryLink.url.replace('https://', '')}>
+              <Link href={props.governanceSecondaryLink.url.replace('https://', '')} target={props.governanceSecondaryLink.target}>
                 <Button
                   className={styles['semiblocks__btn']}
-                  type="primary"
+                  type="tetiary"
                   size="large"
                 >
                   {children}
@@ -99,7 +100,7 @@ const Semiblocks = (props) => (
       <div className={styles['community__btns']}>
         <div className={styles['community__socials']}>
           {props.communitySocials.map((el) => (
-            <Link key={el.link.url} href={el.link.url}>
+            <Link key={el.link.url} href={el.link.url} target={el.link.target}>
               <img src={el.image.url} alt="social" />
             </Link>
           ))}
@@ -110,6 +111,7 @@ const Semiblocks = (props) => (
             paragraph: ({ children }) => (
               <Link
                 href={props.communityPrimaryLink.url.replace('https://', '')}
+                target={props.communityPrimaryLink.target}
               >
                 <Button
                   className={styles['semiblocks__btn']}

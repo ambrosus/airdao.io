@@ -60,20 +60,12 @@
 }
 
 .main-block__partners {
-  display: flex;
-  justify-content: center;
-  gap: 56px;
-  overflow: hidden;
-
-  @media screen and (max-width: 768px) {
-    gap: 24px;
-  }
-}
-
-.main-block__partners {
   filter: grayscale(100%);
   opacity: 0.7;
-  margin-bottom: 55px;
+  max-width: 1120px;
+  margin: 0 auto 55px;
+  z-index: -1;
+  position: relative;
 
   @media screen and (max-width: 768px) {
     margin-bottom: 30px;
@@ -84,16 +76,8 @@
     }
   }
 
-  img:nth-child(1), img:nth-child(10) {
-    opacity: 0.4;
-  }
-
-  img:nth-child(2), img:nth-child(9) {
-    opacity: 0.5;
-  }
-
-  img:nth-child(3), img:nth-child(8) {
-    opacity: 0.6;
+  .slick-slide {
+    width: 55px;
   }
 }
 
