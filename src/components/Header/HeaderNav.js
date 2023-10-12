@@ -20,7 +20,7 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
   const handleList = (key) => {
     setActiveList((state) => (state === key ? '' : key));
   };
-
+  console.log(headerInfo);
   return (
     <div
       ref={ref}
@@ -55,7 +55,7 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
             </svg>
           </span>
           <div className={styles['nav-item__list-wrapper']}>
-            <div className={styles['nav-item__list']}>
+            <div className={`${styles['nav-item__list']} ${asText(el.primary.navlabel) === 'Community' ? styles['nav-item__list_socials'] : ''}`}>
               {el.items.map((item) => (
                 <Link
                   href={asText(item.navitemurl)}

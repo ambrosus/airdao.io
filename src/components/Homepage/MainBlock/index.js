@@ -13,8 +13,9 @@ const settings = {
   slidesToShow: 9,
   arrows: false,
   autoplay: true,
-  speed: 3000,
+  speed: 2000,
   autoplaySpeed: 0,
+  centerMode: false,
   cssEase: 'linear',
   responsive: [
     {
