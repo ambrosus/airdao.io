@@ -4,7 +4,10 @@ import { useEffect, useRef, useState } from 'react';
 import HeaderConnectedNav from './HeaderConnectedNav';
 import AddressInfo from './AddressInfo';
 import { useWeb3React } from '@web3-react/core';
-import { useAuthorization, useAutoLogin } from 'airdao-components-and-tools/hooks';
+import {
+  useAuthorization,
+  useAutoLogin,
+} from 'airdao-components-and-tools/hooks';
 import LoginModal from '../LoginModal/LoginModal';
 import styles from './Header.module.scss';
 import { createClient } from '@/prismicio';
@@ -13,9 +16,9 @@ import {
   metamaskConnector,
   walletconnectConnector,
 } from 'airdao-components-and-tools/utils';
-import {ethers} from 'ethers';
+import { ethers } from 'ethers';
 import Link from 'next/link';
-import {Button} from '@airdao/ui-library';
+import { Button } from '@airdao/ui-library';
 
 const Header = ({ header }) => {
   const [address, setAddress] = useState('');
@@ -25,7 +28,7 @@ const Header = ({ header }) => {
   const [isAddressInfoOpen, setIsAddressInfoOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
-  const [balance, setBalance] = useState("0");
+  const [balance, setBalance] = useState('0');
 
   const isLoaded = useAutoLogin(metamaskConnector);
   const { account, provider } = useWeb3React();
@@ -50,7 +53,7 @@ const Header = ({ header }) => {
 
   useEffect(() => {
     if (account) {
-      getBalance()
+      getBalance();
       setAddress(account);
       setIsLoginModalOpen(false);
     }
@@ -168,7 +171,12 @@ const Header = ({ header }) => {
               isOpen={isNavOpen}
             />
 
-            <Button type="secondary" size="medium" className={styles['connect-wallet']} onClick={handleLoginModal}>
+            <Button
+              type="secondary"
+              size="medium"
+              className={styles['connect-wallet']}
+              onClick={handleLoginModal}
+            >
               <Image
                 src="/pocket.svg"
                 height="20"

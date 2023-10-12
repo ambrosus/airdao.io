@@ -15,7 +15,7 @@ const settings = {
   autoplay: true,
   speed: 3000,
   autoplaySpeed: 0,
-  cssEase: "linear",
+  cssEase: 'linear',
   responsive: [
     {
       breakpoint: 1000,
@@ -35,8 +35,8 @@ const settings = {
         slidesToShow: 5,
       },
     },
-  ]
-}
+  ],
+};
 
 const MainBlock = ({ title, label, partners, subtitle }) => (
   <section className={`container ${styles['main-block']}`}>

@@ -30,7 +30,11 @@ const Community = ({
           field={primaryText}
           components={{
             paragraph: ({ children }) => (
-              <Link href={primaryLink.url} target={primaryLink.target} className={styles['community__btn']}>
+              <Link
+                href={primaryLink.url}
+                target={primaryLink.target}
+                className={styles['community__btn']}
+              >
                 <Button type="primary" size="large">
                   {children}
                 </Button>
@@ -42,7 +46,10 @@ const Community = ({
           field={secondaryText}
           components={{
             paragraph: ({ children }) => (
-              <Link href={secondaryLink.url.replace('https://', '')} target={secondaryLink.target}>
+              <Link
+                href={secondaryLink.url.replace('https://', '')}
+                target={secondaryLink.target}
+              >
                 <Button type="tetiary" size="large">
                   {children}
                 </Button>

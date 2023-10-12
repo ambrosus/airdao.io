@@ -27,7 +27,14 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
       className={`${styles['nav-item-wrapper']} ${styles[className]}`}
     >
       {headerInfo.slices.map((el) => (
-        <div className={`${styles['nav-item']} ${activeList === asText(el.primary.navlabel) ? styles['nav-item_active'] : ''}`} key={asText(el.primary.navlabel)}>
+        <div
+          className={`${styles['nav-item']} ${
+            activeList === asText(el.primary.navlabel)
+              ? styles['nav-item_active']
+              : ''
+          }`}
+          key={asText(el.primary.navlabel)}
+        >
           <span
             className={styles['nav-item__label']}
             onClick={() => handleList(asText(el.primary.navlabel))}
@@ -41,7 +48,10 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
               xmlns="http://www.w3.org/2000/svg"
               className={styles['nav-item__label-img']}
             >
-              <path d="M5.87103 7.03223C5.03034 7.03223 4.56485 8.00656 5.09309 8.66056L8.90755 13.3832C9.50792 14.1266 10.641 14.1266 11.2414 13.3832L15.0558 8.66056C15.5841 8.00656 15.1186 7.03223 14.2779 7.03223H5.87103Z" fill="#222426"/>
+              <path
+                d="M5.87103 7.03223C5.03034 7.03223 4.56485 8.00656 5.09309 8.66056L8.90755 13.3832C9.50792 14.1266 10.641 14.1266 11.2414 13.3832L15.0558 8.66056C15.5841 8.00656 15.1186 7.03223 14.2779 7.03223H5.87103Z"
+                fill="#222426"
+              />
             </svg>
           </span>
           <div className={styles['nav-item__list-wrapper']}>

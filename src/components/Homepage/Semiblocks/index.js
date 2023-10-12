@@ -55,7 +55,10 @@ const Semiblocks = (props) => (
           field={props.governanceSecondaryText}
           components={{
             paragraph: ({ children }) => (
-              <Link href={props.governanceSecondaryLink.url.replace('https://', '')} target={props.governanceSecondaryLink.target}>
+              <Link
+                href={props.governanceSecondaryLink.url.replace('https://', '')}
+                target={props.governanceSecondaryLink.target}
+              >
                 <Button
                   className={styles['semiblocks__btn']}
                   type="tetiary"

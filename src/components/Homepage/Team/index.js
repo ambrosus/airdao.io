@@ -20,7 +20,10 @@ const Team = ({ title, primaryLink, primaryText, image }) => (
           field={primaryText}
           components={{
             paragraph: ({ children }) => (
-              <Link href={primaryLink.url.replace('https://', '')} target={primaryLink.target}>
+              <Link
+                href={primaryLink.url.replace('https://', '')}
+                target={primaryLink.target}
+              >
                 <Button size="large" type="primary">
                   {children}
                 </Button>
