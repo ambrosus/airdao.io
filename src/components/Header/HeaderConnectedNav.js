@@ -31,6 +31,7 @@ const HeaderConnectedNav = ({ close, headerInfo, isOpen, balance }) => {
         {headerInfo.products.map((el) => (
           <a
             key={asText(el.productname)}
+            href={el.producturl.url}
             className={styles['connected-nav__product']}
           >
             {asText(el.productname)}

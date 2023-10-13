@@ -151,6 +151,11 @@
       margin-bottom: 24px;
     }
   }
+  @media screen and (max-width: 608px) {
+    &:last-child {
+      margin-bottom: 12px;
+    }
+  }
 }
 
 .nav-item__label {
@@ -177,10 +182,10 @@
 .nav-item__list-wrapper {
   transition: .3s max-height;
   overflow: hidden;
-  pointer-events: none;
   max-height: 0px;
 
   @media screen and (min-width: 949px) {
+    pointer-events: none;
     position: absolute;
     top: 50px;
     right: 50px;
@@ -225,6 +230,7 @@
   }
 
   @media screen and (max-width: 950px) {
+    padding: 0;
     width: 100%;
     margin-top: 40px;
   }
