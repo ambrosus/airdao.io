@@ -471,6 +471,19 @@
   padding: 0 8px;
   border: 1px solid rgba(47, 43, 67, 0.1);
   border-radius: 20px;
+  margin-right: 8px;
+}
+
+.address-info__address {
+  color: #0E0E0E;
+  text-align: center;
+  /* WEB/Body 2/500 - Medium */
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
 }
 
 .address-info__check {
@@ -479,9 +492,14 @@
   margin-right: 4px;
 }
 
+.address-info__check-copy {
+  height: 20px;
+}
+
 .address-info__copy {
   position: relative;
-  top: 4px;
+  cursor: pointer;
+  top: 3px;
 }
 
 .address-info__disconnect {

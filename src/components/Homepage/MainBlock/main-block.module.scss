@@ -68,6 +68,7 @@
   z-index: -11;
 
   &:after {
+    pointer-events: none;
     content: '';
     position: absolute;
     width: 100%;
