@@ -225,8 +225,10 @@
   padding: 16px;
   border-radius: 16px;
 
-  &:hover {
-    background: var(--alpha-black-5, rgba(14, 14, 14, 0.05));
+  @media screen and (min-width: 950px) {
+    &:hover {
+      background: var(--alpha-black-5, rgba(14, 14, 14, 0.05));
+    }
   }
 
   @media screen and (max-width: 950px) {
