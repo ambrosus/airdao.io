@@ -193,8 +193,7 @@
     background: #FFFFFF;
     border-radius: 20px;
     width: 876px;
-    padding: 32px;
-    gap: 32px 0;
+    padding: 16px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
@@ -218,7 +217,12 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  width: fit-content;
+  padding: 16px;
+  border-radius: 16px;
+
+  &:hover {
+    background: var(--alpha-black-5, rgba(14, 14, 14, 0.05));
+  }
 
   @media screen and (max-width: 950px) {
     width: 100%;
@@ -499,7 +503,7 @@
 .address-info__copy {
   position: relative;
   cursor: pointer;
-  top: 3px;
+  top: 4px;
 }
 
 .address-info__disconnect {

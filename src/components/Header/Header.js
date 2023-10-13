@@ -153,7 +153,16 @@ const Header = ({ header }) => {
               className={styles.header__hamburger}
               onClick={handleConnectedNav}
             >
-              <Image src="/hamburger.svg" width="24" height="24" alt="menu" />
+              {isConnectedNavOpen ? (
+                <Image
+                  src="/cross-dark.svg"
+                  width="24"
+                  height="24"
+                  alt="menu"
+                />
+              ) : (
+                <Image src="/hamburger.svg" width="24" height="24" alt="menu" />
+              )}
             </button>
             {isConnectedNavOpen && (
               <HeaderConnectedNav
