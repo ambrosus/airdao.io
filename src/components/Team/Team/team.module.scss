@@ -145,11 +145,22 @@
 }
 
 .socials {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    gap: 32px;
-    margin-top: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  gap: 32px;
+  margin-top: auto;
+
+  svg {
+    path {
+      transition: .1s;
+      opacity: .2;
+    }
+
+    &:hover path {
+      opacity: .8;
+    }
+  }
 }
 
 .slider {
