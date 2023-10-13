@@ -52,6 +52,16 @@ const Header = ({ header }) => {
   }, []);
 
   useEffect(() => {
+    if (window.innerWidth < 610) {
+      const body = document.querySelector('body');
+
+      if (body) {
+        body.style.overflow = isMobileNavOpen ? 'hidden' : 'auto';
+      }
+    }
+  }, [isMobileNavOpen]);
+
+  useEffect(() => {
     if (account) {
       getBalance();
       setAddress(account);
