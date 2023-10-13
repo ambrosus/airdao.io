@@ -10,9 +10,11 @@ const Events = () => (
       <p className={styles['footer-app__text']}>
         Get in touch if you have feedback or need help.
       </p>
-      <Button className={styles['footer-app__btn']} type="tetiary" size="large">
-        Contact us
-      </Button>
+      <a href="https://staging-testnet.airdao.io/contact-us">
+        <Button className={styles['footer-app__btn']} type="tetiary" size="large">
+          Contact us
+        </Button>
+      </a>
     </div>
     <Image
       src={contactImg}
