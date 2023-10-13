@@ -211,7 +211,16 @@ const Header = ({ header }) => {
               onClick={handleMobileNav}
               className={styles['hamburger-btn']}
             >
-              <Image src="/hamburger.svg" width="24" height="24" alt="menu" />
+              {isMobileNavOpen ? (
+                <Image
+                  src="/cross-dark.svg"
+                  width="24"
+                  height="24"
+                  alt="menu"
+                />
+              ) : (
+                <Image src="/hamburger.svg" width="24" height="24" alt="menu" />
+              )}
             </button>
             {isMobileNavOpen && (
               <HeaderNav
