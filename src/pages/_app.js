@@ -1,4 +1,6 @@
 import '@/styles/base/index.scss';
+import 'react-toastify/dist/ReactToastify.css';
+import { NotificationContainer } from '@airdao/ui-library';
 
 import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
@@ -65,6 +67,7 @@ export default function App({ Component, pageProps }) {
     <main
       className={`${inter.variable} ${mersad.variable} ${rationell.variable}`}
     >
+      <NotificationContainer />
       <Component {...pageProps} />
     </main>
   );

@@ -4,9 +4,44 @@ import Textarea from '@/components/Textarea';
 import Select from '@/components/Select';
 import { useState } from 'react';
 import Input from '@/components/Input';
+import { Notify } from '@airdao/ui-library';
 
 export default function ContactUs() {
-  const [topic, setTopic] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    category: null,
+    message: '',
+  });
+
+  const setField = (field, value) => {
+    setFormData({
+      ...formData,
+      [field]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await fetch(
+      'https://hooks.zapier.com/hooks/catch/11186117/bdbj4w9',
+      {
+        method: 'POST',
+        body: JSON.stringify(formData),
+      }
+    ).then((res) => res.status);
+
+    if (res < 400) {
+      setFormData({
+        name: '',
+        email: '',
+        message: '',
+        category: 'Tech support',
+        page: '',
+      });
+      Notify.success('Your message was sent!', null, { autoClose: 5000 });
+    }
+  };
 
   return (
     <section className={styles.contact_us}>
@@ -16,9 +51,18 @@ export default function ContactUs() {
         that <br />
         you’d like to share with us, don’t hesitate to reach out today.
       </p>
-      <form onSubmit={() => {}} className={styles.form_container}>
-        <Input placeholder={'Name'} />
-        <Input placeholder={'Email'} />
+      <form onSubmit={handleSubmit} className={styles.form_container}>
+        <Input
+          placeholder={'Name'}
+          required
+          onChange={(e) => setField('name', e.target.value)}
+        />
+        <Input
+          placeholder={'Email'}
+          required
+          type="email"
+          onChange={(e) => setField('email', e.target.value)}
+        />
         <Select
           placeholder="Select option"
           options={[
@@ -27,10 +71,13 @@ export default function ContactUs() {
             'Marketing and Press',
             'Other',
           ]}
-          onChange={setTopic}
-          value={topic}
+          onChange={(value) => setField('category', value)}
+          value={formData.category}
         />
-        <Textarea placeholder={'Your text'} />
+        <Textarea
+          placeholder={'Your text'}
+          onChange={(e) => setField('email', e.target.value)}
+        />
         <Button type="primary" size="large">
           Confirm
         </Button>
