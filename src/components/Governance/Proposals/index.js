@@ -74,7 +74,7 @@ export default function Proposals({ heading, lead, proposals, snapshot }) {
 
 function Proposal({ active, date, content, link }) {
   return (
-    <div className={styles.card}>
+    <PrismicNextLink field={link} className={styles.card} target={'_blank'}>
       <div className={styles.card_top}>
         <div className={styles.card_status}>Closed</div>
         <div className={styles.card_date}>Ended 1 month ago</div>
@@ -90,6 +90,6 @@ function Proposal({ active, date, content, link }) {
           ),
         }}
       />
-    </div>
+    </PrismicNextLink>
   );
 }
