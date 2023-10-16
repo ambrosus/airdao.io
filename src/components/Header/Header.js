@@ -16,7 +16,7 @@ import {
   metamaskConnector,
   walletconnectConnector,
 } from 'airdao-components-and-tools/utils';
-import { ethers } from 'ethers';
+import { ethers, providers } from 'ethers';
 import Link from 'next/link';
 import { Button } from '@airdao/ui-library';
 
@@ -66,7 +66,14 @@ const Header = ({ header }) => {
       getBalance();
       setAddress(account);
       setIsLoginModalOpen(false);
+
+      readProvider.on('block', getBalance);
     }
+
+    return () => {
+      if (!account) return;
+      readProvider.removeAllListeners();
+    };
   }, [account]);
 
   const { loginMetamask, loginWalletConnect, logout } = useAuthorization(
@@ -74,10 +81,14 @@ const Header = ({ header }) => {
     walletconnectConnector
   );
 
+  const readProvider = new providers.JsonRpcProvider(
+    process.env.NEXT_PUBLIC_RPC_URL
+  );
+
   const getBalance = async () => {
     if (!provider) return;
 
-    const bnBalance = await provider.getBalance(account);
+    const bnBalance = await readProvider.getBalance(account);
     const numBalance = ethers.utils.formatEther(bnBalance);
     setBalance((+numBalance).toFixed(2));
   };
