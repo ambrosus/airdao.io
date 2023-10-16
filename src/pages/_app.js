@@ -4,6 +4,7 @@ import { NotificationContainer } from '@airdao/ui-library';
 
 import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
+import Head from 'next/head';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -67,6 +68,33 @@ export default function App({ Component, pageProps }) {
     <main
       className={`${inter.variable} ${mersad.variable} ${rationell.variable}`}
     >
+      <Head>
+        <link rel="icon" href="/favicon.svg" />
+        <title>AirDAO | The World&apos;s First Fully Integrated L1</title>
+
+        <meta
+          property="og:title"
+          content="AirDAO | The World's First Fully Integrated L1"
+        />
+        <meta
+          name="twitter:title"
+          content="AirDAO | The World's First Fully Integrated L1"
+        />
+
+        <meta
+          property="og:description"
+          content="AirDAO is a revolutionary decentralized web app that houses an ecosystem of handy dApps under a single browser tab."
+        />
+        <meta
+          name="twitter:description"
+          content="AirDAO is a revolutionary decentralized web app that houses an ecosystem of handy dApps under a single browser tab."
+        />
+      <meta property="og:image" content="https://airdao.io/og.png" />
+      <meta name="twitter:image" content="https://airdao.io/og.png" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="600" />
+      <meta name="twitter:card" content="summary_large_image" />
+      </Head>
       <NotificationContainer />
       <Component {...pageProps} />
     </main>
