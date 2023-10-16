@@ -36,8 +36,7 @@ export default function ContactUs() {
         name: '',
         email: '',
         message: '',
-        category: 'Tech support',
-        page: '',
+        category: 'null',
       });
       Notify.success('Your message was sent!', null, { autoClose: 5000 });
     }
@@ -55,12 +54,14 @@ export default function ContactUs() {
         <Input
           placeholder={'Name'}
           required
+          value={formData.name}
           onChange={(e) => setField('name', e.target.value)}
         />
         <Input
           placeholder={'Email'}
           required
           type="email"
+          value={formData.email}
           onChange={(e) => setField('email', e.target.value)}
         />
         <Select
@@ -76,6 +77,7 @@ export default function ContactUs() {
         />
         <Textarea
           placeholder={'Your text'}
+          value={formData.message}
           onChange={(e) => setField('email', e.target.value)}
         />
         <Button type="primary" size="large">
