@@ -39,7 +39,10 @@ export default function Proposals({ heading, lead, proposals, snapshot }) {
           </PrismicNextLink>
         </div>
         <div className={styles.cards}>
-          <div className={`${styles.card} ${styles.card_first}`}>
+          <PrismicNextLink
+            field={snapshot}
+            className={`${styles.card} ${styles.card_first}`}
+          >
             <Image
               src={proposalIcon}
               alt={'proposal icon'}
@@ -49,7 +52,7 @@ export default function Proposals({ heading, lead, proposals, snapshot }) {
               Suggest <br />
               your proposal
             </h3>
-          </div>
+          </PrismicNextLink>
 
           {proposals.map((proposal) => (
             <Proposal
