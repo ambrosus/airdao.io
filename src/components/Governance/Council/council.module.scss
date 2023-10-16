@@ -121,4 +121,15 @@
   justify-content: center;
   gap: 32px;
   margin-top: auto;
+
+  svg {
+    path {
+      transition: .1s;
+      opacity: .2;
+    }
+
+    &:hover path {
+      opacity: .8;
+    }
+  }
 }
