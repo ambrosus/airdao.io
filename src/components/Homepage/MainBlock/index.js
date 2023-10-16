@@ -73,8 +73,8 @@ const MainBlock = ({ title, label, partners, subtitle }) => (
         ),
       }}
     />
-    <div className={styles['main-block__partners']}>
-      <Slider {...settings}>
+    <div className={styles['main-block__partners-wrapper']}>
+      <div className={styles['main-block__partners']} >
         {partners.map((el) => (
           <img
             className={styles['main-block__partner']}
@@ -85,7 +85,17 @@ const MainBlock = ({ title, label, partners, subtitle }) => (
             alt="partner"
           />
         ))}
-      </Slider>
+        {partners.map((el) => (
+          <img
+            className={styles['main-block__partner']}
+            width={52}
+            height={52}
+            key={el.partner.url}
+            src={el.partner.url}
+            alt="partner"
+          />
+        ))}
+      </div>
     </div>
   </section>
 );
