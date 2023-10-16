@@ -6,9 +6,15 @@ import Team from 'src/components/Team/Team';
 import Marquee from '@/components/Marquee';
 import Structure from 'src/components/Team/Structure';
 import Ambassadors from '@/components/Homepage/Ambassadors';
+import Head from 'next/head';
+import React from 'react';
 
 const TeamPage = ({ header, footerText, page }) => (
   <>
+    <Head>
+      <meta property="og:image" content="https://airdao.io/og-team.png" />
+      <meta name="twitter:image" content="https://airdao.io/og-team.png" />
+    </Head>
     {header && <HeaderWrapper header={header} />}
     <div className={'team-page'} style={{ overflow: 'auto' }}>
       <TextBlock

@@ -11,12 +11,18 @@ import orangeCircle from '@/assets/img/orange-circle.svg';
 import ArticlesList from '@/components/ArticlesList';
 import * as prismic from '@prismicio/client';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
+import Head from 'next/head';
+import React from 'react';
 
 const GovernancePage = ({ header, footerText, page, latestArticles }) => {
   const footerSlice = getFooterBlockSlice(page.data);
 
   return (
     <>
+      <Head>
+        <meta property="og:image" content="https://airdao.io/og-governance.png" />
+        <meta name="twitter:image" content="https://airdao.io/og-governance.png" />
+      </Head>
       {header && <HeaderWrapper header={header} />}
       <div style={{ overflow: 'hidden', maxWidth: '100vw' }}>
         <Hero heading={page.data.heading} />

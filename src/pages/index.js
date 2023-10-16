@@ -20,6 +20,7 @@ import blueCircle from '@/assets/img/blue-circle.svg';
 import orangeCircle from '@/assets/img/orange-circle.svg';
 import { asText } from '@prismicio/client';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
+import Head from 'next/head';
 
 export default function Home({ page, header, footerText, latestArticles }) {
   const { data } = page;
@@ -27,6 +28,10 @@ export default function Home({ page, header, footerText, latestArticles }) {
 
   return (
     <div className={styles['homepage']}>
+      <Head>
+        <meta property="og:image" content="https://airdao.io/og.png" />
+        <meta name="twitter:image" content="https://airdao.io/og.png" />
+      </Head>
       <HeaderWrapper header={header} />
       <div className={styles['main-block-wrapper']}>
         <Image

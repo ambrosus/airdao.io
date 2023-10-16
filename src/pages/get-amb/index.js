@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { createClient } from '@/prismicio';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
@@ -13,6 +13,7 @@ import { Button } from '@airdao/ui-library';
 import App from '@/components/Homepage/App';
 import blueCircle from '@/assets/img/blue-circle.svg';
 import orangeCircle from '@/assets/img/orange-circle.svg';
+import Head from 'next/head';
 
 const options = [
   { title: 'AMB/USDT', value: 'usdt' },
@@ -29,6 +30,10 @@ const BuyAmb = ({ header, footerText, page }) => {
 
   return (
     <>
+      <Head>
+        <meta property="og:image" content="https://airdao.io/og-get-amb.png" />
+        <meta name="twitter:image" content="https://airdao.io/og-get-amb.png" />
+      </Head>
       {header && <HeaderWrapper header={header} />}
       <div className={`${styles['buy-amb']}`}>
         <div className="container">

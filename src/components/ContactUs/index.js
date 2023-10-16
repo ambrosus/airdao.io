@@ -2,9 +2,10 @@ import styles from './contact-us.module.scss';
 import Button from '@/components/Button';
 import Textarea from '@/components/Textarea';
 import Select from '@/components/Select';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Input from '@/components/Input';
 import { Notify } from '@airdao/ui-library';
+import Head from 'next/head';
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -44,6 +45,10 @@ export default function ContactUs() {
 
   return (
     <section className={styles.contact_us}>
+      <Head>
+        <meta property="og:image" content="https://airdao.io/og-contact.png" />
+        <meta name="twitter:image" content="https://airdao.io/og-contact.png" />
+      </Head>
       <h1 className={styles.heading}>Contact Us</h1>
       <p className={styles.lead_text}>
         The future is ours to build together. If you have ideas or opportunities

@@ -9,11 +9,17 @@ import styles from './ambassador.module.scss';
 import Image from 'next/image';
 import blueCircle from '@/assets/img/blue-circle.svg';
 import orangeCircle from '@/assets/img/orange-circle.svg';
+import Head from 'next/head';
+import React from 'react';
 
 const AmbassadorPage = ({ header, footerText, page }) => {
   return (
     page && (
       <div className={styles.ambassador}>
+        <Head>
+          <meta property="og:image" content="https://airdao.io/og-ambassador.png" />
+          <meta name="twitter:image" content="https://airdao.io/og-ambassador.png" />
+        </Head>
         {header && <HeaderWrapper header={header} />}
         <Hero
           title={page.hero_title}
