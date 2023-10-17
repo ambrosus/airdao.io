@@ -1,6 +1,7 @@
 import styles from './community.module.scss';
 import Image from 'next/image';
 import chats from './chats.svg';
+import chatsTablet from './chats-tablet.svg';
 import { Button } from '@airdao/ui-library';
 import { PrismicRichText } from '@prismicio/react';
 import Link from 'next/link';
@@ -14,8 +15,9 @@ const Community = ({
 }) => {
   return (
     <div className={`container ${styles['community']}`}>
-      <div className={styles['community__img']}>
-        <Image src={chats} alt="chats" />
+      <div className={styles['community__img-wrapper']}>
+        <Image src={chats} alt="chats" className={styles['community__img']}/>
+        <Image src={chatsTablet} alt="chats" className={`${styles['community__img']} ${styles['community__img_tablet']}`}/>
       </div>
       <div className={styles['community__right']}>
         <PrismicRichText
