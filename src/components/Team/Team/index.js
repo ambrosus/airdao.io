@@ -82,6 +82,7 @@ function TeamSlider({ data, active }) {
         breakpoint: 800,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 2,
           rows: 3,
         },
       },
