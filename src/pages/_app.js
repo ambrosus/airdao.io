@@ -1,4 +1,5 @@
 import '@/styles/base/index.scss';
+import '@/styles/bond-exchange.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import { NotificationContainer } from '@airdao/ui-library';
 
