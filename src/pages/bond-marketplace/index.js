@@ -6,7 +6,7 @@ import {
   walletconnectConnector,
   walletconnectHooks,
 } from 'airdao-components-and-tools/utils';
-import BondExchange from '@/pages/bond-marketplace/BondExchange';
+import BondExchange from '@/components/Bond//BondExchange';
 import {createClient} from '@/prismicio';
 
 const connectors = [

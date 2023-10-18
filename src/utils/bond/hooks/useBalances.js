@@ -1,6 +1,7 @@
+'use client';
 import { useEffect, useState } from 'react';
-import BnToString from '../utils/BnToString';
-import { createAirBondContract } from '../contracts';
+import BnToString from '@/utils/bond/BnToString';
+import { createAirBondContract } from '@/utils/bond/contracts';
 import { useWeb3React } from '@web3-react/core';
 
 export default function useBalances() {

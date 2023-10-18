@@ -1,3 +1,4 @@
+'use client';
 import { useCallback } from 'react';
 import {
   addLiquidityAmbToBond,
@@ -6,7 +7,7 @@ import {
   getAmountsOut,
   swapAmbForBond,
   swapBondForAmb,
-} from '../services/swapActions';
+} from '@/utils/bond/services/swapActions';
 import { ethers } from 'ethers';
 import { useWeb3React } from '@web3-react/core';
 

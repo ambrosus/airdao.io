@@ -1,15 +1,14 @@
-import { createClient } from '@/prismicio';
 import HeaderWrapper from '@/components/Header';
 import Footer from '@/components/Footer';
-import CurrencyInput from '@/pages/bond-marketplace/components/CurrencyInput';
-import ActionButton from '@/pages/bond-marketplace/components/ActionButton';
+import CurrencyInput from './components/CurrencyInput';
+import ActionButton from './components/ActionButton';
 import {useState} from 'react';
 import AmbIcon from './icons/amb.svg';
 import AirBondIcon from './icons/airbond.svg';
 import arrow from './icons/arrow.svg';
-import useAmountAndPrice from '@/pages/bond-marketplace/hooks/useAmountAndPrice';
-import useBalances from '@/pages/bond-marketplace/hooks/useBalances';
-import useSwapLayoutState from '@/pages/bond-marketplace/hooks/useSwapLayoutState';
+import useAmountAndPrice from '@/utils/bond/hooks/useAmountAndPrice';
+import useBalances from '@/utils/bond/hooks/useBalances';
+import useSwapLayoutState from '@/utils/bond/hooks/useSwapLayoutState';
 import { useAuthorization } from 'airdao-components-and-tools/hooks';
 import {
   metamaskConnector,

@@ -1,10 +1,11 @@
+'use client';
 import { useEffect, useState } from 'react';
-import { calculatePrice } from '../services/swapActions';
-import BnToString from '../utils/BnToString';
-import provider from '../services/provider';
+import { calculatePrice } from '@/utils/bond/services/swapActions';
+import BnToString from '@/utils/bond/BnToString';
+import provider from '@/utils/bond/services/provider';
 import useSwapActions from './useSwapActions';
 import { ethers } from 'ethers';
-import formatFloatString from '../utils/formatFloatString';
+import formatFloatString from '@/utils/bond/formatFloatString';
 
 export default function useAmountAndPrice(
   amountToSell,

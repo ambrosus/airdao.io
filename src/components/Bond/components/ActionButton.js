@@ -1,8 +1,8 @@
-import useSwapActions from '../hooks/useSwapActions';
+import useSwapActions from '@/utils/bond/hooks/useSwapActions';
 import PropTypes from 'prop-types';
 import { Button } from '@airdao/ui-library';
 import check from './check.svg';
-import InlineLoader from '@/pages/bond-marketplace/components/InlineLoader';
+import InlineLoader from './InlineLoader';
 export default function ActionButton({
   state,
   stateList,
