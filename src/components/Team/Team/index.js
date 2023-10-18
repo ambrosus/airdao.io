@@ -1,7 +1,7 @@
 import { PrismicRichText } from '@prismicio/react';
 import styles from './team.module.scss';
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
-import { useState } from 'react';
+import {useEffect, useRef, useState} from 'react';
 import Slider from 'react-slick';
 import twitterIcon from '../../../assets/icons/twitter.svg';
 import linkedinIcon from '../../../assets/icons/linkedin.svg';
@@ -82,15 +82,21 @@ function TeamSlider({ data, active }) {
         breakpoint: 800,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 2,
           rows: 3,
         },
       },
     ],
   };
+  const ref = useRef();
+
+  useEffect(() => {
+    ref.current.slickGoTo(0);
+  }, [active]);
 
   return (
     <div>
-      <Slider {...settings}>
+      <Slider ref={ref} {...settings}>
         {data[active].map((member) => (
           <TeamCard key={member.id} {...member} />
         ))}

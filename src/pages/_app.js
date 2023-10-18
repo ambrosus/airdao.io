@@ -1,10 +1,12 @@
 import '@/styles/base/index.scss';
+import '@/styles/bond-exchange.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import { NotificationContainer } from '@airdao/ui-library';
 
 import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
 import Head from 'next/head';
+import Script from 'next/script';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -87,10 +89,36 @@ export default function App({ Component, pageProps }) {
           name="twitter:description"
           content="AirDAO is a revolutionary decentralized web app that houses an ecosystem of handy dApps under a single browser tab."
         />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="600" />
-      <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="600" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
+      <Script id="google-gtm">
+        {`
+         (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-NB9VBWH');`}
+      </Script>
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-Z4QJE54Z4R"
+      ></Script>
+      <Script id="google-gtag">
+        {`window.dataLayer = window.dataLayer || [];
+            function gtag() {
+            dataLayer.push(arguments);
+          }
+            gtag('js', new Date());
+
+            gtag('config', 'G-Z4QJE54Z4R');`}
+      </Script>
       <NotificationContainer />
       <Component {...pageProps} />
     </main>
