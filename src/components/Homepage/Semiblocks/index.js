@@ -43,6 +43,7 @@ const Semiblocks = (props) => (
               <Link
                 href={props.governancePrimaryLink.url}
                 target={props.governancePrimaryLink.target}
+                rel="nofollow"
               >
                 <Button type="primary" size="large">
                   {children}
@@ -103,7 +104,7 @@ const Semiblocks = (props) => (
       <div className={styles['community__btns']}>
         <div className={styles['community__socials']}>
           {props.communitySocials.map((el) => (
-            <Link key={el.link.url} href={el.link.url} target={el.link.target}>
+            <Link key={el.link.url} href={el.link.url} target={el.link.target} rel="nofollow">
               <img src={el.image.url} alt="social" />
             </Link>
           ))}

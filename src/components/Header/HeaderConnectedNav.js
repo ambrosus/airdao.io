@@ -73,6 +73,7 @@ const HeaderConnectedNav = ({ close, headerInfo, isOpen, balance }) => {
             target={el.navitemlink.target || ''}
             key={asText(el.navitemlabel)}
             className={styles['connected-nav__community-item']}
+            rel="nofollow"
           >
             <img src={el.navitemimg.url} alt={asText(el.navitemlabel)} />
           </Link>

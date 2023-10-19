@@ -36,6 +36,7 @@ const Community = ({
                 href={primaryLink.url}
                 target={primaryLink.target}
                 className={styles['community__btn']}
+                rel="nofollow"
               >
                 <Button type="primary" size="large">
                   {children}

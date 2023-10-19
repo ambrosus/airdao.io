@@ -64,6 +64,7 @@ const Products = ({ title, products }) => (
                   <Link
                     href={el.secondary_link.url}
                     target={el.secondary_link.target}
+                    rel="nofollow"
                   >
                     <Button type="tetiary" size="large">
                       {children}

@@ -13,7 +13,11 @@ const Events = () => (
         Add our calendar to know about all Town Halls, AirSpaces, AMAs and much
         more
       </p>
-      <a href="https://calendar.google.com/calendar/u/0?cid=Y2FsZW5kYXJAYWlyZGFvLmlv" target="_blank">
+      <a
+        href="https://calendar.google.com/calendar/u/0?cid=Y2FsZW5kYXJAYWlyZGFvLmlv"
+        target="_blank"
+        rel="nofollow"
+      >
         <Button className={styles['footer-app__btn']} type="tetiary" size="large">
           Add to Calendar
         </Button>
