@@ -133,9 +133,14 @@
   }
 }
 
-.button {
-  background: var(--blue-100-secondary, #EDF3FF) !important;
-  color: var(--blue-600-primary, #3568DD) !important;
+button.button {
+  background: var(--blue-100-secondary, #EDF3FF);
+  color: var(--blue-600-primary, #3568DD);
+
+  &:hover {
+    background: #bdc3cc;
+    color: rgba(53, 104, 221, 1);
+  }
 }
 
 .cards {
@@ -207,7 +212,11 @@
   flex-flow: column nowrap;
   justify-content: flex-end;
 
-  border: none
+  border: none;
+
+  &:hover {
+    background: #FF5E0D;
+  }
 }
 
 .card_heading {
