@@ -37,6 +37,7 @@ const BondExchange = ({ header, footerText }) => {
 
   useEffect(() => {
     setIsLoginModalOpen(false);
+    setAirBondsToSell('');
   }, [account]);
 
   useEffect(() => {
