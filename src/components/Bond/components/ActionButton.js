@@ -2,7 +2,8 @@ import useSwapActions from '@/utils/bond/hooks/useSwapActions';
 import PropTypes from 'prop-types';
 import { Button } from '@airdao/ui-library';
 import check from './check.svg';
-import InlineLoader from './InlineLoader';
+import loader from './circle-loader.svg';
+
 export default function ActionButton({
   state,
   stateList,
@@ -76,7 +77,12 @@ export default function ActionButton({
     },
     [stateList.PENDING]: {
       disabled: true,
-      children: <InlineLoader className="bond-exchange__button-loader" />,
+      children: (
+        <>
+          <img src={loader.src} alt='loader' className='circle-loader' />
+          Loading...
+        </>
+      ),
     },
     [stateList.READY]: {
       disabled: false,
@@ -90,13 +96,10 @@ export default function ActionButton({
           <img src={check} alt="check" /> Success
         </>
       ),
-      className:
-        'bond-exchange__swap-button bond-exchange__swap-button_success',
     },
     [stateList.ERROR]: {
       disabled: true,
       children: "There's some error",
-      className: 'bond-exchange__swap-button bond-exchange__swap-button_error',
     },
   };
 

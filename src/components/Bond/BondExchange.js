@@ -24,7 +24,7 @@ const BondExchange = ({ header, footerText }) => {
   const [airBondsToSell, setAirBondsToSell] = useState('');
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
-  const { chainId } = useWeb3React();
+  const { chainId, account } = useWeb3React();
   const { amount: ambToReceive, price } = useAmountAndPrice(airBondsToSell);
   const { ambBalance, airBondBalance } = useBalances();
   const { state, stateList, setIsPending, setIsSuccess, setIsError } =
@@ -36,7 +36,11 @@ const BondExchange = ({ header, footerText }) => {
   );
 
   useEffect(() => {
-    if (chainId !== 16718) {
+    setIsLoginModalOpen(false);
+  }, [account])
+
+  useEffect(() => {
+    if (chainId && +chainId !== 16718) {
       Notify.info('Please select AirDAO main-net chain in your wallet', null, {
         autoClose: 5000,
       });
