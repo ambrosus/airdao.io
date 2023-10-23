@@ -90,16 +90,12 @@ export default function ActionButton({
       onClick: swapAndWait,
     },
     [stateList.SUCCESS]: {
-      disabled: true,
-      children: (
-        <>
-          <img src={check} alt="check" /> Success
-        </>
-      ),
+      children: 'Success',
+      className: 'bond-success-btn'
     },
     [stateList.ERROR]: {
-      disabled: true,
       children: "There's some error",
+      className: 'bond-error-btn'
     },
   };
 
