@@ -65,4 +65,5 @@ export async function getStaticProps({ params, previewData }) {
     props: { header, footerText: footer, page },
   };
 }
+
 export default TeamPage;

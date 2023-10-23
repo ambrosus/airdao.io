@@ -17,8 +17,14 @@ const AmbassadorPage = ({ header, footerText, page }) => {
     page && (
       <div className={styles.ambassador}>
         <Head>
-          <meta property="og:image" content="https://airdao.io/og-ambassador.png" />
-          <meta name="twitter:image" content="https://airdao.io/og-ambassador.png" />
+          <meta
+            property="og:image"
+            content="https://airdao.io/og-ambassador.png"
+          />
+          <meta
+            name="twitter:image"
+            content="https://airdao.io/og-ambassador.png"
+          />
         </Head>
         {header && <HeaderWrapper header={header} />}
         <Hero

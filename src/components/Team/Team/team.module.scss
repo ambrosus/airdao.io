@@ -61,13 +61,10 @@
 }
 
 .cards {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  flex-flow: row wrap;
-  column-gap: 48px;
-  row-gap: 80px;
-
-  padding: 0 70px;
+  display: flex;
+  justify-content: center;
+  gap: 80px 48px;
+  flex-wrap: wrap;
   margin-bottom: 95px;
 
   @media screen and (max-width: 1150px) {
@@ -85,10 +82,12 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  width: 190px;
 
   @media screen and (max-width: 1150px) {
     margin-bottom: 40px;
     height: 290px;
+    width: auto;
   }
 
   @media screen and (max-width: 800px) {

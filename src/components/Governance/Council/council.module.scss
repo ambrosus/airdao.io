@@ -113,6 +113,11 @@
 .button {
   background: var(--blue-100-secondary, #EDF3FF);
   color: var(--blue-600-primary, #3568DD);
+
+  &:hover {
+    background: var(--alpha-black-10, rgba(14, 14, 14, 0.10));
+    color: rgba(53, 104, 221, 1);
+  }
 }
 
 .socials {

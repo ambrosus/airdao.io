@@ -77,7 +77,11 @@ const BuyAmb = ({ header, footerText, page }) => {
                 className={styles.exchange}
                 rel="nofollow"
               >
-                <img src={el.image.url} alt="exchange" className={styles.exchange__img} />
+                <img
+                  src={el.image.url}
+                  alt="exchange"
+                  className={styles.exchange__img}
+                />
                 <div className={styles.exchange__info}>
                   <PrismicRichText
                     field={el.name}

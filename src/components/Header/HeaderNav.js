@@ -55,7 +55,13 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
             </svg>
           </span>
           <div className={styles['nav-item__list-wrapper']}>
-            <div className={`${styles['nav-item__list']} ${asText(el.primary.navlabel) === 'Community' ? styles['nav-item__list_socials'] : ''}`}>
+            <div
+              className={`${styles['nav-item__list']} ${
+                asText(el.primary.navlabel) === 'Community'
+                  ? styles['nav-item__list_socials']
+                  : ''
+              }`}
+            >
               {el.items.map((item) => (
                 <Link
                   href={item.navitemlink.url || ''}
