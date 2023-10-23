@@ -94,6 +94,7 @@ export default function ActionButton({
       className: 'bond-success-btn'
     },
     [stateList.ERROR]: {
+      disabled: true,
       children: "There's some error",
       className: 'bond-error-btn'
     },
