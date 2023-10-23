@@ -39,23 +39,23 @@ const CurrencyInput = ({
        ${value.length > 12 ? 'currency-input_too-long' : ''}
        `}
     >
-      <label className='currency-input__label'>
+      <label className="currency-input__label">
         {disabled ? 'Receive:' : 'Send:'}
       </label>
-      <div className='currency-input__balance'>Balance: {balance}</div>
+      <div className="currency-input__balance">Balance: {balance}</div>
       <input
-        type='text'
-        placeholder='0.0'
+        type="text"
+        placeholder="0.0"
         value={value}
-        className='currency-input__input'
+        className="currency-input__input"
         onChange={handleInput}
         onKeyPress={handleKeyPress}
         readOnly={disabled}
       />
-      <button type='button' className='currency-input__coin-button'>
+      <button type="button" className="currency-input__coin-button">
         <img
           src={selectedCoin.icon}
-          className='currency-input__currency-icon'
+          className="currency-input__currency-icon"
         />
         {selectedCoin.symbol}
       </button>

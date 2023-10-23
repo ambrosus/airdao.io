@@ -49,9 +49,7 @@ export default function ContactUs() {
         <meta property="og:image" content="https://airdao.io/og-contact.png" />
         <meta name="twitter:image" content="https://airdao.io/og-contact.png" />
       </Head>
-      <h1>
-        Share ideas, join the conversation, and learn about our ecosystem
-      </h1>
+      <h1>Share ideas, join the conversation, and learn about our ecosystem</h1>
       <div>
         <div>Ideas</div>
       </div>

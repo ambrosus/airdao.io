@@ -20,8 +20,14 @@ const GovernancePage = ({ header, footerText, page, latestArticles }) => {
   return (
     <>
       <Head>
-        <meta property="og:image" content="https://airdao.io/og-governance.png" />
-        <meta name="twitter:image" content="https://airdao.io/og-governance.png" />
+        <meta
+          property="og:image"
+          content="https://airdao.io/og-governance.png"
+        />
+        <meta
+          name="twitter:image"
+          content="https://airdao.io/og-governance.png"
+        />
       </Head>
       {header && <HeaderWrapper header={header} />}
       <div style={{ overflow: 'hidden', maxWidth: '100vw' }}>

@@ -74,7 +74,7 @@ const MainBlock = ({ title, label, partners, subtitle }) => (
       }}
     />
     <div className={styles['main-block__partners-wrapper']}>
-      <div className={styles['main-block__partners']} >
+      <div className={styles['main-block__partners']}>
         {partners.map((el) => (
           <img
             className={styles['main-block__partner']}

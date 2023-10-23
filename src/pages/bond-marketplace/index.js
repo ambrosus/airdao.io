@@ -6,7 +6,7 @@ import {
   walletconnectHooks,
 } from 'airdao-components-and-tools/utils';
 import BondExchange from '@/components/Bond/BondExchange';
-import {createClient} from '@/prismicio';
+import { createClient } from '@/prismicio';
 
 const connectors = [
   [metamaskConnector, metamaskHooks],

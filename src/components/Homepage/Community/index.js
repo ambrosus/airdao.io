@@ -16,8 +16,12 @@ const Community = ({
   return (
     <div className={`container ${styles['community']}`}>
       <div className={styles['community__img-wrapper']}>
-        <Image src={chats} alt="chats" className={styles['community__img']}/>
-        <Image src={chatsTablet} alt="chats" className={`${styles['community__img']} ${styles['community__img_tablet']}`}/>
+        <Image src={chats} alt="chats" className={styles['community__img']} />
+        <Image
+          src={chatsTablet}
+          alt="chats"
+          className={`${styles['community__img']} ${styles['community__img_tablet']}`}
+        />
       </div>
       <div className={styles['community__right']}>
         <PrismicRichText

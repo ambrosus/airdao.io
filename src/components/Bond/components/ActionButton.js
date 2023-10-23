@@ -76,7 +76,7 @@ export default function ActionButton({
     },
     [stateList.PENDING]: {
       disabled: true,
-      children: <InlineLoader className='bond-exchange__button-loader' />,
+      children: <InlineLoader className="bond-exchange__button-loader" />,
     },
     [stateList.READY]: {
       disabled: false,
@@ -102,7 +102,7 @@ export default function ActionButton({
 
   return (
     <Button
-      className='bond-exchange__swap-button'
+      className="bond-exchange__swap-button"
       size="large"
       type="secondary"
       {...buttonProps[state]}
