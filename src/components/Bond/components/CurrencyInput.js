@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {useWeb3React} from '@web3-react/core';
+import { useWeb3React } from '@web3-react/core';
 
 const CurrencyInput = ({
   disabled = false,
@@ -13,7 +13,7 @@ const CurrencyInput = ({
   balance = '',
 }) => {
   const [timer, setTimer] = useState();
-  const { account } = useWeb3React();
+  const { account, chainId } = useWeb3React();
 
   const handleInput = ({ target: { value: newValue } }) => {
     const formattedValue = newValue.replace(',', '.');
@@ -53,7 +53,7 @@ const CurrencyInput = ({
         onChange={handleInput}
         onKeyPress={handleKeyPress}
         readOnly={disabled}
-        style={account ? {} : {pointerEvents: 'none'}}
+        style={account && chainId === 16718 ? {} : { pointerEvents: 'none' }}
       />
       <button type="button" className="currency-input__coin-button">
         <img

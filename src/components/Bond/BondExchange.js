@@ -37,17 +37,29 @@ const BondExchange = ({ header, footerText }) => {
 
   useEffect(() => {
     setIsLoginModalOpen(false);
-  }, [account])
+  }, [account]);
 
   useEffect(() => {
     if (chainId && +chainId !== 16718) {
-      Notify.info('Please select AirDAO main-net chain in your wallet', null, {
-        autoClose: 5000,
-      });
+      Notify.info(
+        'Please switch to the correct network in your wallet.',
+        null,
+        {
+          toastId: 'switch-network',
+        }
+      );
+    } else {
+      Notify.dismiss('switch-network');
     }
-  }, []);
+  }, [chainId]);
 
-  const handleLoginModal = () => setIsLoginModalOpen((state) => !state);
+  const handleLogin = () => {
+    if (!account) {
+      setIsLoginModalOpen((state) => !state);
+    } else if (chainId !== 16718) {
+      loginMetamask();
+    }
+  };
 
   return (
     <>
@@ -101,7 +113,7 @@ const BondExchange = ({ header, footerText }) => {
                 stateList={stateList}
                 amount={airBondsToSell}
                 successCallback={() => setAirBondsToSell('')}
-                connectWallet={handleLoginModal}
+                connectWallet={handleLogin}
               />
             </div>
           </div>
@@ -110,7 +122,7 @@ const BondExchange = ({ header, footerText }) => {
       {isLoginModalOpen && (
         <LoginModal
           isOpen={isLoginModalOpen}
-          closeModal={handleLoginModal}
+          closeModal={() => setIsLoginModalOpen(false)}
           loginMetamask={loginMetamask}
           loginWalletConnect={loginWalletConnect}
         />

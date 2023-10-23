@@ -79,7 +79,7 @@ export default function ActionButton({
       disabled: true,
       children: (
         <>
-          <img src={loader.src} alt='loader' className='circle-loader' />
+          <img src={loader.src} alt="loader" className="circle-loader" />
           Loading...
         </>
       ),
