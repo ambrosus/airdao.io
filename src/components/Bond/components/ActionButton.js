@@ -91,12 +91,12 @@ export default function ActionButton({
     },
     [stateList.SUCCESS]: {
       children: 'Success',
-      className: 'bond-success-btn'
+      className: 'bond-success-btn',
     },
     [stateList.ERROR]: {
       type: 'tetiary',
       children: "There's some error",
-      className: 'bond-error-btn'
+      className: 'bond-error-btn',
     },
   };
 
