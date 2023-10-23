@@ -5,7 +5,7 @@ import { createAirBondContract } from '@/utils/bond/contracts';
 import { useWeb3React } from '@web3-react/core';
 
 export default function useBalances() {
-  const { provider, account } = useWeb3React();
+  const { provider, account, chainId } = useWeb3React();
   const [balances, setBalances] = useState({
     ambBalance: '',
     airBondBalance: '',
@@ -17,6 +17,9 @@ export default function useBalances() {
   };
 
   const getAirBondsBalance = async (provider, account) => {
+    if (chainId !== 16718) {
+      return null;
+    }
     const AirBondsContract = await createAirBondContract(provider);
     const bnBalance = await AirBondsContract.balanceOf(account);
     return BnToString(bnBalance);

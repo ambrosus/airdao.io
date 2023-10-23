@@ -104,7 +104,7 @@ export default function ActionButton({
     <Button
       className='bond-exchange__swap-button'
       size="large"
-      type="primary"
+      type="secondary"
       {...buttonProps[state]}
       {...props}
     />

@@ -35,7 +35,7 @@ export default function useSwapLayoutState(airBondsToSell, airBondsBalance) {
     isError,
     checkAllowance
   ) {
-    if (!(isActive || chainId === +ambChainId)) {
+    if (!(isActive && chainId === +ambChainId)) {
       setState(stateList.NOT_CONNECTED);
       setIsPending(false);
       setIsSuccess(false);
