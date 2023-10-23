@@ -15,10 +15,15 @@ import { asText } from '@prismicio/client';
 import {
   metamaskConnector,
   walletconnectConnector,
+  getCurrentAmbNetwork,
 } from 'airdao-components-and-tools/utils';
 import { ethers, providers } from 'ethers';
 import Link from 'next/link';
 import { Button } from '@airdao/ui-library';
+
+const ambNet = getCurrentAmbNetwork(process.env.NEXT_PUBLIC_CHAIN_ID);
+
+const readProvider = new providers.JsonRpcProvider(ambNet.rpcUrl);
 
 const Header = ({ header }) => {
   const [address, setAddress] = useState('');
@@ -81,10 +86,6 @@ const Header = ({ header }) => {
     walletconnectConnector
   );
 
-  const readProvider = new providers.JsonRpcProvider(
-    process.env.NEXT_PUBLIC_RPC_URL
-  );
-
   const getBalance = async () => {
     if (!provider) return;
 
@@ -92,7 +93,6 @@ const Header = ({ header }) => {
     const numBalance = ethers.utils.formatEther(bnBalance);
     setBalance((+numBalance).toFixed(2));
   };
-
   const handleLogout = () => {
     logout();
     setAddress('');
