@@ -38,7 +38,7 @@ const BondExchange = ({ header, footerText }) => {
   useEffect(() => {
     setIsLoginModalOpen(false);
     setAirBondsToSell('');
-  }, [account]);
+  }, [account, chainId]);
 
   useEffect(() => {
     if (chainId && +chainId !== 16718) {

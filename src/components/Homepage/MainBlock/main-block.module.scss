@@ -113,28 +113,6 @@
   }
 }
 
-.shape {
-  position: absolute;
-  width: 150px;
-  left: -50px;
-  transform: rotate(-10deg);
-  top: -150px;
-  height: auto;
-}
-
-.shape-right {
-  left: unset;
-  right: -50px;
-  width: 120px;
-  top: unset;
-  bottom: 200px;
-  transform: scale(1, -1) rotate(-10deg);
-
-  @media screen and (max-width: 768px) {
-    bottom: 70px;
-  }
-}
-
 .main-block__partner {
   width: 52px;
   height: auto;
