@@ -26,7 +26,7 @@ export default function useBalances() {
   };
 
   useEffect(() => {
-    if (!provider || !account) {
+    if (!provider || !account || chainId !== 16718) {
       setBalances({ ambBalance: '', airBondBalance: '' });
       return;
     }
