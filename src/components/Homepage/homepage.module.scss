@@ -76,6 +76,12 @@
   transform: rotate(-10deg);
   top: 150px;
   height: auto;
+
+  @media screen and (max-width: 768px) {
+    width: 110px;
+    left: -30px;
+    top: 100px;
+  }
 }
 
 .shape-right {

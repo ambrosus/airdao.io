@@ -1,110 +1,17 @@
-@import "../../styles/mixins";
-
-.contact_us {
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-
-  position: relative;
-  padding-top: 252px;
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 600px;
-    border-radius: 0px 0px 100px 100px;
-    background: var(--blue-600-primary, #3568DD);
-  }
-
-  @include device(tablet) {
-    padding-top: 212px;
-  }
-
-  @include device(mobile) {
-    padding: 200px 16px 0;
-  }
-}
-
-.heading {
-  color: var(--neutral-0, #FFF);
+.title {
   text-align: center;
   font-family: var(--font-rationell);
-  font-size: 64px;
-  font-style: normal;
+  font-size: 56px;
   font-weight: 700;
-  line-height: 78px; /* 121.875% */
-  letter-spacing: -1.28px;
-
-  margin-bottom: 8px;
-  z-index: 5;
-  position: relative;
-
-  @include device(tablet) {
-    font-size: 40px;
-    font-weight: 800;
-    line-height: 54px; /* 135% */
-    letter-spacing: -0.8px;
-  }
+  line-height: 68.5px; /* 122.321% */
+  letter-spacing: -1.12px;
+  background: -webkit-linear-gradient(#457EFF, #3568DD);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  margin-top: 306px;
+  max-width: 1050px;
 }
 
+.links {
 
-.lead_text {
-  color: var(--neutral-0, #FFF);
-  text-align: center;
-  font-family: var(--font-inter);
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 26px; /* 144.444% */
-  letter-spacing: -0.216px;
-
-  margin-bottom: 52px;
-  z-index: 5;
-  position: relative;
-
-  @include device(tablet) {
-    font-size: 16px;
-    line-height: 24px; /* 150% */
-    letter-spacing: -0.16px;
-  }
-
-  @include device(mobile) {
-    width: 100%;
-
-    & br {
-      display: none;
-    }
-  }
-}
-
-.form_container {
-  display: flex;
-  padding: 40px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  gap: 24px;
-
-  border-radius: 50px;
-  background: var(--neutral-0, #FFF);
-  box-shadow: 0px 12px 36px 0px rgba(47, 43, 67, 0.12);
-  z-index: 5;
-  position: relative;
-
-  width: 488px;
-  box-sizing: border-box;
-
-  @include device(tablet) {
-    width: 422px;
-    padding: 32px;
-  }
-
-  @include device(mobile) {
-    width: 100%;
-  }
 }
