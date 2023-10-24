@@ -3,50 +3,12 @@ import BlockLabel from '@/components/BlockLabel';
 import Image from 'next/image';
 import { PrismicRichText } from '@prismicio/react';
 import shape from './shape.svg';
-import Slider from 'react-slick';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const settings = {
-  infinite: true,
-  slidesToShow: 9,
-  arrows: false,
-  autoplay: true,
-  speed: 3000,
-  autoplaySpeed: 0,
-  centerMode: false,
-  cssEase: 'linear',
-  responsive: [
-    {
-      breakpoint: 1000,
-      settings: {
-        slidesToShow: 8,
-      },
-    },
-    {
-      breakpoint: 800,
-      settings: {
-        slidesToShow: 7,
-      },
-    },
-    {
-      breakpoint: 500,
-      settings: {
-        slidesToShow: 5,
-      },
-    },
-  ],
-};
-
 const MainBlock = ({ title, label, partners, subtitle }) => (
   <section className={`container ${styles['main-block']}`}>
-    <Image className={styles.shape} src={shape} alt="shape" />
-    <Image
-      className={`${styles.shape} ${styles['shape-right']}`}
-      src={shape}
-      alt="shape"
-    />
     <PrismicRichText
       field={title}
       components={{

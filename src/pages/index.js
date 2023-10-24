@@ -21,6 +21,7 @@ import orangeCircle from '@/assets/img/orange-circle.svg';
 import { asText } from '@prismicio/client';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
 import Head from 'next/head';
+import shape from '@/components/Homepage/MainBlock/shape.svg';
 
 export default function Home({ page, header, footerText, latestArticles }) {
   const { data } = page;
@@ -43,6 +44,12 @@ export default function Home({ page, header, footerText, latestArticles }) {
           className={styles['orange-circle']}
           src={orangeCircle}
           alt="orange circle"
+        />
+        <Image className={styles.shape} src={shape} alt="shape" />
+        <Image
+          className={`${styles.shape} ${styles['shape-right']}`}
+          src={shape}
+          alt="shape"
         />
         <MainBlock
           title={data.title}
