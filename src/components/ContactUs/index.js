@@ -3,19 +3,43 @@ import Button from '@/components/Button';
 import Textarea from '@/components/Textarea';
 import Select from '@/components/Select';
 import React, { useState } from 'react';
-import Input from '@/components/Input';
-import { Notify } from '@airdao/ui-library';
+import { Notify, Input } from '@airdao/ui-library';
 import Head from 'next/head';
+import Link from 'next/link';
+import { PrismicRichText } from '@prismicio/react';
+import Image from 'next/image';
+import homeStyles from '@/components/Homepage/homepage.module.scss';
+import blueCircle from '@/assets/img/blue-circle.svg';
+import orangeCircle from '@/assets/img/orange-circle.svg';
 
-export default function ContactUs() {
+const validateEmail = (email) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};
+
+export default function ContactUs({ page }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     category: null,
     message: '',
   });
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    category: '',
+    message: '',
+  });
 
   const setField = (field, value) => {
+    setErrors((state) => ({
+      ...state,
+      [field]: '',
+    }));
+
     setFormData({
       ...formData,
       [field]: value,
@@ -24,6 +48,20 @@ export default function ContactUs() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const errorsClone = { ...errors };
+    Object.keys(formData).forEach((el) => {
+      if (!formData[el]) {
+        errorsClone[el] = 'Required field';
+      } else if (el === 'email' && !validateEmail(formData[el])) {
+        errorsClone[el] = 'Email is incorrect';
+      }
+    });
+
+    if (Object.values(errorsClone).some((el) => el)) {
+      setErrors(errorsClone);
+      return;
+    }
+
     const res = await fetch(
       'https://hooks.zapier.com/hooks/catch/11186117/bdbj4w9',
       {
@@ -37,39 +75,92 @@ export default function ContactUs() {
         name: '',
         email: '',
         message: '',
-        category: 'null',
+        category: null,
       });
       Notify.success('Your message was sent!', null, { autoClose: 5000 });
     }
   };
 
   return (
-    <section className={styles.contact_us}>
+    <section className={`container ${styles.contact}`}>
+      <Image
+        className={`${homeStyles['blue-circle']} ${styles.blue}`}
+        src={blueCircle}
+        alt="blue circle"
+      />
+      <Image
+        className={`${homeStyles['orange-circle']} ${styles.orange}`}
+        src={orangeCircle}
+        alt="orange circle"
+      />
       <Head>
         <meta property="og:image" content="https://airdao.io/og-contact.png" />
         <meta name="twitter:image" content="https://airdao.io/og-contact.png" />
       </Head>
-      <h1>Share ideas, join the conversation, and learn about our ecosystem</h1>
-      <div>
-        <div>Ideas</div>
+      <PrismicRichText
+        field={page.title}
+        components={{
+          paragraph: ({ children }) => (
+            <h1 className={styles.title}>{children}</h1>
+          ),
+        }}
+      />
+      <div className={styles.links}>
+        {page.links.map((el) => (
+          <div key={el.link_url.url} className={styles.link_item}>
+            <PrismicRichText
+              field={el.link_text}
+              components={{
+                paragraph: ({ children }) => (
+                  <Link
+                    href={el.link_url.url}
+                    target="_blank"
+                    className={styles.link}
+                  >
+                    {children}
+                  </Link>
+                ),
+              }}
+            />
+            <PrismicRichText
+              field={el.text}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className={styles.link_text}>{children}</p>
+                ),
+              }}
+            />
+          </div>
+        ))}
       </div>
-      <h1 className={styles.heading}>Contact Us</h1>
-      <p className={styles.lead_text}>
-        The future is ours to build together. If you have ideas or opportunities
-        that <br />
-        you’d like to share with us, don’t hesitate to reach out today.
-      </p>
+      <PrismicRichText
+        field={page.form_title}
+        components={{
+          paragraph: ({ children }) => (
+            <h2 className={styles.form_title}>{children}</h2>
+          ),
+        }}
+      />
+      <PrismicRichText
+        field={page.form_subtitle}
+        components={{
+          paragraph: ({ children }) => (
+            <p className={styles.form_subtitle}>{children}</p>
+          ),
+        }}
+      />
       <form onSubmit={handleSubmit} className={styles.form_container}>
         <Input
           placeholder={'Name'}
           required
           value={formData.name}
+          error={errors.name}
           onChange={(e) => setField('name', e.target.value)}
         />
         <Input
           placeholder={'Email'}
           required
-          type="email"
+          error={errors.email}
           value={formData.email}
           onChange={(e) => setField('email', e.target.value)}
         />
@@ -81,13 +172,15 @@ export default function ContactUs() {
             'Marketing and Press',
             'Other',
           ]}
+          error={errors.category}
           onChange={(value) => setField('category', value)}
           value={formData.category}
         />
         <Textarea
           placeholder={'Your text'}
           value={formData.message}
-          onChange={(e) => setField('email', e.target.value)}
+          error={errors.message}
+          onChange={(e) => setField('message', e.target.value)}
         />
         <Button type="primary" size="large">
           Confirm

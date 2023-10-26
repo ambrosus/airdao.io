@@ -8,6 +8,7 @@ export default function Select({
   onChange,
   className,
   placeholder,
+  error,
   ...props
 }) {
   const [focused, setFocused] = useState(false);
@@ -50,6 +51,7 @@ export default function Select({
           </div>
         ))}
       </div>
+      {error && <span className="error-message">{error}</span>}
     </div>
   );
 }

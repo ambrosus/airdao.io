@@ -1,10 +1,13 @@
 import styles from './textarea.module.scss';
 
-export default function Textarea({ children, className, ...props }) {
+export default function Textarea({ children, className, error, ...props }) {
   const classNames = [styles.textarea, ...(className ? [className] : [])];
   return (
-    <textarea className={classNames.join(' ')} {...props}>
-      {children}
-    </textarea>
+    <div className={styles.wrapper}>
+      <textarea className={classNames.join(' ')} {...props}>
+        {children}
+      </textarea>
+      {error && <span className="error-message">{error}</span>}
+    </div>
   );
 }

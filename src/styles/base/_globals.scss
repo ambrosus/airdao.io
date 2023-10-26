@@ -39,3 +39,15 @@ html {
     top: 235px!important;
   }
 }
+
+.error-message {
+  position: absolute;
+  color: var(--red-400-error, #FF4747);
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: -0.14px;
+  left: 0;
+  bottom: -23px;
+}
