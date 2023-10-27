@@ -1,9 +1,8 @@
 import styles from './contact-us.module.scss';
-import Button from '@/components/Button';
 import Textarea from '@/components/Textarea';
 import Select from '@/components/Select';
 import React, { useState } from 'react';
-import { Notify, Input } from '@airdao/ui-library';
+import { Notify, Input, Button } from '@airdao/ui-library';
 import Head from 'next/head';
 import Link from 'next/link';
 import { PrismicRichText } from '@prismicio/react';
@@ -183,7 +182,7 @@ export default function ContactUs({ page }) {
           onChange={(e) => setField('message', e.target.value)}
         />
         <Button type="primary" size="large">
-          Confirm
+          Submit
         </Button>
       </form>
     </section>
