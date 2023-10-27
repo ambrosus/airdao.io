@@ -169,7 +169,7 @@ export default function ContactUs({ page }) {
           onChange={(e) => setField('email', e.target.value)}
         />
         <Select
-          placeholder="Select option"
+          placeholder="Select category"
           options={[
             'Tech support',
             'Business development',
@@ -181,7 +181,7 @@ export default function ContactUs({ page }) {
           value={formData.category}
         />
         <Textarea
-          placeholder={'Your text'}
+          placeholder={'Your message'}
           value={formData.message}
           error={errors.message}
           onChange={(e) => setField('message', e.target.value)}
