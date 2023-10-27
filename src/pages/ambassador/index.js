@@ -11,8 +11,11 @@ import blueCircle from '@/assets/img/blue-circle.svg';
 import orangeCircle from '@/assets/img/orange-circle.svg';
 import Head from 'next/head';
 import React from 'react';
+import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
 
 const AmbassadorPage = ({ header, footerText, page }) => {
+  const footerSlice = getFooterBlockSlice(page);
+
   return (
     page && (
       <div className={styles.ambassador}>
@@ -58,6 +61,7 @@ const AmbassadorPage = ({ header, footerText, page }) => {
           <Footer
             slices={footerText.data.slices}
             socials={footerText.data.footer_social}
+            footerBlock={footerSlice}
           />
         )}
       </div>

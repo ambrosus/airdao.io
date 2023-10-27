@@ -1,6 +1,7 @@
 import styles from './select.module.scss';
-import { useState } from 'react';
+import {useRef, useState} from 'react';
 import TailArrow from '@/components/TailArrow';
+import useClickOutside from '@/hooks/useClickOutside';
 
 export default function Select({
   options,
@@ -8,9 +9,15 @@ export default function Select({
   onChange,
   className,
   placeholder,
+  error,
   ...props
 }) {
+  const ref = useRef();
   const [focused, setFocused] = useState(false);
+  useClickOutside(ref, () => {
+    setFocused(false);
+    console.log(1);
+  }, focused);
 
   const classNames = [
     styles.select_container,
@@ -31,7 +38,7 @@ export default function Select({
       {...props}
     >
       <div
-        className={`${styles.input} ${value ? styles.has_value : ''}`}
+        className={`${styles.input} ${focused ? styles.input_focused : ''} ${error ? styles.input_error : ''} ${!value ? styles.input_placeholder : ''}`}
         placeholder={placeholder}
         onClick={toggleFocused}
       >
@@ -39,7 +46,7 @@ export default function Select({
         <TailArrow className={styles.arrow} />
       </div>
 
-      <div className={styles.dropdown}>
+      <div className={styles.dropdown} ref={ref}>
         {options.map((option, index) => (
           <div
             key={index}
@@ -50,6 +57,7 @@ export default function Select({
           </div>
         ))}
       </div>
+      {error && <span className="error-message">{error}</span>}
     </div>
   );
 }

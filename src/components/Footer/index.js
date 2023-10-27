@@ -4,7 +4,7 @@ import { asText } from '@prismicio/client';
 import Events from './components/Events';
 import Contact from './components/Contact';
 
-const Footer = ({ slices, socials, footerBlock }) => {
+const Footer = ({ slices, socials, footerBlock, className = '' }) => {
   const block = () => {
     switch (footerBlock) {
       case 'footer_events':
@@ -17,7 +17,7 @@ const Footer = ({ slices, socials, footerBlock }) => {
   };
 
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer} ${className}`}>
       <div className={styles.footer__inner}>
         {block()}
         <div className={styles.footer__lists}>
