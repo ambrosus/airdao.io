@@ -48,13 +48,18 @@ export default function ContactUs({ page }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const errorsClone = { ...errors };
-    Object.keys(formData).forEach((el) => {
-      if (!formData[el]) {
-        errorsClone[el] = 'Required field';
-      } else if (el === 'email' && !validateEmail(formData[el])) {
-        errorsClone[el] = 'Email is incorrect';
+
+    const keys = Object.keys(formData);
+
+    for (let i = 0; i < keys.length; i++) {
+      if (!formData[keys[i]]) {
+        errorsClone[keys[i]] = 'Required field';
+        break;
+      } else if (keys[i] === 'email' && !validateEmail(formData[keys[i]])) {
+        errorsClone[keys[i]] = 'Email is incorrect';
+        break;
       }
-    });
+    }
 
     if (Object.values(errorsClone).some((el) => el)) {
       setErrors(errorsClone);
