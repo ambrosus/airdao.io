@@ -35,16 +35,16 @@ export default function Home({ page, header, footerText, latestArticles }) {
       </Head>
       <HeaderWrapper header={header} />
       <div className={styles['main-block-wrapper']}>
-        {/*<Image*/}
-        {/*  className={styles['blue-circle']}*/}
-        {/*  src={blueCircle}*/}
-        {/*  alt="blue circle"*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  className={styles['orange-circle']}*/}
-        {/*  src={orangeCircle}*/}
-        {/*  alt="orange circle"*/}
-        {/*/>*/}
+        <Image
+          className={styles['blue-circle']}
+          src={blueCircle}
+          alt="blue circle"
+        />
+        <Image
+          className={styles['orange-circle']}
+          src={orangeCircle}
+          alt="orange circle"
+        />
         <Image className={styles.shape} src={shape} alt="shape" />
         <Image
           className={`${styles.shape} ${styles['shape-right']}`}
@@ -86,16 +86,16 @@ export default function Home({ page, header, footerText, latestArticles }) {
         info={data.network_info}
       />
       <div className={styles['ambassadors-wrapper']}>
-        {/*<Image*/}
-        {/*  className={styles['blue-circle']}*/}
-        {/*  src={orangeCircle}*/}
-        {/*  alt="blue circle"*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  className={styles['orange-circle']}*/}
-        {/*  src={blueCircle}*/}
-        {/*  alt="orange circle"*/}
-        {/*/>*/}
+        <Image
+          className={styles['blue-circle']}
+          src={orangeCircle}
+          alt="blue circle"
+        />
+        <Image
+          className={styles['orange-circle']}
+          src={blueCircle}
+          alt="orange circle"
+        />
         <Ambassadors
           label={data.ambassadors_label}
           title={data.ambassadors_title}
@@ -129,16 +129,16 @@ export default function Home({ page, header, footerText, latestArticles }) {
         google={data.app_google}
       />
       <div className={styles['articles-wrapper']}>
-        {/*<Image*/}
-        {/*  className={styles['blue-circle']}*/}
-        {/*  src={blueCircle}*/}
-        {/*  alt="blue circle"*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  className={styles['orange-circle']}*/}
-        {/*  src={orangeCircle}*/}
-        {/*  alt="orange circle"*/}
-        {/*/>*/}
+        <Image
+          className={styles['blue-circle']}
+          src={blueCircle}
+          alt="blue circle"
+        />
+        <Image
+          className={styles['orange-circle']}
+          src={orangeCircle}
+          alt="orange circle"
+        />
         {/*<ArticlesList*/}
         {/*  title={asText(data.blog_title)}*/}
         {/*  subtitle={asText(data.blog_subtitle)}*/}
