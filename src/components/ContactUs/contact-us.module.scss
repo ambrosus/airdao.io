@@ -32,6 +32,12 @@
     line-height: 52.5px; /* 131.25% */
     letter-spacing: -0.8px;
   }
+
+  @media screen and (max-width: 650px) {
+    font-size: 32px;
+    line-height: 44.5px; /* 139.063% */
+    letter-spacing: -0.64px;
+  }
 }
 
 .links {
