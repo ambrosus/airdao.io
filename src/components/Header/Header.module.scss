@@ -325,6 +325,10 @@
   align-items: center;
   cursor: pointer;
 
+  &:hover {
+    background: var(--alpha-black-10, rgba(14, 14, 14, 0.10));
+  }
+
   @media screen and (max-width: 730px) {
     margin-left: auto;
   }
@@ -507,14 +511,24 @@
   margin-right: 4px;
 }
 
-.address-info__check-copy {
-  height: 20px;
-}
-
 .address-info__copy {
   position: relative;
   cursor: pointer;
-  top: 4px;
+}
+
+.address-info__block-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.address-info__copied {
+  display: block;
+  color: var(--neutral-300, #A1A6B2);
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.14px;
 }
 
 .address-info__disconnect {
