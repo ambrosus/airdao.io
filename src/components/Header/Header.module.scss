@@ -5,7 +5,7 @@
   flex-wrap: wrap;
   max-width: 1300px;
   min-height: 90px;
-  padding: 21px 20px;
+  padding: 8px 20px;
   background: white;
   box-shadow: 0px 12px 36px rgba(47, 43, 67, 0.12);
   border-radius: 24px;
@@ -319,11 +319,15 @@
 
 .header__address {
   background: rgba(14, 14, 14, 0.05);
-  padding: 12px 12px;
+  padding: 8px 12px;
   border-radius: 1000px;
   display: flex;
   align-items: center;
   cursor: pointer;
+
+  &:hover {
+    background: var(--alpha-black-10, rgba(14, 14, 14, 0.10));
+  }
 
   @media screen and (max-width: 730px) {
     margin-left: auto;
@@ -362,7 +366,7 @@
   overflow: auto;
 
   @media screen and (min-width: 611px) {
-    padding: 39px 32px 32px;
+    padding: 32px;
     background: #FFFFFF;
     box-shadow: 0px 12px 36px rgba(47, 43, 67, 0.12);
     position: absolute;
@@ -383,8 +387,9 @@
 }
 
 .connected-nav__title {
+  font-family: var(--font-inter);
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 16px;
   line-height: 28px;
 
@@ -429,7 +434,9 @@
 }
 
 .connected-nav__link {
-  font-weight: 600;
+  font-family: var(--font-inter);
+  line-height: 24px;
+  font-weight: 500;
   color: #676B73;
 
   &:not(:last-child) {
@@ -441,7 +448,7 @@
   height: 1px;
   width: 100%;
   border-bottom: 1px solid #C2C5CC;
-  margin: 8px 0 32px;
+  margin: 16px 0 40px;
 
   &_balance {
     display: none;
@@ -504,14 +511,24 @@
   margin-right: 4px;
 }
 
-.address-info__check-copy {
-  height: 20px;
-}
-
 .address-info__copy {
   position: relative;
   cursor: pointer;
-  top: 4px;
+}
+
+.address-info__block-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.address-info__copied {
+  display: block;
+  color: var(--neutral-300, #A1A6B2);
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.14px;
 }
 
 .address-info__disconnect {
@@ -522,7 +539,12 @@
   padding: 8px 16px;
   border-radius: 1000px;
   color: #fff;
+  font-family: var(--font-inter);
+  font-size: 16px;
+  font-style: normal;
   font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
   align-items: center;
   justify-content: center;
   gap: 8px;
