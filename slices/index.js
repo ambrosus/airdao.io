@@ -12,4 +12,5 @@ export const components = {
   footer_events: dynamic(() => import("./FooterEvents")),
   footer_item: dynamic(() => import("./FooterItem")),
   nav_item: dynamic(() => import("./NavItem")),
+  roadmap_post: dynamic(() => import("./RoadmapPost")),
 };
