@@ -36,3 +36,35 @@
   max-width: 860px;
   margin: 48px auto 0;
 }
+
+.slider_item {
+  max-width: 922px;
+  margin: 0 auto;
+  display: flex!important;
+  gap: 24px;
+  border-radius: 48px;
+  padding: 32px;
+  border: 1px solid var(--blue-200, #C9D9FF);
+  background: var(--color-shades-grey-50, #FFF);
+}
+
+.slider_title {
+  color: var(--neutral-900, #0E0E0E);
+  font-family: var(--font-inter);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.slider_image {
+  width: 422px;
+  height: 294px;
+  object-fit: cover;
+  border-radius: 40px;
+}
+
+.slider_info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
