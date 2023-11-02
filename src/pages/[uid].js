@@ -16,7 +16,7 @@ export default function Page({ page, header, footerText }) {
       {/*  ) : null}*/}
       {/*</Head>*/}
       {header && <HeaderWrapper header={header} />}
-      <PolicyPage page={page} />
+      {page && <PolicyPage page={page} />}
       {footerText && (
         <Footer
           slices={footerText.data.slices}
