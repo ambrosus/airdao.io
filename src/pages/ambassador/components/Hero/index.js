@@ -27,7 +27,7 @@ const Hero = ({ title, text, primaryLink, primaryText, image }) =>
           field={primaryText}
           components={{
             paragraph: ({ children }) => (
-              <Link href={primaryLink.url} className={styles.hero__btn}>
+              <Link href={primaryLink.url} className={styles.hero__btn} target="_blank" rel="nofollow">
                 <Button type="secondary" size="large">
                   {children}
                 </Button>

@@ -16,6 +16,7 @@ const Events = () => (
       <a
         href="https://calendar.google.com/calendar/u/0?cid=Y2FsZW5kYXJAYWlyZGFvLmlv"
         target="_blank"
+        rel="nofollow"
       >
         <Button
           className={styles['footer-app__btn']}

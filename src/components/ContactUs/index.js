@@ -81,7 +81,7 @@ export default function ContactUs({ page }) {
         message: '',
         category: null,
       });
-      Notify.success('Your message was sent!', null, { autoClose: 5000 });
+      Notify.success('Request sent successfully!', null, { autoClose: 5000 });
     }
   };
 

@@ -74,6 +74,7 @@ const BuyAmb = ({ header, footerText, page }) => {
                 href={el.link.url || ''}
                 target={el.link.target || ''}
                 className={styles.exchange}
+                rel="nofollow"
               >
                 <img
                   src={el.image.url}

@@ -52,7 +52,7 @@ const Roles = ({ title, text, primaryText, list, primaryLink }) =>
           field={primaryText}
           components={{
             paragraph: ({ children }) => (
-              <Link href={primaryLink.url}>
+              <Link href={primaryLink.url} target="_blank" rel="nofollow">
                 <Button type="secondary" size="large">
                   {children}
                 </Button>

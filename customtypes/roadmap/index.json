@@ -48,6 +48,92 @@
           }
         }
       },
+      "tokenomic_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "tokenomic_title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "tokenomic_counter": {
+        "type": "Timestamp",
+        "config": {
+          "label": "tokenomic_counter",
+          "placeholder": ""
+        }
+      },
+      "tokenomic_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "tokenomic_text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "tokenomic_block": {
+        "type": "StructuredText",
+        "config": {
+          "label": "tokenomic_block",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "tokenomic_link_url": {
+        "type": "Link",
+        "config": {
+          "label": "tokenomic_link_url",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "tokenomic_link_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "tokenomic_link_text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "tokenomic_second_link_url": {
+        "type": "Link",
+        "config": {
+          "label": "tokenomic_second_link_url",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "tokenomic_second_link_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "tokenomic_second_link_text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "learn_more_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "learn_more_title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "learn_more_subtitle": {
+        "type": "StructuredText",
+        "config": {
+          "label": "learn_more_subtitle",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
@@ -264,6 +350,17 @@
               }
             }
           }
+        }
+      }
+    },
+    "Soon": {
+      "soon_label": {
+        "type": "StructuredText",
+        "config": {
+          "label": "soon_label",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       }
     }

@@ -129,7 +129,7 @@ function TeamCard({ avatar, name, position, twitter, linkedin }) {
       />
       <div className={styles.socials}>
         {twitter.url && (
-          <PrismicNextLink field={twitter}>
+          <PrismicNextLink field={twitter} rel="nofollow">
             <svg
               width="32"
               height="33"
@@ -145,7 +145,7 @@ function TeamCard({ avatar, name, position, twitter, linkedin }) {
           </PrismicNextLink>
         )}
         {linkedin.url && (
-          <PrismicNextLink field={linkedin}>
+          <PrismicNextLink field={linkedin} rel="nofollow">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="32"

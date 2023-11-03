@@ -40,6 +40,11 @@ const Footer = ({ slices, socials, footerBlock, className = '' }) => {
                     <a
                       href={item.footer_item_url.url}
                       target={item.footer_item_url.target}
+                      {...(item.footer_item_url?.url?.includes(
+                        'https://airdao.io'
+                      )
+                        ? { rel: 'nofollow' }
+                        : {})}
                     >
                       {asText(item.footer_item_text)}
                     </a>
@@ -60,6 +65,7 @@ const Footer = ({ slices, socials, footerBlock, className = '' }) => {
               key={i}
               href={el.footer_social_link.url}
               target={el.footer_social_link.target}
+              rel="nofollow"
             >
               <Image
                 src={el.footer_social_img.url}

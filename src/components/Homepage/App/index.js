@@ -39,6 +39,7 @@ const App = ({ title, list, appstore, google }) => (
               href={appstore.url}
               target={appstore.target}
               className={styles.app__link}
+              rel="nofollow"
             >
               <Image
                 className={styles.app__appstore}
@@ -50,6 +51,7 @@ const App = ({ title, list, appstore, google }) => (
               href={google.url}
               target={google.target}
               className={styles.app__link}
+              rel="nofollow"
             >
               <Image
                 className={styles.app__google}
