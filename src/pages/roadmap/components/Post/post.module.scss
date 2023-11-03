@@ -64,9 +64,11 @@
     cursor: unset;
   }
 
-  &_upcoming {
-    flex-direction: column;
-    align-items: flex-start;
+  @media screen and (max-width: 610px) {
+    &_upcoming {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 }
 
