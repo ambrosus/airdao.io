@@ -11,41 +11,43 @@ const Post = ({ data }) => {
   const handleExpanded = () => setExpanded((state) => !state);
 
   return (
-    <div
-      className={`${styles.post} ${expanded ? styles.post_expanded : ''} ${
-        data.upcoming ? styles.post_upcoming : ''
-      }`}
-    >
+    data && (
       <div
-        className={`${styles.heading} ${
-          !asText(data.content) ? styles.heading_empty : ''
-        } ${data.upcoming ? styles.heading_upcoming : ''}`}
-        onClick={handleExpanded}
+        className={`${styles.post} ${expanded ? styles.post_expanded : ''} ${
+          data.upcoming ? styles.post_upcoming : ''
+        }`}
       >
-        {data.upcoming && <span className={styles.upcoming}>Upcoming</span>}
+        <div
+          className={`${styles.heading} ${
+            !asText(data.content) ? styles.heading_empty : ''
+          } ${data.upcoming ? styles.heading_upcoming : ''}`}
+          onClick={handleExpanded}
+        >
+          {data.upcoming && <span className={styles.upcoming}>Upcoming</span>}
+          <PrismicRichText
+            field={data.title}
+            components={{
+              paragraph: ({ children }) => (
+                <p className={styles.title}>{children}</p>
+              ),
+            }}
+          />
+          {asText(data.content) && (
+            <button type="button" className={styles.chevron}>
+              <Image src={chevron} alt="chevron" />
+            </button>
+          )}
+        </div>
         <PrismicRichText
-          field={data.title}
+          field={data.content}
           components={{
             paragraph: ({ children }) => (
-              <p className={styles.title}>{children}</p>
+              <p className={styles.content}>{children}</p>
             ),
           }}
         />
-        {asText(data.content) && (
-          <button type="button" className={styles.chevron}>
-            <Image src={chevron} alt="chevron" />
-          </button>
-        )}
       </div>
-      <PrismicRichText
-        field={data.content}
-        components={{
-          paragraph: ({ children }) => (
-            <p className={styles.content}>{children}</p>
-          ),
-        }}
-      />
-    </div>
+    )
   );
 };
 
