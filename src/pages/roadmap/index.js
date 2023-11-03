@@ -1,11 +1,11 @@
-import {createClient} from '@/prismicio';
+import { createClient } from '@/prismicio';
 import HeaderWrapper from '@/components/Header';
 import Footer from '@/components/Footer';
-import {PrismicRichText} from '@prismicio/react';
-import {useState} from 'react';
+import { PrismicRichText } from '@prismicio/react';
+import { useState } from 'react';
 import styles from './roadmap.module.scss';
 import Post from '@/pages/roadmap/components/Post';
-import {asText} from '@prismicio/client';
+import { asText } from '@prismicio/client';
 import Slider from 'react-slick';
 import { Button } from '@airdao/ui-library';
 import hero from './hero.svg';
@@ -20,7 +20,7 @@ const filters = [
   { labelKey: 'explorer_label', key: 'explorer' },
   { labelKey: 'apollo_label', key: 'apollo' },
   { labelKey: 'multisig_label', key: 'multisig' },
-  { labelKey: 'soon_label', key: 'soon' }
+  { labelKey: 'soon_label', key: 'soon' },
 ];
 
 const settings = {
@@ -64,8 +64,8 @@ const convertDate = (date) => {
   const day = datetime.getUTCDate();
   const hours = datetime.getUTCHours();
   const minutes = datetime.getUTCMinutes();
-  return `${(day - 1)}d ${hours}h ${minutes}min`;
-}
+  return `${day - 1}d ${hours}h ${minutes}min`;
+};
 
 const Roadmap = ({ header, footerText, page }) => {
   const [selectedFilter, setSelectedFilter] = useState('apollo');
@@ -83,7 +83,7 @@ const Roadmap = ({ header, footerText, page }) => {
                 paragraph: ({ children }) => (
                   <h1 className={styles.hero_title}>
                     {children}
-                    <br/>
+                    <br />
                     <span className={styles.hero_blue}>
                       {convertDate(page.tokenomic_counter)}
                     </span>
@@ -115,8 +115,15 @@ const Roadmap = ({ header, footerText, page }) => {
                 field={page.tokenomic_link_text}
                 components={{
                   paragraph: ({ children }) => (
-                    <Link href={page.tokenomic_link_url.url} target={page.tokenomic_link_url.target}>
-                      <Button className={styles.hero_btn} size="large" type="tetiary">
+                    <Link
+                      href={page.tokenomic_link_url.url}
+                      target={page.tokenomic_link_url.target}
+                    >
+                      <Button
+                        className={styles.hero_btn}
+                        size="large"
+                        type="tetiary"
+                      >
                         {children}
                         <Image src={chevron} alt="chevron" />
                       </Button>
@@ -128,8 +135,15 @@ const Roadmap = ({ header, footerText, page }) => {
                 field={page.tokenomic_second_link_text}
                 components={{
                   paragraph: ({ children }) => (
-                    <Link href={page.tokenomic_second_link_url.url} target={page.tokenomic_second_link_url.target}>
-                      <Button className={styles.hero_btn} size="large" type="tetiary">
+                    <Link
+                      href={page.tokenomic_second_link_url.url}
+                      target={page.tokenomic_second_link_url.target}
+                    >
+                      <Button
+                        className={styles.hero_btn}
+                        size="large"
+                        type="tetiary"
+                      >
                         {children}
                         <Image src={chevron} alt="chevron" />
                       </Button>
@@ -159,7 +173,11 @@ const Roadmap = ({ header, footerText, page }) => {
         <Slider {...settings}>
           {page.slider.map((el) => (
             <div key={asText(el.title)} className={styles.slider_item}>
-              <img src={el.image.url} alt="image" className={styles.slider_image} />
+              <img
+                src={el.image.url}
+                alt="image"
+                className={styles.slider_image}
+              />
               <div className={styles.slider_info}>
                 <PrismicRichText
                   field={el.title}
@@ -177,11 +195,12 @@ const Roadmap = ({ header, footerText, page }) => {
                     ),
                   }}
                 />
-                <Link href={el.link.url} target="_blank" className={styles.slider_btn}>
-                  <Button
-                    size="large"
-                    type="tetiary"
-                  >
+                <Link
+                  href={el.link.url}
+                  target="_blank"
+                  className={styles.slider_btn}
+                >
+                  <Button size="large" type="tetiary">
                     Learn more
                     <Image src={chevron} alt="chevron" />
                   </Button>

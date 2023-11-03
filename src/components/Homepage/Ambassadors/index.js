@@ -76,7 +76,11 @@ const Ambassadors = ({
         field={secondaryText}
         components={{
           paragraph: ({ children }) => (
-            <Link href={secondaryLink.url} target={secondaryLink.target} rel="nofollow">
+            <Link
+              href={secondaryLink.url}
+              target={secondaryLink.target}
+              rel="nofollow"
+            >
               <Button
                 size="large"
                 type="plain"
