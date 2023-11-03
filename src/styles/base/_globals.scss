@@ -1,5 +1,9 @@
 .slick-dots {
   bottom: -45px!important;
+
+  button:before {
+    font-size: 12px!important;
+  }
 }
 
 .slick-arrow {
@@ -33,6 +37,26 @@
   @media screen and (max-width: 650px) {
     left: -10px!important;
     top: 235px!important;
+  }
+}
+
+.roadmap {
+  .slick-prev {
+    left: 25px!important;
+    top: 50% !important;
+
+    @media screen and (max-width: 1050px) {
+      display: none!important;
+    }
+  }
+
+  .slick-next {
+    right: 25px!important;
+    top: 55% !important;
+
+    @media screen and (max-width: 1050px) {
+      display: none!important;
+    }
   }
 }
 
