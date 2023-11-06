@@ -58,7 +58,7 @@
 .status {
   color: var(--warning-600, #C8811A);
   font-family: var(--font-inter);
-  padding: 1px 8px;
+  padding: 4px 8px;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -66,6 +66,16 @@
   letter-spacing: -0.14px;
   border-radius: 20px;
   background: var(--warning-100, #FBF2CB);
+}
+
+.status_progress {
+  background: var(--success-100, #D9F9E6);
+  color: var(--success-600, #2F9461);
+}
+
+.status_backlog {
+  background: var(--base-white, #FFF);
+  color: var(--gray-800, #222);
 }
 
 .btn {

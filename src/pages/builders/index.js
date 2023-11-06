@@ -10,6 +10,9 @@ import touch from './touch.svg';
 import Pagination from '@/components/Pagination/Pagination';
 import { useEffect, useState } from 'react';
 import striped from './striped.svg';
+import starBlue from './star-blue.svg';
+import star from './star.svg';
+import block from './block.svg';
 import chevron from '@/assets/icons/chevron.svg';
 
 let _window;
@@ -23,31 +26,37 @@ const projects = [
     title: '1Oracle',
     text: 'Bring real world data to smart contracts.',
     link: 'https://google.com/',
+    status: 'testing',
   },
   {
     title: '2On-and-off ramp',
     text: 'Bring real world data to smart contracts.',
     link: 'https://google.com/',
+    status: 'testing',
   },
   {
     title: '3NFT marketplace',
     text: 'Bring real world data to smart contracts.',
     link: 'https://google.com/',
+    status: 'testing',
   },
   {
     title: '4Oracle',
     text: 'Bring real world data to smart contracts.',
     link: 'https://google.com/',
+    status: 'testing',
   },
   {
     title: '5Oracle',
     text: 'Bring real world data to smart contracts.',
     link: 'https://google.com/',
+    status: 'progress',
   },
   {
     title: '6Oracle',
     text: 'Bring real world data to smart contracts.',
     link: 'https://google.com/',
+    status: 'backlog',
   },
 ];
 
@@ -74,7 +83,10 @@ const Builders = ({ header, footerText }) => {
       {header && <HeaderWrapper header={header} />}
       <div className={styles.builders}>
         <div className={styles.hero}>
-          <Image src={striped} alt="" className={styles.striped} />
+          <Image src={striped} alt="background" className={styles.striped} />
+          <Image src={starBlue} className={styles.star_blue} />
+          <Image src={star} className={styles.star} />
+          <Image src={block} className={styles.block} />
           <h1 className={styles.hero_title}>
             The next frontier for web3 builders
           </h1>
