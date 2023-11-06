@@ -17,9 +17,19 @@ const Project = ({ data }) => {
         <p className={styles.title}>{data.title}</p>
         <p className={styles.text}>{data.text}</p>
         <span className={styles.period}>1 month</span>
-        {data.status === 'testing' && <span className={styles.status}>Testing</span>}
-        {data.status === 'progress' && <span className={`${styles.status} ${styles.status_progress}`}>In progress</span>}
-        {data.status === 'backlog' && <span className={`${styles.status} ${styles.status_backlog}`}>Not started</span>}
+        {data.status === 'testing' && (
+          <span className={styles.status}>Testing</span>
+        )}
+        {data.status === 'progress' && (
+          <span className={`${styles.status} ${styles.status_progress}`}>
+            In progress
+          </span>
+        )}
+        {data.status === 'backlog' && (
+          <span className={`${styles.status} ${styles.status_backlog}`}>
+            Not started
+          </span>
+        )}
 
         <Link href={data.link} target="_blank" className={styles.btn}>
           <Button size="large" type="tetiary">

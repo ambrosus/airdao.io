@@ -1,10 +1,8 @@
-<svg width="210" height="605" viewBox="0 0 210 605" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="210" height="554" viewBox="0 0 210 554" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="200" height="200" rx="16" transform="matrix(-1 0 0 1 205 353)" fill="#EDF3FF" stroke="#191919" stroke-width="2"/>
 <path d="M135.545 418.98L183.32 453L135.545 487.02" stroke="#191919" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M74.7749 418.98L27 453L74.7749 487.02" stroke="#191919" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M123 403L86 505" stroke="#191919" stroke-width="2" stroke-linecap="round"/>
-<path d="M205 539L205 604" stroke="#191919" stroke-width="2" stroke-linecap="round" stroke-dasharray="20 20"/>
-<path d="M5 539L5 604" stroke="#191919" stroke-width="2" stroke-linecap="round" stroke-dasharray="20 20"/>
 <path d="M205 233L205 370" stroke="#191919" stroke-width="2" stroke-linecap="round" stroke-dasharray="20 20"/>
 <path d="M5 1L5 30" stroke="#191919" stroke-width="2" stroke-linecap="round" stroke-dasharray="20 20"/>
 <path d="M205 1L205 30" stroke="#191919" stroke-width="2" stroke-linecap="round" stroke-dasharray="20 20"/>
