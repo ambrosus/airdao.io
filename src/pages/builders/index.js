@@ -152,6 +152,7 @@ const Builders = ({ header, footerText }) => {
           slices={footerText.data.slices}
           socials={footerText.data.footer_social}
           className={styles.footer}
+          footerBlock="footer_contact"
         />
       )}
     </>
