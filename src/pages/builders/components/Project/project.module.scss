@@ -82,6 +82,7 @@
 .status_backlog {
   background: var(--base-white, #FFF);
   color: var(--gray-800, #222);
+  border: 1px solid var(--alpha-black-10, rgba(47, 43, 67, 0.10));
 }
 
 .btn {
