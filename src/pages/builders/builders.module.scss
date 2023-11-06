@@ -33,6 +33,7 @@
     line-height: 52.5px; /* 131.25% */
     letter-spacing: -0.8px;
     margin-top: 226px;
+    max-width: 418px;
   }
 
   @media screen and (max-width: 768px) {
@@ -40,6 +41,7 @@
     font-size: 32px;
     line-height: 44.5px; /* 139.063% */
     letter-spacing: -0.64px;
+    max-width: 342px;
   }
 }
 
@@ -61,6 +63,7 @@
     line-height: 26px; /* 144.444% */
     letter-spacing: -0.216px;
     margin-bottom: 75px;
+    max-width: 418px;
   }
 
   @media screen and (max-width: 768px) {
@@ -68,6 +71,7 @@
     line-height: 24px; /* 150% */
     letter-spacing: -0.16px;
     margin-bottom: 84px;
+    max-width: 342px;
   }
 }
 
@@ -297,7 +301,7 @@ ul.pagination {
 .star {
   position: absolute;
   right: -1120px;
-  bottom: -461px;
+  bottom: -348px;
 
   @media screen and (max-width: 1380px) {
     right: -560px;
@@ -307,7 +311,7 @@ ul.pagination {
 }
 
 .block, .star, .star_blue, .striped {
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 750px) {
     display: none;
   }
 }
