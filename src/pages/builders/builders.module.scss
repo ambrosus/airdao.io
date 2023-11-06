@@ -204,6 +204,10 @@
 button.idea_btn {
   width: fit-content;
   background: white;
+
+  &:hover {
+    background: var(--alpha-white-60, rgba(255, 255, 255, 0.60));
+  }
 }
 
 .touch {
