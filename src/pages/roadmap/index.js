@@ -63,20 +63,14 @@ const convertDate = (date) => {
   const dateFuture = new Date(date);
   const dateNow = new Date();
 
-  let seconds = Math.floor((dateFuture - (dateNow))/1000);
-  let minutes = Math.floor(seconds/60);
-  let hours = Math.floor(minutes/60);
-  let days = Math.floor(hours/24);
+  let seconds = Math.floor((dateFuture - dateNow) / 1000);
+  let minutes = Math.floor(seconds / 60);
+  let hours = Math.floor(minutes / 60);
+  let days = Math.floor(hours / 24);
 
-  hours = hours-(days*24);
-  minutes = minutes-(days*24*60)-(hours*60);
+  hours = hours - days * 24;
+  minutes = minutes - days * 24 * 60 - hours * 60;
   return `${days}d ${hours}h ${minutes}min`;
-}
-  const datetime = new Date(date);
-  const day = datetime.getUTCDate();
-  const hours = datetime.getUTCHours();
-  const minutes = datetime.getUTCMinutes();
-  return `${day - 1}d ${hours}h ${minutes}min`;
 };
 
 const Roadmap = ({ header, footerText, page }) => {
