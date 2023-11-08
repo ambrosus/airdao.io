@@ -16,7 +16,7 @@ const Project = ({ data }) => {
       <div onClick={handleRedirect} className={styles.project}>
         <p className={styles.title}>{data.title}</p>
         <p className={styles.text}>{data.text}</p>
-        <span className={styles.period}>1 month</span>
+        <span className={styles.period}>1-6 months</span>
         {data.status === 'testing' && (
           <span className={styles.status}>Testing</span>
         )}

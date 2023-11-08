@@ -128,20 +128,32 @@ const Builders = ({ header, footerText }) => {
               <p className={styles.idea_title}>
                 What would you like to see built on AirDAO?
               </p>
-              <Button size="large" type="tetiary" className={styles.idea_btn}>
-                Submit an idea
-                <Image src={chevron} alt="chevron" />
-              </Button>
+              <a
+                href="https://forms.gle/uvQfhygsbqzMAwEN6"
+                target="_blank"
+                className={styles.idea_btn}
+              >
+                <Button size="large" type="tetiary">
+                  Submit an idea
+                  <Image src={chevron} alt="chevron" />
+                </Button>
+              </a>
             </div>
             <Image src={idea} alt="idea" className={styles.idea_img} />
           </div>
           <div className={`${styles.idea} ${styles.touch}`}>
             <div className={styles.idea_info}>
               <p className={styles.idea_title}>Bring your project to AirDAO</p>
-              <Button size="large" type="tetiary" className={styles.idea_btn}>
-                Get in touch
-                <Image src={chevron} alt="chevron" />
-              </Button>
+              <a
+                href="https://forms.gle/aW8BH9n6F8af8UyE7"
+                target="_blank"
+                className={styles.idea_btn}
+              >
+                <Button size="large" type="tetiary">
+                  Get in touch
+                  <Image src={chevron} alt="chevron" />
+                </Button>
+              </a>
             </div>
             <Image src={touch} alt="idea" className={styles.touch_img} />
           </div>
