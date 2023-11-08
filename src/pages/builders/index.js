@@ -129,7 +129,7 @@ const Builders = ({ header, footerText }) => {
                 What would you like to see built on AirDAO?
               </p>
               <a
-                href="https://forms.gle/uvQfhygsbqzMAwEN6"
+                href="https://forms.gle/mqPvmufXQHtqxP327"
                 target="_blank"
                 className={styles.idea_btn}
               >
