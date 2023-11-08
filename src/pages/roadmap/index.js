@@ -1,3 +1,4 @@
+'use client';
 import {createClient} from '@/prismicio';
 import HeaderWrapper from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -22,7 +23,6 @@ const filters = [
   { labelKey: 'multisig_label', key: 'multisig' },
   { labelKey: 'soon_label', key: 'soon' }
 ];
-
 const settings = {
   dots: true,
   infinite: true,
@@ -60,15 +60,22 @@ const settings = {
 };
 
 const convertDate = (date) => {
-  const datetime = new Date(date);
-  const day = datetime.getUTCDate();
-  const hours = datetime.getUTCHours();
-  const minutes = datetime.getUTCMinutes();
-  return `${(day - 1)}d ${hours}h ${minutes}min`;
+  const dateFuture = new Date(date);
+  const dateNow = new Date();
+
+  let seconds = Math.floor((dateFuture - (dateNow))/1000);
+  let minutes = Math.floor(seconds/60);
+  let hours = Math.floor(minutes/60);
+  let days = Math.floor(hours/24);
+
+  hours = hours-(days*24);
+  minutes = minutes-(days*24*60)-(hours*60);
+  return `${days}d ${hours}h ${minutes}min`;
 }
 
 const Roadmap = ({ header, footerText, page }) => {
   const [selectedFilter, setSelectedFilter] = useState('apollo');
+  console.log(page.tokenomic_counter);
 
   return (
     <>
