@@ -168,6 +168,12 @@
   margin: 48px auto 0;
 }
 
+.slider_item_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .slider_item {
   max-width: 922px;
   margin: 0 auto;
