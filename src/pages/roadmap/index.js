@@ -123,8 +123,8 @@ const Roadmap = ({ header, footerText, page }) => {
                 components={{
                   paragraph: ({ children }) => (
                     <Link
-                      href={page.tokenomic_link_url.url}
-                      target={page.tokenomic_link_url.target}
+                      href={page.tokenomic_link_url.url || ''}
+                      target={page.tokenomic_link_url.target || ''}
                     >
                       <Button
                         className={styles.hero_btn}
@@ -143,8 +143,8 @@ const Roadmap = ({ header, footerText, page }) => {
                 components={{
                   paragraph: ({ children }) => (
                     <Link
-                      href={page.tokenomic_second_link_url.url}
-                      target={page.tokenomic_second_link_url.target}
+                      href={page.tokenomic_second_link_url.url || ''}
+                      target={page.tokenomic_second_link_url.target || ''}
                     >
                       <Button
                         className={styles.hero_btn}
@@ -204,7 +204,7 @@ const Roadmap = ({ header, footerText, page }) => {
                     }}
                   />
                   <Link
-                    href={el.link.url}
+                    href={el.link.url || ''}
                     target="_blank"
                     className={styles.slider_btn}
                   >
