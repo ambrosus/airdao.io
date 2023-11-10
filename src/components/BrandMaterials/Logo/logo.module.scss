@@ -1,0 +1,125 @@
+.iconsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1300px;
+  @media screen and (max-width: 950px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+.blocksContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.block {
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  align-self: stretch;
+  border-radius: 32px;
+  background: var(--alpha-black-5, rgba(14, 14, 14, 0.05));
+  margin-bottom: 2.5vh;
+  &__black {
+    background: var(--neutral-800, #191919);
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+    border-radius: 32px;
+    margin-bottom: 2.5vh;
+    @media screen and (max-width: 950px) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  @media screen and (max-width: 950px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.blockContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 26vw;
+  width: 370px;
+  @media screen and (max-width: 1250px) {
+    max-width: 24.5vw;
+    width: 250;
+  }
+  @media screen and (max-width: 1050px) {
+    max-width: 23vw;
+    width: 230;
+  }
+  @media screen and (max-width: 950px) {
+    display: block;
+  }
+
+  > div {
+    position: unset !important;
+  }
+}
+.image {
+  object-fit: contain;
+  width: 80% !important;
+  position: relative !important;
+  height: unset !important;
+  @media screen and (max-width: 950px) {
+    width: 120% !important;
+  }
+  @media screen and (max-width: 610px) {
+    width: 180% !important;
+  }
+}
+.singleImage {
+  object-fit: contain;
+  width: 55% !important;
+  position: relative !important;
+  height: unset !important;
+  @media screen and (max-width: 950px) {
+    display: none;
+  }
+}
+.singleImageSmall {
+  object-fit: contain;
+  width: 35% !important;
+  position: relative !important;
+  height: unset !important;
+  display: none;
+  @media screen and (max-width: 950px) {
+    display: block;
+  }
+  @media screen and (max-width: 610px) {
+    width: 50% !important;
+  }
+}
+.blockButtons {
+  display: flex;
+  padding: var(--space-0, 0px);
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--space-7, 16px);
+}
+.buttonText {
+  color: var(--blue-500, #457eff);
+  font-family: var(--font-inter);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+  @media screen and (max-width: 950px) {
+    font-size: 14px;
+  }
+}
