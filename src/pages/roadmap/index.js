@@ -26,6 +26,7 @@ const filters = [
 const settings = {
   dots: true,
   infinite: true,
+  useTransform: false,
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
@@ -60,11 +61,17 @@ const settings = {
 };
 
 const convertDate = (date) => {
-  const datetime = new Date(date);
-  const day = datetime.getUTCDate();
-  const hours = datetime.getUTCHours();
-  const minutes = datetime.getUTCMinutes();
-  return `${day - 1}d ${hours}h ${minutes}min`;
+  const dateFuture = new Date(date);
+  const dateNow = new Date();
+
+  let seconds = Math.floor((dateFuture - dateNow) / 1000);
+  let minutes = Math.floor(seconds / 60);
+  let hours = Math.floor(minutes / 60);
+  let days = Math.floor(hours / 24);
+
+  hours = hours - days * 24;
+  minutes = minutes - days * 24 * 60 - hours * 60;
+  return `${days}d ${hours}h ${minutes}min`;
 };
 
 const Roadmap = ({ header, footerText, page }) => {
@@ -116,8 +123,8 @@ const Roadmap = ({ header, footerText, page }) => {
                 components={{
                   paragraph: ({ children }) => (
                     <Link
-                      href={page.tokenomic_link_url.url}
-                      target={page.tokenomic_link_url.target}
+                      href={page.tokenomic_link_url.url || ''}
+                      target={page.tokenomic_link_url.target || ''}
                     >
                       <Button
                         className={styles.hero_btn}
@@ -136,8 +143,8 @@ const Roadmap = ({ header, footerText, page }) => {
                 components={{
                   paragraph: ({ children }) => (
                     <Link
-                      href={page.tokenomic_second_link_url.url}
-                      target={page.tokenomic_second_link_url.target}
+                      href={page.tokenomic_second_link_url.url || ''}
+                      target={page.tokenomic_second_link_url.target || ''}
                     >
                       <Button
                         className={styles.hero_btn}
@@ -172,39 +179,41 @@ const Roadmap = ({ header, footerText, page }) => {
         />
         <Slider {...settings}>
           {page.slider.map((el) => (
-            <div key={asText(el.title)} className={styles.slider_item}>
-              <img
-                src={el.image.url}
-                alt="image"
-                className={styles.slider_image}
-              />
-              <div className={styles.slider_info}>
-                <PrismicRichText
-                  field={el.title}
-                  components={{
-                    paragraph: ({ children }) => (
-                      <h2 className={styles.slider_title}>{children}</h2>
-                    ),
-                  }}
+            <div className={styles.slider_item_wrapper} key={asText(el.title)}>
+              <div className={styles.slider_item}>
+                <img
+                  src={el.image.url}
+                  alt="image"
+                  className={styles.slider_image}
                 />
-                <PrismicRichText
-                  field={el.description}
-                  components={{
-                    paragraph: ({ children }) => (
-                      <p className={styles.slider_description}>{children}</p>
-                    ),
-                  }}
-                />
-                <Link
-                  href={el.link.url}
-                  target="_blank"
-                  className={styles.slider_btn}
-                >
-                  <Button size="large" type="tetiary">
-                    Learn more
-                    <Image src={chevron} alt="chevron" />
-                  </Button>
-                </Link>
+                <div className={styles.slider_info}>
+                  <PrismicRichText
+                    field={el.title}
+                    components={{
+                      paragraph: ({ children }) => (
+                        <h2 className={styles.slider_title}>{children}</h2>
+                      ),
+                    }}
+                  />
+                  <PrismicRichText
+                    field={el.description}
+                    components={{
+                      paragraph: ({ children }) => (
+                        <p className={styles.slider_description}>{children}</p>
+                      ),
+                    }}
+                  />
+                  <Link
+                    href={el.link.url || ''}
+                    target="_blank"
+                    className={styles.slider_btn}
+                  >
+                    <Button size="large" type="tetiary">
+                      Learn more
+                      <Image src={chevron} alt="chevron" />
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
@@ -257,7 +266,6 @@ export async function getStaticProps({ params, previewData }) {
   Object.keys(page.data).forEach((el) => {
     if (el.includes('_list')) {
       page.data[el].forEach((post) => {
-        console.log(1);
         if (post.upcoming) {
           arr.push(post);
         }
