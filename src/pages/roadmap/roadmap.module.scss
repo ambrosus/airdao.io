@@ -12,7 +12,7 @@
   border-radius: 56px;
   border: 1px solid var(--alpha-black-10, rgba(14, 14, 14, 0.10));
   background: var(--alpha-black-5, rgba(14, 14, 14, 0.05));
-  padding: 56px;
+  padding: 36px 56px;
   display: flex;
   gap: 24px;
 
@@ -36,6 +36,7 @@
 .hero_info {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 24px;
 }
 
@@ -78,7 +79,7 @@
 }
 
 .hero_btns {
-  display: flex;
+  display: none;
   gap: 24px;
   flex-wrap: wrap;
 }
