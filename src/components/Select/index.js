@@ -18,7 +18,6 @@ export default function Select({
     ref,
     () => {
       setFocused(false);
-      console.log(1);
     },
     focused
   );

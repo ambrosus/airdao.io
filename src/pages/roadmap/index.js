@@ -266,7 +266,6 @@ export async function getStaticProps({ params, previewData }) {
   Object.keys(page.data).forEach((el) => {
     if (el.includes('_list')) {
       page.data[el].forEach((post) => {
-        console.log(1);
         if (post.upcoming) {
           arr.push(post);
         }
