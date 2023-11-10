@@ -203,16 +203,16 @@ const Roadmap = ({ header, footerText, page }) => {
                       ),
                     }}
                   />
-                  <Link
-                    href={el.link.url || ''}
-                    target="_blank"
-                    className={styles.slider_btn}
-                  >
-                    <Button size="large" type="tetiary">
-                      Learn more
-                      <Image src={chevron} alt="chevron" />
-                    </Button>
-                  </Link>
+                  {/*<Link*/}
+                  {/*  href={el.link.url || ''}*/}
+                  {/*  target="_blank"*/}
+                  {/*  className={styles.slider_btn}*/}
+                  {/*>*/}
+                  {/*  <Button size="large" type="tetiary">*/}
+                  {/*    Learn more*/}
+                  {/*    <Image src={chevron} alt="chevron" />*/}
+                  {/*  </Button>*/}
+                  {/*</Link>*/}
                 </div>
               </div>
             </div>
