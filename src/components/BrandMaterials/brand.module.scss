@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vw;
+  @media screen and (max-width: 610px) {
+    justify-content: flex-start;
+    margin-left: 5%;
+  }
+}
+.wrapper {
+  max-width: 1300px;
+  width: calc(100% - 140px);
+  @media screen and (max-width: 610px) {
+    width: 95%;
+  }
+}
+.headerText {
+  font-family: var(--font-rationell);
+  font-size: 3.5vw;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 4.9vw;
+  letter-spacing: -1.12px;
+  margin-bottom: 3vh;
+}

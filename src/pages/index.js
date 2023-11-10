@@ -1,27 +1,25 @@
-import { createClient } from '@/prismicio';
-import HeaderWrapper from '@/components/Header';
-import Footer from '@/components/Footer';
-import MainBlock from '@/components/Homepage/MainBlock';
-import Products from '@/components/Homepage/Products';
-import Mission from '@/components/Homepage/Mission';
-import Team from '@/components/Homepage/Team';
-import Network from '@/components/Homepage/Network';
-import Ambassadors from '@/components/Homepage/Ambassadors';
-import Semiblocks from '@/components/Homepage/Semiblocks';
-import Community from '@/components/Homepage/Community';
-import * as prismic from '@prismicio/client';
-import ArticlesList from '@/components/ArticlesList';
-import styles from '../components/Homepage/homepage.module.scss';
-import Marquee from '@/components/Marquee';
-import Image from 'next/image';
-import React from 'react';
-import App from '@/components/Homepage/App';
 import blueCircle from '@/assets/img/blue-circle.svg';
 import orangeCircle from '@/assets/img/orange-circle.svg';
-import { asText } from '@prismicio/client';
-import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
-import Head from 'next/head';
+import Footer from '@/components/Footer';
+import HeaderWrapper from '@/components/Header';
+import Ambassadors from '@/components/Homepage/Ambassadors';
+import App from '@/components/Homepage/App';
+import Community from '@/components/Homepage/Community';
+import MainBlock from '@/components/Homepage/MainBlock';
 import shape from '@/components/Homepage/MainBlock/shape.svg';
+import Mission from '@/components/Homepage/Mission';
+import Network from '@/components/Homepage/Network';
+import Products from '@/components/Homepage/Products';
+import Semiblocks from '@/components/Homepage/Semiblocks';
+import Team from '@/components/Homepage/Team';
+import Marquee from '@/components/Marquee';
+import { createClient } from '@/prismicio';
+import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
+import * as prismic from '@prismicio/client';
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
+import styles from '../components/Homepage/homepage.module.scss';
 
 export default function Home({ page, header, footerText, latestArticles }) {
   const { data } = page;
@@ -29,6 +27,9 @@ export default function Home({ page, header, footerText, latestArticles }) {
   console.log(1);
   return (
     <div className={styles['homepage']}>
+      <h1 className={styles.title}>
+        Read <Link href="/brand-materials">this page!</Link>
+      </h1>
       <Head>
         <meta property="og:image" content="https://airdao.io/og.png" />
         <meta name="twitter:image" content="https://airdao.io/og.png" />
