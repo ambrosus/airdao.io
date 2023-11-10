@@ -563,16 +563,6 @@ export interface BrandMaterialsDocumentDataColorsItemItem {
  */
 export interface BrandMaterialsDocumentDataLinkItem {
   /**
-   * Title field in *Brand Materials → Link*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: brand_materials.link[].title
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  title: prismic.LinkField;
-
-  /**
    * Button title field in *Brand Materials → Link*
    *
    * - **Field Type**: Rich Text
@@ -591,6 +581,16 @@ export interface BrandMaterialsDocumentDataLinkItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   button_link: prismic.LinkField;
+
+  /**
+   * Title field in *Brand Materials → Link*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: brand_materials.link[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
 }
 
 type BrandMaterialsDocumentDataSlicesSlice = never;
@@ -2528,6 +2528,116 @@ interface RoadmapDocumentData {
   slider: prismic.GroupField<Simplify<RoadmapDocumentDataSliderItem>>;
 
   /**
+   * tokenomic_title field in *Roadmap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomic_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tokenomic_title: prismic.RichTextField;
+
+  /**
+   * tokenomic_counter field in *Roadmap*
+   *
+   * - **Field Type**: Timestamp
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomic_counter
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#timestamp
+   */
+  tokenomic_counter: prismic.TimestampField;
+
+  /**
+   * tokenomic_text field in *Roadmap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomic_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tokenomic_text: prismic.RichTextField;
+
+  /**
+   * tokenomic_block field in *Roadmap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomic_block
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tokenomic_block: prismic.RichTextField;
+
+  /**
+   * tokenomic_link_url field in *Roadmap*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomic_link_url
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  tokenomic_link_url: prismic.LinkField;
+
+  /**
+   * tokenomic_link_text field in *Roadmap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomic_link_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tokenomic_link_text: prismic.RichTextField;
+
+  /**
+   * tokenomic_second_link_url field in *Roadmap*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomic_second_link_url
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  tokenomic_second_link_url: prismic.LinkField;
+
+  /**
+   * tokenomic_second_link_text field in *Roadmap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomic_second_link_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tokenomic_second_link_text: prismic.RichTextField;
+
+  /**
+   * learn_more_title field in *Roadmap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.learn_more_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  learn_more_title: prismic.RichTextField;
+
+  /**
+   * learn_more_subtitle field in *Roadmap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.learn_more_subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  learn_more_subtitle: prismic.RichTextField;
+
+  /**
    * Slice Zone field in *Roadmap*
    *
    * - **Field Type**: Slice Zone
@@ -2653,7 +2763,16 @@ interface RoadmapDocumentData {
    * - **Tab**: Other
    * - **Documentation**: https://prismic.io/docs/field#group
    */
-  other_list: prismic.GroupField<Simplify<RoadmapDocumentDataOtherListItem>>;
+  other_list: prismic.GroupField<Simplify<RoadmapDocumentDataOtherListItem>> /**
+   * soon_label field in *Roadmap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.soon_label
+   * - **Tab**: Soon
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */;
+  soon_label: prismic.RichTextField;
 }
 
 /**
