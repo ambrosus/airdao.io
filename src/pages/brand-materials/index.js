@@ -5,14 +5,11 @@ import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
 import { createClient } from '@/prismicio';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
-import * as prismic from '@prismicio/client';
 import Head from 'next/head';
 import Hero from 'src/components/BrandMaterials/Hero';
 
-const BrandMaterialsPage = ({ header, footerText, page, latestArticles }) => {
+const BrandMaterialsPage = ({ header, footerText, page }) => {
   const footerSlice = getFooterBlockSlice(page.data);
-  const heading = page?.data?.heading;
-  heading[0].text = 'Brand materials';
   return (
     <>
       <Head>
@@ -27,10 +24,10 @@ const BrandMaterialsPage = ({ header, footerText, page, latestArticles }) => {
       </Head>
       {header && <HeaderWrapper header={header} />}
       <div style={{ overflow: 'hidden', maxWidth: '100vw' }}>
-        <Hero heading={heading} />
-        <Logo />
-        <Colors />
-        <Links />
+        <Hero content={page?.data?.header[0]} />
+        <Logo content={page?.data} />
+        <Colors content={page?.data} />
+        <Links content={page?.data} />
 
         {footerText && (
           <Footer
@@ -44,23 +41,14 @@ const BrandMaterialsPage = ({ header, footerText, page, latestArticles }) => {
   );
 };
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
-  const newClient = prismic.createClient('airdao-blog');
 
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
-  const page = await client.getSingle('governance');
-  const latestArticles = await newClient.getAllByType('blog', {
-    limit: 3,
-    orderings: {
-      field: 'document.first_publication_date',
-      direction: 'desc',
-    },
-  });
-
+  const page = await client.getSingle('brand_materials');
   return {
-    props: { header, footerText: footer, page, latestArticles },
+    props: { header, footerText: footer, page },
   };
 }
 

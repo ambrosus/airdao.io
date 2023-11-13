@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import { PrismicNextImage } from '@prismicio/next';
+import { PrismicRichText } from '@prismicio/react';
 import styles from '../colors.module.scss';
 
 export default function ColorsBlock({ icon, fontName, fonts = [] }) {
@@ -6,14 +7,28 @@ export default function ColorsBlock({ icon, fontName, fonts = [] }) {
     <div className={styles.blockContainer}>
       <div className={styles.block}>
         <div className={styles.blockContent}>
-          <Image src={icon} alt={'logoSmall'} fill className={styles.image} />
+          <PrismicNextImage field={icon} fill alt="" className={styles.image} />
         </div>
         <div className={styles.blockButtons}>
-          <p className={styles.fontName}>{fontName}</p>
+          <PrismicRichText
+            field={fontName}
+            components={{
+              paragraph: ({ children }) => (
+                <h1 className={styles.fontName}>{children}</h1>
+              ),
+            }}
+          />
           <div className={styles.fonts}>
             {fonts?.map((font, index) => (
-              <div onClick={() => null} key={index}>
-                <p className={styles.fontText}>{font}</p>
+              <div key={index}>
+                <PrismicRichText
+                  field={font}
+                  components={{
+                    paragraph: ({ children }) => (
+                      <h1 className={styles.fontText}>{children}</h1>
+                    ),
+                  }}
+                />
               </div>
             ))}
           </div>
