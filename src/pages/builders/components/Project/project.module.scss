@@ -1,0 +1,96 @@
+.project {
+  border-radius: 32px;
+  border: 1px solid var(--blue-200, #C9D9FF);
+  background: var(--color-shades-grey-50, #FFF);
+  padding: 32px;
+
+  @media screen and (max-width: 768px) {
+    padding: 24px;
+  }
+}
+
+.title {
+  color: var(--neutral-700, #222426);
+  font-family: var(--font-rationell);
+  font-size: 27.541px;
+  font-weight: 600;
+  line-height: 34.426px; /* 125% */
+  letter-spacing: -0.551px;
+
+  @media screen and (max-width: 1050px) {
+    font-size: 24px;
+    line-height: 34.426px; /* 143.443% */
+    letter-spacing: -0.48px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+    line-height: 34.426px; /* 172.131% */
+    letter-spacing: -0.4px;
+  }
+}
+
+.text {
+  margin: 16px 0;
+  color: var(--neutral-700, #222426);
+  font-family: var(--font-inter);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px; /* 144.444% */
+  letter-spacing: -0.216px;
+
+  @media screen and (max-width: 1050px) {
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+  }
+}
+
+.period {
+  color: var(--neutral-400, #676B73);
+  font-family: var(--font-inter);
+  font-size: 16px;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
+  margin-right: 16px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -0.14px;
+  }
+}
+
+.status {
+  color: var(--warning-600, #C8811A);
+  font-family: var(--font-inter);
+  padding: 4px 8px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: -0.14px;
+  border-radius: 20px;
+  background: var(--warning-100, #FBF2CB);
+}
+
+.status_progress {
+  background: var(--success-100, #D9F9E6);
+  color: var(--success-600, #2F9461);
+}
+
+.status_backlog {
+  background: var(--base-white, #FFF);
+  color: var(--gray-800, #222);
+  border: 1px solid var(--alpha-black-10, rgba(47, 43, 67, 0.10));
+}
+
+.btn {
+  display: block!important;
+  margin-top: 24px;
+  width: fit-content;
+
+  @media screen and (max-width: 768px) {
+    display: none!important;
+  }
+}

@@ -1,6 +1,6 @@
 import styles from './pagination.module.scss';
 
-const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+const Pagination = ({ currentPage, totalPages, onPageChange, className }) => {
   const generatePageNumbers = () => {
     const visiblePageNumbers = [];
     const maxVisiblePages = 2;
@@ -26,7 +26,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   };
 
   return (
-    <ul className={styles.pagination}>
+    <ul className={`${styles.pagination} ${className}`}>
       <li className={styles['pagination__arrow']}>
         <button
           onClick={() => onPageChange(currentPage - 1)}

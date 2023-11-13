@@ -1,5 +1,5 @@
 import styles from './select.module.scss';
-import {useRef, useState} from 'react';
+import { useRef, useState } from 'react';
 import TailArrow from '@/components/TailArrow';
 import useClickOutside from '@/hooks/useClickOutside';
 
@@ -14,10 +14,13 @@ export default function Select({
 }) {
   const ref = useRef();
   const [focused, setFocused] = useState(false);
-  useClickOutside(ref, () => {
-    setFocused(false);
-    console.log(1);
-  }, focused);
+  useClickOutside(
+    ref,
+    () => {
+      setFocused(false);
+    },
+    focused
+  );
 
   const classNames = [
     styles.select_container,
@@ -38,7 +41,9 @@ export default function Select({
       {...props}
     >
       <div
-        className={`${styles.input} ${focused ? styles.input_focused : ''} ${error ? styles.input_error : ''} ${!value ? styles.input_placeholder : ''}`}
+        className={`${styles.input} ${focused ? styles.input_focused : ''} ${
+          error ? styles.input_error : ''
+        } ${!value ? styles.input_placeholder : ''}`}
         placeholder={placeholder}
         onClick={toggleFocused}
       >

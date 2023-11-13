@@ -23,6 +23,7 @@ import styles from '../components/Homepage/homepage.module.scss';
 export default function Home({ page, header, footerText, latestArticles }) {
   const { data } = page;
   const footerSlice = getFooterBlockSlice(data);
+  console.log(footerSlice);
 
   return (
     <div className={styles['homepage']}>

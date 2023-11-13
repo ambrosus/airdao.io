@@ -159,9 +159,12 @@
 }
 
 .footer-app__btn {
-  background: var(--neutral-0, #FFF) !important;
-  color: var(--neutral-900, #0E0E0E) !important;
   width: fit-content;
+
+  button {
+    background: var(--neutral-0, #FFF)!important;
+    color: var(--neutral-900, #0E0E0E)!important;
+  }
 }
 
 .footer-app__img {
