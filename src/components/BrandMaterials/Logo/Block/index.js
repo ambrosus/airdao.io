@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { PrismicNextImage } from '@prismicio/next';
 import styles from '../logo.module.scss';
 
 export default function LogoBlock({ smallIcon, bigIcon, isBlack = false }) {
@@ -6,12 +6,7 @@ export default function LogoBlock({ smallIcon, bigIcon, isBlack = false }) {
     <div className={styles.blocksContainer}>
       <div className={isBlack ? styles.block__black : styles.block}>
         <div className={styles.blockContent}>
-          <Image
-            src={smallIcon}
-            alt={'logoSmall'}
-            fill
-            className={styles.image}
-          />
+          <PrismicNextImage field={smallIcon} alt="" className={styles.image} />
         </div>
         <div className={styles.blockButtons}>
           <button onClick={() => null}>
@@ -24,15 +19,15 @@ export default function LogoBlock({ smallIcon, bigIcon, isBlack = false }) {
       </div>
       <div className={isBlack ? styles.block__black : styles.block}>
         <div className={styles.blockContent}>
-          <Image
-            src={bigIcon}
-            alt={'logo'}
+          <PrismicNextImage
+            field={bigIcon}
+            alt=""
             fill
             className={styles.singleImage}
           />
-          <Image
-            src={bigIcon}
-            alt={'logo'}
+          <PrismicNextImage
+            field={bigIcon}
+            alt=""
             fill
             className={styles.singleImageSmall}
           />

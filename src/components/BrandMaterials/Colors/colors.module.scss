@@ -34,13 +34,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 260px;
+  @media screen and (max-width: 950px) {
+    width: 180px;
+  }
+  @media screen and (max-width: 610px) {
+    width: 120px;
+  }
   > div {
     position: unset !important;
   }
 }
 .image {
   object-fit: contain;
-  width: 95% !important;
+  width: 100% !important;
   position: relative !important;
   height: unset !important;
 }
@@ -76,7 +83,7 @@
   justify-content: space-between;
   @media screen and (max-width: 950px) {
     width: 100%;
-    justify-content: space-around;
+    justify-content: center;
   }
 }
 .fontText {
@@ -91,7 +98,8 @@
   cursor: pointer;
   @media screen and (max-width: 950px) {
     margin-left: 0;
-    align-self: center;
+    align-items: center;
     font-size: 14px;
+    margin-left: 8px;
   }
 }

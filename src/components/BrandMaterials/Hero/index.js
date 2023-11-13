@@ -1,22 +1,25 @@
+import { PrismicNextImage } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
-import Image from 'next/image';
-import bg from './bg.svg';
 import styles from './hero.module.scss';
-import mobileBg from './mobile-small-bg.svg';
 
-export default function Hero({ heading }) {
+export default function Hero({ content }) {
   return (
     <div className={styles.container}>
-      <Image src={bg} alt={'background'} className={styles.background} />
-      <Image
-        src={mobileBg}
-        alt={'background'}
+      <PrismicNextImage
+        field={content?.big_icon}
+        alt=""
+        className={styles.background}
+      />
+      <PrismicNextImage
+        field={content?.small_icon}
+        alt=""
         className={styles.background_mobile}
       />
       <PrismicRichText
-        field={heading}
+        field={content?.title}
+        alt=""
         components={{
-          heading1: ({ children }) => (
+          paragraph: ({ children }) => (
             <h1 className={styles.heading}>{children}</h1>
           ),
         }}
