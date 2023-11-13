@@ -18,7 +18,6 @@ import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
 import * as prismic from '@prismicio/client';
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
 import styles from '../components/Homepage/homepage.module.scss';
 
 export default function Home({ page, header, footerText, latestArticles }) {
@@ -27,9 +26,6 @@ export default function Home({ page, header, footerText, latestArticles }) {
   console.log(1);
   return (
     <div className={styles['homepage']}>
-      <h1 className={styles.title}>
-        Read <Link href="/brand-materials">this page!</Link>
-      </h1>
       <Head>
         <meta property="og:image" content="https://airdao.io/og.png" />
         <meta name="twitter:image" content="https://airdao.io/og.png" />
