@@ -123,8 +123,8 @@ const Roadmap = ({ header, footerText, page }) => {
                 components={{
                   paragraph: ({ children }) => (
                     <Link
-                      href={page.tokenomic_link_url.url}
-                      target={page.tokenomic_link_url.target}
+                      href={page.tokenomic_link_url.url || ''}
+                      target={page.tokenomic_link_url.target || ''}
                     >
                       <Button
                         className={styles.hero_btn}
@@ -143,8 +143,8 @@ const Roadmap = ({ header, footerText, page }) => {
                 components={{
                   paragraph: ({ children }) => (
                     <Link
-                      href={page.tokenomic_second_link_url.url}
-                      target={page.tokenomic_second_link_url.target}
+                      href={page.tokenomic_second_link_url.url || ''}
+                      target={page.tokenomic_second_link_url.target || ''}
                     >
                       <Button
                         className={styles.hero_btn}
@@ -203,16 +203,16 @@ const Roadmap = ({ header, footerText, page }) => {
                       ),
                     }}
                   />
-                  <Link
-                    href={el.link.url}
-                    target="_blank"
-                    className={styles.slider_btn}
-                  >
-                    <Button size="large" type="tetiary">
-                      Learn more
-                      <Image src={chevron} alt="chevron" />
-                    </Button>
-                  </Link>
+                  {/*<Link*/}
+                  {/*  href={el.link.url || ''}*/}
+                  {/*  target="_blank"*/}
+                  {/*  className={styles.slider_btn}*/}
+                  {/*>*/}
+                  {/*  <Button size="large" type="tetiary">*/}
+                  {/*    Learn more*/}
+                  {/*    <Image src={chevron} alt="chevron" />*/}
+                  {/*  </Button>*/}
+                  {/*</Link>*/}
                 </div>
               </div>
             </div>
@@ -266,7 +266,6 @@ export async function getStaticProps({ params, previewData }) {
   Object.keys(page.data).forEach((el) => {
     if (el.includes('_list')) {
       page.data[el].forEach((post) => {
-        console.log(1);
         if (post.upcoming) {
           arr.push(post);
         }
