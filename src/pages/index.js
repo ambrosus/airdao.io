@@ -26,7 +26,7 @@ import shape from '@/components/Homepage/MainBlock/shape.svg';
 export default function Home({ page, header, footerText, latestArticles }) {
   const { data } = page;
   const footerSlice = getFooterBlockSlice(data);
-
+  console.log(1);
   return (
     <div className={styles['homepage']}>
       <Head>
