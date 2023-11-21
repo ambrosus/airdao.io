@@ -15,22 +15,33 @@ const EventsHeader = ({ headerText, subText, buttonText }) => {
               ),
             }}
           />
-          <PrismicRichText
-            field={subText}
-            components={{
-              paragraph: ({ children }) => (
-                <p className={styles.headerSubtitle}>{children}</p>
-              ),
-            }}
-          />
+          <div className={styles.subtitleContainer}>
+            <PrismicRichText
+              field={subText}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className={styles.headerSubtitle}>{children}</p>
+                ),
+              }}
+            />
+          </div>
+
           <div className={styles.buttonContainer}>
             <Button
               key={'button'}
               size="medium"
+              type={'secondary'}
               className={styles.buttonWrapper}
               onClick={() => null}
             >
-              {buttonText}
+              <PrismicRichText
+                field={buttonText}
+                components={{
+                  paragraph: ({ children }) => (
+                    <p className={styles.buttonText}>{children}</p>
+                  ),
+                }}
+              />
             </Button>
           </div>
         </div>

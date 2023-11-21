@@ -6,7 +6,7 @@ const Calendar = () => {
     <div className={styles.calendarContainer}>
       <div className={styles.calendarWrapper}>
         <div
-          class="ae-emd-cal"
+          className="ae-emd-cal"
           data-calendar="Cc538234"
           data-calendars="Cc538234"
           data-calendars-selected="Cc538234"

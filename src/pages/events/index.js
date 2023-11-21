@@ -7,12 +7,11 @@ import HeaderWrapper from '@/components/Header';
 import { createClient } from '@/prismicio';
 import * as prismic from '@prismicio/client';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import homePageStyles from '../../components/Homepage/homepage.module.scss';
 import articleStyles from '../blog/blog-list.module.scss';
 import BlogLink from '../blog/components/BlogLink';
 import styles from './events.module.scss';
-
-const articleTypes = ['news', 'events'];
 
 const getLastArticlesByType = async type => {
   const newClient = prismic.createClient('airdao-blog');
@@ -31,21 +30,40 @@ export async function getStaticProps(context) {
   const client = createClient({ previewData: context.previewData });
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
-  const page = await client.getSingle('buyamb');
+  const page = await client.getSingle('events');
 
-  const lastArticlesByType = {};
-
-  for (let i = 0; i < articleTypes.length; i++) {
-    lastArticlesByType[articleTypes[i]] = await getLastArticlesByType(
-      articleTypes[i],
-    );
-  }
   return {
-    props: { footerText: footer, header, page: page.data, lastArticlesByType },
+    props: { footerText: footer, header, page: page.data },
   };
 }
 
-const Events = ({ header, footerText, page, lastArticlesByType }) => {
+const Events = ({ header, footerText, page }) => {
+  const [articles, setArticles] = useState({});
+  const [articleNames, setArticleNames] = useState({});
+
+  // get events by types added on prismic event page
+  const updateEvents = async () => {
+    const lastArticlesByType = {};
+    const types = [];
+    const names = {};
+
+    page?.events?.map(item => {
+      types.push(item.event_type[0].text);
+      names[item.event_type[0].text] = item.event_name[0].text;
+    });
+
+    for (let i = 0; i < types.length; i++) {
+      lastArticlesByType[types[i]] = await getLastArticlesByType(types[i]);
+    }
+
+    setArticles(lastArticlesByType);
+    setArticleNames(names);
+  };
+
+  useEffect(() => {
+    updateEvents();
+  }, []);
+
   return (
     <div className={homePageStyles['homepage']}>
       {header && <HeaderWrapper header={header} />}
@@ -61,20 +79,20 @@ const Events = ({ header, footerText, page, lastArticlesByType }) => {
           alt="orange circle"
         />
         <EventsHeader
-          headerText={page?.title}
-          subText={page?.subtitle}
-          buttonText={'Add to calendar'}
+          headerText={page?.header_title}
+          subText={page?.header_subtitle}
+          buttonText={page?.header_button_text}
         />
         <Calendar />
         <div className={styles.articlesContainer}>
           <div className={styles.articlesWrapper}>
-            {Object.keys(lastArticlesByType).map(
+            {Object.keys(articles).map(
               el =>
-                !!lastArticlesByType[el].length && (
+                !!articles[el].length && (
                   <div key={el} className={articleStyles['articles-wrapper']}>
                     <div className={articleStyles['articles-top-block']}>
                       <h2 className={articleStyles['articles-title']}>
-                        {'Past'}
+                        {articleNames[el]}
                       </h2>
                       <button
                         className={articleStyles['articles-btn']}
@@ -84,7 +102,7 @@ const Events = ({ header, footerText, page, lastArticlesByType }) => {
                       </button>
                     </div>
                     <div className={articleStyles['articles-list']}>
-                      {lastArticlesByType[el].map(article => (
+                      {articles[el].map(article => (
                         <BlogLink key={article.uid} article={article} />
                       ))}
                     </div>
