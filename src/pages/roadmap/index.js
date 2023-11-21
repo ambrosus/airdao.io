@@ -92,7 +92,7 @@ const Roadmap = ({ header, footerText, page }) => {
                     {children}
                     <br />
                     <span className={styles.hero_blue}>
-                      {convertDate(page.tokenomic_counter)}
+                      15 Nov 2023
                     </span>
                   </h1>
                 ),

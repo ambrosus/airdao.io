@@ -1,0 +1,13 @@
+.calendarContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.calendarWrapper {
+  width: calc(100% - 240px);
+  max-width: 1300px;
+
+  @media screen and (max-width: 610px) {
+    width: calc(100% - 36px);
+  }
+}
