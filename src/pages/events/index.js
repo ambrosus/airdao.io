@@ -62,6 +62,7 @@ const Events = ({ header, footerText, page }) => {
 
   useEffect(() => {
     updateEvents();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
