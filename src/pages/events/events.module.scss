@@ -1,0 +1,20 @@
+.contentContainer {
+  position: relative;
+}
+.articlesContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 15vh;
+  @media screen and (max-width: 950px) {
+    margin-top: 5vh;
+  }
+}
+.articlesWrapper {
+  width: calc(100% - 240px);
+  max-width: 1300px;
+
+  @media screen and (max-width: 610px) {
+    width: calc(100% - 36px);
+  }
+}
