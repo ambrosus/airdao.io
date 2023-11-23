@@ -28,6 +28,7 @@
 }
 
 .blog-types__item {
+  display: inline-flex;
   padding: 10px 18px;
   border-radius: 101px;
   background: var(--alpha-black-5, rgba(14, 14, 14, 0.05));
