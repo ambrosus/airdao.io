@@ -4,6 +4,71 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type AcademyDocumentDataSlicesSlice = never;
+
+/**
+ * Content for academy documents
+ */
+interface AcademyDocumentData {
+  /**
+   * Slice Zone field in *academy*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AcademyDocumentDataSlicesSlice> /**
+   * Meta Description field in *academy*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: academy.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *academy*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *academy*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: academy.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * academy document from Prismic
+ *
+ * - **API ID**: `academy`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AcademyDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<AcademyDocumentData>,
+    'academy',
+    Lang
+  >;
+
 type AmbassadorDocumentDataSlicesSlice = never;
 
 /**
@@ -3409,6 +3474,7 @@ export type TeamDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<TeamDocumentData>, 'team', Lang>;
 
 export type AllDocumentTypes =
+  | AcademyDocument
   | AmbassadorDocument
   | BlogDocument
   | BrandMaterialsDocument
@@ -3960,6 +4026,9 @@ declare module '@prismicio/client' {
 
   namespace Content {
     export type {
+      AcademyDocument,
+      AcademyDocumentData,
+      AcademyDocumentDataSlicesSlice,
       AmbassadorDocument,
       AmbassadorDocumentData,
       AmbassadorDocumentDataSlicesSlice,
