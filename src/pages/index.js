@@ -155,12 +155,20 @@ export default function Home({ page, header, footerText, latestArticles }) {
 
 export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
-  const newClient = prismic.createClient('airdao-blog');
+  const blogClient = prismic.createClient('airdao-blog');
+  const academyClient = prismic.createClient('airdao-academy');
 
   const page = await client.getSingle('homepage');
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
-  const latestArticles = await newClient.getAllByType('blog', {
+  const latestBlogArticles = await blogClient.getAllByType('blog', {
+    limit: 3,
+    orderings: {
+      field: 'document.first_publication_date',
+      direction: 'desc',
+    },
+  });
+  const latestAcademyArticles = await academyClient.getAllByType('academy', {
     limit: 3,
     orderings: {
       field: 'document.first_publication_date',
@@ -168,6 +176,12 @@ export async function getStaticProps({ params, previewData }) {
     },
   });
   return {
-    props: { page, header, footerText: footer, latestArticles },
+    props: {
+      page,
+      header,
+      footerText: footer,
+      latestBlogArticles,
+      latestAcademyArticles,
+    },
   };
 }
