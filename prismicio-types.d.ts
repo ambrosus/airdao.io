@@ -139,6 +139,21 @@ export type AcademyDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Academy page → Types*
+ */
+export interface AcademyPageDocumentDataTypesItem {
+  /**
+   * Type name field in *Academy page → Types*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy_page.types[].type_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  type_name: prismic.RichTextField;
+}
+
 type AcademyPageDocumentDataSlicesSlice = never;
 
 /**
@@ -170,13 +185,13 @@ interface AcademyPageDocumentData {
   /**
    * Types field in *Academy page*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: academy_page.types
+   * - **API ID Path**: academy_page.types[]
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#group
    */
-  types: prismic.RichTextField;
+  types: prismic.GroupField<Simplify<AcademyPageDocumentDataTypesItem>>;
 
   /**
    * Slice Zone field in *Academy page*
@@ -4200,6 +4215,7 @@ declare module '@prismicio/client' {
       AcademyDocumentDataSlicesSlice,
       AcademyPageDocument,
       AcademyPageDocumentData,
+      AcademyPageDocumentDataTypesItem,
       AcademyPageDocumentDataSlicesSlice,
       AmbassadorDocument,
       AmbassadorDocumentData,

@@ -6,12 +6,12 @@ import Select from '@/components/Select';
 import AcademyLink from '@/pages/academy/components/AcademyLink';
 import { createClient } from '@/prismicio';
 import * as prismic from '@prismicio/client';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { PrismicRichText } from '@prismicio/react';
+import { useEffect, useRef, useState } from 'react';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import styles from './academy-list.module.scss';
 
-const articleTypes = ['Web3 guides', 'Analytics', 'AirDAO products guides'];
 const badges = ['All', 'Beginner', 'Intermediate', 'Pro'];
 
 const getLastArticlesByType = async type => {
@@ -32,36 +32,46 @@ export async function getStaticProps(context) {
 
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
+  const page = await client.getSingle('academy_page');
 
-  const lastArticlesByType = {};
-
-  for (let i = 0; i < articleTypes.length; i++) {
-    lastArticlesByType[articleTypes[i]] = await getLastArticlesByType(
-      articleTypes[i],
-    );
-  }
   return {
-    props: { footerText: footer, header, lastArticlesByType },
+    props: { footerText: footer, header, page: page.data },
   };
 }
 
-export default function Academy({ header, footerText, lastArticlesByType }) {
+export default function Academy({ header, footerText, page }) {
   const [selectedType, setSelectedType] = useState('all');
   const [paginatedData, setPaginatedData] = useState(null);
   const [badge, setBadge] = useState(badges[0]);
 
   const articleList = useRef(null);
 
-  const activeTypes = useMemo(() => {
-    const arr = [];
+  const [articles, setArticles] = useState({});
+  const [articleNames, setArticleNames] = useState([]);
 
-    Object.keys(lastArticlesByType).forEach(el => {
-      if (lastArticlesByType[el].length) {
-        arr.push(el);
-      }
+  // get articles by types added on prismic academy page
+  const updateAcademyCards = async () => {
+    const lastArticlesByType = {};
+    const types = [];
+    const names = [];
+
+    page?.types?.map(item => {
+      types.push(item.type_name[0].text);
+      names.push(item.type_name[0].text);
     });
-    return arr;
-  }, [lastArticlesByType]);
+
+    for (let i = 0; i < types.length; i++) {
+      lastArticlesByType[types[i]] = await getLastArticlesByType(types[i]);
+    }
+
+    setArticles(lastArticlesByType);
+    setArticleNames(names);
+  };
+
+  useEffect(() => {
+    updateAcademyCards();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (selectedType === 'all') {
@@ -74,7 +84,7 @@ export default function Academy({ header, footerText, lastArticlesByType }) {
   const setPaginatedArticles = async (page, scrollTo) => {
     const newClient = prismic.createClient('airdao-academy');
 
-    const articles = await newClient.getByType('academy', {
+    const academyArticles = await newClient.getByType('academy', {
       page,
       pageSize: 9,
       orderings: {
@@ -83,7 +93,7 @@ export default function Academy({ header, footerText, lastArticlesByType }) {
       },
       filters: [prismic.filter.at('my.academy.academy_type', selectedType)],
     });
-    setPaginatedData(articles);
+    setPaginatedData(academyArticles);
 
     if (scrollTo) {
       window.scrollTo(0, scrollTo - 150);
@@ -100,18 +110,29 @@ export default function Academy({ header, footerText, lastArticlesByType }) {
       <div className={styles['academy-gradient']} />
       {header && <HeaderWrapper header={header} />}
       <div className={styles['academy-list-page']}>
-        <h1 className={styles['academy-list-page__title']}>Academy</h1>
-        <p className={styles['academy-list-page__subtitle']}>
-          AirDAO Academy is the central hub for our community to learn about
-          AirDAO. Discover guides and tutorials for our products, job openings,
-          and more.
-        </p>
-
+        <PrismicRichText
+          field={page?.title}
+          components={{
+            paragraph: ({ children }) => (
+              <p className={styles['academy-list-page__title']}>{children}</p>
+            ),
+          }}
+        />
+        <PrismicRichText
+          field={page?.subtitle}
+          components={{
+            paragraph: ({ children }) => (
+              <p className={styles['academy-list-page__subtitle']}>
+                {children}
+              </p>
+            ),
+          }}
+        />
         {selectedType === 'all' ? (
           <>
             <div className={styles['academy-buttons']}>
               <div className={styles['academy-types']}>
-                {['all', ...activeTypes].map(el => (
+                {['all', ...articleNames].map(el => (
                   <button
                     className={`${styles['academy-types__item']} ${
                       selectedType === el
@@ -126,9 +147,9 @@ export default function Academy({ header, footerText, lastArticlesByType }) {
                 ))}
               </div>
             </div>
-            {Object.keys(lastArticlesByType).map(
+            {Object.keys(articles).map(
               el =>
-                !!lastArticlesByType[el].length && (
+                !!articles[el].length && (
                   <div key={el} className={styles['articles-wrapper']}>
                     <div className={styles['articles-top-block']}>
                       <h2 className={styles['articles-title']}>{el}</h2>
@@ -140,7 +161,7 @@ export default function Academy({ header, footerText, lastArticlesByType }) {
                       </button>
                     </div>
                     <div className={styles['articles-list']}>
-                      {lastArticlesByType[el].map(article => (
+                      {articles[el].map(article => (
                         <AcademyLink key={article.uid} article={article} />
                       ))}
                     </div>
@@ -153,7 +174,7 @@ export default function Academy({ header, footerText, lastArticlesByType }) {
             <>
               <div className={styles['academy-buttons']}>
                 <div className={styles['academy-types']}>
-                  {['all', ...activeTypes].map(el => (
+                  {['all', ...articleNames].map(el => (
                     <button
                       className={`${styles['academy-types__item']} ${
                         selectedType === el
