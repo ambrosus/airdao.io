@@ -12,10 +12,12 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { PrismicRichText } from '@prismicio/react';
 import { getTimePassed } from '@/utils/getTimePassed';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const articleTypes = ['news', 'governance', 'academy', 'events'];
 
-const getLastArticlesByType = async (type) => {
+const getLastArticlesByType = async type => {
   const newClient = prismic.createClient('airdao-blog');
 
   return await newClient.getAllByType('blog', {
@@ -30,11 +32,11 @@ const getLastArticlesByType = async (type) => {
 
 export async function getStaticProps(context) {
   const client = createClient({ previewData: context.previewData });
-  const newClient = prismic.createClient('airdao-blog');
+  const blogClient = prismic.createClient('airdao-blog');
 
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
-  const lastArticles = await newClient.getAllByType('blog', {
+  const lastArticles = await blogClient.getAllByType('blog', {
     limit: 4,
     orderings: {
       field: 'document.first_publication_date',
@@ -46,7 +48,7 @@ export async function getStaticProps(context) {
 
   for (let i = 0; i < articleTypes.length; i++) {
     lastArticlesByType[articleTypes[i]] = await getLastArticlesByType(
-      articleTypes[i]
+      articleTypes[i],
     );
   }
   return {
@@ -99,6 +101,18 @@ export default function Blog({
   lastArticles,
 }) {
   const [selectedType, setSelectedType] = useState('all');
+
+  const router = useRouter();
+  const hash = router.asPath.slice(6);
+
+  useEffect(() => {
+    if (articleTypes.includes(hash)) {
+      setSelectedType(hash);
+    } else {
+      setSelectedType('all');
+    }
+  }, [hash]);
+
   const [paginatedData, setPaginatedData] = useState(null);
 
   const articleList = useRef(null);
@@ -106,7 +120,7 @@ export default function Blog({
   const activeTypes = useMemo(() => {
     const arr = [];
 
-    Object.keys(lastArticlesByType).forEach((el) => {
+    Object.keys(lastArticlesByType).forEach(el => {
       if (lastArticlesByType[el].length) {
         arr.push(el);
       }
@@ -141,7 +155,7 @@ export default function Blog({
     }
   };
 
-  const handleSelectedType = (type) => {
+  const handleSelectedType = type => {
     setSelectedType(type);
     window.scrollTo(0, 0);
   };
@@ -152,16 +166,24 @@ export default function Blog({
       {header && <HeaderWrapper header={header} />}
       <div className={styles['blog-list-page']}>
         <div className={styles['blog-types']}>
-          {['all', ...activeTypes].map((el) => (
-            <button
+          <Link
+            className={`${styles['blog-types__item']} ${
+              selectedType === 'all' ? styles['blog-types__item_active'] : ''
+            }`}
+            href={'/blog'}
+          >
+            All
+          </Link>
+          {activeTypes.map(el => (
+            <Link
               className={`${styles['blog-types__item']} ${
                 selectedType === el ? styles['blog-types__item_active'] : ''
               }`}
               key={el}
-              onClick={() => setSelectedType(el)}
+              href={'/blog#' + el}
             >
               {el}
-            </button>
+            </Link>
           ))}
         </div>
         {selectedType === 'all' ? (
@@ -172,7 +194,7 @@ export default function Blog({
               Academy resources. Learn, grow, and get inspired.
             </p>
             {Object.keys(lastArticlesByType).map(
-              (el) =>
+              el =>
                 !!lastArticlesByType[el].length && (
                   <div key={el} className={styles['articles-wrapper']}>
                     <div className={styles['articles-top-block']}>
@@ -185,12 +207,12 @@ export default function Blog({
                       </button>
                     </div>
                     <div className={styles['articles-list']}>
-                      {lastArticlesByType[el].map((article) => (
+                      {lastArticlesByType[el].map(article => (
                         <BlogLink key={article.uid} article={article} />
                       ))}
                     </div>
                   </div>
-                )
+                ),
             )}
           </>
         ) : (
@@ -198,7 +220,7 @@ export default function Blog({
             <>
               <div className={styles['slider-wrapper']}>
                 <Slider {...settings}>
-                  {lastArticles.map((el) => (
+                  {lastArticles.map(el => (
                     <div key={el.uid} className={styles['slider-item']}>
                       <img
                         src={el.data.article_link_img.url || '/article.png'}
@@ -255,14 +277,14 @@ export default function Blog({
                 ref={articleList}
                 className={`${styles['articles-list']} ${styles['articles-list_pagination']}`}
               >
-                {paginatedData.results.map((el) => (
+                {paginatedData.results.map(el => (
                   <BlogLink key={el.uid} article={el} />
                 ))}
               </div>
               <Pagination
                 currentPage={paginatedData.page}
                 totalPages={paginatedData.total_pages}
-                onPageChange={(e) =>
+                onPageChange={e =>
                   setPaginatedArticles(e, articleList.current.offsetTop)
                 }
               />
