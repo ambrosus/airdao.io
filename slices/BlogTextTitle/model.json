@@ -1,0 +1,28 @@
+{
+  "id": "blog_text_title",
+  "type": "SharedSlice",
+  "name": "BlogTextTitle",
+  "description": "BlogTextTitle",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "Title",
+            "allowTargetBlank": false,
+            "single": "heading3"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

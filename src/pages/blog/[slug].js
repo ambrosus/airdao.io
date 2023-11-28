@@ -12,12 +12,13 @@ import * as prismic from '@prismicio/client';
 
 export async function getStaticProps(context) {
   const client = createClient({ previewData: context.previewData });
-  const newClient = prismic.createClient('airdao-blog');
+  const blogClient = prismic.createClient('airdao-blog');
 
-  const blog = await newClient.getByUID('blog', context.params.slug);
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
-  const latestArticles = await newClient.getAllByType('blog', {
+
+  const blog = await blogClient.getByUID('blog', context.params.slug);
+  const latestArticles = await blogClient.getAllByType('blog', {
     limit: 3,
     orderings: {
       field: 'document.first_publication_date',
@@ -33,7 +34,7 @@ export async function getStaticPaths() {
   const client = prismic.createClient('airdao-blog');
   const pages = await client.getAllByType('blog');
   return {
-    paths: pages.map((page) => `/blog/${page.uid}`),
+    paths: pages.map(page => `/blog/${page.uid}`),
     fallback: true,
   };
 }
@@ -49,7 +50,8 @@ export default function BlogArticle({
   }
   const { data } = blog;
 
-  const renderBlogItem = (itemData) => {
+  const renderBlogItem = itemData => {
+    console.log(itemData);
     switch (itemData.slice_type) {
       case 'blog_subtitle':
         return <BlogSubtitle key={itemData.id} data={itemData} />;
@@ -59,6 +61,8 @@ export default function BlogArticle({
         return <BlogText key={itemData.id} data={itemData} />;
       case 'blog_wrapped_text':
         return <BlogWrappedText key={itemData.id} data={itemData} />;
+      case 'blog_text_title':
+        return <BlogTextTitle key={itemData.id} data={itemData} />;
     }
   };
 
@@ -102,7 +106,7 @@ export default function BlogArticle({
             {data.blog_type}
           </span>
         </div>
-        <div>{data.slices.map((el) => renderBlogItem(el))}</div>
+        <div>{data.slices.map(el => renderBlogItem(el))}</div>
         <div className={bottomBlockStyles['articles-wrapper']}>
           <div className={bottomBlockStyles['articles-top-block']}>
             <h2 className={bottomBlockStyles['articles-title']}>
@@ -113,7 +117,7 @@ export default function BlogArticle({
             </Link>
           </div>
           <div className={bottomBlockStyles['articles-list']}>
-            {latestArticles.map((article) => (
+            {latestArticles.map(article => (
               <BlogLink key={article.uid} article={article} />
             ))}
           </div>
@@ -128,6 +132,17 @@ export default function BlogArticle({
     </>
   );
 }
+
+const BlogTextTitle = ({ data }) => (
+  <PrismicRichText
+    field={data.primary.title}
+    components={{
+      heading3: ({ children }) => (
+        <h3 className={styles['blog-page__text-title']}>{children}</h3>
+      ),
+    }}
+  />
+);
 
 const BlogSubtitle = ({ data }) => (
   <PrismicRichText
