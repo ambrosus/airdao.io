@@ -4,6 +4,253 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type AcademyDocumentDataSlicesSlice =
+  | BlogSubtitleSlice
+  | BlogTextSlice
+  | BlogWrappedTextSlice
+  | BlogImgSlice;
+
+/**
+ * Content for academy documents
+ */
+interface AcademyDocumentData {
+  /**
+   * title field in *academy*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * description field in *academy*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * article_link_img field in *academy*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy.article_link_img
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  article_link_img: prismic.ImageField<never>;
+
+  /**
+   * read_time field in *academy*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy.read_time
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  read_time: prismic.RichTextField;
+
+  /**
+   * author field in *academy*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy.author
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  author: prismic.RichTextField;
+
+  /**
+   * blog_type field in *academy*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy.blog_type
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  blog_type: prismic.SelectField<'news' | 'governance' | 'academy' | 'events'>;
+
+  /**
+   * Slice Zone field in *academy*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AcademyDocumentDataSlicesSlice> /**
+   * Meta Description field in *academy*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: academy.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *academy*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *academy*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: academy.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * academy document from Prismic
+ *
+ * - **API ID**: `academy`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AcademyDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<AcademyDocumentData>,
+    'academy',
+    Lang
+  >;
+
+/**
+ * Item in *Academy page → Types*
+ */
+export interface AcademyPageDocumentDataTypesItem {
+  /**
+   * Type name field in *Academy page → Types*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy_page.types[].type_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  type_name: prismic.RichTextField;
+}
+
+type AcademyPageDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Academy page documents
+ */
+interface AcademyPageDocumentData {
+  /**
+   * Title field in *Academy page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy_page.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Subtitle field in *Academy page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy_page.subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle: prismic.RichTextField;
+
+  /**
+   * Types field in *Academy page*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy_page.types[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  types: prismic.GroupField<Simplify<AcademyPageDocumentDataTypesItem>>;
+
+  /**
+   * Slice Zone field in *Academy page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AcademyPageDocumentDataSlicesSlice> /**
+   * Meta Description field in *Academy page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: academy_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Academy page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Academy page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: academy_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Academy page document from Prismic
+ *
+ * - **API ID**: `academy_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AcademyPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<AcademyPageDocumentData>,
+    'academy_page',
+    Lang
+  >;
 
 type AmbassadorDocumentDataSlicesSlice = never;
 
@@ -3410,6 +3657,8 @@ export type TeamDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<TeamDocumentData>, 'team', Lang>;
 
 export type AllDocumentTypes =
+  | AcademyDocument
+  | AcademyPageDocument
   | AmbassadorDocument
   | BlogDocument
   | BrandMaterialsDocument
@@ -3961,6 +4210,13 @@ declare module '@prismicio/client' {
 
   namespace Content {
     export type {
+      AcademyDocument,
+      AcademyDocumentData,
+      AcademyDocumentDataSlicesSlice,
+      AcademyPageDocument,
+      AcademyPageDocumentData,
+      AcademyPageDocumentDataTypesItem,
+      AcademyPageDocumentDataSlicesSlice,
       AmbassadorDocument,
       AmbassadorDocumentData,
       AmbassadorDocumentDataSlicesSlice,

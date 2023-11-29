@@ -18,12 +18,12 @@
 .input {
   width: 100%;
   border-radius: 162px;
-  border: 1px solid rgba(47, 43, 67, 0.10);
-  background: #FFF;
+  border: 1px solid rgba(47, 43, 67, 0.1);
+  background: #fff;
   height: 48px;
   padding: 0px 16px;
 
-  color: var(--neutral-900, #0E0E0E);
+  color: #2f2b4399;
   font-family: var(--font-inter);
   font-size: 16px;
   font-style: normal;
@@ -38,11 +38,11 @@
   align-self: stretch;
 
   &_focused {
-    box-shadow: 0px 0px 0px 3px #99B8FF;
+    box-shadow: 0px 0px 0px 3px #99b8ff;
   }
 
   &:hover {
-    border: 1px solid rgba(47, 43, 67, 0.20);
+    border: 1px solid rgba(47, 43, 67, 0.2);
   }
 
   &_placeholder {
@@ -50,12 +50,12 @@
   }
 
   &_error {
-    border: 1px solid #FFD9CD!important;
+    border: 1px solid #ffd9cd !important;
   }
 }
 
 .input_error.input_placeholder {
-  color: #FF4747;
+  color: #ff4747;
 }
 .arrow {
   transform: rotate(0.25turn);
@@ -71,7 +71,7 @@
   display: flex;
   flex-flow: column nowrap;
   border-radius: 12px;
-  background: #FFF;
+  background: #fff;
 
   position: absolute;
   top: calc(48px + 8px);
@@ -85,8 +85,9 @@
 
 .select_container.focused .dropdown {
   height: calc(var(--children-length) * 44px);
-  border: 1px solid rgba(47, 43, 67, 0.10);
-  box-shadow: 0px -1px 0px 0px rgba(47, 43, 67, 0.10) inset, 0px 4px 8px 0px rgba(47, 43, 67, 0.10);
+  border: 1px solid rgba(47, 43, 67, 0.1);
+  box-shadow: 0px -1px 0px 0px rgba(47, 43, 67, 0.1) inset,
+    0px 4px 8px 0px rgba(47, 43, 67, 0.1);
 }
 
 .option {
