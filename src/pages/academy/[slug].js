@@ -1,5 +1,7 @@
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
+import ShareButton from '@/components/ShareButton';
+import useClickOutside from '@/hooks/useClickOutside';
 import AcademyLink from '@/pages/academy/components/AcademyLink';
 import { createClient } from '@/prismicio';
 import * as prismic from '@prismicio/client';
@@ -7,6 +9,7 @@ import { PrismicNextImage } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRef, useState } from 'react';
 import {
   default as bottomBlockStyles,
   default as linkStyles,
@@ -48,6 +51,15 @@ export default function AcademyArticle({
   footerText,
   latestAcademyArticles,
 }) {
+  const ref = useRef();
+  const [focused, setFocused] = useState(false);
+  useClickOutside(
+    ref,
+    () => {
+      setFocused(false);
+    },
+    focused,
+  );
   if (!academy) {
     return null;
   }
@@ -108,6 +120,7 @@ export default function AcademyArticle({
               ),
             }}
           />
+          <ShareButton />
         </div>
         <div>{data.slices.map(el => renderBlogItem(el))}</div>
         <div className={bottomBlockStyles['articles-wrapper']}>
