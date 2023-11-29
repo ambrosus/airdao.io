@@ -57,16 +57,22 @@
 }
 
 .academy-page__info-wrapper {
-  margin-top: 18px;
+  margin-top: -50px;
+  margin-left: 210px;
   text-align: center;
-  margin-bottom: 88px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  @media screen and (max-width: 950px) {
-    margin-bottom: 48px;
+  @media screen and (max-width: 780px) {
+    margin-left: 180px;
+    width: 450px;
   }
 
   @media screen and (max-width: 650px) {
-    margin-bottom: 40px;
+    margin-left: 150px;
+    width: 450px;
   }
 }
 
@@ -90,8 +96,8 @@
       height: 7px;
       background: #676b73;
       border-radius: 50%;
-      left: 11px;
-      top: 9px;
+      left: 12px;
+      top: 10px;
     }
   }
 

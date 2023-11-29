@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
+import ShareButton from '@/components/ShareButton';
 import AcademyLink from '@/pages/academy/components/AcademyLink';
 import { createClient } from '@/prismicio';
 import * as prismic from '@prismicio/client';
@@ -108,6 +109,7 @@ export default function AcademyArticle({
               ),
             }}
           />
+          <ShareButton />
         </div>
         <div>{data.slices.map(el => renderBlogItem(el))}</div>
         <div className={bottomBlockStyles['articles-wrapper']}>

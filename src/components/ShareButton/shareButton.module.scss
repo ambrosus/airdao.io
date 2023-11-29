@@ -1,0 +1,55 @@
+.share {
+  margin-left: 12px;
+  display: flex;
+  width: 220px;
+  height: 160px;
+}
+.share-dropdown {
+  width: 210px;
+  height: 152px;
+  padding: 8px;
+  border-radius: 24px;
+  border: 1px solid #e6e6e6;
+  gap: 8px;
+  background: #fff;
+  position: relative;
+  top: 100px;
+  left: -20px;
+  transition: height 0.2s ease-in;
+}
+.option {
+  height: 40px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: stretch;
+  cursor: pointer;
+  padding: 8px, 16px, 8px, 16px;
+  border-radius: 1000px;
+  gap: 8px;
+
+  &:hover {
+    background: rgba(47, 43, 67, 0.05);
+  }
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+.option-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 8px;
+}
+.option-text {
+  font-family: var(--inter);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  text-align: center;
+  margin-left: 8px;
+}
