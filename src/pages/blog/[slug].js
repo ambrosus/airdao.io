@@ -101,11 +101,12 @@ export default function BlogArticle({
               ),
             }}
           />
-          <span
+          <Link
+            href={`/blog#${data.blog_type}`}
             className={`${styles['blog-page__info']} ${styles['blog-page__info_type']}`}
           >
             {data.blog_type}
-          </span>
+          </Link>
           <ShareButton />
         </div>
         <div>{data.slices.map(el => renderBlogItem(el))}</div>
