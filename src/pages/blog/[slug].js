@@ -9,6 +9,7 @@ import { getTimePassed } from '@/utils/getTimePassed';
 import BlogLink from '@/pages/blog/components/BlogLink';
 import Link from 'next/link';
 import * as prismic from '@prismicio/client';
+import ShareButton from '@/components/ShareButton';
 
 export async function getStaticProps(context) {
   const client = createClient({ previewData: context.previewData });
@@ -105,6 +106,7 @@ export default function BlogArticle({
           >
             {data.blog_type}
           </span>
+          <ShareButton />
         </div>
         <div>{data.slices.map(el => renderBlogItem(el))}</div>
         <div className={bottomBlockStyles['articles-wrapper']}>
