@@ -29,13 +29,17 @@ export default function ShareButton() {
   };
 
   const shareTwitter = async () => {
-    await copyCurrentURL();
-    window.open('https://twitter.com', '_blank');
+    window.open(
+      `https://twitter.com/intent/tweet?url=${window?.location?.href}`,
+      '_blank',
+    );
   };
 
   const shareLinkedIn = async () => {
-    await copyCurrentURL();
-    window.open('https://linkedin.com', '_blank');
+    window.open(
+      `https://www.linkedin.com/sharing/share-offsite/?url=${window?.location?.href}`,
+      '_blank',
+    );
   };
 
   return (
