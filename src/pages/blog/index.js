@@ -15,7 +15,7 @@ import { getTimePassed } from '@/utils/getTimePassed';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-const articleTypes = ['news', 'governance', 'academy', 'events'];
+const articleTypes = ['news', 'governance', 'events'];
 
 const getLastArticlesByType = async type => {
   const newClient = prismic.createClient('airdao-blog');

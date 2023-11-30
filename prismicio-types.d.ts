@@ -531,6 +531,7 @@ export type AmbassadorDocument<Lang extends string = string> =
   >;
 
 type BlogDocumentDataSlicesSlice =
+  | BlogTextTitleSlice
   | BlogSubtitleSlice
   | BlogTextSlice
   | BlogWrappedTextSlice
@@ -604,7 +605,7 @@ interface BlogDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  blog_type: prismic.SelectField<'news' | 'governance' | 'academy' | 'events'>;
+  blog_type: prismic.SelectField<'news' | 'governance' | 'events'>;
 
   /**
    * Slice Zone field in *blog*
@@ -3809,6 +3810,51 @@ export type BlogTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *BlogTextTitle → Primary*
+ */
+export interface BlogTextTitleSliceDefaultPrimary {
+  /**
+   * Title field in *BlogTextTitle → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Title
+   * - **API ID Path**: blog_text_title.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+}
+
+/**
+ * Default variation for BlogTextTitle Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogTextTitleSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<BlogTextTitleSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BlogTextTitle*
+ */
+type BlogTextTitleSliceVariation = BlogTextTitleSliceDefault;
+
+/**
+ * BlogTextTitle Shared Slice
+ *
+ * - **API ID**: `blog_text_title`
+ * - **Description**: BlogTextTitle
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogTextTitleSlice = prismic.SharedSlice<
+  'blog_text_title',
+  BlogTextTitleSliceVariation
+>;
+
+/**
  * Primary content in *BlogWrappedText → Primary*
  */
 export interface BlogWrappedTextSliceDefaultPrimary {
@@ -4302,6 +4348,10 @@ declare module '@prismicio/client' {
       BlogTextSliceDefaultPrimary,
       BlogTextSliceVariation,
       BlogTextSliceDefault,
+      BlogTextTitleSlice,
+      BlogTextTitleSliceDefaultPrimary,
+      BlogTextTitleSliceVariation,
+      BlogTextTitleSliceDefault,
       BlogWrappedTextSlice,
       BlogWrappedTextSliceDefaultPrimary,
       BlogWrappedTextSliceVariation,
