@@ -7,6 +7,7 @@ import HeaderWrapper from '@/components/Header';
 import { createClient } from '@/prismicio';
 import * as prismic from '@prismicio/client';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import homePageStyles from '../../components/Homepage/homepage.module.scss';
 import articleStyles from '../blog/blog-list.module.scss';
@@ -95,12 +96,12 @@ const Events = ({ header, footerText, page }) => {
                       <h2 className={articleStyles['articles-title']}>
                         {articleNames[el]}
                       </h2>
-                      <button
+                      <Link
+                        href={'/blog#events'}
                         className={articleStyles['articles-btn']}
-                        onClick={() => null}
                       >
                         See all
-                      </button>
+                      </Link>
                     </div>
                     <div className={articleStyles['articles-list']}>
                       {articles[el].map(article => (

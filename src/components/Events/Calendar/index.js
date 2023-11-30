@@ -7,9 +7,9 @@ const Calendar = () => {
       <div className={styles.calendarWrapper}>
         <div
           className="ae-emd-cal"
-          data-calendar="Cc538234"
-          data-calendars="Cc538234"
-          data-calendars-selected="Cc538234"
+          data-calendar="tG531829"
+          data-calendars="tG531829"
+          data-calendars-selected="tG531829"
           data-configure="true"
           data-title=""
           data-title-show="true"
