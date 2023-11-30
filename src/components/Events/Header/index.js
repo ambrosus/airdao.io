@@ -1,20 +1,11 @@
 import { PrismicRichText } from '@prismicio/react';
-import { useEffect } from 'react';
+import AddEventScript from '../Calendar/addEventScript';
 import styles from './events-header.module.scss';
 
 const EventsHeader = ({ headerText, subText, buttonText }) => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.addevent.com/libs/stc/1.0.2/stc.min.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
   return (
     <>
+      <AddEventScript />
       <div className={styles.headerContainer}>
         <div className="container">
           <PrismicRichText
