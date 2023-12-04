@@ -169,131 +169,160 @@ export default function Blog({ header, footerText, lastArticlesByType }) {
         </div>
       </div>
 
-      <div className={'container'}>
-        <div className={styles.buttons}>
-          <div className={styles['blog-types']}>
-            <Link
-              className={`${styles['blog-types__item']} ${
-                selectedType === 'all' ? styles['blog-types__item_active'] : ''
-              }`}
-              href={'/blog'}
-            >
-              All
-            </Link>
-            {activeTypes.map(el => (
+      {selectedType === 'all' ? (
+        <>
+          <div className={`${styles.buttons} container`}>
+            <div className={styles['blog-types']}>
               <Link
                 className={`${styles['blog-types__item']} ${
-                  selectedType === el ? styles['blog-types__item_active'] : ''
+                  selectedType === 'all'
+                    ? styles['blog-types__item_active']
+                    : ''
                 }`}
-                key={el}
-                href={'/blog#' + el}
+                href={'/blog'}
               >
-                {el}
+                All
               </Link>
-            ))}
+              {activeTypes.map(el => (
+                <Link
+                  className={`${styles['blog-types__item']} ${
+                    selectedType === el ? styles['blog-types__item_active'] : ''
+                  }`}
+                  key={el}
+                  href={'/blog#' + el}
+                >
+                  {el}
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-        {selectedType === 'all' ? (
-          <>
-            {Object.keys(lastArticlesByType).map(
-              el =>
-                !!lastArticlesByType[el].length && (
-                  <div key={el} className={styles['articles-wrapper']}>
-                    <div className={styles['articles-top-block']}>
-                      <h2 className={styles['articles-title']}>{el}</h2>
-                      <button
-                        className={styles['articles-btn']}
-                        onClick={() => handleSelectedType(el)}
-                      >
-                        See all
-                      </button>
-                    </div>
-                    <div className={styles['articles-list']}>
-                      {lastArticlesByType[el].slice(0, 3).map(article => (
-                        <BlogLink key={article.uid} article={article} />
-                      ))}
-                    </div>
+          {Object.keys(lastArticlesByType).map(
+            el =>
+              !!lastArticlesByType[el].length && (
+                <div key={el} className={styles['articles-wrapper']}>
+                  <div className={`${styles['articles-top-block']} container`}>
+                    <h2 className={styles['articles-title']}>{el}</h2>
+                    <button
+                      className={styles['articles-btn']}
+                      onClick={() => handleSelectedType(el)}
+                    >
+                      See all
+                    </button>
                   </div>
-                ),
-            )}
-          </>
-        ) : (
-          paginatedData && (
-            <>
-              <div className={styles['slider-wrapper']}>
-                <Slider {...settings}>
-                  {lastArticlesByType[selectedType].map(el => (
-                    <div key={el.uid} className={styles['slider-item']}>
-                      <img
-                        src={el.data.article_link_img.url || '/article.png'}
-                        alt="slider image"
-                        className={styles['slider-item__img']}
+                  <div className={`${styles['articles-cards']} container`}>
+                    {lastArticlesByType[el].slice(0, 3).map(article => (
+                      <BlogLink
+                        className={styles['articles__card']}
+                        key={article.uid}
+                        article={article}
                       />
-                      <div className={styles['slider-item__info']}>
-                        <p className={styles['slider-item__label']}>
-                          LATEST RELEASE
-                        </p>
+                    ))}
+                  </div>
+                </div>
+              ),
+          )}
+        </>
+      ) : (
+        paginatedData && (
+          <>
+            <div className={styles['slider-wrapper']}>
+              <Slider {...settings}>
+                {lastArticlesByType[selectedType].map(el => (
+                  <div key={el.uid} className={styles['slider-item']}>
+                    <img
+                      src={el.data.article_link_img.url || '/article.png'}
+                      alt="slider image"
+                      className={styles['slider-item__img']}
+                    />
+                    <div className={styles['slider-item__info']}>
+                      <p className={styles['slider-item__label']}>
+                        LATEST RELEASE
+                      </p>
+                      <PrismicRichText
+                        field={el.data.title}
+                        components={{
+                          paragraph: ({ children }) => (
+                            <h3 className={styles['slider-item__title']}>
+                              {children}
+                            </h3>
+                          ),
+                        }}
+                      />
+                      <PrismicRichText
+                        field={el.data.description}
+                        components={{
+                          paragraph: ({ children }) => (
+                            <p className={styles['slider-item__descr']}>
+                              {children}
+                            </p>
+                          ),
+                        }}
+                      />
+                      <div className={styles['slider-item__bottom']}>
+                        <span className={styles['slider-item__subinfo']}>
+                          {getTimePassed(el.last_publication_date)}
+                        </span>
                         <PrismicRichText
-                          field={el.data.title}
+                          field={el.data.read_time}
                           components={{
                             paragraph: ({ children }) => (
-                              <h3 className={styles['slider-item__title']}>
-                                {children}
-                              </h3>
+                              <span className={styles['slider-item__subinfo']}>
+                                {children} read
+                              </span>
                             ),
                           }}
                         />
-                        <PrismicRichText
-                          field={el.data.description}
-                          components={{
-                            paragraph: ({ children }) => (
-                              <p className={styles['slider-item__descr']}>
-                                {children}
-                              </p>
-                            ),
-                          }}
-                        />
-                        <div className={styles['slider-item__bottom']}>
-                          <span className={styles['slider-item__subinfo']}>
-                            {getTimePassed(el.last_publication_date)}
-                          </span>
-                          <PrismicRichText
-                            field={el.data.read_time}
-                            components={{
-                              paragraph: ({ children }) => (
-                                <span
-                                  className={styles['slider-item__subinfo']}
-                                >
-                                  {children} read
-                                </span>
-                              ),
-                            }}
-                          />
-                        </div>
                       </div>
                     </div>
-                  ))}
-                </Slider>
-              </div>
-              <div
-                ref={articleList}
-                className={`${styles['articles-list']} ${styles['articles-list_pagination']}`}
-              >
-                {paginatedData.results.map(el => (
-                  <BlogLink key={el.uid} article={el} />
+                  </div>
+                ))}
+              </Slider>
+            </div>
+            <div className={`${styles.buttons} ${styles['buttons_center']}`}>
+              <div className={styles['blog-types']}>
+                <Link
+                  className={`${styles['blog-types__item']} ${
+                    selectedType === 'all'
+                      ? styles['blog-types__item_active']
+                      : ''
+                  }`}
+                  href={'/blog'}
+                >
+                  All
+                </Link>
+                {activeTypes.map(el => (
+                  <Link
+                    className={`${styles['blog-types__item']} ${
+                      selectedType === el
+                        ? styles['blog-types__item_active']
+                        : ''
+                    }`}
+                    key={el}
+                    href={'/blog#' + el}
+                  >
+                    {el}
+                  </Link>
                 ))}
               </div>
-              <Pagination
-                currentPage={paginatedData.page}
-                totalPages={paginatedData.total_pages}
-                onPageChange={e =>
-                  setPaginatedArticles(e, articleList.current.offsetTop)
-                }
-              />
-            </>
-          )
-        )}
-      </div>
+            </div>
+            <div
+              ref={articleList}
+              className={`${styles['articles-list']} ${styles['articles-list_pagination']}`}
+            >
+              {paginatedData.results.map(el => (
+                <BlogLink key={el.uid} article={el} />
+              ))}
+            </div>
+            <Pagination
+              currentPage={paginatedData.page}
+              totalPages={paginatedData.total_pages}
+              onPageChange={e =>
+                setPaginatedArticles(e, articleList.current.offsetTop)
+              }
+            />
+          </>
+        )
+      )}
 
       {footerText && (
         <Footer
