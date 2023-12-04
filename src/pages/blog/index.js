@@ -55,6 +55,7 @@ const settings = {
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
+  arrows: true,
   nextArrow: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -225,7 +226,7 @@ export default function Blog({ header, footerText, lastArticlesByType }) {
       ) : (
         paginatedData && (
           <>
-            <div className={styles['slider-wrapper']}>
+            <div className={`${styles['slider-wrapper']} container`}>
               <Slider {...settings}>
                 {lastArticlesByType[selectedType].map(el => (
                   <div key={el.uid} className={styles['slider-item']}>
@@ -245,16 +246,6 @@ export default function Blog({ header, footerText, lastArticlesByType }) {
                             <h3 className={styles['slider-item__title']}>
                               {children}
                             </h3>
-                          ),
-                        }}
-                      />
-                      <PrismicRichText
-                        field={el.data.description}
-                        components={{
-                          paragraph: ({ children }) => (
-                            <p className={styles['slider-item__descr']}>
-                              {children}
-                            </p>
                           ),
                         }}
                       />
@@ -307,7 +298,7 @@ export default function Blog({ header, footerText, lastArticlesByType }) {
             </div>
             <div
               ref={articleList}
-              className={`${styles['articles-list']} ${styles['articles-list_pagination']}`}
+              className={`${styles['articles-list']} ${styles['articles-list_pagination']} container`}
             >
               {paginatedData.results.map(el => (
                 <BlogLink key={el.uid} article={el} />
