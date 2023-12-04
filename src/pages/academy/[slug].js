@@ -115,7 +115,7 @@ export default function AcademyArticle({
         <div className={bottomBlockStyles['articles-wrapper']}>
           <div className={bottomBlockStyles['articles-top-block']}>
             <h2 className={bottomBlockStyles['articles-title']}>
-              More Articles
+              Related articles
             </h2>
             <Link href="/academy" className={bottomBlockStyles['articles-btn']}>
               See all
