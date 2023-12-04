@@ -51,6 +51,7 @@ export async function getStaticProps(context) {
 const settings = {
   dots: true,
   infinite: true,
+  autoplay: true,
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
@@ -84,6 +85,14 @@ const settings = {
       />
     </svg>
   ),
+  responsive: [
+    {
+      breakpoint: 1050,
+      settings: {
+        arrows: false,
+      },
+    },
+  ],
 };
 
 export default function Blog({ header, footerText, lastArticlesByType }) {
