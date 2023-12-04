@@ -5,7 +5,6 @@ import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
 import { createClient } from '@/prismicio';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
-import Head from 'next/head';
 import Hero from 'src/components/BrandMaterials/Hero';
 
 const BrandMaterialsPage = ({ header, footerText, page }) => {
