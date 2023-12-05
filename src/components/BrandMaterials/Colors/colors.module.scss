@@ -12,12 +12,15 @@
   display: flex;
   padding: 0 18px 20px 0;
   width: 310px;
-  @media screen and (max-width: 950px) {
-    width: 225px;
+  @media screen and (max-width: 1100px) {
+    width: 28vw;
   }
   @media screen and (max-width: 820px) {
     width: 165px;
     padding: 0 14px 16px 0;
+  }
+  @media screen and (max-width: 550px) {
+    width: 45vw;
   }
 }
 .block {
@@ -37,12 +40,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 32px;
+  object-fit: cover;
   width: 260px;
-  @media screen and (max-width: 950px) {
-    width: 180px;
+  @media screen and (max-width: 1100px) {
+    width: 23vw;
+    border-radius: 16px;
   }
   @media screen and (max-width: 820px) {
     width: 120px;
+  }
+  @media screen and (max-width: 550px) {
+    width: 35vw;
   }
 
   > div {
@@ -52,8 +61,12 @@
 .image {
   object-fit: contain;
   width: 100% !important;
+  border-radius: 32px;
   position: relative !important;
   height: unset !important;
+  @media screen and (max-width: 950px) {
+    border-radius: 16px;
+  }
 }
 .blockButtons {
   margin-top: 16px;
