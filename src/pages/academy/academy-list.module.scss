@@ -200,9 +200,10 @@
   line-height: 20px; /* 142.857% */
   letter-spacing: -0.14px;
 
-  display: flex;
+  display: inline-flex;
   flex-flow: row nowrap;
   align-items: center;
+  width: fit-content;
 
   &_black {
     border-radius: 20px;
