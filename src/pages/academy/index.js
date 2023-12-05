@@ -184,7 +184,7 @@ export default function Academy({ header, footerText, page }) {
         ) : (
           paginatedData && (
             <>
-              <div className={styles['academy-buttons']}>
+              <div className={`${styles['academy-buttons']} container`}>
                 <div className={styles['academy-types']}>
                   {['all', ...articleNames].map(el => (
                     <button
@@ -213,7 +213,7 @@ export default function Academy({ header, footerText, page }) {
               </div>
               <div
                 ref={articleList}
-                className={`${styles['articles-list']} ${styles['articles-list_pagination']}`}
+                className={`${styles['articles-list']} ${styles['articles-list_pagination']} container`}
               >
                 {paginatedData.results.map(el => {
                   if (el?.data?.badge_type === badge || badge === 'All') {
