@@ -53,11 +53,13 @@
   color: #2f2b4399;
   display: inline-block;
 
+  @media screen and (max-width: 650px) {
+    padding: 6px 14px;
+    font-size: 14px;
+  }
+
   &:not(:last-child) {
-    margin-right: 32px;
-    @media screen and (max-width: 950px) {
-      margin-right: 15px;
-    }
+    margin-right: 16px;
   }
 
   &_active {
@@ -343,14 +345,14 @@
 }
 
 .slider-item {
-  display: flex!important;
+  display: flex !important;
   align-items: stretch;
   max-width: 1190px;
   margin: 0 auto;
 
   @media screen and (max-width: 1050px) {
     flex-direction: column;
-    padding: 0 40px;
+    padding: 0;
   }
 
   @media screen and (max-width: 650px) {
@@ -367,9 +369,7 @@
 
   @media screen and (max-width: 1050px) {
     width: 100%;
-    max-width: 600px;
     margin-bottom: 48px;
-    height: 305px;
   }
 
   @media screen and (max-width: 650px) {
@@ -467,7 +467,7 @@
   margin: 56px auto 80px;
 
   @media screen and (max-width: 1050px) {
-    max-width: 620px;
+    max-width: none;
   }
 
   @media screen and (max-width: 650px) {
