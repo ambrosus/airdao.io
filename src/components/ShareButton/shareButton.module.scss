@@ -17,6 +17,12 @@
   transition: height 0.2s ease-in;
 
   position: absolute;
+
+  @media screen and (max-width: 650px) {
+    left: unset;
+    right: 0;
+  }
+
 }
 .option {
   height: 40px;
