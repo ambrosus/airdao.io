@@ -231,9 +231,7 @@
 
   margin: 0 auto 56px;
 
-  //max-width: 1330px;
   width: 100vw;
-  //padding: 0 17px;
 
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -241,7 +239,6 @@
 
   scrollbar-width: none;
   -ms-overflow-style: none;
-
 }
 
 .articles-cards::-webkit-scrollbar {

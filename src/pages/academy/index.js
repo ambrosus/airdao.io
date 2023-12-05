@@ -114,27 +114,29 @@ export default function Academy({ header, footerText, page }) {
       <div className={styles['academy-gradient']} />
       {header && <HeaderWrapper header={header} />}
       <div className={styles['academy-list-page']}>
-        <PrismicRichText
-          field={page?.title}
-          components={{
-            paragraph: ({ children }) => (
-              <p className={styles['academy-list-page__title']}>{children}</p>
-            ),
-          }}
-        />
-        <PrismicRichText
-          field={page?.subtitle}
-          components={{
-            paragraph: ({ children }) => (
-              <p className={styles['academy-list-page__subtitle']}>
-                {children}
-              </p>
-            ),
-          }}
-        />
+        <div className="container">
+          <PrismicRichText
+            field={page?.title}
+            components={{
+              paragraph: ({ children }) => (
+                <p className={styles['academy-list-page__title']}>{children}</p>
+              ),
+            }}
+          />
+          <PrismicRichText
+            field={page?.subtitle}
+            components={{
+              paragraph: ({ children }) => (
+                <p className={styles['academy-list-page__subtitle']}>
+                  {children}
+                </p>
+              ),
+            }}
+          />
+        </div>
         {selectedType === 'all' ? (
           <>
-            <div className={styles['academy-buttons']}>
+            <div className={`${styles['academy-buttons']} container`}>
               <div className={styles['academy-types']}>
                 {['all', ...articleNames].map(el => (
                   <button
@@ -155,7 +157,9 @@ export default function Academy({ header, footerText, page }) {
               el =>
                 !!articles[el].length && (
                   <div key={el} className={styles['articles-wrapper']}>
-                    <div className={styles['articles-top-block']}>
+                    <div
+                      className={`${styles['articles-top-block']} container`}
+                    >
                       <h2 className={styles['articles-title']}>{el}</h2>
                       <button
                         className={styles['articles-btn']}
@@ -164,9 +168,13 @@ export default function Academy({ header, footerText, page }) {
                         See all
                       </button>
                     </div>
-                    <div className={styles['articles-list']}>
+                    <div className={`${styles['articles-cards']} container`}>
                       {articles[el].map(article => (
-                        <AcademyLink key={article.uid} article={article} />
+                        <AcademyLink
+                          className={styles['articles__card']}
+                          key={article.uid}
+                          article={article}
+                        />
                       ))}
                     </div>
                   </div>
