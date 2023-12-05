@@ -188,18 +188,22 @@
 .academy-link__info-badge {
   height: 29px;
   padding: 4px 10px;
-  align-items: center;
   gap: 4px;
   border-radius: 20px;
   background: var(--success-100, #d9f9e6);
   color: var(--success-600, #2f9461);
   text-align: center;
-  font-family: var(--font-inter);
+  font-family: var(--font-rationell);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 20px; /* 142.857% */
   letter-spacing: -0.14px;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
   &_black {
     border-radius: 20px;
     border: 1px solid var(--alpha-black-20, rgba(47, 43, 67, 0.2));
