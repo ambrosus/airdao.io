@@ -4,6 +4,9 @@
   justify-content: flex-start;
   max-width: 1300px;
   flex-wrap: wrap;
+  @media screen and (max-width: 650px) {
+    justify-content: center;
+  }
 }
 .blockContainer {
   display: flex;
@@ -12,7 +15,7 @@
   @media screen and (max-width: 950px) {
     width: 225px;
   }
-  @media screen and (max-width: 610px) {
+  @media screen and (max-width: 820px) {
     width: 165px;
     padding: 0 14px 16px 0;
   }
@@ -38,9 +41,10 @@
   @media screen and (max-width: 950px) {
     width: 180px;
   }
-  @media screen and (max-width: 610px) {
+  @media screen and (max-width: 820px) {
     width: 120px;
   }
+
   > div {
     position: unset !important;
   }

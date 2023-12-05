@@ -74,6 +74,10 @@ export default function Academy({ header, footerText, page }) {
   }, []);
 
   useEffect(() => {
+    setBadge(badges[0]);
+  }, [selectedType]);
+
+  useEffect(() => {
     if (selectedType === 'all') {
       setPaginatedData(null);
     } else {
