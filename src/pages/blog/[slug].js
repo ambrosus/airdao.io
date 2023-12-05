@@ -10,6 +10,8 @@ import BlogLink from '@/pages/blog/components/BlogLink';
 import Link from 'next/link';
 import * as prismic from '@prismicio/client';
 import ShareButton from '@/components/ShareButton';
+import Image from 'next/image';
+import GoBackIcon from '@/pages/academy/goBack.svg';
 
 export async function getStaticProps(context) {
   const client = createClient({ previewData: context.previewData });
@@ -71,6 +73,10 @@ export default function BlogArticle({
     <>
       {header && <HeaderWrapper header={header} />}
       <div className={styles['blog-page']}>
+        <Link href={'/blog'} className={styles.back}>
+          <Image src={GoBackIcon} alt="go-back" className={styles.back__icon} />
+          <p className={styles.back__text}>Blog</p>
+        </Link>
         <PrismicRichText
           field={data.title}
           components={{

@@ -1,9 +1,9 @@
 .share {
-  margin-left: 12px;
+  margin-left: 24px;
   display: flex;
-  width: 220px;
-  height: 160px;
+  position: relative;
 }
+
 .share-dropdown {
   width: 210px;
   height: 152px;
@@ -12,10 +12,11 @@
   border: 1px solid #e6e6e6;
   gap: 8px;
   background: #fff;
-  position: relative;
-  top: 100px;
-  left: -20px;
+  top: 38px;
+  left: 0;
   transition: height 0.2s ease-in;
+
+  position: absolute;
 }
 .option {
   height: 40px;
