@@ -263,6 +263,7 @@
 .articles-top-block {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 10px;
 }
 
@@ -291,6 +292,12 @@
   line-height: 24px; /* 150% */
   letter-spacing: -0.16px;
   height: fit-content;
+  white-space: nowrap;
+
+  @media screen and (max-width: 610px) {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
 }
 
 .blog-list-page__title {
