@@ -51,8 +51,7 @@ export async function getStaticProps(context) {
 const settings = {
   dots: true,
   infinite: true,
-  //TODO: DONT'T FORGET TO TURN ON
-  //autoplay: true,
+  autoplay: true,
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
