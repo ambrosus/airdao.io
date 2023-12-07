@@ -5,6 +5,7 @@ import type * as prismic from '@prismicio/client';
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type AcademyDocumentDataSlicesSlice =
+  | BlogTextTitleSlice
   | BlogSubtitleSlice
   | BlogTextSlice
   | BlogWrappedTextSlice
