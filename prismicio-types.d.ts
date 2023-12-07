@@ -79,7 +79,20 @@ interface AcademyDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  blog_type: prismic.SelectField<'news' | 'governance' | 'academy' | 'events'>;
+  type_name: prismic.SelectField<
+    'AirDAO products guides' | 'Analytics' | 'Web3 guides'
+  >;
+
+  /**
+   * badge_type field in *academy*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: academy.badge_type
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  badge_type: prismic.SelectField<'Beginner' | 'Intermediate' | 'Pro'>;
 
   /**
    * Slice Zone field in *academy*
