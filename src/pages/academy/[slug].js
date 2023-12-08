@@ -64,6 +64,8 @@ export default function AcademyArticle({
         return <BlogText key={itemData.id} data={itemData} />;
       case 'blog_wrapped_text':
         return <BlogWrappedText key={itemData.id} data={itemData} />;
+      case 'blog_text_title':
+        return <BlogTextTitle key={itemData.id} data={itemData} />;
     }
   };
 
@@ -138,6 +140,16 @@ export default function AcademyArticle({
   );
 }
 
+const BlogTextTitle = ({ data }) => (
+  <PrismicRichText
+    field={data.primary.title}
+    components={{
+      heading3: ({ children }) => (
+        <h3 className={styles['academy-page__text-title']}>{children}</h3>
+      ),
+    }}
+  />
+);
 const BlogSubtitle = ({ data }) => (
   <PrismicRichText
     field={data.primary.blog_subtitle_text}

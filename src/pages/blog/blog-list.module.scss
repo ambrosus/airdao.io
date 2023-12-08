@@ -31,7 +31,7 @@
 }
 
 .buttons_center {
-    justify-content: center;
+  justify-content: center;
 }
 
 .blog-types {
@@ -73,8 +73,8 @@
   width: 32%;
   padding: 16px;
   border-radius: 24px;
-  border: 1px solid var(--blue-200, #C9D9FF);
-  background: var(--neutral-0, #FFF);
+  border: 1px solid var(--blue-200, #c9d9ff);
+  background: var(--neutral-0, #fff);
   display: flex;
   flex-direction: column;
 
@@ -133,7 +133,7 @@
 }
 
 .blog-link__info {
-  color: var(--neutral-400, #676B73);
+  color: var(--neutral-400, #676b73);
   font-family: var(--font-inter);
   line-height: 24px; /* 150% */
   letter-spacing: -0.16px;
@@ -147,14 +147,14 @@
     position: relative;
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       right: 7px;
       top: 8px;
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background: #676B73;
+      background: #676b73;
 
       @media screen and (max-width: 1024px) {
         top: 5px;
@@ -283,9 +283,9 @@
 .articles-btn {
   font-size: 16px;
   border-radius: 1000px;
-  background: var(--blue-100-secondary, #EDF3FF);
+  background: var(--blue-100-secondary, #edf3ff);
   padding: 12px 16px;
-  color: var(--blue-600-primary, #3568DD);
+  color: var(--blue-600-primary, #3568dd);
   font-family: var(--font-inter);
   font-weight: 500;
   line-height: 24px; /* 150% */
@@ -397,8 +397,8 @@
 .slider-item__label {
   width: fit-content;
   border-radius: 30px;
-  border: 1px solid var(--alpha-black-10, rgba(14, 14, 14, 0.10));
-  background: var(--alpha-black-10, rgba(14, 14, 14, 0.10));
+  border: 1px solid var(--alpha-black-10, rgba(14, 14, 14, 0.1));
+  background: var(--alpha-black-10, rgba(14, 14, 14, 0.1));
   color: var(--neutral-800, #191919);
   font-family: var(--font-inter);
   font-size: 14px;
@@ -437,7 +437,7 @@
 }
 
 .slider-item__subinfo {
-  color: var(--neutral-400, #676B73);
+  color: var(--neutral-400, #676b73);
   font-family: var(--font-inter);
   font-size: 20px;
   line-height: 28px; /* 140% */
@@ -446,14 +446,14 @@
   position: relative;
 
   &:first-child:after {
-    content: '';
+    content: "";
     position: absolute;
     right: -13px;
     top: 11px;
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: #676B73;
+    background: #676b73;
   }
 
   @media screen and (max-width: 1050px) {

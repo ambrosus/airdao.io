@@ -56,12 +56,20 @@
           "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
-      "blog_type": {
+      "type_name": {
         "type": "Select",
         "config": {
-          "label": "blog_type",
+          "label": "type_name",
           "placeholder": "",
-          "options": ["news", "governance", "academy", "events"]
+          "options": ["AirDAO products guides", "Analytics", "Web3 guides"]
+        }
+      },
+      "badge_type": {
+        "type": "Select",
+        "config": {
+          "label": "badge_type",
+          "placeholder": "",
+          "options": ["Beginner", "Intermediate", "Pro"]
         }
       },
       "slices": {
@@ -69,6 +77,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "blog_text_title": {
+              "type": "SharedSlice"
+            },
             "blog_subtitle": {
               "type": "SharedSlice"
             },
