@@ -225,6 +225,33 @@ export default function Blog({ header, footerText, lastArticlesByType }) {
       ) : (
         paginatedData && (
           <>
+            <div className={`${styles.buttons} container`}>
+              <div className={styles['blog-types']}>
+                <Link
+                  className={`${styles['blog-types__item']} ${
+                    selectedType === 'all'
+                      ? styles['blog-types__item_active']
+                      : ''
+                  }`}
+                  href={'/blog'}
+                >
+                  All
+                </Link>
+                {activeTypes.map(el => (
+                  <Link
+                    className={`${styles['blog-types__item']} ${
+                      selectedType === el
+                        ? styles['blog-types__item_active']
+                        : ''
+                    }`}
+                    key={el}
+                    href={'/blog#' + el}
+                  >
+                    {el}
+                  </Link>
+                ))}
+              </div>
+            </div>
             <div className={`${styles['slider-wrapper']} container`}>
               <Slider {...settings}>
                 {lastArticlesByType[selectedType].map(el => (
@@ -268,33 +295,7 @@ export default function Blog({ header, footerText, lastArticlesByType }) {
                 ))}
               </Slider>
             </div>
-            <div className={`${styles.buttons} ${styles['buttons_center']}`}>
-              <div className={styles['blog-types']}>
-                <Link
-                  className={`${styles['blog-types__item']} ${
-                    selectedType === 'all'
-                      ? styles['blog-types__item_active']
-                      : ''
-                  }`}
-                  href={'/blog'}
-                >
-                  All
-                </Link>
-                {activeTypes.map(el => (
-                  <Link
-                    className={`${styles['blog-types__item']} ${
-                      selectedType === el
-                        ? styles['blog-types__item_active']
-                        : ''
-                    }`}
-                    key={el}
-                    href={'/blog#' + el}
-                  >
-                    {el}
-                  </Link>
-                ))}
-              </div>
-            </div>
+
             <div
               ref={articleList}
               className={`${styles['articles-list']} ${styles['articles-list_pagination']} container`}
