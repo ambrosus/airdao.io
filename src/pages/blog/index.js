@@ -1,21 +1,20 @@
-import { createClient } from '@/prismicio';
-import * as prismic from '@prismicio/client';
-import HeaderWrapper from '@/components/Header';
 import Footer from '@/components/Footer';
-import styles from './blog-list.module.scss';
-import BlogLink from '@/pages/blog/components/BlogLink';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import HeaderWrapper from '@/components/Header';
 import Pagination from '@/components/Pagination/Pagination';
-import Slider from 'react-slick';
-import img from './components/article.png';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { PrismicRichText } from '@prismicio/react';
+import BlogLink from '@/pages/blog/components/BlogLink';
+import { createClient } from '@/prismicio';
 import { getTimePassed } from '@/utils/getTimePassed';
-import { useRouter } from 'next/router';
+import * as prismic from '@prismicio/client';
+import { PrismicRichText } from '@prismicio/react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
+import styles from './blog-list.module.scss';
 
-const articleTypes = ['news', 'governance', 'events'];
+const articleTypes = ['news', 'governance', 'events', 'tech'];
 
 const getLastArticlesByType = async type => {
   const newClient = prismic.createClient('airdao-blog');
