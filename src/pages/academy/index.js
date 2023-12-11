@@ -2,7 +2,6 @@
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
 import Pagination from '@/components/Pagination/Pagination';
-import Select from '@/components/Select';
 import AcademyLink from '@/pages/academy/components/AcademyLink';
 import { createClient } from '@/prismicio';
 import * as prismic from '@prismicio/client';
@@ -42,7 +41,6 @@ export async function getStaticProps(context) {
 export default function Academy({ header, footerText, page }) {
   const [selectedType, setSelectedType] = useState('all');
   const [paginatedData, setPaginatedData] = useState(null);
-  const [badge, setBadge] = useState(badges[0]);
 
   const articleList = useRef(null);
 
@@ -72,10 +70,6 @@ export default function Academy({ header, footerText, page }) {
     updateAcademyCards();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  useEffect(() => {
-    setBadge(badges[0]);
-  }, [selectedType]);
 
   useEffect(() => {
     if (selectedType === 'all') {
@@ -200,32 +194,16 @@ export default function Academy({ header, footerText, page }) {
                     </button>
                   ))}
                 </div>
-                <div className={styles['badges-container']}>
-                  <p className={styles['badges-text']}>Filter by difficulty</p>
-                  <Select
-                    placeholder="..."
-                    options={badges}
-                    className={styles['badges-selector']}
-                    onChange={setBadge}
-                    value={badge}
-                  />
-                </div>
               </div>
               <div
                 ref={articleList}
                 className={`${styles['articles-list']} ${styles['articles-list_pagination']} container`}
               >
                 {paginatedData.results.map(el => {
-                  if (el?.data?.badge_type === badge || badge === 'All') {
-                    // filter items by badges selector
-                    return <AcademyLink key={el.uid} article={el} />;
-                  }
+                  return <AcademyLink key={el.uid} article={el} />;
                 })}
               </div>
-              {paginatedData.results.filter(
-                // show pagination only if list contains 6+ items
-                el => el?.data?.badge_type === badge,
-              )?.length > 5 && (
+              {paginatedData?.results?.length > 5 && (
                 <Pagination
                   currentPage={paginatedData.page}
                   totalPages={paginatedData.total_pages}
