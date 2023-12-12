@@ -49,14 +49,14 @@
   margin: 0 auto 16px;
 
   @media screen and (max-width: 950px) {
-    font-size: 40px;
-    line-height: 54px; /* 135% */
+    font-size: 36px;
+    line-height: 42px; /* 135% */
     letter-spacing: -0.8px;
   }
 
   @media screen and (max-width: 650px) {
     font-size: 30px;
-    line-height: 40px; /* 133.333% */
+    line-height: 36px; /* 133.333% */
     letter-spacing: -0.6px;
   }
 }

@@ -23,19 +23,6 @@ const AcademyLink = ({ article, className }) => {
           }}
         />
         <div>
-          <span
-            className={`${styles['academy-link__info-badge']} ${
-              article.data.badge_type === 'Pro' &&
-              styles['academy-link__info-badge_black']
-            } ${
-              article.data.badge_type === 'Intermediate' &&
-              styles['academy-link__info-badge_yellow']
-            }`}
-          >
-            {article.data.badge_type}
-          </span>
-          <span className={styles['academy-link__info']} />
-
           <PrismicRichText
             field={article.data.read_time}
             components={{

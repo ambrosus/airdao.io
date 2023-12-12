@@ -1,21 +1,20 @@
-import { createClient } from '@/prismicio';
-import * as prismic from '@prismicio/client';
-import HeaderWrapper from '@/components/Header';
 import Footer from '@/components/Footer';
-import styles from './blog-list.module.scss';
-import BlogLink from '@/pages/blog/components/BlogLink';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import HeaderWrapper from '@/components/Header';
 import Pagination from '@/components/Pagination/Pagination';
-import Slider from 'react-slick';
-import img from './components/article.png';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { PrismicRichText } from '@prismicio/react';
+import BlogLink from '@/pages/blog/components/BlogLink';
+import { createClient } from '@/prismicio';
 import { getTimePassed } from '@/utils/getTimePassed';
-import { useRouter } from 'next/router';
+import * as prismic from '@prismicio/client';
+import { PrismicRichText } from '@prismicio/react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
+import styles from './blog-list.module.scss';
 
-const articleTypes = ['news', 'governance', 'events'];
+const articleTypes = ['news', 'governance', 'events', 'tech'];
 
 const getLastArticlesByType = async type => {
   const newClient = prismic.createClient('airdao-blog');
@@ -226,6 +225,33 @@ export default function Blog({ header, footerText, lastArticlesByType }) {
       ) : (
         paginatedData && (
           <>
+            <div className={`${styles.buttons} container`}>
+              <div className={styles['blog-types']}>
+                <Link
+                  className={`${styles['blog-types__item']} ${
+                    selectedType === 'all'
+                      ? styles['blog-types__item_active']
+                      : ''
+                  }`}
+                  href={'/blog'}
+                >
+                  All
+                </Link>
+                {activeTypes.map(el => (
+                  <Link
+                    className={`${styles['blog-types__item']} ${
+                      selectedType === el
+                        ? styles['blog-types__item_active']
+                        : ''
+                    }`}
+                    key={el}
+                    href={'/blog#' + el}
+                  >
+                    {el}
+                  </Link>
+                ))}
+              </div>
+            </div>
             <div className={`${styles['slider-wrapper']} container`}>
               <Slider {...settings}>
                 {lastArticlesByType[selectedType].map(el => (
@@ -269,33 +295,7 @@ export default function Blog({ header, footerText, lastArticlesByType }) {
                 ))}
               </Slider>
             </div>
-            <div className={`${styles.buttons} ${styles['buttons_center']}`}>
-              <div className={styles['blog-types']}>
-                <Link
-                  className={`${styles['blog-types__item']} ${
-                    selectedType === 'all'
-                      ? styles['blog-types__item_active']
-                      : ''
-                  }`}
-                  href={'/blog'}
-                >
-                  All
-                </Link>
-                {activeTypes.map(el => (
-                  <Link
-                    className={`${styles['blog-types__item']} ${
-                      selectedType === el
-                        ? styles['blog-types__item_active']
-                        : ''
-                    }`}
-                    key={el}
-                    href={'/blog#' + el}
-                  >
-                    {el}
-                  </Link>
-                ))}
-              </div>
-            </div>
+
             <div
               ref={articleList}
               className={`${styles['articles-list']} ${styles['articles-list_pagination']} container`}
