@@ -87,13 +87,21 @@
 }
 
 .academy-link {
-  width: 32%;
+  width: 416px;
   padding: 16px;
   border-radius: 24px;
   border: 1px solid var(--blue-200, #c9d9ff);
   background: var(--neutral-0, #fff);
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 950px) {
+    width: 340px;
+  }
+
+  @media (max-width: 610px) {
+    width: 310px;
+  }
 
   div:last-child {
     margin-top: auto;
@@ -108,11 +116,11 @@
   object-fit: cover;
 
   @media screen and (max-width: 950px) {
-    height: 23vw;
+    height: 191px;
   }
 
   @media screen and (max-width: 610px) {
-    height: 60vw;
+    height: 218px;
   }
 }
 
@@ -307,13 +315,13 @@
 }
 
 .articles__card {
+  width: 416px;
   @media (max-width: 950px) {
-    width: 55vw;
+    width: 340px;
     flex-shrink: 0;
   }
-
-  @media (max-width: 650px) {
-    width: 80vw;
+  @media (max-width: 610px) {
+    width: 310px;
   }
 }
 
@@ -386,7 +394,7 @@
   color: #27272a;
   font-family: var(--font-inter);
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 26px; /* 144.444% */
   letter-spacing: -0.216px;
   max-width: 600px;
@@ -394,7 +402,7 @@
 
   @media screen and (max-width: 950px) {
     font-size: 14px;
-    line-height: 26px;
+    line-height: 20px;
   }
   @media screen and (max-width: 610px) {
     font-size: 16px;

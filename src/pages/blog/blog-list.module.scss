@@ -91,11 +91,11 @@
   object-fit: cover;
 
   @media screen and (max-width: 950px) {
-    height: 23vw;
+    height: 191px;
   }
 
-  @media screen and (max-width: 650px) {
-    height: 42vw;
+  @media screen and (max-width: 610px) {
+    height: 218px;
   }
 }
 
@@ -249,13 +249,13 @@
 }
 
 .articles__card {
+  width: 416px;
   @media (max-width: 950px) {
-    width: 55vw;
+    width: 340px;
     flex-shrink: 0;
   }
-
-  @media (max-width: 650px) {
-    width: 80vw;
+  @media (max-width: 610px) {
+    width: 310px;
   }
 }
 
@@ -329,7 +329,7 @@
   color: #27272a;
   font-family: var(--font-inter);
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 26px; /* 144.444% */
   letter-spacing: -0.216px;
   max-width: 600px;
