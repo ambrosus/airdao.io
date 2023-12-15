@@ -19,6 +19,7 @@ import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
 import * as prismic from '@prismicio/client';
 import Head from 'next/head';
 import Image from 'next/image';
+import { useState } from 'react';
 import styles from '../components/Homepage/homepage.module.scss';
 
 export default function Home({
@@ -30,14 +31,17 @@ export default function Home({
 }) {
   const { data } = page;
   const footerSlice = getFooterBlockSlice(data);
+  const [showBanner, setShowBanner] = useState(data?.show_banner);
   return (
     <div className={styles['homepage']}>
-      {data?.show_banner && <Banner data={banner?.data} />}
+      {showBanner && (
+        <Banner data={banner?.data} setShowBanner={setShowBanner} />
+      )}
       <Head>
         <meta property="og:image" content="https://airdao.io/og.png" />
         <meta name="twitter:image" content="https://airdao.io/og.png" />
       </Head>
-      <HeaderWrapper header={header} showBanner={data?.show_banner} />
+      <HeaderWrapper header={header} showBanner={showBanner} />
       <div className={styles['main-block-wrapper']}>
         <Image
           className={styles['blue-circle']}

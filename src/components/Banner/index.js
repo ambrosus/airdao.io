@@ -10,7 +10,7 @@ import GlobeIcon from './icons/globeIcon.svg';
 import GlobeWhiteIcon from './icons/globeWhiteIcon.svg';
 import LinkIcon from './icons/linkIcon.svg';
 
-export default function Banner({ data }) {
+export default function Banner({ data, setShowBanner }) {
   const type = data?.type;
   const [intervalSize, setIntervalSize] = useState(500);
 
@@ -18,7 +18,8 @@ export default function Banner({ data }) {
     setTimeout(() => {
       setIntervalSize(2000);
     }, 1000);
-  });
+  }, []);
+
   return (
     <div
       className={styles['banner']}
@@ -95,7 +96,10 @@ export default function Banner({ data }) {
                     />
                     <Image src={LinkIcon} alt="link" />
                   </PrismicNextLink>
-                  <button className={styles['carousel-button']}>
+                  <button
+                    className={styles['carousel-button']}
+                    onClick={() => setShowBanner(false)}
+                  >
                     <Image src={CloseIcon} alt="close" />
                   </button>
                 </div>
