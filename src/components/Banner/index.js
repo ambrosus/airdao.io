@@ -40,6 +40,7 @@ export default function Banner({ data, setShowBanner }) {
         interval={intervalSize}
         axis="vertical"
         showArrows={false}
+        stopOnHover
         verticalSwipe="natural"
         showThumbs={false}
         showStatus={false}

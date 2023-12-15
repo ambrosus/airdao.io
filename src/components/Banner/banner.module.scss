@@ -96,7 +96,18 @@
   align-items: center;
   justify-content: flex-start;
   height: 32px;
-  width: 80%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 0;
+  max-width: 95%;
+}
+.carousel-right-side {
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
 }
 .carousel-icon {
   max-width: 24px;
@@ -114,25 +125,14 @@
   line-height: 24px; /* 150% */
   letter-spacing: -0.16px;
   text-overflow: ellipsis;
-  width: 90%;
+
   @media screen and (max-width: 610px) {
     margin-right: 16px;
   }
 }
-.carousel-right-side {
-  height: 32px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  width: 20%;
-  @media screen and (max-width: 800px) {
-    width: 25%;
-  }
-}
+
 .carousel-right-side-button {
   height: 31.5px;
-  width: 84px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -147,15 +147,16 @@
     display: none;
   }
 }
-.carousel-right-text {
+.carousel-right-side-text {
   color: var(--Neutral-900, #0e0e0e);
-  text-align: center;
-  font-family: Inter;
+  text-align: start;
+  font-family: var(--font-inter);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 20px; /* 142.857% */
   letter-spacing: -0.14px;
+  white-space: nowrap;
 }
 
 .carousel-button {
