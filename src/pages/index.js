@@ -64,6 +64,7 @@ export default function Home({
           subtitle={data.subtitle}
           label={data.label}
           partners={data.partners}
+          showBanner={showBanner}
         />
       </div>
       <Community

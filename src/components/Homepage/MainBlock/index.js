@@ -1,14 +1,21 @@
-import styles from './main-block.module.scss';
 import BlockLabel from '@/components/BlockLabel';
-import Image from 'next/image';
 import { PrismicRichText } from '@prismicio/react';
-import shape from './shape.svg';
+import styles from './main-block.module.scss';
 
-import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 
-const MainBlock = ({ title, label, partners, subtitle }) => (
-  <section className={`container ${styles['main-block']}`}>
+const MainBlock = ({
+  title,
+  label,
+  partners,
+  subtitle,
+  showBanner = false,
+}) => (
+  <section
+    className={`container ${styles['main-block']}`}
+    style={{ marginTop: showBanner ? -80 : 0 }}
+  >
     <PrismicRichText
       field={title}
       components={{
@@ -37,7 +44,7 @@ const MainBlock = ({ title, label, partners, subtitle }) => (
     />
     <div className={styles['main-block__partners-wrapper']}>
       <div className={styles['main-block__partners']}>
-        {partners.map((el) => (
+        {partners.map(el => (
           <img
             className={styles['main-block__partner']}
             width={52}
@@ -47,7 +54,7 @@ const MainBlock = ({ title, label, partners, subtitle }) => (
             alt="partner"
           />
         ))}
-        {partners.map((el) => (
+        {partners.map(el => (
           <img
             className={styles['main-block__partner']}
             width={52}
