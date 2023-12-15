@@ -1,5 +1,6 @@
 import blueCircle from '@/assets/img/blue-circle.svg';
 import orangeCircle from '@/assets/img/orange-circle.svg';
+import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
 import Ambassadors from '@/components/Homepage/Ambassadors';
@@ -18,19 +19,29 @@ import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
 import * as prismic from '@prismicio/client';
 import Head from 'next/head';
 import Image from 'next/image';
+import { useState } from 'react';
 import styles from '../components/Homepage/homepage.module.scss';
 
-export default function Home({ page, header, footerText, latestArticles }) {
+export default function Home({
+  page,
+  header,
+  banner,
+  footerText,
+  latestArticles,
+}) {
   const { data } = page;
   const footerSlice = getFooterBlockSlice(data);
-
+  const [showBanner, setShowBanner] = useState(data?.show_banner);
   return (
     <div className={styles['homepage']}>
+      {showBanner && (
+        <Banner data={banner?.data} setShowBanner={setShowBanner} />
+      )}
       <Head>
         <meta property="og:image" content="https://airdao.io/og.png" />
         <meta name="twitter:image" content="https://airdao.io/og.png" />
       </Head>
-      <HeaderWrapper header={header} />
+      <HeaderWrapper header={header} showBanner={showBanner} />
       <div className={styles['main-block-wrapper']}>
         <Image
           className={styles['blue-circle']}
@@ -160,6 +171,7 @@ export async function getStaticProps({ params, previewData }) {
 
   const page = await client.getSingle('homepage');
   const header = await client.getSingle('header');
+  const banner = await client.getSingle('banner');
   const footer = await client.getSingle('footer');
   const latestBlogArticles = await blogClient.getAllByType('blog', {
     limit: 3,
@@ -179,6 +191,7 @@ export async function getStaticProps({ params, previewData }) {
     props: {
       page,
       header,
+      banner,
       footerText: footer,
       latestBlogArticles,
       latestAcademyArticles,

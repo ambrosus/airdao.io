@@ -1,6 +1,6 @@
 'use client';
-import Header from './Header';
 import { Web3ReactProvider } from '@web3-react/core';
+import Header from './Header';
 
 import {
   metamaskConnector,
@@ -14,10 +14,10 @@ const connectors = [
   [walletconnectConnector, walletconnectHooks],
 ];
 
-const HeaderWrapper = ({ header }) => {
+const HeaderWrapper = ({ header, showBanner = false }) => {
   return (
     <Web3ReactProvider connectors={connectors}>
-      <Header header={header.data} />
+      <Header header={header.data} showBanner={showBanner} />
     </Web3ReactProvider>
   );
 };

@@ -71,11 +71,11 @@ interface AcademyDocumentData {
   author: prismic.RichTextField;
 
   /**
-   * blog_type field in *academy*
+   * type_name field in *academy*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **API ID Path**: academy.blog_type
+   * - **API ID Path**: academy.type_name
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#select
    */
@@ -541,6 +541,84 @@ export type AmbassadorDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<
     Simplify<AmbassadorDocumentData>,
     'ambassador',
+    Lang
+  >;
+
+/**
+ * Item in *Banner → content*
+ */
+export interface BannerDocumentDataContentItem {
+  /**
+   * title field in *Banner → content*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.content[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * button title field in *Banner → content*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.content[].button_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  button_title: prismic.RichTextField;
+
+  /**
+   * button link field in *Banner → content*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.content[].button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+}
+
+/**
+ * Content for Banner documents
+ */
+interface BannerDocumentData {
+  /**
+   * type field in *Banner*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.type
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  type: prismic.SelectField<'error' | 'warning' | 'announcement'>;
+
+  /**
+   * content field in *Banner*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.content[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  content: prismic.GroupField<Simplify<BannerDocumentDataContentItem>>;
+}
+
+/**
+ * Banner document from Prismic
+ *
+ * - **API ID**: `banner`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BannerDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<BannerDocumentData>,
+    'banner',
     Lang
   >;
 
@@ -2115,7 +2193,19 @@ interface HomepageDocumentData {
    * - **Tab**: Hero
    * - **Documentation**: https://prismic.io/docs/field#group
    */
-  partners: prismic.GroupField<Simplify<HomepageDocumentDataPartnersItem>> /**
+  partners: prismic.GroupField<Simplify<HomepageDocumentDataPartnersItem>>;
+
+  /**
+   * show banner field in *homepage*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: homepage.show_banner
+   * - **Tab**: Hero
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_banner: prismic.BooleanField /**
    * text field in *homepage*
    *
    * - **Field Type**: Rich Text
@@ -3675,6 +3765,7 @@ export type AllDocumentTypes =
   | AcademyDocument
   | AcademyPageDocument
   | AmbassadorDocument
+  | BannerDocument
   | BlogDocument
   | BrandMaterialsDocument
   | BuyambDocument
@@ -4283,6 +4374,9 @@ declare module '@prismicio/client' {
       AmbassadorDocumentDataRolesListItem,
       AmbassadorDocumentDataBenefitsListItem,
       AmbassadorDocumentDataSlices4Slice,
+      BannerDocument,
+      BannerDocumentData,
+      BannerDocumentDataContentItem,
       BlogDocument,
       BlogDocumentData,
       BlogDocumentDataSlicesSlice,
