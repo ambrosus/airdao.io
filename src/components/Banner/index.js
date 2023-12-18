@@ -23,7 +23,7 @@ export default function Banner({ data, setShowBanner }) {
     }, 1000);
   }, []);
 
-  const handleRedirect = (value) => {
+  const handleRedirect = value => {
     if (typeof window !== 'undefined' && window.innerWidth < 650) {
       router.push(value.slug);
     }
