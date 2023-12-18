@@ -38,7 +38,7 @@ export default function Home({
         <meta property="og:image" content="https://airdao.io/og.png" />
         <meta name="twitter:image" content="https://airdao.io/og.png" />
       </Head>
-      {true && (
+      {showBanner && (
         <Banner data={banner?.data} setShowBanner={setShowBanner} />
       )}
       <HeaderWrapper header={header} showBanner={showBanner} />
