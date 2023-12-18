@@ -9,8 +9,11 @@ import CloseIcon from './icons/closeIcon.svg';
 import GlobeIcon from './icons/globeIcon.svg';
 import GlobeWhiteIcon from './icons/globeWhiteIcon.svg';
 import LinkIcon from './icons/linkIcon.svg';
+import {useRouter} from 'next/router';
 
 export default function Banner({ data, setShowBanner }) {
+  const router = useRouter();
+
   const type = data?.type;
   const [intervalSize, setIntervalSize] = useState(500);
 
@@ -19,6 +22,12 @@ export default function Banner({ data, setShowBanner }) {
       setIntervalSize(2000);
     }, 1000);
   }, []);
+
+  const handleRedirect = (a) => {
+    if (typeof window !== "undefined" && window.innerWidth < 650) {
+      router.push(a.slug);
+    }
+  };
 
   return (
     <div
@@ -46,7 +55,7 @@ export default function Banner({ data, setShowBanner }) {
         showStatus={false}
       >
         {data?.content?.map((item, index) => (
-          <div className={styles['carousel-item']} key={index}>
+          <div className={styles['carousel-item']} key={index} onClick={() => handleRedirect(item?.button_link)}>
             {intervalSize === 2000 && (
               <div className={styles['carousel-item-container']}>
                 <div className={styles['carousel-left-side']}>
