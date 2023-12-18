@@ -62,8 +62,8 @@ const Ambassadors = ({
         components={{
           paragraph: ({ children }) => (
             <Link
-              href={primaryLink.url.replace('https://', '')}
-              target={primaryLink.target}
+              href={primaryLink.url}
+              target="_blank"
             >
               <Button type="primary" size="large">
                 {children}
@@ -77,8 +77,7 @@ const Ambassadors = ({
         components={{
           paragraph: ({ children }) => (
             <Link
-              href={secondaryLink.url}
-              target={secondaryLink.target}
+              href={secondaryLink.url.replace('https://', '')}
               rel="nofollow"
             >
               <Button
