@@ -34,13 +34,13 @@ export default function Home({
   const [showBanner, setShowBanner] = useState(data?.show_banner);
   return (
     <div className={styles['homepage']}>
-      {showBanner && (
-        <Banner data={banner?.data} setShowBanner={setShowBanner} />
-      )}
       <Head>
         <meta property="og:image" content="https://airdao.io/og.png" />
         <meta name="twitter:image" content="https://airdao.io/og.png" />
       </Head>
+      {showBanner && (
+        <Banner data={banner?.data} setShowBanner={setShowBanner} />
+      )}
       <HeaderWrapper header={header} showBanner={showBanner} />
       <div className={styles['main-block-wrapper']}>
         <Image

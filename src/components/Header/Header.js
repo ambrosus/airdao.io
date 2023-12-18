@@ -54,7 +54,7 @@ const Header = ({ header, showBanner = false }) => {
 
     window.addEventListener('scroll', handleFixed);
     return () => window.removeEventListener('scroll', handleFixed);
-  }, []);
+  }, [showBanner]);
 
   useEffect(() => {
     if (window.innerWidth < 610) {
@@ -111,8 +111,7 @@ const Header = ({ header, showBanner = false }) => {
     <>
       {isLoginModalOpen && <div className={styles['blur-overlay']} />}
       <header
-        className={`${styles.header} ${isFixed ? styles.header_fixed : ''}`}
-        style={{ marginTop: showBanner ? 30 : 0 }}
+        className={`${styles.header} ${isFixed ? styles.header_fixed : ''} ${showBanner ? styles.header_banner : ''}`}
         ref={headerRef}
       >
         <Link href="/">
