@@ -1,5 +1,6 @@
 import { PrismicRichText } from '@prismicio/react';
 import AddEventScript from '../Calendar/addEventScript';
+import { Button } from '@airdao/ui-library';
 import styles from './events-header.module.scss';
 
 const EventsHeader = ({ headerText, subText, buttonText }) => {
@@ -31,13 +32,18 @@ const EventsHeader = ({ headerText, subText, buttonText }) => {
               data-id="tG531829"
               href="https://www.addevent.com/calendar/tG531829"
               target="_blank"
-              className={styles.buttonWrapper}
             >
               <PrismicRichText
                 field={buttonText}
                 components={{
                   paragraph: ({ children }) => (
-                    <p className={styles.buttonText}>{children}</p>
+                    <Button
+                      type="secondary"
+                      size="large"
+                      className={styles.buttonText}
+                    >
+                      {children}
+                    </Button>
                   ),
                 }}
               />

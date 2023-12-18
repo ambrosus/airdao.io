@@ -14,7 +14,10 @@ const Events = () => (
         href="https://airdao.io/contact-us"
         className={styles['footer-app__btn']}
       >
-        <Button type="tetiary" size="large">
+        <Button
+          type="tetiary"
+          size="large"
+        >
           Contact us
         </Button>
       </a>
