@@ -1,3 +1,4 @@
+'use client';
 import { PrismicNextLink } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
 import Image from 'next/image';
@@ -32,6 +33,7 @@ export default function Banner({ data, setShowBanner }) {
       router.push(value.url, value.target);
     }
   };
+
   return (
     <div
       className={styles['banner']}
