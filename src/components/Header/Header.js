@@ -1,31 +1,31 @@
-import Image from 'next/image';
-import HeaderNav from './HeaderNav';
-import { useEffect, useRef, useState } from 'react';
-import HeaderConnectedNav from './HeaderConnectedNav';
-import AddressInfo from './AddressInfo';
+import { createClient } from '@/prismicio';
+import { Button } from '@airdao/ui-library';
+import { asText } from '@prismicio/client';
 import { useWeb3React } from '@web3-react/core';
 import {
   useAuthorization,
   useAutoLogin,
 } from 'airdao-components-and-tools/hooks';
-import LoginModal from '../LoginModal/LoginModal';
-import styles from './Header.module.scss';
-import { createClient } from '@/prismicio';
-import { asText } from '@prismicio/client';
 import {
+  getCurrentAmbNetwork,
   metamaskConnector,
   walletconnectConnector,
-  getCurrentAmbNetwork,
 } from 'airdao-components-and-tools/utils';
 import { ethers, providers } from 'ethers';
+import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '@airdao/ui-library';
+import { useEffect, useRef, useState } from 'react';
+import LoginModal from '../LoginModal/LoginModal';
+import AddressInfo from './AddressInfo';
+import styles from './Header.module.scss';
+import HeaderConnectedNav from './HeaderConnectedNav';
+import HeaderNav from './HeaderNav';
 
 const ambNet = getCurrentAmbNetwork(process.env.NEXT_PUBLIC_CHAIN_ID);
 
 const readProvider = new providers.JsonRpcProvider(ambNet.rpcUrl);
 
-const Header = ({ header }) => {
+const Header = ({ header, showBanner = false }) => {
   const [address, setAddress] = useState('');
   const [isNavOpen, setIsNavOpen] = useState(true);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -54,7 +54,7 @@ const Header = ({ header }) => {
 
     window.addEventListener('scroll', handleFixed);
     return () => window.removeEventListener('scroll', handleFixed);
-  }, []);
+  }, [showBanner]);
 
   useEffect(() => {
     if (window.innerWidth < 610) {
@@ -83,7 +83,7 @@ const Header = ({ header }) => {
 
   const { loginMetamask, loginWalletConnect, logout } = useAuthorization(
     metamaskConnector,
-    walletconnectConnector
+    walletconnectConnector,
   );
 
   const getBalance = async () => {
@@ -101,17 +101,17 @@ const Header = ({ header }) => {
     setIsLoginModalOpen(false);
   };
 
-  const handleLoginModal = () => setIsLoginModalOpen((state) => !state);
-  const handleAddressInfo = () => setIsAddressInfoOpen((state) => !state);
-  const handleConnectedNav = () => setIsConnectedNavOpen((state) => !state);
-  const handleNav = () => setIsNavOpen((state) => !state);
-  const handleMobileNav = () => setIsMobileNavOpen((state) => !state);
+  const handleLoginModal = () => setIsLoginModalOpen(state => !state);
+  const handleAddressInfo = () => setIsAddressInfoOpen(state => !state);
+  const handleConnectedNav = () => setIsConnectedNavOpen(state => !state);
+  const handleNav = () => setIsNavOpen(state => !state);
+  const handleMobileNav = () => setIsMobileNavOpen(state => !state);
 
   return (
     <>
       {isLoginModalOpen && <div className={styles['blur-overlay']} />}
       <header
-        className={`${styles.header} ${isFixed ? styles.header_fixed : ''}`}
+        className={`${styles.header} ${isFixed ? styles.header_fixed : ''} ${showBanner ? styles.header_banner : ''}`}
         ref={headerRef}
       >
         <Link href="/">
@@ -126,7 +126,7 @@ const Header = ({ header }) => {
         {address ? (
           <>
             <div className={styles.header__products}>
-              {header.products.map((el) => (
+              {header.products.map(el => (
                 <a
                   key={asText(el.productname)}
                   className={styles.header__product}
@@ -156,7 +156,7 @@ const Header = ({ header }) => {
               <span className={styles['header__address-text']}>
                 {`${address.substring(0, 5)}...${address.substring(
                   address.length - 5,
-                  address.length
+                  address.length,
                 )}`}
               </span>
             </div>

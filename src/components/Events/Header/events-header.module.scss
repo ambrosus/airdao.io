@@ -57,19 +57,6 @@
   margin-top: 2vh;
   margin-bottom: 3vh;
 }
-.buttonWrapper {
-  display: flex;
-  padding: 12px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  border-radius: 1000px;
-  background: var(--yellow-600-accent, #ff5e0d);
-
-  /* Shadows/1 */
-  box-shadow: 0px 1px 3px 0px rgba(47, 43, 67, 0.1),
-    0px -1px 0px 0px rgba(47, 43, 67, 0.1) inset;
-}
 .buttonText {
   color: #ffffff;
   font-size: 16px;

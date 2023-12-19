@@ -90,17 +90,6 @@ export default function AcademyArticle({
           }}
         />
         <div className={styles['academy-page__info-wrapper']}>
-          <span
-            className={`${linkStyles['academy-link__info-badge']} ${
-              data.badge_type === 'Pro' &&
-              linkStyles['academy-link__info-badge_black']
-            } ${
-              data.badge_type === 'Intermediate' &&
-              linkStyles['academy-link__info-badge_yellow']
-            }`}
-          >
-            {data.badge_type}
-          </span>
           <PrismicRichText
             field={data.read_time}
             components={{

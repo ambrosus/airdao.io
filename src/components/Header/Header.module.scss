@@ -618,3 +618,7 @@
     display: none;
   }
 }
+
+.header_banner:not(.header_fixed) {
+  margin-top: 20px;
+}

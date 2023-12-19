@@ -41,7 +41,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  color: var(--neutral-900, #0E0E0E);
+  color: #2f2b4399;
 
   font-family: var(--font-inter);
   font-size: 16px;
@@ -56,7 +56,7 @@
 
 .button.active {
   border-radius: 101px;
-  background: var(--neutral-600, #393B40);
+  background: #FF5E0D;
   color: var(--neutral-0, #FFF);
 }
 
