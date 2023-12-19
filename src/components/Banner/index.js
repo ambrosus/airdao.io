@@ -34,6 +34,11 @@ export default function Banner({ data, setShowBanner }) {
     }
   };
 
+  const handleClose = (e) => {
+    setShowBanner(close);
+    e.stopPropagation();
+  };
+
   return (
     <div
       className={styles['banner']}
@@ -113,7 +118,7 @@ export default function Banner({ data, setShowBanner }) {
                   </PrismicNextLink>
                   <button
                     className={styles['carousel-button']}
-                    onClick={() => setShowBanner(false)}
+                    onClick={handleClose}
                   >
                     <Image src={CloseIcon} alt="close" />
                   </button>
