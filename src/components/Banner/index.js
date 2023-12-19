@@ -23,12 +23,6 @@ export default function Banner({ data, setShowBanner }) {
     }, 1000);
   }, []);
 
-  const handleRedirect = value => {
-    if (typeof window !== 'undefined' && window.innerWidth < 650) {
-      router.push(value.slug);
-    }
-  };
-
   return (
     <div
       className={styles['banner']}
@@ -55,7 +49,12 @@ export default function Banner({ data, setShowBanner }) {
         showStatus={false}
       >
         {data?.content?.map((item, index) => (
-          <div className={styles['carousel-item']} key={index} onClick={() => handleRedirect(item?.button_link)}>
+          <PrismicNextLink
+            field={item?.button_link}
+            rel="nofollow"
+            className={styles['carousel-item']}
+            key={index}
+          >
             {intervalSize === 2000 && (
               <div className={styles['carousel-item-container']}>
                 <div className={styles['carousel-left-side']}>
@@ -115,7 +114,7 @@ export default function Banner({ data, setShowBanner }) {
                 </div>
               </div>
             )}
-          </div>
+          </PrismicNextLink>
         ))}
       </Carousel>
     </div>
