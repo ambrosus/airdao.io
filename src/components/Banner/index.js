@@ -34,11 +34,6 @@ export default function Banner({ data, setShowBanner }) {
     }
   };
 
-  const handleClose = (e) => {
-    setShowBanner(close);
-    e.stopPropagation();
-  };
-
   return (
     <div
       className={styles['banner']}
@@ -65,10 +60,13 @@ export default function Banner({ data, setShowBanner }) {
         showStatus={false}
       >
         {data?.content?.map((item, index) => (
-          <div className={styles['carousel-item']} key={index} onClick={() => handleRedirect(item?.button_link)}>
+          <div className={styles['carousel-item']} key={index}>
             {intervalSize === 2000 && (
               <div className={styles['carousel-item-container']}>
-                <div className={styles['carousel-left-side']}>
+                <PrismicNextLink
+                  field={item?.button_link}
+                  className={styles['carousel-left-side']}
+                >
                   <Image
                     className={styles['carousel-icon']}
                     src={type === 'error' ? GlobeWhiteIcon : GlobeIcon}
@@ -89,7 +87,7 @@ export default function Banner({ data, setShowBanner }) {
                       ),
                     }}
                   />
-                </div>
+                </PrismicNextLink>
                 <div className={styles['carousel-right-side']}>
                   <PrismicNextLink
                     field={item?.button_link}
@@ -118,7 +116,7 @@ export default function Banner({ data, setShowBanner }) {
                   </PrismicNextLink>
                   <button
                     className={styles['carousel-button']}
-                    onClick={handleClose}
+                    onClick={() => setShowBanner(false)}
                   >
                     <Image src={CloseIcon} alt="close" />
                   </button>

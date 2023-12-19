@@ -104,6 +104,10 @@
   img {
     display: none;
   }
+
+  @media (min-width: 650px) {
+    pointer-events: none;
+  }
 }
 .carousel-right-side {
   height: 32px;
