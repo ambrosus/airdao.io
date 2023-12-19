@@ -25,8 +25,9 @@ export default function Banner({ data, setShowBanner }) {
   }, []);
 
   const handleRedirect = (value) => {
+    console.log(1);
     if (typeof window === 'undefined') return null;
-
+    console.log(2);
     if (value.target === '_blank') {
       window.open(value.url, '_blank');
     } else if (window.innerWidth < 650) {
