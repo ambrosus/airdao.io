@@ -1,18 +1,18 @@
-import React, { Fragment } from 'react';
-import { createClient } from '@/prismicio';
+import blueCircle from '@/assets/img/blue-circle.svg';
+import orangeCircle from '@/assets/img/orange-circle.svg';
+import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
-import { PrismicRichText } from '@prismicio/react';
-import styles from './buy-amb.module.scss';
+import App from '@/components/Homepage/App';
 import homepageStyles from '@/components/Homepage/homepage.module.scss';
+import { createClient } from '@/prismicio';
+import { Button } from '@airdao/ui-library';
+import { PrismicRichText } from '@prismicio/react';
+import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
-import { Button } from '@airdao/ui-library';
-import App from '@/components/Homepage/App';
-import blueCircle from '@/assets/img/blue-circle.svg';
-import orangeCircle from '@/assets/img/orange-circle.svg';
-import Head from 'next/head';
+import styles from './buy-amb.module.scss';
 
 const options = [
   { title: 'AMB/USDT', value: 'usdt' },
@@ -20,11 +20,12 @@ const options = [
   { title: 'AMB/ETH', value: 'eth' },
 ];
 
-const BuyAmb = ({ header, footerText, page }) => {
+const BuyAmb = ({ header, footerText, page, banner }) => {
   const [selectedFilter, setSelectedFilter] = useState('usdt');
+  const [showBanner, setShowBanner] = useState(page?.show_banner);
 
   const exchangeList = useMemo(() => {
-    return page.links.filter((el) => el.trade === selectedFilter);
+    return page.links.filter(el => el.trade === selectedFilter);
   }, [page, selectedFilter]);
 
   return (
@@ -33,7 +34,10 @@ const BuyAmb = ({ header, footerText, page }) => {
         <meta property="og:image" content="https://airdao.io/og-get-amb.png" />
         <meta name="twitter:image" content="https://airdao.io/og-get-amb.png" />
       </Head>
-      {header && <HeaderWrapper header={header} />}
+      {showBanner && (
+        <Banner data={banner?.data} setShowBanner={setShowBanner} />
+      )}
+      {header && <HeaderWrapper header={header} showBanner={showBanner} />}
       <div className={`${styles['buy-amb']}`}>
         <div className="container">
           <PrismicRichText
@@ -53,7 +57,7 @@ const BuyAmb = ({ header, footerText, page }) => {
             }}
           />
           <div className={styles['exchange-filter']}>
-            {options.map((el) => (
+            {options.map(el => (
               <Button
                 key={el.title}
                 size="medium"
@@ -140,9 +144,10 @@ export async function getStaticProps({ params, previewData }) {
 
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
+  const banner = await client.getSingle('banner');
   const page = await client.getSingle('buyamb');
   return {
-    props: { header, footerText: footer, page: page.data },
+    props: { header, footerText: footer, page: page.data, banner },
   };
 }
 
