@@ -208,6 +208,18 @@ interface AcademyPageDocumentData {
   types: prismic.GroupField<Simplify<AcademyPageDocumentDataTypesItem>>;
 
   /**
+   * show banner field in *Academy page*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: academy_page.show_banner
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_banner: prismic.BooleanField;
+
+  /**
    * Slice Zone field in *Academy page*
    *
    * - **Field Type**: Slice Zone
@@ -400,6 +412,18 @@ interface AmbassadorDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   hero_image: prismic.ImageField<never>;
+
+  /**
+   * show banner field in *Ambassador*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: ambassador.show_banner
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_banner: prismic.BooleanField;
 
   /**
    * Slice Zone field in *Ambassador*
@@ -754,6 +778,83 @@ interface BlogDocumentData {
 export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, 'blog', Lang>;
 
+type BlogPageDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Blog page documents
+ */
+interface BlogPageDocumentData {
+  /**
+   * show banner field in *Blog page*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: blog_page.show_banner
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_banner: prismic.BooleanField;
+
+  /**
+   * Slice Zone field in *Blog page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<BlogPageDocumentDataSlicesSlice> /**
+   * Meta Description field in *Blog page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Blog page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Blog page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blog_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Blog page document from Prismic
+ *
+ * - **API ID**: `blog_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<BlogPageDocumentData>,
+    'blog_page',
+    Lang
+  >;
+
 /**
  * Item in *Brand Materials → Header*
  */
@@ -1011,6 +1112,18 @@ interface BrandMaterialsDocumentData {
   link: prismic.GroupField<Simplify<BrandMaterialsDocumentDataLinkItem>>;
 
   /**
+   * show banner field in *Brand Materials*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: brand_materials.show_banner
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_banner: prismic.BooleanField;
+
+  /**
    * Slice Zone field in *Brand Materials*
    *
    * - **Field Type**: Slice Zone
@@ -1170,6 +1283,18 @@ interface BuyambDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   links: prismic.GroupField<Simplify<BuyambDocumentDataLinksItem>>;
+
+  /**
+   * show banner field in *BuyAmb*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: buyamb.show_banner
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_banner: prismic.BooleanField;
 
   /**
    * Slice Zone field in *BuyAmb*
@@ -1369,6 +1494,18 @@ interface ContactUsDocumentData {
   form_subtitle: prismic.RichTextField;
 
   /**
+   * show banner field in *Contact us*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: contact_us.show_banner
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_banner: prismic.BooleanField;
+
+  /**
    * Slice Zone field in *Contact us*
    *
    * - **Field Type**: Slice Zone
@@ -1510,6 +1647,18 @@ interface EventsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   events: prismic.GroupField<Simplify<EventsDocumentDataEventsItem>>;
+
+  /**
+   * show banner field in *Events*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: events.show_banner
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_banner: prismic.BooleanField;
 
   /**
    * Slice Zone field in *Events*
@@ -1804,7 +1953,19 @@ interface GovernanceDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  snapshot: prismic.LinkField /**
+  snapshot: prismic.LinkField;
+
+  /**
+   * show banner field in *Governance*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: governance.show_banner
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_banner: prismic.BooleanField /**
    * council heading field in *Governance*
    *
    * - **Field Type**: Title
@@ -3125,6 +3286,18 @@ interface RoadmapDocumentData {
   learn_more_subtitle: prismic.RichTextField;
 
   /**
+   * show banner field in *Roadmap*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: roadmap.show_banner
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_banner: prismic.BooleanField;
+
+  /**
    * Slice Zone field in *Roadmap*
    *
    * - **Field Type**: Slice Zone
@@ -3541,7 +3714,19 @@ interface TeamDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  vision: prismic.RichTextField /**
+  vision: prismic.RichTextField;
+
+  /**
+   * show banner field in *Team*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: team.show_banner
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_banner: prismic.BooleanField /**
    * Heading field in *Team*
    *
    * - **Field Type**: Title
@@ -3767,6 +3952,7 @@ export type AllDocumentTypes =
   | AmbassadorDocument
   | BannerDocument
   | BlogDocument
+  | BlogPageDocument
   | BrandMaterialsDocument
   | BuyambDocument
   | ContactUsDocument
@@ -4380,6 +4566,9 @@ declare module '@prismicio/client' {
       BlogDocument,
       BlogDocumentData,
       BlogDocumentDataSlicesSlice,
+      BlogPageDocument,
+      BlogPageDocumentData,
+      BlogPageDocumentDataSlicesSlice,
       BrandMaterialsDocument,
       BrandMaterialsDocumentData,
       BrandMaterialsDocumentDataHeaderItem,

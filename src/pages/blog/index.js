@@ -1,3 +1,4 @@
+import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
 import Pagination from '@/components/Pagination/Pagination';
@@ -34,6 +35,8 @@ export async function getStaticProps(context) {
 
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
+  const banner = await client.getSingle('banner');
+  const page = await client.getSingle('blog_page');
 
   const lastArticlesByType = {};
 
@@ -43,7 +46,13 @@ export async function getStaticProps(context) {
     );
   }
   return {
-    props: { footerText: footer, header, lastArticlesByType },
+    props: {
+      footerText: footer,
+      header,
+      lastArticlesByType,
+      page: page.data,
+      banner,
+    },
   };
 }
 
@@ -95,8 +104,15 @@ const settings = {
   ],
 };
 
-export default function Blog({ header, footerText, lastArticlesByType }) {
+export default function Blog({
+  header,
+  footerText,
+  lastArticlesByType,
+  page,
+  banner,
+}) {
   const [selectedType, setSelectedType] = useState('all');
+  const [showBanner, setShowBanner] = useState(page?.show_banner);
 
   const router = useRouter();
   const hash = router.asPath.slice(6);
@@ -159,7 +175,10 @@ export default function Blog({ header, footerText, lastArticlesByType }) {
   return (
     <>
       <div className={styles['background_gray']}>
-        {header && <HeaderWrapper header={header} />}
+        {showBanner && (
+          <Banner data={banner?.data} setShowBanner={setShowBanner} />
+        )}
+        {header && <HeaderWrapper header={header} showBanner={showBanner} />}
         <div className={`container ${styles.top}`}>
           <h1 className={styles['blog-list-page__title']}>Blog</h1>
           <p className={styles['blog-list-page__subtitle']}>

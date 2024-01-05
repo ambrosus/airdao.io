@@ -1,5 +1,6 @@
 import blueCircle from '@/assets/img/blue-circle.svg';
 import orangeCircle from '@/assets/img/orange-circle.svg';
+import Banner from '@/components/Banner';
 import Calendar from '@/components/Events/Calendar';
 import EventsHeader from '@/components/Events/Header';
 import Footer from '@/components/Footer';
@@ -31,16 +32,18 @@ export async function getStaticProps(context) {
   const client = createClient({ previewData: context.previewData });
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
+  const banner = await client.getSingle('banner');
   const page = await client.getSingle('events');
 
   return {
-    props: { footerText: footer, header, page: page.data },
+    props: { footerText: footer, header, page: page.data, banner },
   };
 }
 
-const Events = ({ header, footerText, page }) => {
+const Events = ({ header, footerText, page, banner }) => {
   const [articles, setArticles] = useState({});
   const [articleNames, setArticleNames] = useState({});
+  const [showBanner, setShowBanner] = useState(page?.show_banner);
 
   // get events by types added on prismic event page
   const updateEvents = async () => {
@@ -68,7 +71,10 @@ const Events = ({ header, footerText, page }) => {
 
   return (
     <div className={homePageStyles['homepage']}>
-      {header && <HeaderWrapper header={header} />}
+      {showBanner && (
+        <Banner data={banner?.data} setShowBanner={setShowBanner} />
+      )}
+      {header && <HeaderWrapper header={header} showBanner={showBanner} />}
       <div className={styles.contentContainer}>
         <Image
           className={homePageStyles['blue-circle']}

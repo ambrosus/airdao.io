@@ -1,20 +1,22 @@
-import { createClient } from '@/prismicio';
-import HeaderWrapper from '@/components/Header';
-import Footer from '@/components/Footer';
-import Hero from './components/Hero';
-import Roles from './components/Roles';
-import Benefits from './components/Benefits';
-import homeStyles from '@/components/Homepage/homepage.module.scss';
-import styles from './ambassador.module.scss';
-import Image from 'next/image';
 import blueCircle from '@/assets/img/blue-circle.svg';
 import orangeCircle from '@/assets/img/orange-circle.svg';
-import Head from 'next/head';
-import React from 'react';
+import Banner from '@/components/Banner';
+import Footer from '@/components/Footer';
+import HeaderWrapper from '@/components/Header';
+import homeStyles from '@/components/Homepage/homepage.module.scss';
+import { createClient } from '@/prismicio';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
+import Head from 'next/head';
+import Image from 'next/image';
+import { useState } from 'react';
+import styles from './ambassador.module.scss';
+import Benefits from './components/Benefits';
+import Hero from './components/Hero';
+import Roles from './components/Roles';
 
-const AmbassadorPage = ({ header, footerText, page }) => {
+const AmbassadorPage = ({ header, footerText, page, banner }) => {
   const footerSlice = getFooterBlockSlice(page);
+  const [showBanner, setShowBanner] = useState(page?.show_banner);
 
   return (
     page && (
@@ -29,7 +31,10 @@ const AmbassadorPage = ({ header, footerText, page }) => {
             content="https://airdao.io/og-ambassador.png"
           />
         </Head>
-        {header && <HeaderWrapper header={header} />}
+        {showBanner && (
+          <Banner data={banner?.data} setShowBanner={setShowBanner} />
+        )}
+        {header && <HeaderWrapper header={header} showBanner={showBanner} />}
         <Hero
           title={page.hero_title}
           text={page.hero_text}
@@ -74,9 +79,10 @@ export async function getStaticProps({ params, previewData }) {
 
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
+  const banner = await client.getSingle('banner');
   const page = await client.getSingle('ambassador');
   return {
-    props: { header, footerText: footer, page: page.data },
+    props: { header, footerText: footer, page: page.data, banner },
   };
 }
 export default AmbassadorPage;

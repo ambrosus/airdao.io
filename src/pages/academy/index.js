@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
 import Pagination from '@/components/Pagination/Pagination';
@@ -31,16 +32,18 @@ export async function getStaticProps(context) {
 
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
+  const banner = await client.getSingle('banner');
   const page = await client.getSingle('academy_page');
 
   return {
-    props: { footerText: footer, header, page: page.data },
+    props: { footerText: footer, header, page: page.data, banner },
   };
 }
 
-export default function Academy({ header, footerText, page }) {
+export default function Academy({ footerText, header, page, banner }) {
   const [selectedType, setSelectedType] = useState('all');
   const [paginatedData, setPaginatedData] = useState(null);
+  const [showBanner, setShowBanner] = useState(page?.show_banner);
 
   const articleList = useRef(null);
 
@@ -106,7 +109,10 @@ export default function Academy({ header, footerText, page }) {
   return (
     <>
       <div className={styles['academy-gradient']} />
-      {header && <HeaderWrapper header={header} />}
+      {showBanner && (
+        <Banner data={banner?.data} setShowBanner={setShowBanner} />
+      )}
+      {header && <HeaderWrapper header={header} showBanner={showBanner} />}
       <div className={styles['academy-list-page']}>
         <div className="container">
           <PrismicRichText
