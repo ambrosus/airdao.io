@@ -47,6 +47,15 @@
           "allowTargetBlank": true,
           "multi": "paragraph,heading2"
         }
+      },
+      "show_banner": {
+        "type": "Boolean",
+        "config": {
+          "label": "show banner",
+          "placeholder_false": "false",
+          "placeholder_true": "true",
+          "default_value": true
+        }
       }
     },
     "Team": {
