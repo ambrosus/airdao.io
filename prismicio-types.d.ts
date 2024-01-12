@@ -1182,6 +1182,83 @@ export type BrandMaterialsDocument<Lang extends string = string> =
     Lang
   >;
 
+type BuildersPageDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Builders page documents
+ */
+interface BuildersPageDocumentData {
+  /**
+   * show banner field in *Builders page*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: builders_page.show_banner
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_banner: prismic.BooleanField;
+
+  /**
+   * Slice Zone field in *Builders page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: builders_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<BuildersPageDocumentDataSlicesSlice> /**
+   * Meta Description field in *Builders page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: builders_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Builders page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: builders_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Builders page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: builders_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Builders page document from Prismic
+ *
+ * - **API ID**: `builders_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BuildersPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<BuildersPageDocumentData>,
+    'builders_page',
+    Lang
+  >;
+
 /**
  * Item in *BuyAmb → links*
  */
@@ -3954,6 +4031,7 @@ export type AllDocumentTypes =
   | BlogDocument
   | BlogPageDocument
   | BrandMaterialsDocument
+  | BuildersPageDocument
   | BuyambDocument
   | ContactUsDocument
   | EventsDocument
@@ -4576,6 +4654,9 @@ declare module '@prismicio/client' {
       BrandMaterialsDocumentDataColorsItemItem,
       BrandMaterialsDocumentDataLinkItem,
       BrandMaterialsDocumentDataSlicesSlice,
+      BuildersPageDocument,
+      BuildersPageDocumentData,
+      BuildersPageDocumentDataSlicesSlice,
       BuyambDocument,
       BuyambDocumentData,
       BuyambDocumentDataLinksItem,
