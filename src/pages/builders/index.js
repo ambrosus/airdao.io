@@ -1,19 +1,20 @@
-import { createClient } from '@/prismicio';
-import HeaderWrapper from '@/components/Header';
+import chevron from '@/assets/icons/chevron.svg';
+import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
-import styles from './builders.module.scss';
+import HeaderWrapper from '@/components/Header';
+import Pagination from '@/components/Pagination/Pagination';
 import Project from '@/pages/builders/components/Project';
+import { createClient } from '@/prismicio';
 import { Button } from '@airdao/ui-library';
 import Image from 'next/image';
-import idea from './idea.svg';
-import touch from './touch.svg';
-import Pagination from '@/components/Pagination/Pagination';
 import { useEffect, useState } from 'react';
-import striped from './striped.svg';
+import block from './block.svg';
+import styles from './builders.module.scss';
+import idea from './idea.svg';
 import starBlue from './star-blue.svg';
 import star from './star.svg';
-import block from './block.svg';
-import chevron from '@/assets/icons/chevron.svg';
+import striped from './striped.svg';
+import touch from './touch.svg';
 
 let _window;
 
@@ -62,9 +63,10 @@ const projects = [
 
 const itemsPerPage = 3;
 
-const Builders = ({ header, footerText }) => {
+const Builders = ({ header, footerText, page, banner }) => {
   const [renderedList, setRenderedList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [showBanner, setShowBanner] = useState(page?.show_banner);
 
   useEffect(() => {
     if (_window && _window.innerWidth < 768) {
@@ -76,11 +78,14 @@ const Builders = ({ header, footerText }) => {
     }
   }, [currentPage]);
 
-  const handlePage = (page) => setCurrentPage(page);
+  const handlePage = page => setCurrentPage(page);
 
   return (
     <>
-      {header && <HeaderWrapper header={header} />}
+      {showBanner && (
+        <Banner data={banner?.data} setShowBanner={setShowBanner} />
+      )}
+      {header && <HeaderWrapper header={header} showBanner={showBanner} />}
       <div className={styles.builders}>
         <div className={styles.hero}>
           <Image src={striped} alt="background" className={styles.striped} />
@@ -176,9 +181,11 @@ export async function getStaticProps({ params, previewData }) {
 
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
+  const banner = await client.getSingle('banner');
+  const page = await client.getSingle('builders_page');
 
   return {
-    props: { header, footerText: footer },
+    props: { header, footerText: footer, page: page.data, banner },
   };
 }
 
