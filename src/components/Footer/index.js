@@ -1,8 +1,10 @@
 import styles from './footer.module.scss';
 import Image from 'next/image';
 import { asText } from '@prismicio/client';
+
 import Events from './components/Events';
 import Contact from './components/Contact';
+import { switchText } from './utils';
 
 const Footer = ({ slices, socials, footerBlock, className = '' }) => {
   const block = () => {
@@ -23,7 +25,7 @@ const Footer = ({ slices, socials, footerBlock, className = '' }) => {
         <div className={styles.footer__lists}>
           {slices.map((el, i) => (
             <ul key={i} className={styles.footer__list}>
-              {el.items.map((item) => (
+              {el.items.map(item => (
                 <li
                   key={asText(item.footer_item_text)}
                   className={
@@ -41,12 +43,12 @@ const Footer = ({ slices, socials, footerBlock, className = '' }) => {
                       href={item.footer_item_url.url}
                       target={item.footer_item_url.target}
                       {...(item.footer_item_url?.url?.includes(
-                        'https://airdao.io'
+                        'https://airdao.io',
                       )
                         ? { rel: 'nofollow' }
                         : {})}
                     >
-                      {asText(item.footer_item_text)}
+                      {switchText(asText(item.footer_item_text))}
                     </a>
                   )}
                   {item.footer_item_is_soon && (
