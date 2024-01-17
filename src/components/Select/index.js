@@ -1,6 +1,6 @@
 import styles from './select.module.scss';
 import { useRef, useState } from 'react';
-import TailArrow from '@/components/TailArrow';
+import TailArrow from '@/components/Icons/TailArrow';
 import useClickOutside from '@/hooks/useClickOutside';
 
 export default function Select({
@@ -19,7 +19,7 @@ export default function Select({
     () => {
       setFocused(false);
     },
-    focused
+    focused,
   );
 
   const classNames = [
@@ -28,8 +28,8 @@ export default function Select({
     ...(focused ? [styles.focused] : []),
   ];
 
-  const toggleFocused = () => setFocused((prev) => !prev);
-  const setValue = (value) => {
+  const toggleFocused = () => setFocused(prev => !prev);
+  const setValue = value => {
     onChange(value);
     toggleFocused();
   };

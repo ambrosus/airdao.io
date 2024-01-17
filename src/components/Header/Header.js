@@ -20,6 +20,8 @@ import AddressInfo from './AddressInfo';
 import styles from './Header.module.scss';
 import HeaderConnectedNav from './HeaderConnectedNav';
 import HeaderNav from './HeaderNav';
+import TailArrow from '../Icons/TailArrow';
+import ArrowTop from '../Icons/ArrowTop';
 
 const ambNet = getCurrentAmbNetwork(process.env.NEXT_PUBLIC_CHAIN_ID);
 
@@ -111,7 +113,9 @@ const Header = ({ header, showBanner = false }) => {
     <>
       {isLoginModalOpen && <div className={styles['blur-overlay']} />}
       <header
-        className={`${styles.header} ${isFixed ? styles.header_fixed : ''} ${showBanner ? styles.header_banner : ''}`}
+        className={`${styles.header} ${isFixed ? styles.header_fixed : ''} ${
+          showBanner ? styles.header_banner : ''
+        }`}
         ref={headerRef}
       >
         <Link href="/">
@@ -136,56 +140,71 @@ const Header = ({ header, showBanner = false }) => {
                 </a>
               ))}
             </div>
-            <div className={styles.header__balance}>
-              <Image
-                src="/airdao.svg"
-                width="30"
-                height="30"
-                className={styles['header__balance-img']}
-                alt="balance"
-              />
-              <span>{balance} AMB</span>
-            </div>
-            <div className={styles.header__address} onClick={handleAddressInfo}>
-              <Image
-                src="/metamask.svg"
-                width="20"
-                height="20"
-                alt="metamask"
-              />
-              <span className={styles['header__address-text']}>
-                {`${address.substring(0, 5)}...${address.substring(
-                  address.length - 5,
-                  address.length,
-                )}`}
-              </span>
-            </div>
-            <button
-              className={styles.header__hamburger}
-              onClick={handleConnectedNav}
-            >
-              {isConnectedNavOpen ? (
+            <div className={styles['header__buttons']}>
+              <Link
+                href="https://airdao.io/get-amb"
+                className={styles['header__button-tetiary']}
+              >
+                <Button type="tetiary" size="medium">
+                  <span>Get AMB</span>
+                  <TailArrow />
+                </Button>
+              </Link>
+              <div
+                className={styles.header__address}
+                onClick={handleAddressInfo}
+              >
                 <Image
-                  src="/cross-dark.svg"
-                  width="24"
-                  height="24"
-                  alt="menu"
+                  src="/metamask.svg"
+                  width="20"
+                  height="20"
+                  alt="metamask"
                 />
-              ) : (
-                <Image src="/hamburger.svg" width="24" height="24" alt="menu" />
-              )}
-            </button>
+                <span className={styles['header__address-text']}>
+                  {`${address.substring(0, 5)}...${address.substring(
+                    address.length - 5,
+                    address.length,
+                  )}`}
+                </span>
+                <ArrowTop
+                  className={`${styles['header__address-arrow']} ${
+                    isAddressInfoOpen ? '' : styles['open']
+                  }`}
+                />
+              </div>
+              <button
+                className={styles.header__hamburger}
+                onClick={handleConnectedNav}
+              >
+                {isConnectedNavOpen ? (
+                  <Image
+                    src="/cross-dark.svg"
+                    width="24"
+                    height="24"
+                    alt="menu"
+                  />
+                ) : (
+                  <Image
+                    src="/hamburger.svg"
+                    width="24"
+                    height="24"
+                    alt="menu"
+                  />
+                )}
+              </button>
+            </div>
+
             {isConnectedNavOpen && (
               <HeaderConnectedNav
                 close={handleConnectedNav}
                 headerInfo={header}
                 isOpen={isConnectedNavOpen}
-                balance={balance}
               />
             )}
             {isAddressInfoOpen && (
               <AddressInfo
                 isOpen={isAddressInfoOpen}
+                balance={balance}
                 logout={handleLogout}
                 address={address}
                 close={handleAddressInfo}
@@ -201,38 +220,55 @@ const Header = ({ header, showBanner = false }) => {
               isOpen={isNavOpen}
             />
 
-            <Button
-              type="secondary"
-              size="medium"
-              className={styles['connect-wallet']}
-              onClick={handleLoginModal}
-            >
-              <Image
-                src="/pocket.svg"
-                height="20"
-                width="20"
-                alt="connect wallet"
-                className={styles['connect-wallet-img']}
-              />
-              <span className={styles['connect-wallet-text']}>
-                Connect wallet
-              </span>
-            </Button>
-            <button
-              onClick={handleMobileNav}
-              className={styles['hamburger-btn']}
-            >
-              {isMobileNavOpen ? (
+            <div className={styles['header__buttons']}>
+              <Link
+                href="https://airdao.io/get-amb"
+                className={styles['header__button-tetiary']}
+              >
+                <Button type="tetiary" size="medium">
+                  <span>Get AMB</span>
+                  <TailArrow />
+                </Button>
+              </Link>
+              <Button
+                type="secondary"
+                size="medium"
+                className={styles['connect-wallet']}
+                onClick={handleLoginModal}
+              >
                 <Image
-                  src="/cross-dark.svg"
-                  width="24"
-                  height="24"
-                  alt="menu"
+                  src="/pocket.svg"
+                  height="20"
+                  width="20"
+                  alt="connect wallet"
+                  className={styles['connect-wallet-img']}
                 />
-              ) : (
-                <Image src="/hamburger.svg" width="24" height="24" alt="menu" />
-              )}
-            </button>
+                <span className={styles['connect-wallet-text']}>
+                  Connect wallet
+                </span>
+              </Button>
+
+              <button
+                onClick={handleMobileNav}
+                className={styles['hamburger-btn']}
+              >
+                {isMobileNavOpen ? (
+                  <Image
+                    src="/cross-dark.svg"
+                    width="24"
+                    height="24"
+                    alt="menu"
+                  />
+                ) : (
+                  <Image
+                    src="/hamburger.svg"
+                    width="24"
+                    height="24"
+                    alt="menu"
+                  />
+                )}
+              </button>
+            </div>
             {isMobileNavOpen && (
               <HeaderNav
                 isOpen={isMobileNavOpen}

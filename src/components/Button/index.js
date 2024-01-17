@@ -1,5 +1,5 @@
 import styles from './button.module.scss';
-import TailArrow from '../TailArrow';
+import TailArrow from '../Icons/TailArrow';
 import PropTypes from 'prop-types';
 
 export default function Button({
