@@ -86,33 +86,33 @@ const Events = ({ header, footerText, page }) => {
           buttonText={page?.header_button_text}
         />
         <Calendar />
-        <div className={styles.articlesContainer}>
-          <div className={styles.articlesWrapper}>
-            {Object.keys(articles).map(
-              el =>
-                !!articles[el].length && (
-                  <div key={el} className={articleStyles['articles-wrapper']}>
-                    <div className={articleStyles['articles-top-block']}>
-                      <h2 className={articleStyles['articles-title']}>
-                        {articleNames[el]}
-                      </h2>
-                      <Link
-                        href={'/blog#events'}
-                        className={articleStyles['articles-btn']}
-                      >
-                        See all
-                      </Link>
-                    </div>
-                    <div className={articleStyles['articles-list']}>
-                      {articles[el].map(article => (
-                        <BlogLink key={article.uid} article={article} />
-                      ))}
-                    </div>
-                  </div>
-                ),
-            )}
-          </div>
-        </div>
+        {/*<div className={styles.articlesContainer}>*/}
+        {/*  <div className={styles.articlesWrapper}>*/}
+        {/*    {Object.keys(articles).map(*/}
+        {/*      el =>*/}
+        {/*        !!articles[el].length && (*/}
+        {/*          <div key={el} className={articleStyles['articles-wrapper']}>*/}
+        {/*            <div className={articleStyles['articles-top-block']}>*/}
+        {/*              <h2 className={articleStyles['articles-title']}>*/}
+        {/*                {articleNames[el]}*/}
+        {/*              </h2>*/}
+        {/*              <Link*/}
+        {/*                href={'/blog#events'}*/}
+        {/*                className={articleStyles['articles-btn']}*/}
+        {/*              >*/}
+        {/*                See all*/}
+        {/*              </Link>*/}
+        {/*            </div>*/}
+        {/*            <div className={articleStyles['articles-list']}>*/}
+        {/*              {articles[el].map(article => (*/}
+        {/*                <BlogLink key={article.uid} article={article} />*/}
+        {/*              ))}*/}
+        {/*            </div>*/}
+        {/*          </div>*/}
+        {/*        ),*/}
+        {/*    )}*/}
+        {/*  </div>*/}
+        {/*</div>*/}
       </div>
 
       {footerText && (
