@@ -2186,6 +2186,17 @@ interface HeaderDocumentData {
   products: prismic.GroupField<Simplify<HeaderDocumentDataProductsItem>>;
 
   /**
+   * ambUrl field in *Header*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.amburl
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  amburl: prismic.LinkField;
+
+  /**
    * Slice Zone field in *Header*
    *
    * - **Field Type**: Slice Zone

@@ -41,6 +41,14 @@
           }
         }
       },
+      "amburl": {
+        "type": "Link",
+        "config": {
+          "label": "ambUrl",
+          "placeholder": "",
+          "select": null
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
