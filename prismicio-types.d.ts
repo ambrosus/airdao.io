@@ -1821,6 +1821,31 @@ export interface FooterDocumentDataFooterSocialItem {
   footer_social_link: prismic.LinkField;
 }
 
+/**
+ * Item in *Footer → downloadApp*
+ */
+export interface FooterDocumentDataDownloadappItem {
+  /**
+   * imageUrl field in *Footer → downloadApp*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.downloadapp[].imageurl
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  imageurl: prismic.ImageField<never>;
+
+  /**
+   * linkurl field in *Footer → downloadApp*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.downloadapp[].linkurl
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkurl: prismic.LinkField;
+}
+
 type FooterDocumentDataSlicesSlice = FooterItemSlice;
 
 /**
@@ -1839,6 +1864,17 @@ interface FooterDocumentData {
   footer_social: prismic.GroupField<
     Simplify<FooterDocumentDataFooterSocialItem>
   >;
+
+  /**
+   * downloadApp field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.downloadapp[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  downloadapp: prismic.GroupField<Simplify<FooterDocumentDataDownloadappItem>>;
 
   /**
    * Slice Zone field in *Footer*
@@ -4686,6 +4722,7 @@ declare module '@prismicio/client' {
       FooterDocument,
       FooterDocumentData,
       FooterDocumentDataFooterSocialItem,
+      FooterDocumentDataDownloadappItem,
       FooterDocumentDataSlicesSlice,
       GovernanceDocument,
       GovernanceDocumentData,
