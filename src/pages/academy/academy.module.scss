@@ -217,31 +217,41 @@
   background: var(--neutral-100, #e6e6e6);
   max-width: 1080px;
   margin: 0 auto 88px;
-
-  @media screen and (max-width: 950px) {
-    margin-bottom: 48px;
-    padding: 44px;
-  }
-
   @media screen and (max-width: 650px) {
     margin-bottom: 40px;
     padding: 43px 5px;
   }
 
-  p {
-    color: var(--neutral-800, #191919);
-    text-align: center;
-    font-family: var(--inter);
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 36px; /* 120% */
-    letter-spacing: -0.54px;
+  @media screen and (max-width: 950px) {
+    margin-bottom: 48px;
+    padding: 44px;
+  }
+}
+.academy-page__text-container {
+  color: var(--neutral-800, #191919);
+  text-align: center;
+  font-family: var(--inter);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 36px; /* 120% */
+  letter-spacing: -0.54px;
 
-    @media screen and (max-width: 950px) {
-      font-size: 24px;
-      line-height: 32px; /* 133.333% */
-      letter-spacing: -0.384px;
-    }
+  @media screen and (max-width: 950px) {
+    font-size: 24px;
+    line-height: 32px; /* 133.333% */
+    letter-spacing: -0.384px;
+  }
+
+  & > a {
+    color: var(--blue-600-primary, #3568dd);
+  }
+
+  & > a:hover {
+    text-decoration: underline;
+  }
+
+  & > a:visited {
+    color: var(--blue-700, #1a3d8d);
   }
 }
