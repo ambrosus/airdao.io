@@ -226,12 +226,7 @@ export default function Academy({ footerText, header, page, banner }) {
           )
         )}
       </div>
-      {footerText && (
-        <Footer
-          slices={footerText.data.slices}
-          socials={footerText.data.footer_social}
-        />
-      )}
+      {footerText && <Footer data={footerText.data} />}
     </>
   );
 }

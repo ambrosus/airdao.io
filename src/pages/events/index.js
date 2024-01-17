@@ -121,12 +121,7 @@ const Events = ({ header, footerText, page, banner }) => {
         </div>
       </div>
 
-      {footerText && (
-        <Footer
-          slices={footerText.data.slices}
-          socials={footerText.data.footer_social}
-        />
-      )}
+      {footerText && <Footer data={footerText.data} />}
     </div>
   );
 };

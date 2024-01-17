@@ -31,7 +31,7 @@
 
 .footer__lists-title {
   font-size: 20px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-family: var(--font-inter);
   margin-bottom: 32px;
   font-weight: 600;
@@ -45,8 +45,27 @@
   }
 }
 
+.footer__lists-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+  gap: 32px 16px;
+
+  a {
+    display: block;
+
+    img {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 610px) {
+    flex-direction: row;
+  }
+}
+
 .footer__lists-item a {
-  color: var(--neutral-300, #A1A6B2);
+  color: var(--neutral-300, #a1a6b2);
   font-family: var(--font-inter);
   margin-bottom: 32px;
   font-weight: 500;
@@ -54,14 +73,14 @@
 }
 
 .footer__lists-soon {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 12px;
   font-weight: 500;
   padding: 5px 9px;
   line-height: 20px;
   border-radius: 30px;
-  border: 1px solid var(--alpha-white-20, rgba(255, 255, 255, 0.20));
-  background: var(--alpha-white-10, rgba(255, 255, 255, 0.10));
+  border: 1px solid var(--alpha-white-20, rgba(255, 255, 255, 0.2));
+  background: var(--alpha-white-10, rgba(255, 255, 255, 0.1));
   margin-left: 16px;
   letter-spacing: 2.28px;
   font-family: var(--font-inter);
@@ -92,9 +111,9 @@
 
 .footer-app {
   border-radius: 64px;
-  border: 1px solid var(--alpha-white-20, rgba(255, 255, 255, 0.20));
+  border: 1px solid var(--alpha-white-20, rgba(255, 255, 255, 0.2));
   background: var(--alpha-white-5, rgba(255, 255, 255, 0.05));
-  box-shadow: 0px 8px 24px 0px rgba(47, 43, 67, 0.10);
+  box-shadow: 0px 8px 24px 0px rgba(47, 43, 67, 0.1);
   padding: 56px;
   display: flex;
   align-items: center;
@@ -129,7 +148,7 @@
 }
 
 .footer-app__title {
-  color: var(--neutral-0, #FFF);
+  color: var(--neutral-0, #fff);
   font-family: var(--font-reationell);
   font-size: 48px;
   font-weight: 600;
@@ -144,7 +163,7 @@
 }
 
 .footer-app__text {
-  color: var(--neutral-200, #C2C5CC);
+  color: var(--neutral-200, #c2c5cc);
   /* Subheadline/400 - Regular */
   font-family: var(--font-inter);
   font-size: 20px;
@@ -163,8 +182,8 @@
   width: fit-content;
 
   button {
-    background: var(--neutral-0, #FFF)!important;
-    color: var(--neutral-900, #0E0E0E)!important;
+    background: var(--neutral-0, #fff) !important;
+    color: var(--neutral-900, #0e0e0e) !important;
   }
 }
 

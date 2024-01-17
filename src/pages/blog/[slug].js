@@ -132,12 +132,7 @@ export default function BlogArticle({
           </div>
         </div>
       </div>
-      {footerText && (
-        <Footer
-          slices={footerText.data.slices}
-          socials={footerText.data.footer_social}
-        />
-      )}
+      {footerText && <Footer data={footerText.data} />}
     </>
   );
 }

@@ -166,8 +166,7 @@ const Builders = ({ header, footerText, page, banner }) => {
       </div>
       {footerText && (
         <Footer
-          slices={footerText.data.slices}
-          socials={footerText.data.footer_social}
+          data={footerText.data}
           className={styles.footer}
           footerBlock="footer_contact"
         />
