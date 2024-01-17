@@ -1,17 +1,17 @@
-import { createClient } from '@/prismicio';
-import HeaderWrapper from '@/components/Header';
 import Footer from '@/components/Footer';
-import { PrismicRichText } from '@prismicio/react';
-import styles from './blog.module.scss';
-import bottomBlockStyles from './blog-list.module.scss';
-import { PrismicNextImage } from '@prismicio/next';
-import { getTimePassed } from '@/utils/getTimePassed';
-import BlogLink from '@/pages/blog/components/BlogLink';
-import Link from 'next/link';
-import * as prismic from '@prismicio/client';
+import HeaderWrapper from '@/components/Header';
 import ShareButton from '@/components/ShareButton';
-import Image from 'next/image';
 import GoBackIcon from '@/pages/academy/goBack.svg';
+import BlogLink from '@/pages/blog/components/BlogLink';
+import { createClient } from '@/prismicio';
+import { getTimePassed } from '@/utils/getTimePassed';
+import * as prismic from '@prismicio/client';
+import { PrismicNextImage } from '@prismicio/next';
+import { PrismicRichText } from '@prismicio/react';
+import Image from 'next/image';
+import Link from 'next/link';
+import bottomBlockStyles from './blog-list.module.scss';
+import styles from './blog.module.scss';
 
 export async function getStaticProps(context) {
   const client = createClient({ previewData: context.previewData });
@@ -188,7 +188,9 @@ const BlogWrappedText = ({ data }) => (
     <PrismicRichText
       field={data.primary.blog_wrapped_text}
       components={{
-        paragraph: ({ children }) => <p>{children}</p>,
+        paragraph: ({ children }) => (
+          <p className={styles['blog-page__text-container']}>{children}</p>
+        ),
       }}
     />
   </div>

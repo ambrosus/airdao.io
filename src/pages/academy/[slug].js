@@ -8,10 +8,7 @@ import { PrismicNextImage } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  default as bottomBlockStyles,
-  default as linkStyles,
-} from './academy-list.module.scss';
+import { default as bottomBlockStyles } from './academy-list.module.scss';
 import styles from './academy.module.scss';
 import GoBackIcon from './goBack.svg';
 
@@ -174,7 +171,9 @@ const BlogWrappedText = ({ data }) => (
     <PrismicRichText
       field={data.primary.blog_wrapped_text}
       components={{
-        paragraph: ({ children }) => <p>{children}</p>,
+        paragraph: ({ children }) => (
+          <p className={styles['academy-page__text-container']}>{children}</p>
+        ),
       }}
     />
   </div>
