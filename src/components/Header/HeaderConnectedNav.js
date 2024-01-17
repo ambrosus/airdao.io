@@ -17,7 +17,7 @@ const HeaderConnectedNav = ({ close, headerInfo, isOpen }) => {
     <div ref={ref} className={styles['connected-nav']}>
       <div className={styles['connected-nav__link-arrow']}>
         <a
-          href="https://airdao.io/get-amb"
+          href={headerInfo.amburl.url}
           className={styles['connected-nav__product']}
         >
           Get AMB
