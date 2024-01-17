@@ -14,8 +14,7 @@ export default function ContactUsPage({ header, footerText, page }) {
       <ContactUs page={page} />
       <Footer
         className={styles.footer}
-        slices={footerText.data.slices}
-        socials={footerText.data.footer_social}
+        data={footerText.data}
         footerBlock={footerSlice}
       />
     </>

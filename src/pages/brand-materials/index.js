@@ -19,11 +19,7 @@ const BrandMaterialsPage = ({ header, footerText, page }) => {
         <Links content={page?.data} />
 
         {footerText && (
-          <Footer
-            slices={footerText.data.slices}
-            socials={footerText.data.footer_social}
-            footerBlock={footerSlice}
-          />
+          <Footer data={footerText.data} footerBlock={footerSlice} />
         )}
       </div>
     </>

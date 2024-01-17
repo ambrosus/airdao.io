@@ -60,7 +60,7 @@ const settings = {
   ),
 };
 
-const convertDate = (date) => {
+const convertDate = date => {
   const dateFuture = new Date(date);
   const dateNow = new Date();
 
@@ -91,9 +91,7 @@ const Roadmap = ({ header, footerText, page }) => {
                   <h1 className={styles.hero_title}>
                     {children}
                     <br />
-                    <span className={styles.hero_blue}>
-                      15 Nov 2023
-                    </span>
+                    <span className={styles.hero_blue}>15 Nov 2023</span>
                   </h1>
                 ),
               }}
@@ -178,7 +176,7 @@ const Roadmap = ({ header, footerText, page }) => {
           }}
         />
         <Slider {...settings}>
-          {page.slider.map((el) => (
+          {page.slider.map(el => (
             <div className={styles.slider_item_wrapper} key={asText(el.title)}>
               <div className={styles.slider_item}>
                 <img
@@ -219,7 +217,7 @@ const Roadmap = ({ header, footerText, page }) => {
           ))}
         </Slider>
         <div className={styles.filters}>
-          {filters.map((el) => (
+          {filters.map(el => (
             <PrismicRichText
               key={el.key}
               field={el.label || page[el.labelKey]}
@@ -239,17 +237,12 @@ const Roadmap = ({ header, footerText, page }) => {
           ))}
         </div>
         <div className={styles.posts}>
-          {page[selectedFilter + '_list'].map((el) => (
+          {page[selectedFilter + '_list'].map(el => (
             <Post data={el} key={asText(el.title)} />
           ))}
         </div>
       </div>
-      {footerText && (
-        <Footer
-          slices={footerText.data.slices}
-          socials={footerText.data.footer_social}
-        />
-      )}
+      {footerText && <Footer data={footerText.data} />}
     </>
   );
 };
@@ -263,9 +256,9 @@ export async function getStaticProps({ params, previewData }) {
 
   const arr = [];
 
-  Object.keys(page.data).forEach((el) => {
+  Object.keys(page.data).forEach(el => {
     if (el.includes('_list')) {
-      page.data[el].forEach((post) => {
+      page.data[el].forEach(post => {
         if (post.upcoming) {
           arr.push(post);
         }

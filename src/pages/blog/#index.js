@@ -315,12 +315,7 @@ export default function Blog({ header, footerText, lastArticlesByType }) {
         )
       )}
 
-      {footerText && (
-        <Footer
-          slices={footerText.data.slices}
-          socials={footerText.data.footer_social}
-        />
-      )}
+      {footerText && <Footer data={footerText.data} />}
     </>
   );
 }

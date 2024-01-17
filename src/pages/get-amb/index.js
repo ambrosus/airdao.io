@@ -24,7 +24,7 @@ const BuyAmb = ({ header, footerText, page }) => {
   const [selectedFilter, setSelectedFilter] = useState('usdt');
 
   const exchangeList = useMemo(() => {
-    return page.links.filter((el) => el.trade === selectedFilter);
+    return page.links.filter(el => el.trade === selectedFilter);
   }, [page, selectedFilter]);
 
   return (
@@ -53,7 +53,7 @@ const BuyAmb = ({ header, footerText, page }) => {
             }}
           />
           <div className={styles['exchange-filter']}>
-            {options.map((el) => (
+            {options.map(el => (
               <Button
                 key={el.title}
                 size="medium"
@@ -125,12 +125,7 @@ const BuyAmb = ({ header, footerText, page }) => {
           google={page.app_google}
         />
       </div>
-      {footerText && (
-        <Footer
-          slices={footerText.data.slices}
-          socials={footerText.data.footer_social}
-        />
-      )}
+      {footerText && <Footer data={footerText.data} />}
     </>
   );
 };

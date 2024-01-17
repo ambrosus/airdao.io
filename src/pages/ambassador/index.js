@@ -58,11 +58,7 @@ const AmbassadorPage = ({ header, footerText, page }) => {
           <Benefits title={page.benefits_title} list={page.benefits_list} />
         </div>
         {footerText && (
-          <Footer
-            slices={footerText.data.slices}
-            socials={footerText.data.footer_social}
-            footerBlock={footerSlice}
-          />
+          <Footer footerBlock={footerSlice} data={footerText.data} />
         )}
       </div>
     )

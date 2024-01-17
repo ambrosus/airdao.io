@@ -76,7 +76,7 @@ const Builders = ({ header, footerText }) => {
     }
   }, [currentPage]);
 
-  const handlePage = (page) => setCurrentPage(page);
+  const handlePage = page => setCurrentPage(page);
 
   return (
     <>
@@ -161,8 +161,7 @@ const Builders = ({ header, footerText }) => {
       </div>
       {footerText && (
         <Footer
-          slices={footerText.data.slices}
-          socials={footerText.data.footer_social}
+          data={footerText.data}
           className={styles.footer}
           footerBlock="footer_contact"
         />
