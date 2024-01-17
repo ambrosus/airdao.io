@@ -4,31 +4,28 @@ import { useRef } from 'react';
 import styles from './Header.module.scss';
 import { asText } from '@prismicio/client';
 import Link from 'next/link';
+import TailArrow from '../Icons/TailArrow';
 
-const HeaderConnectedNav = ({ close, headerInfo, isOpen, balance }) => {
+const HeaderConnectedNav = ({ close, headerInfo, isOpen }) => {
   const ref = useRef(null);
   useClickOutside(ref, close, isOpen);
 
-  const findSlice = (key) =>
-    headerInfo.slices.find((el) => asText(el.primary.navlabel) === key)?.items;
+  const findSlice = key =>
+    headerInfo.slices.find(el => asText(el.primary.navlabel) === key)?.items;
 
   return (
     <div ref={ref} className={styles['connected-nav']}>
-      <div className={styles['connected-nav__balance']}>
-        <Image
-          src="/airdao.svg"
-          width="30"
-          height="30"
-          className={styles['connected-nav__balance-img']}
-          alt="balance"
-        />
-        <span>{balance} AMB</span>
+      <div className={styles['connected-nav__link-arrow']}>
+        <a
+          href="https://airdao.io/get-amb"
+          className={styles['connected-nav__product']}
+        >
+          Get AMB
+        </a>
+        <TailArrow />
       </div>
-      <div
-        className={`${styles['connected-nav__hr']} ${styles['connected-nav__hr_balance']}`}
-      />
       <div className={styles['connected-nav__products']}>
-        {headerInfo.products.map((el) => (
+        {headerInfo.products.map(el => (
           <a
             key={asText(el.productname)}
             href={el.producturl.url}
@@ -39,7 +36,7 @@ const HeaderConnectedNav = ({ close, headerInfo, isOpen, balance }) => {
         ))}
       </div>
       <span className={styles['connected-nav__title']}>About</span>
-      {findSlice('About').map((el) => (
+      {findSlice('About').map(el => (
         <Link
           href={el.navitemlink.url || ''}
           target={el.navitemlink.target || ''}
@@ -52,7 +49,7 @@ const HeaderConnectedNav = ({ close, headerInfo, isOpen, balance }) => {
       {findSlice('Learn') && (
         <>
           <span className={styles['connected-nav__title']}>Learn</span>
-          {findSlice('Learn').map((el) => (
+          {findSlice('Learn').map(el => (
             <Link
               href={el.navitemlink.url || ''}
               target={el.navitemlink.target || ''}
@@ -67,7 +64,7 @@ const HeaderConnectedNav = ({ close, headerInfo, isOpen, balance }) => {
       <div className={styles['connected-nav__hr']} />
       <span className={styles['connected-nav__title']}>Community</span>
       <div className={styles['connected-nav__community']}>
-        {findSlice('Community').map((el) => (
+        {findSlice('Community').map(el => (
           <Link
             href={el.navitemlink.url || ''}
             target={el.navitemlink.target || ''}
