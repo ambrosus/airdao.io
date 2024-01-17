@@ -108,7 +108,11 @@ export default function Academy({ footerText, header, page, banner }) {
 
   return (
     <>
-      <div className={styles['academy-gradient']} />
+      <div
+        className={
+          styles[showBanner ? 'academy-gradient-banner' : 'academy-gradient']
+        }
+      />
       {showBanner && (
         <Banner data={banner?.data} setShowBanner={setShowBanner} />
       )}
