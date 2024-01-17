@@ -142,7 +142,7 @@ const Header = ({ header, showBanner = false }) => {
             </div>
             <div className={styles['header__buttons']}>
               <Link
-                href="https://airdao.io/get-amb"
+                href={header.amburl.url}
                 className={styles['header__button-tetiary']}
               >
                 <Button type="tetiary" size="medium">
@@ -222,7 +222,7 @@ const Header = ({ header, showBanner = false }) => {
 
             <div className={styles['header__buttons']}>
               <Link
-                href="https://airdao.io/get-amb"
+                href={header.amburl.url}
                 className={styles['header__button-tetiary']}
               >
                 <Button type="tetiary" size="medium">
