@@ -46,7 +46,7 @@
 }
 
 .connect-wallet {
-  font-weight: 600 !important;
+  font-weight: 500 !important;
 
   @media screen and (max-width: 950px) {
     margin-left: auto;
@@ -373,9 +373,10 @@
 
 .header__button-tetiary {
   margin-right: 16px;
+  color: #0c0c0d;
 
   span {
-    font-weight: 600;
+    font-weight: 500;
   }
 
   @media screen and (max-width: 610px) {
