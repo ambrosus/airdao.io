@@ -1303,6 +1303,46 @@ export interface BuyambDocumentDataLinksItem {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   trade: prismic.SelectField<'usdt' | 'btc' | 'eth', 'filled'>;
+
+  /**
+   * type field in *BuyAmb → links*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.links[].type
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  type: prismic.RichTextField;
+
+  /**
+   * button link field in *BuyAmb → links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.links[].button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * button icon field in *BuyAmb → links*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.links[].button_icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  button_icon: prismic.ImageField<never>;
+
+  /**
+   * button name field in *BuyAmb → links*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.links[].button_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  button_name: prismic.RichTextField;
 }
 
 type BuyambDocumentDataSlicesSlice = never;

@@ -63,6 +63,40 @@
                 "options": ["usdt", "btc", "eth"],
                 "default_value": "usdt"
               }
+            },
+            "type": {
+              "type": "StructuredText",
+              "config": {
+                "label": "type",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "button_link": {
+              "type": "Link",
+              "config": {
+                "label": "button link",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "button_icon": {
+              "type": "Image",
+              "config": {
+                "label": "button icon",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "button_name": {
+              "type": "StructuredText",
+              "config": {
+                "label": "button name",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
             }
           }
         }
