@@ -88,55 +88,40 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
                 key={el.link.url + el.trade}
                 href={el.link.url || ''}
                 target={el.link.target || ''}
-                className={styles.exchange}
+                className={styles.exchange__container}
                 rel="nofollow"
               >
-                <img
-                  src={el.image?.url || ''}
-                  alt="exchange"
-                  className={styles.exchange__img}
-                />
-                <div className={styles.exchange__info}>
-                  <div className={styles.exchange__info__container}>
+                <div className={styles.exchange}>
+                  <img
+                    src={el.image?.url || ''}
+                    alt="exchange"
+                    className={styles.exchange__img}
+                  />
+                  <div className={styles.exchange__info}>
+                    <div className={styles.exchange__info__container}>
+                      <PrismicRichText
+                        field={el.name}
+                        components={{
+                          paragraph: ({ children }) => (
+                            <p className={styles.exchange__title}>{children}</p>
+                          ),
+                        }}
+                      />
+                      <Image
+                        src={arrow}
+                        alt="arrow"
+                        className={styles.exchange__arrow}
+                      />
+                    </div>
                     <PrismicRichText
-                      field={el.name}
+                      field={el?.type}
                       components={{
                         paragraph: ({ children }) => (
-                          <p className={styles.exchange__title}>{children}</p>
+                          <p className={styles.exchange__type}>{children}</p>
                         ),
                       }}
                     />
-                    <Image
-                      src={arrow}
-                      alt="arrow"
-                      className={styles.exchange__arrow}
-                    />
-                    {el.button_link?.url && (
-                      <Link
-                        className={styles.exchange__info__button}
-                        key={el.button_link?.url}
-                        href={el.button_link?.url || ''}
-                        target={el.button_link?.target || ''}
-                        rel="nofollow"
-                      >
-                        {el.button_icon?.url && (
-                          <img
-                            src={el.button_icon?.url || ''}
-                            alt=""
-                            className={styles.exchange__scan_icon}
-                          />
-                        )}
-                      </Link>
-                    )}
                   </div>
-                  <PrismicRichText
-                    field={el?.type}
-                    components={{
-                      paragraph: ({ children }) => (
-                        <p className={styles.exchange__type}>{children}</p>
-                      ),
-                    }}
-                  />
                 </div>
                 {el.button_link?.url && (
                   <div className={styles.exchange__scan_container}>
