@@ -1,16 +1,24 @@
-import Hero from 'src/components/Governance/Hero';
-import { createClient } from '@/prismicio';
-import HeaderWrapper from '@/components/Header';
+import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
-import Proposals from '../../components/Governance/Proposals';
-import Council from '../../components/Governance/Council';
-import * as prismic from '@prismicio/client';
+import HeaderWrapper from '@/components/Header';
+import { createClient } from '@/prismicio';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
+import * as prismic from '@prismicio/client';
 import Head from 'next/head';
-import React from 'react';
+import { useState } from 'react';
+import Hero from 'src/components/Governance/Hero';
+import Council from '../../components/Governance/Council';
+import Proposals from '../../components/Governance/Proposals';
 
-const GovernancePage = ({ header, footerText, page, latestArticles }) => {
+const GovernancePage = ({
+  header,
+  footerText,
+  page,
+  latestArticles,
+  banner,
+}) => {
   const footerSlice = getFooterBlockSlice(page.data);
+  const [showBanner, setShowBanner] = useState(page?.data?.show_banner);
 
   return (
     <>
@@ -24,7 +32,10 @@ const GovernancePage = ({ header, footerText, page, latestArticles }) => {
           content="https://airdao.io/og-governance.png"
         />
       </Head>
-      {header && <HeaderWrapper header={header} />}
+      {showBanner && (
+        <Banner data={banner?.data} setShowBanner={setShowBanner} />
+      )}
+      {header && <HeaderWrapper header={header} showBanner={showBanner} />}
       <div style={{ overflow: 'hidden', maxWidth: '100vw' }}>
         <Hero heading={page.data.heading} />
         <Proposals
@@ -60,11 +71,7 @@ const GovernancePage = ({ header, footerText, page, latestArticles }) => {
         {/*  />*/}
         {/*</div>*/}
         {footerText && (
-          <Footer
-            slices={footerText.data.slices}
-            socials={footerText.data.footer_social}
-            footerBlock={footerSlice}
-          />
+          <Footer data={footerText.data} footerBlock={footerSlice} />
         )}
       </div>
     </>
@@ -77,6 +84,7 @@ export async function getStaticProps({ params, previewData }) {
 
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
+  const banner = await client.getSingle('banner');
   const page = await client.getSingle('governance');
   const latestArticles = await newClient.getAllByType('blog', {
     limit: 3,
@@ -87,7 +95,7 @@ export async function getStaticProps({ params, previewData }) {
   });
 
   return {
-    props: { header, footerText: footer, page, latestArticles },
+    props: { header, footerText: footer, page, latestArticles, banner },
   };
 }
 

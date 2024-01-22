@@ -17,12 +17,7 @@ export default function Page({ page, header, footerText }) {
       {/*</Head>*/}
       {header && <HeaderWrapper header={header} />}
       {page && <PolicyPage page={page} />}
-      {footerText && (
-        <Footer
-          slices={footerText.data.slices}
-          socials={footerText.data.footer_social}
-        />
-      )}
+      {footerText && <Footer data={footerText.data} />}
     </>
   );
 }
@@ -45,7 +40,7 @@ export async function getStaticPaths() {
   const pages = await client.getAllByType('policy');
 
   return {
-    paths: pages.map((page) => {
+    paths: pages.map(page => {
       return `/${page.uid}`;
     }),
     fallback: false,

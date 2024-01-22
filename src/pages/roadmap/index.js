@@ -1,19 +1,20 @@
-import { createClient } from '@/prismicio';
-import HeaderWrapper from '@/components/Header';
+import chevron from '@/assets/icons/chevron.svg';
+import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
-import { PrismicRichText } from '@prismicio/react';
-import { useState } from 'react';
-import styles from './roadmap.module.scss';
+import HeaderWrapper from '@/components/Header';
 import Post from '@/pages/roadmap/components/Post';
-import { asText } from '@prismicio/client';
-import Slider from 'react-slick';
+import { createClient } from '@/prismicio';
 import { Button } from '@airdao/ui-library';
-import hero from './hero.svg';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import { asText } from '@prismicio/client';
+import { PrismicRichText } from '@prismicio/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import chevron from '@/assets/icons/chevron.svg';
+import { useState } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
+import hero from './hero.svg';
+import styles from './roadmap.module.scss';
 
 const filters = [
   { labelKey: 'other_label', key: 'other' },
@@ -60,7 +61,7 @@ const settings = {
   ),
 };
 
-const convertDate = (date) => {
+const convertDate = date => {
   const dateFuture = new Date(date);
   const dateNow = new Date();
 
@@ -74,12 +75,16 @@ const convertDate = (date) => {
   return `${days}d ${hours}h ${minutes}min`;
 };
 
-const Roadmap = ({ header, footerText, page }) => {
+const Roadmap = ({ header, footerText, page, banner }) => {
   const [selectedFilter, setSelectedFilter] = useState('apollo');
+  const [showBanner, setShowBanner] = useState(page?.show_banner);
 
   return (
     <>
-      {header && <HeaderWrapper header={header} />}
+      {showBanner && (
+        <Banner data={banner?.data} setShowBanner={setShowBanner} />
+      )}
+      {header && <HeaderWrapper header={header} showBanner={showBanner} />}
       <div className={`container roadmap ${styles.roadmap}`}>
         <div className={styles.hero}>
           <Image src={hero} alt="hero" className={styles.hero_img} />
@@ -91,9 +96,7 @@ const Roadmap = ({ header, footerText, page }) => {
                   <h1 className={styles.hero_title}>
                     {children}
                     <br />
-                    <span className={styles.hero_blue}>
-                      15 Nov 2023
-                    </span>
+                    <span className={styles.hero_blue}>15 Nov 2023</span>
                   </h1>
                 ),
               }}
@@ -178,7 +181,7 @@ const Roadmap = ({ header, footerText, page }) => {
           }}
         />
         <Slider {...settings}>
-          {page.slider.map((el) => (
+          {page.slider.map(el => (
             <div className={styles.slider_item_wrapper} key={asText(el.title)}>
               <div className={styles.slider_item}>
                 <img
@@ -219,7 +222,7 @@ const Roadmap = ({ header, footerText, page }) => {
           ))}
         </Slider>
         <div className={styles.filters}>
-          {filters.map((el) => (
+          {filters.map(el => (
             <PrismicRichText
               key={el.key}
               field={el.label || page[el.labelKey]}
@@ -239,17 +242,12 @@ const Roadmap = ({ header, footerText, page }) => {
           ))}
         </div>
         <div className={styles.posts}>
-          {page[selectedFilter + '_list'].map((el) => (
+          {page[selectedFilter + '_list'].map(el => (
             <Post data={el} key={asText(el.title)} />
           ))}
         </div>
       </div>
-      {footerText && (
-        <Footer
-          slices={footerText.data.slices}
-          socials={footerText.data.footer_social}
-        />
-      )}
+      {footerText && <Footer data={footerText.data} />}
     </>
   );
 };
@@ -259,13 +257,14 @@ export async function getStaticProps({ params, previewData }) {
 
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
+  const banner = await client.getSingle('banner');
   const page = await client.getSingle('roadmap');
 
   const arr = [];
 
-  Object.keys(page.data).forEach((el) => {
+  Object.keys(page.data).forEach(el => {
     if (el.includes('_list')) {
-      page.data[el].forEach((post) => {
+      page.data[el].forEach(post => {
         if (post.upcoming) {
           arr.push(post);
         }
@@ -275,7 +274,7 @@ export async function getStaticProps({ params, previewData }) {
   page.data.soon_list = arr;
 
   return {
-    props: { header, footerText: footer, page: page.data },
+    props: { header, footerText: footer, page: page.data, banner },
   };
 }
 

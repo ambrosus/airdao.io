@@ -1,17 +1,19 @@
-import { createClient } from '@/prismicio';
-import HeaderWrapper from '@/components/Header';
+import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
-import TextBlock from 'src/components/Team/TextBlock';
-import Team from 'src/components/Team/Team';
-import Marquee from '@/components/Marquee';
-import Structure from 'src/components/Team/Structure';
+import HeaderWrapper from '@/components/Header';
 import Ambassadors from '@/components/Homepage/Ambassadors';
-import Head from 'next/head';
-import React from 'react';
+import Marquee from '@/components/Marquee';
+import { createClient } from '@/prismicio';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
+import Head from 'next/head';
+import { useState } from 'react';
+import Structure from 'src/components/Team/Structure';
+import Team from 'src/components/Team/Team';
+import TextBlock from 'src/components/Team/TextBlock';
 
-const TeamPage = ({ header, footerText, page }) => {
+const TeamPage = ({ header, footerText, page, banner }) => {
   const footerSlice = getFooterBlockSlice(page.data);
+  const [showBanner, setShowBanner] = useState(page?.data?.show_banner);
 
   return (
     <>
@@ -19,7 +21,10 @@ const TeamPage = ({ header, footerText, page }) => {
         <meta property="og:image" content="https://airdao.io/og-team.png" />
         <meta name="twitter:image" content="https://airdao.io/og-team.png" />
       </Head>
-      {header && <HeaderWrapper header={header} />}
+      {showBanner && (
+        <Banner data={banner?.data} setShowBanner={setShowBanner} />
+      )}
+      {header && <HeaderWrapper header={header} showBanner={showBanner} />}
       <div className={'team-page'} style={{ overflow: 'auto' }}>
         <TextBlock
           story={page.data.story}
@@ -51,11 +56,7 @@ const TeamPage = ({ header, footerText, page }) => {
         />
       </div>
       {footerText && (
-        <Footer
-          slices={footerText.data.slices}
-          socials={footerText.data.footer_social}
-          footerBlock={footerSlice}
-        />
+        <Footer data={footerText.data} footerBlock={footerSlice} />
       )}
     </>
   );
@@ -66,9 +67,10 @@ export async function getStaticProps({ params, previewData }) {
 
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
+  const banner = await client.getSingle('banner');
   const page = await client.getSingle('team');
   return {
-    props: { header, footerText: footer, page },
+    props: { header, footerText: footer, page, banner },
   };
 }
 

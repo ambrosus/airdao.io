@@ -32,7 +32,7 @@ const BondExchange = ({ header, footerText }) => {
 
   const { loginMetamask, loginWalletConnect } = useAuthorization(
     metamaskConnector,
-    walletconnectConnector
+    walletconnectConnector,
   );
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const BondExchange = ({ header, footerText }) => {
         null,
         {
           toastId: 'switch-network',
-        }
+        },
       );
     } else {
       Notify.dismiss('switch-network');
@@ -56,7 +56,7 @@ const BondExchange = ({ header, footerText }) => {
 
   const handleLogin = () => {
     if (!account) {
-      setIsLoginModalOpen((state) => !state);
+      setIsLoginModalOpen(state => !state);
     } else if (chainId !== 16718) {
       loginMetamask();
     }
@@ -128,12 +128,7 @@ const BondExchange = ({ header, footerText }) => {
           loginWalletConnect={loginWalletConnect}
         />
       )}
-      {footerText && (
-        <Footer
-          slices={footerText.data.slices}
-          socials={footerText.data.footer_social}
-        />
-      )}
+      {footerText && <Footer data={footerText.data} />}
     </>
   );
 };

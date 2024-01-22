@@ -134,6 +134,15 @@
           "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
+      "show_banner": {
+        "type": "Boolean",
+        "config": {
+          "label": "show banner",
+          "placeholder_false": "false",
+          "placeholder_true": "true",
+          "default_value": true
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

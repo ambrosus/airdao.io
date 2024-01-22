@@ -32,6 +32,9 @@ export default function Home({
   const { data } = page;
   const footerSlice = getFooterBlockSlice(data);
   const [showBanner, setShowBanner] = useState(data?.show_banner);
+
+  console.log('footerRext: ', footerText);
+
   return (
     <div className={styles['homepage']}>
       <Head>
@@ -156,11 +159,7 @@ export default function Home({
         {/*  articles={latestArticles}*/}
         {/*/>*/}
       </div>
-      <Footer
-        slices={footerText.data.slices}
-        socials={footerText.data.footer_social}
-        footerBlock={footerSlice}
-      />
+      <Footer data={footerText.data} footerBlock={footerSlice} />
     </div>
   );
 }

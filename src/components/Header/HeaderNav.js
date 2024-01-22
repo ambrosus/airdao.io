@@ -3,6 +3,7 @@ import useClickOutside from '../../hooks/useClickOutside';
 import styles from './Header.module.scss';
 import { asText } from '@prismicio/client';
 import Link from 'next/link';
+import TailArrow from '../Icons/TailArrow';
 
 const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
   const [activeList, setActiveList] = useState('');
@@ -14,11 +15,11 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
       close();
       setActiveList('');
     },
-    isOpen
+    isOpen,
   );
 
-  const handleList = (key) => {
-    setActiveList((state) => (state === key ? '' : key));
+  const handleList = key => {
+    setActiveList(state => (state === key ? '' : key));
   };
 
   return (
@@ -26,7 +27,16 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
       ref={ref}
       className={`${styles['nav-item-wrapper']} ${styles[className]}`}
     >
-      {headerInfo.slices.map((el) => (
+      <div className={styles['connected-nav__link-arrow']}>
+        <a
+          href={headerInfo.amburl.url}
+          className={styles['connected-nav__product']}
+        >
+          Get AMB
+        </a>
+        <TailArrow />
+      </div>
+      {headerInfo.slices.map(el => (
         <div
           className={`${styles['nav-item']} ${
             activeList === asText(el.primary.navlabel)
@@ -62,7 +72,7 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
                   : ''
               }`}
             >
-              {el.items.map((item) => (
+              {el.items.map(item => (
                 <Link
                   href={item.navitemlink.url || ''}
                   target={item.navitemlink.target || ''}
