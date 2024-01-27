@@ -14,6 +14,11 @@
   padding: 32px 32px 230px;
   border-radius: 24px;
   border: 1px solid var(--neutral-100);
+  background-color: var(--neutral-0);
+
+  &:nth-child(2) {
+    z-index: 5;
+  }
 
   .label {
     display: inline-flex;
@@ -58,19 +63,19 @@
     color: var(--neutral-600);
   }
 
-  &.bg-green {
+  .bg-green {
     .overlay {
       background-color: #2dba8d;
     }
   }
 
-  &.bg-blue {
+  .bg-blue {
     .overlay {
       background-color: #457eff;
     }
   }
 
-  &.bg-orange {
+  .bg-orange {
     .overlay {
       background-color: #ffac23;
     }

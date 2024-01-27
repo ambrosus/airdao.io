@@ -6,7 +6,7 @@ import CardsIcon from '@/components/Icons/CardsIcon';
 import RoleIcon from '@/components/Icons/RoleIcon';
 import TokenIcon from '@/components/Icons/TokenIcon';
 import Step1Bg from '@/components/Icons/Step1Bg';
-import Step4Bg from '@/components/Icons/Step4BG';
+import Step4Bg from '@/components/Icons/Step4Bg';
 import ChevronIcon from '@/components/Icons/ChevronIcon';
 
 const Card = ({ id, children, title, icon }) => {
@@ -16,8 +16,8 @@ const Card = ({ id, children, title, icon }) => {
         <h3 className={styles.title}>{title}</h3>
         {children}
       </div>
-      <div className={styles['top-overlay']} />
-      <div className={styles['bottom-overlay']} />
+      <div className={styles.topOverlay} />
+      <div className={styles.bottomOverlay} />
       <div className={styles.icon}>{icon}</div>
       {id === '1' && (
         <div className={styles.customBg}>

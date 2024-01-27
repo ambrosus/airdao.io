@@ -48,8 +48,8 @@
     }
   }
 
-  .top-overlay,
-  .bottom-overlay {
+  .topOverlay,
+  .bottomOverlay {
     position: absolute;
     flex-shrink: 0;
     border-radius: 408.928px;
@@ -59,13 +59,13 @@
     height: 408.928px;
   }
 
-  .top-overlay {
+  .topOverlay {
     left: 0;
     top: -50%;
     background: var(--warning-500);
   }
 
-  .bottom-overlay {
+  .bottomOverlay {
     left: 50%;
     bottom: -20%;
     transform: translateX(-50%);
@@ -134,12 +134,12 @@
       max-width: 646px;
     }
 
-    .top-overlay {
+    .topOverlay {
       left: -20%;
       top: -20%;
     }
 
-    .bottom-overlay {
+    .bottomOverlay {
       left: auto;
       right: 0;
       bottom: -20%;

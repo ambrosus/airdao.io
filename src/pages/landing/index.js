@@ -12,9 +12,7 @@ import Steps from '@/components/Landing/Steps';
 import styles from './landing.module.scss';
 import Cards from '@/components/Landing/Cards';
 import ParticleIcon from '@/components/Icons/ParticleIcon';
-import WorldRight from '@/components/Icons/WorldRight';
-import WorldLeft from '@/components/Icons/WorldLeft';
-import ChevronIcon from '@/components/Icons/ChevronIcon';
+import BannerMap from '@/components/Landing/BannerMap';
 
 export default function Landing({
   page,
@@ -28,33 +26,15 @@ export default function Landing({
   const [showBanner, setShowBanner] = useState(data?.show_banner);
 
   return (
-    <div className={styles['landingpage']}>
+    <div className={styles.landingpage}>
       <Head>
         <meta property="og:image" content="https://airdao.io/og.png" />
         <meta name="twitter:image" content="https://airdao.io/og.png" />
       </Head>
       <HeaderWrapper header={header} showBanner={showBanner} />
       <div className={styles.content}>
-        <div className={styles.banner}>
-          <WorldLeft className={styles['world-left']} />
-          <WorldRight className={styles['world-right']} />
-          <div className={styles.holder}>
-            <h3>New era of AirDAO Governance</h3>
-            <p>
-              We aim for transparent on-chain governance, ensuring every AirDAO
-              community member has voting rights and governance power according
-              to their engagement via AirDAO Governor SBT
-            </p>
-            <Button size="large" type="tetiary">
-              Get started
-            </Button>
-            <Button size="large" type="primary">
-              Learn more
-              <ChevronIcon />
-            </Button>
-          </div>
-        </div>
-        <div className={styles['inset-round']}>
+        <BannerMap />
+        <div className={styles.insetRound}>
           <div className="container">
             <h3 className={styles['content-title']}>
               Embark on your Governance journey in 3 steps
@@ -67,7 +47,7 @@ export default function Landing({
             <Cards />
           </div>
         </div>
-        <div className={styles['call-to-action']}>
+        <div className={styles.cta}>
           <div className="container">
             <h2 className={styles['page-title']}>
               Ready to begin your journey with AirDAO?
@@ -76,7 +56,7 @@ export default function Landing({
               Get started
             </Button>
           </div>
-          <div className={styles['round-shadow']} />
+          <div className={styles.roundShadow} />
           <div className={styles.particle}>
             <ParticleIcon />
           </div>
