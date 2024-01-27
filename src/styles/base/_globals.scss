@@ -1,68 +1,69 @@
 .slick-dots {
-  bottom: -45px!important;
+  bottom: -45px !important;
 
   button:before {
-    font-size: 12px!important;
+    font-size: 12px !important;
   }
 }
 
 .slick-arrow {
   border-radius: 50% !important;
-  background: #FFF!important;
-  box-shadow: 0px -1px 0px 0px rgba(47, 43, 67, 0.10) inset, 0px 4px 8px 0px rgba(47, 43, 67, 0.10)!important;
-  padding: 8px!important;
-  display: flex!important;
-  align-items: center!important;
-  justify-content: center!important;
-  z-index: 1!important;
+  background: #fff !important;
+  box-shadow: 0px -1px 0px 0px rgba(47, 43, 67, 0.1) inset,
+    0px 4px 8px 0px rgba(47, 43, 67, 0.1) !important;
+  padding: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 1 !important;
   top: 45% !important;
 
   @media screen and (max-width: 650px) {
-    top: 250px!important;
+    top: 250px !important;
   }
 }
 
 .slick-next {
-  right: -10px!important;
+  right: -10px !important;
 }
 
 .slick-prev {
   transform: scale(-1, 1) !important;
-  left: -45px!important;
+  left: -45px !important;
 
   @media screen and (max-width: 1050px) {
     top: 44% !important;
-    left: -25px!important;
+    left: -25px !important;
   }
   @media screen and (max-width: 650px) {
-    left: -10px!important;
-    top: 235px!important;
+    left: -10px !important;
+    top: 235px !important;
   }
 }
 
 .roadmap {
   .slick-prev {
-    left: 25px!important;
+    left: 25px !important;
     top: 50% !important;
 
     @media screen and (max-width: 1050px) {
-      display: none!important;
+      display: none !important;
     }
   }
 
   .slick-next {
-    right: 25px!important;
+    right: 25px !important;
     top: 55% !important;
 
     @media screen and (max-width: 1050px) {
-      display: none!important;
+      display: none !important;
     }
   }
 }
 
 .error-message {
   position: absolute;
-  color: var(--red-400-error, #FF4747);
+  color: var(--red-400-error, #ff4747);
   font-family: var(--font-inter);
   font-size: 14px;
   font-weight: 400;
@@ -72,7 +73,7 @@
   bottom: -23px;
 }
 
-a, button {
+a,
+button {
   user-select: none;
 }
-
