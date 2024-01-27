@@ -2,6 +2,7 @@ import { createClient } from '@/prismicio';
 import { Button } from '@airdao/ui-library';
 import { asText } from '@prismicio/client';
 import { useWeb3React } from '@web3-react/core';
+import { WalletConnect } from '@web3-react/walletconnect-v2';
 import {
   useAuthorization,
   useAutoLogin,
@@ -22,6 +23,8 @@ import HeaderConnectedNav from './HeaderConnectedNav';
 import HeaderNav from './HeaderNav';
 import TailArrow from '../Icons/TailArrow';
 import ArrowTop from '../Icons/ArrowTop';
+import MetaMaskIcon from '../Icons/MetaMaskIcon';
+import WalletConnectIcon from '../Icons/WalletConnectIcon';
 
 const ambNet = getCurrentAmbNetwork(process.env.NEXT_PUBLIC_CHAIN_ID);
 
@@ -38,7 +41,7 @@ const Header = ({ header, showBanner = false }) => {
   const [balance, setBalance] = useState('0');
 
   const isLoaded = useAutoLogin(metamaskConnector);
-  const { account, provider } = useWeb3React();
+  const { account, connector, provider } = useWeb3React();
 
   const headerRef = useRef(null);
 
@@ -154,12 +157,11 @@ const Header = ({ header, showBanner = false }) => {
                 className={styles.header__address}
                 onClick={handleAddressInfo}
               >
-                <Image
-                  src="/metamask.svg"
-                  width="20"
-                  height="20"
-                  alt="metamask"
-                />
+                {connector instanceof WalletConnect ? (
+                  <WalletConnectIcon />
+                ) : (
+                  <MetaMaskIcon />
+                )}
                 <span className={styles['header__address-text']}>
                   {`${address.substring(0, 5)}...${address.substring(
                     address.length - 5,
