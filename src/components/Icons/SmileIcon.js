@@ -3,8 +3,6 @@ import React from 'react';
 const SmileIcon = ({ props }) => {
   return (
     <svg
-      width="177"
-      height="207"
       viewBox="0 0 177 207"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

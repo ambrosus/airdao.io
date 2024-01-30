@@ -4,18 +4,45 @@
   padding-top: 215px;
   padding-bottom: 190px;
 
-  .worldLeft {
+  @media screen and (max-width: 1024px) {
+    padding-top: 170px;
+    padding-bottom: 160px;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding-top: 130px;
+    padding-bottom: 160px;
+  }
+
+  .worldLeft,
+  .worldRight {
     position: absolute;
-    left: 0;
     top: 50%;
     transform: translateY(-50%);
+
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  .worldLeft {
+    left: 0;
+
+    @media screen and (max-width: 1024px) {
+      top: 100%;
+      left: -66px;
+      z-index: 10;
+    }
   }
 
   .worldRight {
-    position: absolute;
     right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+
+    @media screen and (max-width: 1024px) {
+      top: 92%;
+      right: -110px;
+      z-index: 10;
+    }
   }
 
   &:before {
@@ -63,6 +90,11 @@
     margin: 0 auto;
     text-align: center;
 
+    @media screen and (max-width: 767px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
     button[class*="button__tetiary"] {
       background: #fff;
       margin-right: 24px;
@@ -99,6 +131,30 @@
 
     &:not(:last-child) {
       margin-bottom: 24px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    h3 {
+      font-size: 48px;
+      line-height: 64px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 26px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    h3 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 24px;
     }
   }
 }

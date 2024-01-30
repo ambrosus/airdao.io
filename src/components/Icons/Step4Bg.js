@@ -2,13 +2,7 @@ import React from 'react';
 
 const Step4Bg = () => {
   return (
-    <svg
-      width="640"
-      height="545"
-      viewBox="0 0 640 545"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 640 545" fill="none" xmlns="http://www.w3.org/2000/svg">
       <mask
         id="mask0_1408_621"
         maskUnits="userSpaceOnUse"

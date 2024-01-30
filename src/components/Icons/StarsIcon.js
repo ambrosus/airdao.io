@@ -3,8 +3,6 @@ import React from 'react';
 const StarsIcon = ({ props }) => {
   return (
     <svg
-      width="188"
-      height="211"
       viewBox="0 0 188 211"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

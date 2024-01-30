@@ -1,6 +1,5 @@
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
-import Image from 'next/image';
 
 import { Button } from '@airdao/ui-library';
 import { createClient } from '@/prismicio';
