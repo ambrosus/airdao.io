@@ -360,6 +360,17 @@
   }
 }
 
+.slider-item__link {
+  /* display: flex;
+  width: 100%;
+  align-items: stretch;
+  outline: none;
+
+  @media screen and (max-width: 1050px) {
+    flex-direction: column;
+  } */
+}
+
 .slider-item__img {
   border-radius: 40px;
   width: 45%;
