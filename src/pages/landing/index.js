@@ -68,8 +68,6 @@ export default function Landing({
 
 export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
-  const blogClient = prismic.createClient('airdao-blog');
-  const academyClient = prismic.createClient('airdao-academy');
 
   const page = await client.getSingle('homepage');
   const header = await client.getSingle('header');
