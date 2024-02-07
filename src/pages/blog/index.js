@@ -15,7 +15,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import styles from './blog-list.module.scss';
 
-import { settings } from './components/settings';
+import { settings } from '@/config/settings';
 
 const articleTypes = ['news', 'governance', 'events', 'tech'];
 
