@@ -10,6 +10,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { default as bottomBlockStyles } from './academy-list.module.scss';
 import styles from './academy.module.scss';
+import blogStyles from '../blog/blog.module.scss';
 import GoBackIcon from './goBack.svg';
 
 export async function getStaticProps(context) {
@@ -155,7 +156,22 @@ const BlogText = ({ data }) => (
     field={data.primary.text}
     components={{
       paragraph: ({ children }) => (
-        <p className={styles['academy-page__text']}>{children}</p>
+        <p className={blogStyles['blog-page__text']}>{children}</p>
+      ),
+      list: ({ children }) => (
+        <ul className={blogStyles['blog__ul']}>{children}</ul>
+      ),
+      listItem: ({ children }) => (
+        <li className={blogStyles['blog__list-item']}>{children}</li>
+      ),
+      oList: ({ children }) => (
+        <ol className={blogStyles['blog__ol']}>{children}</ol>
+      ),
+      oListItem: ({ children }) => (
+        <li className={blogStyles['blog__list-item']}>{children}</li>
+      ),
+      heading6: ({ children }) => (
+        <p className={blogStyles['blog__p-m0']}>{children}</p>
       ),
     }}
   />

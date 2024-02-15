@@ -174,6 +174,21 @@ const BlogText = ({ data }) => (
       paragraph: ({ children }) => (
         <p className={styles['blog-page__text']}>{children}</p>
       ),
+      list: ({ children }) => (
+        <ul className={styles['blog__ul']}>{children}</ul>
+      ),
+      listItem: ({ children }) => (
+        <li className={styles['blog__list-item']}>{children}</li>
+      ),
+      oList: ({ children }) => (
+        <ol className={styles['blog__ol']}>{children}</ol>
+      ),
+      oListItem: ({ children }) => (
+        <li className={styles['blog__list-item']}>{children}</li>
+      ),
+      heading6: ({ children }) => (
+        <p className={styles['blog__p-m0']}>{children}</p>
+      ),
     }}
   />
 );
