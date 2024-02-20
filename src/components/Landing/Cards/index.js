@@ -36,7 +36,10 @@ const Card = ({ id, children, title, icon }) => {
 const Cards = () => {
   return (
     <div className={styles.cards}>
-      <Card id="1" title="‘Decentralized identifier with private data storage’">
+      <Card
+        id="1"
+        title="Decentralized identifier — keep your privacy and stay secure"
+      >
         <p>
           We use Fractal ID to create a secure decentralized identifier (DID)
           for governance, authenticating your unique individuality without
@@ -49,7 +52,7 @@ const Cards = () => {
       </Card>
       <Card
         id="2"
-        title="Collect first Governor SBT for facial verification"
+        title="Collect your first SBT to become AirDAO Governor"
         icon={<TokenIcon />}
       >
         <p>
