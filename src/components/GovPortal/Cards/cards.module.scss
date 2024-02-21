@@ -34,7 +34,7 @@
   }
 
   @media screen and (max-width: 767px) {
-    padding: 24px 50px 24px 24px;
+    padding: 24px;
   }
 
   .inner {
@@ -44,18 +44,34 @@
     button[class*="button__tetiary"] {
       background: var(--neutral-0);
       margin-right: 24px;
+      transition: all 0.25s ease;
+      font-weight: 600;
+      white-space: nowrap;
+
+      @media screen and (max-width: 767px) {
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
 
       &:hover {
-        background: rgba(255, 255, 255, 0.8);
+        color: #fff;
+        background: rgba(255, 255, 255, 0.2);
       }
     }
 
     button[class*="button__primary"] {
-      color: #fff;
       background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      transition: all 0.25s ease;
+
+      @media screen and (max-width: 767px) {
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
 
       &:hover {
-        /* background: rgba(255, 255, 255, 0.2); */
+        background: rgba(255, 255, 255, 1);
+        color: #0e0e0e;
       }
     }
   }
@@ -102,6 +118,11 @@
     z-index: 0;
     left: 0;
     top: 0;
+
+    svg {
+      height: 100%;
+      width: 100%;
+    }
   }
 
   &:nth-child(1) {
@@ -258,6 +279,7 @@
     line-height: 28px;
     letter-spacing: -0.28px;
     color: var(--neutral-700, #46464d);
+    font-family: var(--font-inter);
 
     &:not(:last-child) {
       margin-bottom: 24px;

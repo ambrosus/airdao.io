@@ -33,8 +33,6 @@ export default function Home({
   const footerSlice = getFooterBlockSlice(data);
   const [showBanner, setShowBanner] = useState(data?.show_banner);
 
-  console.log('footerRext: ', footerText);
-
   return (
     <div className={styles['homepage']}>
       <Head>

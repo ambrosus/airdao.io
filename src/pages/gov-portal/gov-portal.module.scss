@@ -1,4 +1,4 @@
-.landingpage {
+.govPortalPage {
   overflow: hidden;
 
   .insetRound {
@@ -54,6 +54,34 @@
       letter-spacing: -0.439px;
       color: var(--neutral-900);
       background: var(--neutral-0);
+      transition: all 0.25s ease;
+
+      @media screen and (max-width: 767px) {
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+
+      &:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      @media only screen and (max-width: 1024px) {
+        padding: 21.969px 43.937px;
+        font-size: 43.937px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 65.906px; /* 150% */
+      }
+
+      @media only screen and (max-width: 767px) {
+        padding: 16.476px 32.953px;
+        font-size: 38.445px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 54.921px; /* 142.857% */
+        letter-spacing: -0.384px;
+      }
     }
 
     .roundShadow {
@@ -189,7 +217,7 @@
   }
 
   span {
-    color: var(--blue-500, #457eff);
+    color: var(--blue-600-primary);
     font-family: var(--font-rationell);
   }
 }

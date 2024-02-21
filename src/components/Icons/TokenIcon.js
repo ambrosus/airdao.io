@@ -326,6 +326,7 @@ const TokenIcon = () => {
         />
         <mask
           id="mask0_1400_11201"
+          style={{ maskType: 'alpha' }}
           maskUnits="userSpaceOnUse"
           x="77"
           y="71"
@@ -355,6 +356,7 @@ const TokenIcon = () => {
         </g>
         <mask
           id="mask1_1400_11201"
+          style={{ maskType: 'alpha' }}
           maskUnits="userSpaceOnUse"
           x="97"
           y="71"

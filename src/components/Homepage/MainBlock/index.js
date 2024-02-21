@@ -1,7 +1,10 @@
 import BlockLabel from '@/components/BlockLabel';
 import { PrismicRichText } from '@prismicio/react';
 import styles from './main-block.module.scss';
+import { Button } from '@airdao/ui-library';
+import Link from 'next/link';
 
+import ChevronIcon from '@/components/Icons/ChevronIcon';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
@@ -32,6 +35,12 @@ const MainBlock = ({
         ),
       }}
     />
+    <Link className={styles['main-block__link']} href="/gov-portal">
+      <Button type="primary" size="large">
+        Join AirDAO
+        <ChevronIcon />
+      </Button>
+    </Link>
     <PrismicRichText
       field={label}
       components={{

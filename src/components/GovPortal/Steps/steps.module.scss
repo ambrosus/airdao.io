@@ -23,6 +23,7 @@
   border-radius: 24px;
   border: 1px solid var(--neutral-100);
   background-color: var(--neutral-0);
+  font-family: var(--font-inter);
 
   @media screen and (max-width: 1024px) {
     padding: 52px 32px;
@@ -51,9 +52,16 @@
     line-height: 20px;
     letter-spacing: -0.16px;
     text-transform: uppercase;
+    font-family: var(--font-inter);
 
     &:not(:last-child) {
       margin-bottom: 24px;
+    }
+  }
+
+  .content {
+    @media screen and (min-width: 767px) and (max-width: 1024px) {
+      max-width: 49%;
     }
   }
 
@@ -64,6 +72,7 @@
     line-height: 32px;
     letter-spacing: -0.384px;
     color: var(--blue-600-primary);
+    font-family: var(--font-inter);
 
     &:not(:last-child) {
       margin-bottom: 11px;
@@ -95,6 +104,8 @@
     line-height: 26px;
     letter-spacing: -0.216px;
     color: var(--neutral-600);
+    font-family: var(--font-inter);
+    letter-spacing: -0.216px;
 
     @media screen and (max-width: 1024px) {
       font-size: 16px;

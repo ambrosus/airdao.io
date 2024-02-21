@@ -1,7 +1,8 @@
 import React from 'react';
+import { Button } from '@airdao/ui-library';
+
 import styles from './banner.module.scss';
 
-import { Button } from '@airdao/ui-library';
 import WorldRight from '@/components/Icons/WorldRight';
 import WorldLeft from '@/components/Icons/WorldLeft';
 import ChevronIcon from '@/components/Icons/ChevronIcon';
