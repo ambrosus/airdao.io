@@ -21,17 +21,11 @@ const Step = ({ className, label, title, icon, children }) => {
 };
 
 const Steps = () => {
-  const isMobile = useIsMobile();
+  const leftStepVariant = {
+    visible: { transform: 'translateX(0)' },
+    hidden: { transform: 'translateX(260px)' },
+  };
 
-  const leftStepVariant = isMobile
-    ? {
-        visible: { transform: 'translateX(0)' },
-        hidden: { transform: 'translateX(0)' },
-      }
-    : {
-        visible: { transform: 'translateX(0)' },
-        hidden: { transform: 'translateX(260px)' },
-      };
   const centerStepVariant = {
     visible: {
       boxShadow:
@@ -43,15 +37,10 @@ const Steps = () => {
     },
   };
 
-  const rightStepVariant = isMobile
-    ? {
-        visible: { transform: 'translateX(0)' },
-        hidden: { transform: 'translateX(0)' },
-      }
-    : {
-        visible: { transform: 'translateX(0)' },
-        hidden: { transform: 'translateX(-260px)' },
-      };
+  const rightStepVariant = {
+    visible: { transform: 'translateX(0)' },
+    hidden: { transform: 'translateX(-260px)' },
+  };
 
   return (
     <div className={styles.steps}>
