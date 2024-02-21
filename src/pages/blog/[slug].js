@@ -170,7 +170,6 @@ const BlogImage = ({ data }) => (
 );
 
 const NumericList = ({ data }) => {
-  console.log(data);
   return (
     <div>
       {data.items.map((el, i) => (
