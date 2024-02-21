@@ -15,6 +15,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import styles from './blog-list.module.scss';
 
+import { settings } from '@/config/settings';
+
 const articleTypes = ['news', 'governance', 'events', 'tech'];
 
 const getLastArticlesByType = async type => {
@@ -55,54 +57,6 @@ export async function getStaticProps(context) {
     },
   };
 }
-
-const settings = {
-  dots: true,
-  infinite: true,
-  autoplay: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: true,
-  nextArrow: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="25"
-      height="25"
-      viewBox="0 0 25 25"
-      fill="none"
-      className="slider-arrow"
-    >
-      <path
-        d="M8.40715 4.45305C8.01663 4.84357 8.01663 5.47674 8.40715 5.86726L14.7 12.1602L8.40715 18.453C8.01663 18.8436 8.01663 19.4767 8.40715 19.8673C8.79768 20.2578 9.43084 20.2578 9.82137 19.8673L16.8214 12.8673C17.2119 12.4767 17.2119 11.8436 16.8214 11.453L9.82136 4.45305C9.43084 4.06253 8.79768 4.06253 8.40715 4.45305Z"
-        fill="#212121"
-      />
-    </svg>
-  ),
-  prevArrow: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="25"
-      height="25"
-      viewBox="0 0 25 25"
-      fill="none"
-      className="slider-arrow"
-    >
-      <path
-        d="M8.40715 4.45305C8.01663 4.84357 8.01663 5.47674 8.40715 5.86726L14.7 12.1602L8.40715 18.453C8.01663 18.8436 8.01663 19.4767 8.40715 19.8673C8.79768 20.2578 9.43084 20.2578 9.82137 19.8673L16.8214 12.8673C17.2119 12.4767 17.2119 11.8436 16.8214 11.453L9.82136 4.45305C9.43084 4.06253 8.79768 4.06253 8.40715 4.45305Z"
-        fill="#212121"
-      />
-    </svg>
-  ),
-  responsive: [
-    {
-      breakpoint: 1050,
-      settings: {
-        arrows: false,
-      },
-    },
-  ],
-};
 
 export default function Blog({
   header,
@@ -274,43 +228,51 @@ export default function Blog({
             <div className={`${styles['slider-wrapper']} container`}>
               <Slider {...settings}>
                 {lastArticlesByType[selectedType].map(el => (
-                  <div key={el.uid} className={styles['slider-item']}>
-                    <img
-                      src={el.data.article_link_img.url || '/article.png'}
-                      alt="slider image"
-                      className={styles['slider-item__img']}
-                    />
-                    <div className={styles['slider-item__info']}>
-                      <p className={styles['slider-item__label']}>
-                        LATEST RELEASE
-                      </p>
-                      <PrismicRichText
-                        field={el.data.title}
-                        components={{
-                          paragraph: ({ children }) => (
-                            <h3 className={styles['slider-item__title']}>
-                              {children}
-                            </h3>
-                          ),
-                        }}
+                  <Link
+                    key={el.uid}
+                    href={`/blog/${el.uid}`}
+                    className={styles['slider-item__link']}
+                  >
+                    <div className={styles['slider-item']}>
+                      <img
+                        src={el.data.article_link_img.url || '/article.png'}
+                        alt="slider image"
+                        className={styles['slider-item__img']}
                       />
-                      <div className={styles['slider-item__bottom']}>
-                        <span className={styles['slider-item__subinfo']}>
-                          {getTimePassed(el.last_publication_date)}
-                        </span>
+                      <div className={styles['slider-item__info']}>
+                        <p className={styles['slider-item__label']}>
+                          LATEST RELEASE
+                        </p>
                         <PrismicRichText
-                          field={el.data.read_time}
+                          field={el.data.title}
                           components={{
                             paragraph: ({ children }) => (
-                              <span className={styles['slider-item__subinfo']}>
-                                {children} read
-                              </span>
+                              <h3 className={styles['slider-item__title']}>
+                                {children}
+                              </h3>
                             ),
                           }}
                         />
+                        <div className={styles['slider-item__bottom']}>
+                          <span className={styles['slider-item__subinfo']}>
+                            {getTimePassed(el.last_publication_date)}
+                          </span>
+                          <PrismicRichText
+                            field={el.data.read_time}
+                            components={{
+                              paragraph: ({ children }) => (
+                                <span
+                                  className={styles['slider-item__subinfo']}
+                                >
+                                  {children} read
+                                </span>
+                              ),
+                            }}
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </Slider>
             </div>

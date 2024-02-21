@@ -66,6 +66,8 @@ export default function BlogArticle({
         return <BlogWrappedText key={itemData.id} data={itemData} />;
       case 'blog_text_title':
         return <BlogTextTitle key={itemData.id} data={itemData} />;
+      case 'numeric_list':
+        return <NumericList key={itemData.id} data={itemData} />;
     }
   };
 
@@ -167,12 +169,58 @@ const BlogImage = ({ data }) => (
   />
 );
 
+const NumericList = ({ data }) => {
+  return (
+    <div>
+      {data.items.map((el, i) => (
+        <div className={styles['blog-page__custom-numbered-list']} key={i}>
+          <div className={styles['blog-page__custom-number']}>
+            <PrismicRichText
+              field={el.number}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className={styles['blog-page__text']}>{children}</p>
+                ),
+              }}
+            />
+          </div>
+          <div>
+            <PrismicRichText
+              field={el.text}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className={styles['blog-page__text']}>{children}</p>
+                ),
+              }}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const BlogText = ({ data }) => (
   <PrismicRichText
     field={data.primary.text}
     components={{
       paragraph: ({ children }) => (
         <p className={styles['blog-page__text']}>{children}</p>
+      ),
+      list: ({ children }) => (
+        <ul className={styles['blog__ul']}>{children}</ul>
+      ),
+      listItem: ({ children }) => (
+        <li className={styles['blog__list-item']}>{children}</li>
+      ),
+      oList: ({ children }) => (
+        <ol className={styles['blog__ol']}>{children}</ol>
+      ),
+      oListItem: ({ children }) => (
+        <li className={styles['blog__list-item']}>{children}</li>
+      ),
+      heading6: ({ children }) => (
+        <p className={styles['blog__p-m0']}>{children}</p>
       ),
     }}
   />

@@ -17,7 +17,7 @@ const Products = ({ title, products }) => (
       />
     </p>
     <div className={styles.products}>
-      {products.map((el) => (
+      {products.map(el => (
         <div key={asText(el.label)} className={styles['product']}>
           <div>
             <PrismicRichText

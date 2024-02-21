@@ -20,10 +20,10 @@ const getLastArticlesByType = async type => {
   return await newClient.getAllByType('academy', {
     limit: 3,
     orderings: {
-      field: 'document.first_publication_date',
+      field: 'document.last_publication_date',
       direction: 'desc',
     },
-    filters: [prismic.filter.at('my.academy.academy_type', type)],
+    filters: [prismic.filter.at('my.academy.type_name', type)],
   });
 };
 
@@ -55,16 +55,16 @@ export default function Academy({ footerText, header, page, banner }) {
     const lastArticlesByType = {};
     const types = [];
     const names = [];
-
     page?.types?.map(item => {
-      types.push(item.type_name[0].text);
-      names.push(item.type_name[0].text);
+      if (item.type_name[0].text !== 'Analytics') {
+        types.push(item.type_name[0].text);
+        names.push(item.type_name[0].text);
+      }
     });
 
     for (let i = 0; i < types.length; i++) {
       lastArticlesByType[types[i]] = await getLastArticlesByType(types[i]);
     }
-
     setArticles(lastArticlesByType);
     setArticleNames(names);
   };
@@ -89,10 +89,10 @@ export default function Academy({ footerText, header, page, banner }) {
       page,
       pageSize: 9,
       orderings: {
-        field: 'document.first_publication_date',
+        field: 'document.last_publication_date',
         direction: 'desc',
       },
-      filters: [prismic.filter.at('my.academy.academy_type', selectedType)],
+      filters: [prismic.filter.at('my.academy.type_name', selectedType)],
     });
     setPaginatedData(academyArticles);
 
@@ -105,7 +105,7 @@ export default function Academy({ footerText, header, page, banner }) {
     setSelectedType(type);
     window.scrollTo(0, 0);
   };
-
+  console.log(articles);
   return (
     <>
       <div

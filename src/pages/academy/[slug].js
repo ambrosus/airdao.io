@@ -10,6 +10,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { default as bottomBlockStyles } from './academy-list.module.scss';
 import styles from './academy.module.scss';
+import blogStyles from '../blog/blog.module.scss';
 import GoBackIcon from './goBack.svg';
 
 export async function getStaticProps(context) {
@@ -22,7 +23,7 @@ export async function getStaticProps(context) {
   const latestAcademyArticles = await newClient.getAllByType('academy', {
     limit: 3,
     orderings: {
-      field: 'document.first_publication_date',
+      field: 'document.last_publication_date',
       direction: 'desc',
     },
   });
@@ -63,6 +64,8 @@ export default function AcademyArticle({
         return <BlogWrappedText key={itemData.id} data={itemData} />;
       case 'blog_text_title':
         return <BlogTextTitle key={itemData.id} data={itemData} />;
+      case 'numeric_list':
+        return <NumericList key={itemData.id} data={itemData} />;
     }
   };
 
@@ -150,12 +153,58 @@ const BlogImage = ({ data }) => (
   />
 );
 
+const NumericList = ({ data }) => {
+  return (
+    <div>
+      {data.items.map((el, i) => (
+        <div className={blogStyles['blog-page__custom-numbered-list']} key={i}>
+          <div className={blogStyles['blog-page__custom-number']}>
+            <PrismicRichText
+              field={el.number}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className={blogStyles['blog-page__text']}>{children}</p>
+                ),
+              }}
+            />
+          </div>
+          <div>
+            <PrismicRichText
+              field={el.text}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className={blogStyles['blog-page__text']}>{children}</p>
+                ),
+              }}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const BlogText = ({ data }) => (
   <PrismicRichText
     field={data.primary.text}
     components={{
       paragraph: ({ children }) => (
-        <p className={styles['academy-page__text']}>{children}</p>
+        <p className={blogStyles['blog-page__text']}>{children}</p>
+      ),
+      list: ({ children }) => (
+        <ul className={blogStyles['blog__ul']}>{children}</ul>
+      ),
+      listItem: ({ children }) => (
+        <li className={blogStyles['blog__list-item']}>{children}</li>
+      ),
+      oList: ({ children }) => (
+        <ol className={blogStyles['blog__ol']}>{children}</ol>
+      ),
+      oListItem: ({ children }) => (
+        <li className={blogStyles['blog__list-item']}>{children}</li>
+      ),
+      heading6: ({ children }) => (
+        <p className={blogStyles['blog__p-m0']}>{children}</p>
       ),
     }}
   />

@@ -127,7 +127,7 @@
   }
 }
 
-.blog-page__text {
+.blog-page__text, .blog__list-item, .blog__p-m0, .blog__ul, .blog__ol {
   max-width: 860px;
   margin: 0 auto 48px;
   color: #393b40;
@@ -249,4 +249,32 @@
   font-style: normal;
   font-weight: 500;
   line-height: 28px; /* 155.556% */
+}
+
+.blog__ul {
+  list-style: disc;
+}
+
+.blog__ol {
+  list-style: decimal;
+}
+
+.blog__list-item {
+  margin-left: 40px;
+  margin-bottom: 0;
+  padding-left: 10px;
+}
+
+.blog__p-m0 {
+  margin: 0 auto;
+}
+
+.blog-page__custom-numbered-list {
+  display: flex;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.blog-page__custom-number {
+  margin: 0 15px;
 }
