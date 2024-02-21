@@ -20,7 +20,7 @@ const getLastArticlesByType = async type => {
   return await newClient.getAllByType('academy', {
     limit: 3,
     orderings: {
-      field: 'document.first_publication_date',
+      field: 'document.last_publication_date',
       direction: 'desc',
     },
     filters: [prismic.filter.at('my.academy.type_name', type)],
@@ -89,7 +89,7 @@ export default function Academy({ footerText, header, page, banner }) {
       page,
       pageSize: 9,
       orderings: {
-        field: 'document.first_publication_date',
+        field: 'document.last_publication_date',
         direction: 'desc',
       },
       filters: [prismic.filter.at('my.academy.type_name', selectedType)],
@@ -105,7 +105,7 @@ export default function Academy({ footerText, header, page, banner }) {
     setSelectedType(type);
     window.scrollTo(0, 0);
   };
-
+  console.log(articles);
   return (
     <>
       <div

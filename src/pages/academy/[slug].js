@@ -23,7 +23,7 @@ export async function getStaticProps(context) {
   const latestAcademyArticles = await newClient.getAllByType('academy', {
     limit: 3,
     orderings: {
-      field: 'document.first_publication_date',
+      field: 'document.last_publication_date',
       direction: 'desc',
     },
   });
