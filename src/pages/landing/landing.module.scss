@@ -1,6 +1,5 @@
 .govPortalPage {
   overflow: hidden;
-  position: relative;
 
   .insetRound {
     position: relative;
@@ -20,23 +19,18 @@
       z-index: 5;
     }
 
-    /* &:after {
-      background: #fff;
+    &:after {
       position: absolute;
-      width: 100%;
-      height: 150%;
-      content: "";
       top: -120px;
+      left: 50%;
       z-index: 0;
-
-      @media only screen and (min-width: 768px) {
-        left: 50%;
-        width: 3200px;
-        height: 4200px;
-        transform: translateX(-50%);
-        border-radius: 50%;
-      }
-    } */
+      width: 3200px;
+      height: 4200px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: #fff;
+      content: "";
+    }
   }
 
   .cta {
