@@ -70,7 +70,7 @@ const WorldLeft = props => {
         cx="109.247"
         cy="219.132"
         r="27.25"
-        fill="url(#pattern0)"
+        fill="url(#pattern66)"
         stroke="#0C0C0D"
         stroke-width="1.5"
       />
@@ -241,13 +241,13 @@ const WorldLeft = props => {
         cx="244.76"
         cy="86.6152"
         r="27.25"
-        fill="url(#pattern1)"
+        fill="url(#pattern11)"
         stroke="#0C0C0D"
         stroke-width="1.5"
       />
       <defs>
         <pattern
-          id="pattern0"
+          id="pattern66"
           patternContentUnits="objectBoundingBox"
           width="1"
           height="1"
@@ -308,7 +308,7 @@ const WorldLeft = props => {
           />
         </filter>
         <pattern
-          id="pattern1"
+          id="pattern11"
           patternContentUnits="objectBoundingBox"
           width="1"
           height="1"

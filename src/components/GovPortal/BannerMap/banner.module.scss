@@ -98,11 +98,33 @@
     button[class*="button__tetiary"] {
       background: #fff;
       margin-right: 24px;
+      transition: all 0.25s ease;
+
+      @media screen and (max-width: 767px) {
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+
+      &:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.2);
+      }
     }
 
     button[class*="button__primary"] {
       background: rgba(255, 255, 255, 0.2);
       color: #fff;
+      transition: all 0.25s ease;
+
+      @media screen and (max-width: 767px) {
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 1);
+        color: #0e0e0e;
+      }
     }
   }
 

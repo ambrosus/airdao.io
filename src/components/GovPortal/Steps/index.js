@@ -1,16 +1,19 @@
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 
-import BookIcon from '@/components/Icons/BookIcon';
 import styles from './steps.module.scss';
+import BookIcon from '@/components/Icons/BookIcon';
 import SmileIcon from '@/components/Icons/SmileIcon';
 import StarsIcon from '@/components/Icons/StarsIcon';
+import useIsMobile from '@/hooks/useIsMobile';
 
 const Step = ({ className, label, title, icon, children }) => {
   return (
     <div className={`${className}`}>
       <span className={styles.label}>{label}</span>
-      <h4>{title}</h4>
-      <p>{children}</p>
+      <div className={styles.content}>
+        <h4>{title}</h4>
+        <p>{children}</p>
+      </div>
       <div className={styles.overlay} />
       <div className={styles.icon}>{icon}</div>
     </div>
@@ -18,10 +21,17 @@ const Step = ({ className, label, title, icon, children }) => {
 };
 
 const Steps = () => {
-  const leftStepVariant = {
-    visible: { transform: 'translateX(0)' },
-    hidden: { transform: 'translateX(260px)' },
-  };
+  const isMobile = useIsMobile();
+
+  const leftStepVariant = isMobile
+    ? {
+        visible: { transform: 'translateX(0)' },
+        hidden: { transform: 'translateX(0)' },
+      }
+    : {
+        visible: { transform: 'translateX(0)' },
+        hidden: { transform: 'translateX(260px)' },
+      };
   const centerStepVariant = {
     visible: {
       boxShadow:
@@ -33,14 +43,20 @@ const Steps = () => {
     },
   };
 
-  const rightStepVariant = {
-    visible: { transform: 'translateX(0)' },
-    hidden: { transform: 'translateX(-260px)' },
-  };
+  const rightStepVariant = isMobile
+    ? {
+        visible: { transform: 'translateX(0)' },
+        hidden: { transform: 'translateX(0)' },
+      }
+    : {
+        visible: { transform: 'translateX(0)' },
+        hidden: { transform: 'translateX(-260px)' },
+      };
 
   return (
     <div className={styles.steps}>
       <motion.div
+        animate={false}
         className={styles.step}
         variants={leftStepVariant}
         initial="hidden"
@@ -58,6 +74,7 @@ const Steps = () => {
         </Step>
       </motion.div>
       <motion.div
+        animate={false}
         className={styles.step}
         variants={centerStepVariant}
         initial="hidden"
