@@ -55,7 +55,6 @@ export default function Academy({ footerText, header, page, banner }) {
     const lastArticlesByType = {};
     const types = [];
     const names = [];
-    console.log(page?.types);
     page?.types?.map(item => {
       if (item.type_name[0].text !== 'Analytics') {
         types.push(item.type_name[0].text);
