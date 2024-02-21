@@ -66,6 +66,8 @@ export default function BlogArticle({
         return <BlogWrappedText key={itemData.id} data={itemData} />;
       case 'blog_text_title':
         return <BlogTextTitle key={itemData.id} data={itemData} />;
+      case 'numeric_list':
+        return <NumericList key={itemData.id} data={itemData} />;
     }
   };
 
@@ -166,6 +168,38 @@ const BlogImage = ({ data }) => (
     className={styles['blog-page__img']}
   />
 );
+
+const NumericList = ({ data }) => {
+  console.log(data);
+  return (
+    <div>
+      {data.items.map((el, i) => (
+        <div className={styles['blog-page__custom-numbered-list']} key={i}>
+          <div className={styles['blog-page__custom-number']}>
+            <PrismicRichText
+              field={el.number}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className={styles['blog-page__text']}>{children}</p>
+                ),
+              }}
+            />
+          </div>
+          <div>
+            <PrismicRichText
+              field={el.text}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className={styles['blog-page__text']}>{children}</p>
+                ),
+              }}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const BlogText = ({ data }) => (
   <PrismicRichText

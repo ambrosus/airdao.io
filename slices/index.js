@@ -13,4 +13,5 @@ export const components = {
   footer_events: dynamic(() => import('./FooterEvents')),
   footer_item: dynamic(() => import('./FooterItem')),
   nav_item: dynamic(() => import('./NavItem')),
+  numeric_list: dynamic(() => import('./NumericList')),
 };
