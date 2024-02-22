@@ -105,7 +105,7 @@ export default function Academy({ footerText, header, page, banner }) {
     setSelectedType(type);
     window.scrollTo(0, 0);
   };
-  console.log(articles);
+
   return (
     <>
       <div
