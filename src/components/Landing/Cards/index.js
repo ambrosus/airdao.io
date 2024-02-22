@@ -38,7 +38,10 @@ const Cards = () => {
           for governance, authenticating your unique individuality without
           revealing personal data or identity (KYC).
         </p>
-        <Link href="/academy/how-to-verify-your-identity-using-fractal-id">
+        <Link
+          target="_blank"
+          href="/academy/how-to-verify-your-identity-using-fractal-id"
+        >
           <Button size="large" type="tetiary">
             Learn more about Fractal ID
             <ChevronIcon />
@@ -74,7 +77,7 @@ const Cards = () => {
         {/* <Button size="large" type="tetiary">
           Get started
         </Button> */}
-        <Link href="https://airdao.io/academy#governance">
+        <Link target="_blank" href="https://airdao.io/academy#governance">
           <Button size="large" type="primary">
             Learn more
             <ChevronIcon />
