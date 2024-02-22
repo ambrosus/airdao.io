@@ -6,22 +6,21 @@ import styles from './cards.module.scss';
 import CardsIcon from '@/components/Icons/CardsIcon';
 import RoleIcon from '@/components/Icons/RoleIcon';
 import TokenIcon from '@/components/Icons/TokenIcon';
-import Step1Bg from '@/components/Icons/Step1Bg';
-import Step4Bg from '@/components/Icons/Step4Bg';
+// import Step1Bg from '@/components/Icons/Step1Bg';
+// import Step4Bg from '@/components/Icons/Step4Bg';
 import ChevronIcon from '@/components/Icons/ChevronIcon';
 
-const SingleCard = ({ className, id, children, title, icon }) => {
+const SingleCard = ({ className, component, children, title, icon }) => {
   return (
     <div className={`${styles.card} ${className}`}>
       <div className={styles.inner}>
         <h3 className={styles.title}>{title}</h3>
         {children}
       </div>
-      {/* <div className={styles.topOverlay} />
-      <div className={styles.bottomOverlay} /> */}
+      <div className={styles.topOverlay} />
+      <div className={styles.bottomOverlay} />
       <div className={styles.icon}>{icon}</div>
-      {id === '1' && <div className={styles.customBg}>{/* <Step1Bg /> */}</div>}
-      {id === '4' && <div className={styles.customBg}>{/* <Step4Bg /> */}</div>}
+      {component && <div className={styles.customBg}>{component}</div>}
     </div>
   );
 };
@@ -30,8 +29,8 @@ const Cards = () => {
   return (
     <div className={styles.cards}>
       <SingleCard
-        id="1"
         title="Decentralized identifier — keep your privacy and stay secure"
+        className={styles.bg1}
       >
         <p>
           We use Fractal ID to create a secure decentralized identifier (DID)
@@ -49,7 +48,6 @@ const Cards = () => {
         </Link>
       </SingleCard>
       <SingleCard
-        id="2"
         title="Collect your first SBT to become AirDAO Governor"
         icon={<TokenIcon />}
       >
@@ -59,7 +57,6 @@ const Cards = () => {
         </p>
       </SingleCard>
       <SingleCard
-        id="3"
         title="Let your role define your voting power"
         icon={<RoleIcon />}
       >
@@ -68,7 +65,7 @@ const Cards = () => {
           your activities and influence in the DAO and Ecosystem.
         </p>
       </SingleCard>
-      <SingleCard id="4" title="Impact and decision making">
+      <SingleCard title="Impact and decision making" className={styles.bg4}>
         <p>
           The more impact you make, the more powerful your weight is in
           decision-making. As the AirDAO governor, you can collect various
@@ -85,7 +82,6 @@ const Cards = () => {
         </Link>
       </SingleCard>
       <SingleCard
-        id="5"
         title="Recognition of Diverse contributions"
         icon={<CardsIcon />}
         className={styles.lastGrid}
