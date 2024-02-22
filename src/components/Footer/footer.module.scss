@@ -1,5 +1,5 @@
 .footer {
-  background: var(--neutral-700, #222426);
+  background: #222426;
   margin-top: 100px;
   padding: 70px;
 
@@ -70,6 +70,11 @@
   margin-bottom: 32px;
   font-weight: 500;
   display: inline-block;
+  transition: all 0.25s ease;
+
+  &:hover {
+    color: #fff;
+  }
 }
 
 .footer__lists-soon {

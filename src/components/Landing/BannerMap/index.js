@@ -19,9 +19,9 @@ const BannerMap = () => {
           community member has voting rights and governance power according to
           their engagement via AirDAO Governor SBT
         </p>
-        <Button size="large" type="tetiary">
+        {/* <Button size="large" type="tetiary">
           Get started
-        </Button>
+        </Button> */}
         <Button size="large" type="primary">
           Learn more
           <ChevronIcon />

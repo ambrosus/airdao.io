@@ -79,9 +79,9 @@ const Cards = () => {
           decision-making. As the AirDAO governor, you can collect various
           impact-based SBTs, increasing your voting power.
         </p>
-        <Button size="large" type="tetiary">
+        {/* <Button size="large" type="tetiary">
           Get started
-        </Button>
+        </Button> */}
         <Button size="large" type="primary">
           Learn more
           <ChevronIcon />
