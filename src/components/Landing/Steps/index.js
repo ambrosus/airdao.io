@@ -1,5 +1,3 @@
-// import { motion } from 'framer-motion';
-
 import styles from './steps.module.scss';
 import BookIcon from '@/components/Icons/BookIcon';
 import SmileIcon from '@/components/Icons/SmileIcon';
