@@ -35,12 +35,12 @@ const MainBlock = ({
         ),
       }}
     />
-    {/* <Link className={styles['main-block__link']} href="/gov-portal">
+    <Link className={styles['main-block__link']} href="/gov-portal">
       <Button type="primary" size="large">
         Join AirDAO
         <ChevronIcon />
       </Button>
-    </Link> */}
+    </Link>
     <PrismicRichText
       field={label}
       components={{
