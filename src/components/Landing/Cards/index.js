@@ -10,7 +10,7 @@ import Step1Bg from '@/components/Icons/Step1Bg';
 import Step4Bg from '@/components/Icons/Step4Bg';
 import ChevronIcon from '@/components/Icons/ChevronIcon';
 
-const Card = ({ className, id, children, title, icon }) => {
+const SingleCard = ({ className, id, children, title, icon }) => {
   return (
     <div className={`${styles.card} ${className}`}>
       <div className={styles.inner}>
@@ -28,62 +28,60 @@ const Card = ({ className, id, children, title, icon }) => {
 
 const Cards = () => {
   return (
-    <>
-      <div className={styles.cards}>
-        <Card
-          id="1"
-          title="Decentralized identifier — keep your privacy and stay secure"
-        >
-          <p>
-            We use Fractal ID to create a secure decentralized identifier (DID)
-            for governance, authenticating your unique individuality without
-            revealing personal data or identity (KYC).
-          </p>
-          <Link href="/academy/how-to-verify-your-identity-using-fractal-id">
-            <Button size="large" type="tetiary">
-              Learn more about Fractal ID
-              <ChevronIcon />
-            </Button>
-          </Link>
-        </Card>
-        <Card
-          id="2"
-          title="Collect your first SBT to become AirDAO Governor"
-          icon={<TokenIcon />}
-        >
-          <p>
-            The issuance of the AirDAO Governor SBT will be based on facial
-            recognition using your biometric data, verified by Fractal ID.
-          </p>
-        </Card>
-        <Card
-          id="3"
-          title="Let your role define your voting power"
-          icon={<RoleIcon />}
-        >
-          <p>
-            Your engagement matters! The governance voting power will be based
-            on your activities and influence in the DAO and Ecosystem.
-          </p>
-        </Card>
-        <Card id="4" title="Impact and decision making">
-          <p>
-            The more impact you make, the more powerful your weight is in
-            decision-making. As the AirDAO governor, you can collect various
-            impact-based SBTs, increasing your voting power.
-          </p>
-          {/* <Button size="large" type="tetiary">
+    <div className={styles.cards}>
+      <SingleCard
+        id="1"
+        title="Decentralized identifier — keep your privacy and stay secure"
+      >
+        <p>
+          We use Fractal ID to create a secure decentralized identifier (DID)
+          for governance, authenticating your unique individuality without
+          revealing personal data or identity (KYC).
+        </p>
+        <Link href="/academy/how-to-verify-your-identity-using-fractal-id">
+          <Button size="large" type="tetiary">
+            Learn more about Fractal ID
+            <ChevronIcon />
+          </Button>
+        </Link>
+      </SingleCard>
+      <SingleCard
+        id="2"
+        title="Collect your first SBT to become AirDAO Governor"
+        icon={<TokenIcon />}
+      >
+        <p>
+          The issuance of the AirDAO Governor SBT will be based on facial
+          recognition using your biometric data, verified by Fractal ID.
+        </p>
+      </SingleCard>
+      <SingleCard
+        id="3"
+        title="Let your role define your voting power"
+        icon={<RoleIcon />}
+      >
+        <p>
+          Your engagement matters! The governance voting power will be based on
+          your activities and influence in the DAO and Ecosystem.
+        </p>
+      </SingleCard>
+      <SingleCard id="4" title="Impact and decision making">
+        <p>
+          The more impact you make, the more powerful your weight is in
+          decision-making. As the AirDAO governor, you can collect various
+          impact-based SBTs, increasing your voting power.
+        </p>
+        {/* <Button size="large" type="tetiary">
           Get started
         </Button> */}
-          <Link href="https://airdao.io/academy#governance">
-            <Button size="large" type="primary">
-              Learn more
-              <ChevronIcon />
-            </Button>
-          </Link>
-        </Card>
-      </div>
-      <Card
+        <Link href="https://airdao.io/academy#governance">
+          <Button size="large" type="primary">
+            Learn more
+            <ChevronIcon />
+          </Button>
+        </Link>
+      </SingleCard>
+      <SingleCard
         id="5"
         title="Recognition of Diverse contributions"
         icon={<CardsIcon />}
@@ -95,8 +93,8 @@ const Cards = () => {
           role, you will be awarded governance SBTs corresponding to the
           benefits you contribute to AirDAO and its prosperity.
         </p>
-      </Card>
-    </>
+      </SingleCard>
+    </div>
   );
 };
 
