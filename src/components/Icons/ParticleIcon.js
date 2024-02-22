@@ -3,7 +3,7 @@ import React from 'react';
 const ParticleIcon = () => {
   return (
     <svg viewBox="0 0 371 672" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#clip0_1400_11794)">
+      <g clipPath="url(#clip0_1400_11794)">
         <path
           fill-rule="evenodd"
           clip-rule="evenodd"
