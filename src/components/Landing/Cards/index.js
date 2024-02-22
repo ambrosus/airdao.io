@@ -6,11 +6,9 @@ import styles from './cards.module.scss';
 import CardsIcon from '@/components/Icons/CardsIcon';
 import RoleIcon from '@/components/Icons/RoleIcon';
 import TokenIcon from '@/components/Icons/TokenIcon';
-// import Step1Bg from '@/components/Icons/Step1Bg';
-// import Step4Bg from '@/components/Icons/Step4Bg';
 import ChevronIcon from '@/components/Icons/ChevronIcon';
 
-const SingleCard = ({ className, component, children, title, icon }) => {
+const SingleCard = ({ className = '', component, children, title, icon }) => {
   return (
     <div className={`${styles.card} ${className}`}>
       <div className={styles.inner}>

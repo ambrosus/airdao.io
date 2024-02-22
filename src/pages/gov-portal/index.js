@@ -6,7 +6,6 @@ import { createClient } from '@/prismicio';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
 import * as prismic from '@prismicio/client';
 import Head from 'next/head';
-import { useState } from 'react';
 import Steps from '@/components/Landing/Steps';
 import styles from './landing.module.scss';
 import Cards from '@/components/Landing/Cards';

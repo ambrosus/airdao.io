@@ -111,8 +111,9 @@
     }
 
     .topOverlay {
-      left: -20%;
+      left: -30%;
       top: -50%;
+      opacity: 0.2;
       background: radial-gradient(
         ellipse at center,
         rgba(255, 201, 62, 0.65) 0%,
@@ -139,6 +140,11 @@
   }
 
   &:nth-child(5) {
+    .topOverlay {
+      left: -20%;
+      top: -65%;
+    }
+
     .bottomOverlay {
       left: auto;
       right: 0;

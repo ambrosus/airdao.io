@@ -117,31 +117,46 @@
 
   .bg-green {
     .overlay {
-      background-color: #2dba8d;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(45, 186, 141, 0.6) 0%,
+        rgba(63, 50, 15, 0) 55%,
+        rgba(0, 0, 0, 0) 73%
+      );
     }
   }
 
   .bg-blue {
     .overlay {
-      background-color: #457eff;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(69, 126, 255, 0.6) 0%,
+        rgba(63, 50, 15, 0) 55%,
+        rgba(0, 0, 0, 0) 73%
+      );
     }
   }
 
   .bg-orange {
     .overlay {
-      background-color: #ffac23;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(255, 172, 35, 0.6) 0%,
+        rgba(63, 50, 15, 0) 55%,
+        rgba(0, 0, 0, 0) 73%
+      );
     }
   }
 
   .overlay {
     position: absolute;
-    left: 50%;
-    top: 25%;
+    z-index: 0;
+    right: -100%;
+    top: -30%;
     border-radius: 408.928px;
     opacity: 0.3;
-    filter: blur(140.4600372314453px);
-    width: 100%;
-    height: 100%;
+    width: 200%;
+    height: 200%;
   }
 
   .icon {
