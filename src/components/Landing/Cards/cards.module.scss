@@ -3,20 +3,12 @@
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  margin-bottom: 90px;
+  margin-bottom: 20px;
 
   @media screen and (max-width: 1024px) {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: auto;
   }
-  /* @media screen and (max-width: 1200px) {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-  }
-
-  @media screen and (max-width: 768px) {
-    grid-template-columns: 1fr;
-  } */
 }
 
 .card {
@@ -192,7 +184,8 @@
     }
   }
 
-  &:nth-child(5) {
+  &.lastGrid {
+    margin-bottom: 90px;
     height: 420px;
     display: flex;
     flex-flow: column;
@@ -218,9 +211,9 @@
       }
     }
 
-    @media screen and (min-width: 1025px) {
+    /* @media screen and (min-width: 1025px) {
       grid-area: 3/1/4/3;
-    }
+    } */
 
     @media screen and (max-width: 1024px) {
       height: 400px;
