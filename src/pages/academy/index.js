@@ -52,7 +52,7 @@ const academyTypes = [
     value: 'products-guides',
   },
   {
-    label: 'Governance',
+    label: 'Governance 2.0',
     value: 'governance',
   },
 ];
