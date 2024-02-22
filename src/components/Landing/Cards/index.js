@@ -20,16 +20,8 @@ const Card = ({ className, id, children, title, icon }) => {
       <div className={styles.topOverlay} />
       <div className={styles.bottomOverlay} />
       <div className={styles.icon}>{icon}</div>
-      {id === '1' && (
-        <div className={styles.customBg}>
-          <Step1Bg />
-        </div>
-      )}
-      {id === '4' && (
-        <div className={styles.customBg}>
-          <Step4Bg />
-        </div>
-      )}
+      {id === '1' && <div className={styles.customBg}>{/* <Step1Bg /> */}</div>}
+      {id === '4' && <div className={styles.customBg}>{/* <Step4Bg /> */}</div>}
     </div>
   );
 };
