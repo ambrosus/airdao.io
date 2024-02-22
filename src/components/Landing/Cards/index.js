@@ -48,7 +48,7 @@ const Cards = () => {
       <Card
         id="2"
         title="Collect your first SBT to become AirDAO Governor"
-        icon={<TokenIcon />}
+        // icon={<TokenIcon />}
       >
         <p>
           The issuance of the AirDAO Governor SBT will be based on facial
@@ -58,7 +58,7 @@ const Cards = () => {
       <Card
         id="3"
         title="Let your role define your voting power"
-        icon={<RoleIcon />}
+        // icon={<RoleIcon />}
       >
         <p>
           Your engagement matters! The governance voting power will be based on
@@ -84,7 +84,7 @@ const Cards = () => {
       <Card
         id="5"
         title="Recognition of Diverse contributions"
-        icon={<CardsIcon />}
+        // icon={<CardsIcon />}
       >
         <p>
           Whether you serve as a Validator or OG, Ambassador or marketer,

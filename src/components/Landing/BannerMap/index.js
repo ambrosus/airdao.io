@@ -11,8 +11,8 @@ import Link from 'next/link';
 const BannerMap = () => {
   return (
     <div className={styles.banner}>
-      <WorldLeft className={styles.worldLeft} />
-      <WorldRight className={styles.worldRight} />
+      {/* <WorldLeft className={styles.worldLeft} />
+      <WorldRight className={styles.worldRight} /> */}
       <div className={styles.holder}>
         <h3>New era of AirDAO Governance</h3>
         <p>

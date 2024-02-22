@@ -55,7 +55,7 @@ const Steps = () => {
           className={styles['bg-green']}
           label="Step 1"
           title="Create your profile"
-          icon={<BookIcon />}
+          // icon={<BookIcon />}
         >
           Begin your journey by creating a profile that represents your identity
           within AirDAO.
@@ -73,7 +73,7 @@ const Steps = () => {
           className={styles['bg-blue']}
           label="Step 2"
           title="Verify your identity"
-          icon={<SmileIcon />}
+          // icon={<SmileIcon />}
         >
           Cement your role within our community by verifying your identity
           securely.
@@ -90,7 +90,7 @@ const Steps = () => {
           className={styles['bg-orange']}
           label="Step 3"
           title="Mint your governor SBT"
-          icon={<StarsIcon />}
+          // icon={<StarsIcon />}
         >
           Seize your opportunity to be a driving force by minting your Governor
           SBT (Soul Bound Token).
