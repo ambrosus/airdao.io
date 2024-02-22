@@ -29,6 +29,30 @@
     padding: 24px;
   }
 
+  &.bg1 {
+    background-image: url("/Back1.svg");
+    background-size: cover;
+  }
+
+  &.bg4 {
+    background-image: url("/Back.svg");
+    background-size: cover;
+  }
+
+  /* .customBg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    left: 0;
+    top: 0;
+
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+  } */
+
   .inner {
     position: relative;
     z-index: 2;
@@ -68,29 +92,71 @@
     }
   }
 
-  /* .topOverlay,
-  .bottomOverlay {
-    position: absolute;
-    flex-shrink: 0;
-    border-radius: 408.928px;
-    opacity: 0.15;
-    filter: blur(140.4600372314453px);
-    width: 408.928px;
-    height: 408.928px;
+  &:nth-child(2),
+  &:nth-child(3),
+  &:nth-child(5) {
+    .topOverlay,
+    .bottomOverlay {
+      position: absolute;
+      flex-shrink: 0;
+      border-radius: 50%;
+      opacity: 0.15;
+      width: 800px;
+      height: 800px;
+    }
+
+    .bottomOverlay {
+      width: 640px;
+      height: 640px;
+    }
+
+    .topOverlay {
+      left: -30%;
+      top: -50%;
+      opacity: 0.2;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(255, 201, 62, 0.65) 0%,
+        rgba(63, 50, 15, 0) 55%,
+        rgba(0, 0, 0, 0) 73%
+      );
+    }
+
+    .bottomOverlay {
+      left: 50%;
+      bottom: -20%;
+      transform: translateX(-50%);
+      background: radial-gradient(
+        ellipse at center,
+        rgba(53, 104, 221, 0.65) 0%,
+        rgba(13, 26, 54, 0) 55%
+      );
+
+      @media only screen and (max-width: 1024px) {
+        bottom: -50%;
+        left: 80%;
+      }
+    }
   }
 
-  .topOverlay {
-    left: 0;
-    top: -50%;
-    background: var(--warning-500);
-  }
+  &:nth-child(5) {
+    .topOverlay {
+      left: -20%;
+      top: -65%;
+    }
 
-  .bottomOverlay {
-    left: 50%;
-    bottom: -20%;
-    transform: translateX(-50%);
-    background: var(--blue-600-primary);
-  } */
+    .bottomOverlay {
+      left: auto;
+      right: 0;
+      bottom: -20%;
+      transform: translateX(0);
+
+      @media only screen and (max-width: 1024px) {
+        bottom: -50%;
+        left: 80%;
+      }
+    }
+  }
 
   .icon {
     position: absolute;
@@ -100,20 +166,6 @@
     svg {
       width: inherit;
       height: inherit;
-    }
-  }
-
-  .customBg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    left: 0;
-    top: 0;
-
-    svg {
-      height: 100%;
-      width: 100%;
     }
   }
 
@@ -222,18 +274,6 @@
 
     .inner {
       max-width: 646px;
-    }
-
-    .topOverlay {
-      left: -20%;
-      top: -20%;
-    }
-
-    .bottomOverlay {
-      left: auto;
-      right: 0;
-      bottom: -20%;
-      transform: translateX(0);
     }
   }
 
