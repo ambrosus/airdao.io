@@ -51,6 +51,10 @@ const academyTypes = [
     label: 'AirDAO products guides',
     value: 'products-guides',
   },
+  {
+    label: 'Governance',
+    value: 'governance',
+  },
 ];
 
 export default function Academy({ footerText, header, page, banner }) {
