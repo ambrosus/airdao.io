@@ -10,26 +10,18 @@ import Step1Bg from '@/components/Icons/Step1Bg';
 import Step4Bg from '@/components/Icons/Step4Bg';
 import ChevronIcon from '@/components/Icons/ChevronIcon';
 
-const Card = ({ id, children, title, icon }) => {
+const SingleCard = ({ className, id, children, title, icon }) => {
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} ${className}`}>
       <div className={styles.inner}>
         <h3 className={styles.title}>{title}</h3>
         {children}
       </div>
-      <div className={styles.topOverlay} />
-      <div className={styles.bottomOverlay} />
+      {/* <div className={styles.topOverlay} />
+      <div className={styles.bottomOverlay} /> */}
       <div className={styles.icon}>{icon}</div>
-      {id === '1' && (
-        <div className={styles.customBg}>
-          <Step1Bg />
-        </div>
-      )}
-      {id === '4' && (
-        <div className={styles.customBg}>
-          <Step4Bg />
-        </div>
-      )}
+      {id === '1' && <div className={styles.customBg}>{/* <Step1Bg /> */}</div>}
+      {id === '4' && <div className={styles.customBg}>{/* <Step4Bg /> */}</div>}
     </div>
   );
 };
@@ -37,7 +29,7 @@ const Card = ({ id, children, title, icon }) => {
 const Cards = () => {
   return (
     <div className={styles.cards}>
-      <Card
+      <SingleCard
         id="1"
         title="Decentralized identifier — keep your privacy and stay secure"
       >
@@ -52,8 +44,8 @@ const Cards = () => {
             <ChevronIcon />
           </Button>
         </Link>
-      </Card>
-      <Card
+      </SingleCard>
+      <SingleCard
         id="2"
         title="Collect your first SBT to become AirDAO Governor"
         icon={<TokenIcon />}
@@ -62,8 +54,8 @@ const Cards = () => {
           The issuance of the AirDAO Governor SBT will be based on facial
           recognition using your biometric data, verified by Fractal ID.
         </p>
-      </Card>
-      <Card
+      </SingleCard>
+      <SingleCard
         id="3"
         title="Let your role define your voting power"
         icon={<RoleIcon />}
@@ -72,8 +64,8 @@ const Cards = () => {
           Your engagement matters! The governance voting power will be based on
           your activities and influence in the DAO and Ecosystem.
         </p>
-      </Card>
-      <Card id="4" title="Impact and decision making">
+      </SingleCard>
+      <SingleCard id="4" title="Impact and decision making">
         <p>
           The more impact you make, the more powerful your weight is in
           decision-making. As the AirDAO governor, you can collect various
@@ -82,17 +74,18 @@ const Cards = () => {
         {/* <Button size="large" type="tetiary">
           Get started
         </Button> */}
-        <Link href="/academy#governance">
+        <Link href="https://airdao.io/academy#governance">
           <Button size="large" type="primary">
             Learn more
             <ChevronIcon />
           </Button>
         </Link>
-      </Card>
-      <Card
+      </SingleCard>
+      <SingleCard
         id="5"
         title="Recognition of Diverse contributions"
         icon={<CardsIcon />}
+        className={styles.lastGrid}
       >
         <p>
           Whether you serve as a Validator or OG, Ambassador or marketer,
@@ -100,7 +93,7 @@ const Cards = () => {
           role, you will be awarded governance SBTs corresponding to the
           benefits you contribute to AirDAO and its prosperity.
         </p>
-      </Card>
+      </SingleCard>
     </div>
   );
 };

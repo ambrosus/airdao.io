@@ -1,8 +1,4 @@
-import React from 'react';
-
-const RoleIcon = () => {
-  return (
-    <svg
+<svg
       width="550"
       height="351"
       viewBox="0 0 550 351"
@@ -46,7 +42,7 @@ const RoleIcon = () => {
       />
       <path
         d="M60.4785 168.579C60.4785 152.517 73.4998 139.495 89.5623 139.495V139.495C105.625 139.495 118.646 152.517 118.646 168.579V168.579C118.646 184.642 105.625 197.663 89.5623 197.663V197.663C73.4998 197.663 60.4785 184.642 60.4785 168.579V168.579Z"
-        fill="url(#pattern63)"
+        fill="url(#pattern65)"
       />
       <path
         d="M60.4785 168.579C60.4785 152.517 73.4998 139.495 89.5623 139.495V139.495C105.625 139.495 118.646 152.517 118.646 168.579V168.579C118.646 184.642 105.625 197.663 89.5623 197.663V197.663C73.4998 197.663 60.4785 184.642 60.4785 168.579V168.579Z"
@@ -154,7 +150,7 @@ const RoleIcon = () => {
       </g>
       <defs>
         <pattern
-          id="pattern63"
+          id="pattern65"
           patternContentUnits="objectBoundingBox"
           width="1"
           height="1"
@@ -239,7 +235,3 @@ const RoleIcon = () => {
         />
       </defs>
     </svg>
-  );
-};
-
-export default RoleIcon;

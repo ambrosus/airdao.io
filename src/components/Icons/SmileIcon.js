@@ -8,7 +8,7 @@ const SmileIcon = ({ props }) => {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g opacity="0.3" clip-path="url(#clip0_1400_11670)">
+      <g opacity="0.3" clipPath="url(#clip0_1400_11670)">
         <path
           fillRule="evenodd"
           clipRule="evenodd"

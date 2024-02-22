@@ -13,24 +13,14 @@ import Cards from '@/components/Landing/Cards';
 import ParticleIcon from '@/components/Icons/ParticleIcon';
 import BannerMap from '@/components/Landing/BannerMap';
 
-export default function Landing({
-  page,
-  header,
-  banner,
-  footerText,
-  latestArticles,
-}) {
-  const { data } = page;
-  // const footerSlice = getFooterBlockSlice(data);
-  const [showBanner, setShowBanner] = useState(data?.show_banner);
-
+export default function Landing({ header, footerText }) {
   return (
     <div className={styles.govPortalPage}>
       <Head>
         <meta property="og:image" content="https://airdao.io/og.png" />
         <meta name="twitter:image" content="https://airdao.io/og.png" />
       </Head>
-      <HeaderWrapper header={header} showBanner={showBanner} />
+      <HeaderWrapper header={header} showBanner={true} />
       <div className={styles.content}>
         <BannerMap />
         <div className={styles.insetRound}>

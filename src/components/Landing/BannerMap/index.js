@@ -23,7 +23,7 @@ const BannerMap = () => {
         {/* <Button size="large" type="tetiary">
           Get started
         </Button> */}
-        <Link href="/academy#governance">
+        <Link href="https://airdao.io/academy#governance">
           <Button size="large" type="primary">
             Learn more
             <ChevronIcon />

@@ -9,14 +9,6 @@
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: auto;
   }
-  /* @media screen and (max-width: 1200px) {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-  }
-
-  @media screen and (max-width: 768px) {
-    grid-template-columns: 1fr;
-  } */
 }
 
 .card {
@@ -76,7 +68,7 @@
     }
   }
 
-  .topOverlay,
+  /* .topOverlay,
   .bottomOverlay {
     position: absolute;
     flex-shrink: 0;
@@ -98,7 +90,7 @@
     bottom: -20%;
     transform: translateX(-50%);
     background: var(--blue-600-primary);
-  }
+  } */
 
   .icon {
     position: absolute;
