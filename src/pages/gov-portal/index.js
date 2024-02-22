@@ -43,7 +43,7 @@ export default function Landing({
               <span>Empower Your Influence:</span> Enhancing Decision-Making in
               AirDAO
             </h2>
-            <Cards />
+            {/* <Cards /> */}
           </div>
         </div>
         <div className={styles.cta}>
