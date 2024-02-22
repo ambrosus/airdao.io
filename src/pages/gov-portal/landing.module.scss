@@ -1,5 +1,5 @@
 .govPortalPage {
-  overflow: hidden;
+  overflow: auto;
 
   .insetRound {
     position: relative;
@@ -34,6 +34,7 @@
   }
 
   .cta {
+    display: none;
     position: relative;
     overflow: hidden;
     padding-top: 85px;
@@ -84,7 +85,7 @@
       }
     }
 
-    .roundShadow {
+    /* .roundShadow {
       position: absolute;
       right: -30%;
       top: 15%;
@@ -94,7 +95,7 @@
       filter: blur(282px);
       width: 821px;
       height: 821px;
-    }
+    } */
 
     .particle {
       position: absolute;

@@ -4,7 +4,6 @@ import styles from './steps.module.scss';
 import BookIcon from '@/components/Icons/BookIcon';
 import SmileIcon from '@/components/Icons/SmileIcon';
 import StarsIcon from '@/components/Icons/StarsIcon';
-import useIsMobile from '@/hooks/useIsMobile';
 
 const Step = ({ className, label, title, icon, children }) => {
   return (

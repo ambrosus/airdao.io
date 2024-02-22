@@ -70,6 +70,11 @@
   margin-bottom: 32px;
   font-weight: 500;
   display: inline-block;
+  transition: all 0.25s ease;
+
+  &:hover {
+    color: #fff;
+  }
 }
 
 .footer__lists-soon {
