@@ -82,10 +82,12 @@ const Cards = () => {
         {/* <Button size="large" type="tetiary">
           Get started
         </Button> */}
-        <Button size="large" type="primary">
-          Learn more
-          <ChevronIcon />
-        </Button>
+        <Link href="/academy#governance">
+          <Button size="large" type="primary">
+            Learn more
+            <ChevronIcon />
+          </Button>
+        </Link>
       </Card>
       <Card
         id="5"

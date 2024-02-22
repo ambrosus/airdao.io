@@ -6,6 +6,7 @@ import styles from './banner.module.scss';
 import WorldRight from '@/components/Icons/WorldRight';
 import WorldLeft from '@/components/Icons/WorldLeft';
 import ChevronIcon from '@/components/Icons/ChevronIcon';
+import Link from 'next/link';
 
 const BannerMap = () => {
   return (
@@ -22,10 +23,12 @@ const BannerMap = () => {
         {/* <Button size="large" type="tetiary">
           Get started
         </Button> */}
-        <Button size="large" type="primary">
-          Learn more
-          <ChevronIcon />
-        </Button>
+        <Link href="/academy#governance">
+          <Button size="large" type="primary">
+            Learn more
+            <ChevronIcon />
+          </Button>
+        </Link>
       </div>
     </div>
   );
