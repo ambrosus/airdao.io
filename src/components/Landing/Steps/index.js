@@ -1,7 +1,7 @@
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 
-import BookIcon from '@/components/Icons/BookIcon';
 import styles from './steps.module.scss';
+import BookIcon from '@/components/Icons/BookIcon';
 import SmileIcon from '@/components/Icons/SmileIcon';
 import StarsIcon from '@/components/Icons/StarsIcon';
 
@@ -9,8 +9,10 @@ const Step = ({ className, label, title, icon, children }) => {
   return (
     <div className={`${className}`}>
       <span className={styles.label}>{label}</span>
-      <h4>{title}</h4>
-      <p>{children}</p>
+      <div className={styles.content}>
+        <h4>{title}</h4>
+        <p>{children}</p>
+      </div>
       <div className={styles.overlay} />
       <div className={styles.icon}>{icon}</div>
     </div>
@@ -22,6 +24,7 @@ const Steps = () => {
     visible: { transform: 'translateX(0)' },
     hidden: { transform: 'translateX(260px)' },
   };
+
   const centerStepVariant = {
     visible: {
       boxShadow:
@@ -41,6 +44,7 @@ const Steps = () => {
   return (
     <div className={styles.steps}>
       <motion.div
+        animate={false}
         className={styles.step}
         variants={leftStepVariant}
         initial="hidden"
@@ -58,6 +62,7 @@ const Steps = () => {
         </Step>
       </motion.div>
       <motion.div
+        animate={false}
         className={styles.step}
         variants={centerStepVariant}
         initial="hidden"

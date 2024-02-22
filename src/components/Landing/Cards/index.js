@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 import { Button } from '@airdao/ui-library';
 import styles from './cards.module.scss';
@@ -45,10 +46,12 @@ const Cards = () => {
           for governance, authenticating your unique individuality without
           revealing personal data or identity (KYC).
         </p>
-        <Button size="large" type="tetiary">
-          Learn more about Fractal ID
-          <ChevronIcon />
-        </Button>
+        <Link href="/academy/how-to-verify-your-identity-using-fractal-id">
+          <Button size="large" type="tetiary">
+            Learn more about Fractal ID
+            <ChevronIcon />
+          </Button>
+        </Link>
       </Card>
       <Card
         id="2"
@@ -76,13 +79,15 @@ const Cards = () => {
           decision-making. As the AirDAO governor, you can collect various
           impact-based SBTs, increasing your voting power.
         </p>
-        <Button size="large" type="tetiary">
+        {/* <Button size="large" type="tetiary">
           Get started
-        </Button>
-        <Button size="large" type="primary">
-          Learn more
-          <ChevronIcon />
-        </Button>
+        </Button> */}
+        <Link href="/academy#governance">
+          <Button size="large" type="primary">
+            Learn more
+            <ChevronIcon />
+          </Button>
+        </Link>
       </Card>
       <Card
         id="5"

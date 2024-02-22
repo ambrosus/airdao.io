@@ -61,7 +61,7 @@
         "config": {
           "label": "type_name",
           "placeholder": "",
-          "options": ["AirDAO products guides", "Analytics", "Web3 guides"]
+          "options": ["AirDAO products guides", "Governance", "Web3 guides"]
         }
       },
       "badge_type": {

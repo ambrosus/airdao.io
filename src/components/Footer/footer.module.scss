@@ -1,5 +1,5 @@
 .footer {
-  background: var(--neutral-700, #222426);
+  background: #222426;
   margin-top: 100px;
   padding: 70px;
 
@@ -70,6 +70,11 @@
   margin-bottom: 32px;
   font-weight: 500;
   display: inline-block;
+  transition: all 0.25s ease;
+
+  &:hover {
+    color: #fff;
+  }
 }
 
 .footer__lists-soon {
@@ -111,8 +116,8 @@
 
 .footer-app {
   border-radius: 64px;
-  border: 1px solid var(--alpha-white-20, rgba(255, 255, 255, 0.2));
-  background: var(--alpha-white-5, rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #2d2f31;
   box-shadow: 0px 8px 24px 0px rgba(47, 43, 67, 0.1);
   padding: 56px;
   display: flex;

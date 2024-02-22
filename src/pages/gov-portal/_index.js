@@ -21,11 +21,11 @@ export default function Landing({
   latestArticles,
 }) {
   const { data } = page;
-  const footerSlice = getFooterBlockSlice(data);
+  // const footerSlice = getFooterBlockSlice(data);
   const [showBanner, setShowBanner] = useState(data?.show_banner);
 
   return (
-    <div className={styles.landingpage}>
+    <div className={styles.govPortalPage}>
       <Head>
         <meta property="og:image" content="https://airdao.io/og.png" />
         <meta name="twitter:image" content="https://airdao.io/og.png" />
@@ -61,7 +61,7 @@ export default function Landing({
           </div>
         </div>
       </div>
-      <Footer data={footerText.data} footerBlock={footerSlice} />
+      <Footer data={footerText.data} footerBlock={''} />
     </div>
   );
 }

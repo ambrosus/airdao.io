@@ -11,6 +11,8 @@ import { useEffect, useRef, useState } from 'react';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import styles from './academy-list.module.scss';
+import {useRouter} from 'next/router';
+import Link from 'next/link';
 
 const badges = ['All', 'Beginner', 'Intermediate', 'Pro'];
 
@@ -40,15 +42,42 @@ export async function getStaticProps(context) {
   };
 }
 
+const academyTypes = [
+  {
+    label: 'Web3 guides',
+    value: 'web3-guides',
+  },
+  {
+    label: 'AirDAO products guides',
+    value: 'products-guides',
+  },
+  {
+    label: 'Governance',
+    value: 'governance',
+  },
+];
+
 export default function Academy({ footerText, header, page, banner }) {
   const [selectedType, setSelectedType] = useState('all');
   const [paginatedData, setPaginatedData] = useState(null);
   const [showBanner, setShowBanner] = useState(page?.show_banner);
 
+  const router = useRouter();
+  const hash = router.asPath.slice(9);
+
   const articleList = useRef(null);
 
   const [articles, setArticles] = useState({});
   const [articleNames, setArticleNames] = useState([]);
+
+  useEffect(() => {
+    const currentType = academyTypes.find((el) => el.value === hash)
+    if (currentType) {
+      setSelectedType(currentType.label);
+    } else {
+      setSelectedType('all');
+    }
+  }, [hash]);
 
   // get articles by types added on prismic academy page
   const updateAcademyCards = async () => {
@@ -105,7 +134,6 @@ export default function Academy({ footerText, header, page, banner }) {
     setSelectedType(type);
     window.scrollTo(0, 0);
   };
-
   return (
     <>
       <div
@@ -122,7 +150,7 @@ export default function Academy({ footerText, header, page, banner }) {
           <PrismicRichText
             field={page?.title}
             components={{
-              paragraph: ({ children }) => (
+              paragraph: ({children}) => (
                 <p className={styles['academy-list-page__title']}>{children}</p>
               ),
             }}
@@ -130,7 +158,7 @@ export default function Academy({ footerText, header, page, banner }) {
           <PrismicRichText
             field={page?.subtitle}
             components={{
-              paragraph: ({ children }) => (
+              paragraph: ({children}) => (
                 <p className={styles['academy-list-page__subtitle']}>
                   {children}
                 </p>
@@ -138,25 +166,35 @@ export default function Academy({ footerText, header, page, banner }) {
             }}
           />
         </div>
+        <div className={`${styles['academy-buttons']} container`}>
+          <div className={styles['academy-types']}>
+            <Link
+              className={`${styles['academy-types__item']} ${
+                selectedType === 'all'
+                  ? styles['academy-types__item_active']
+                  : ''
+              }`}
+              href="/academy"
+            >
+              All
+            </Link>
+            {academyTypes.map(el => (
+              <Link
+                className={`${styles['academy-types__item']} ${
+                  selectedType === el.label
+                    ? styles['academy-types__item_active']
+                    : ''
+                }`}
+                key={el.value}
+                href={'/academy#' + el.value}
+              >
+                {el.label}
+              </Link>
+            ))}
+          </div>
+        </div>
         {selectedType === 'all' ? (
           <>
-            <div className={`${styles['academy-buttons']} container`}>
-              <div className={styles['academy-types']}>
-                {['all', ...articleNames].map(el => (
-                  <button
-                    className={`${styles['academy-types__item']} ${
-                      selectedType === el
-                        ? styles['academy-types__item_active']
-                        : ''
-                    }`}
-                    key={el}
-                    onClick={() => setSelectedType(el)}
-                  >
-                    {el}
-                  </button>
-                ))}
-              </div>
-            </div>
             {Object.keys(articles).map(
               el =>
                 !!articles[el].length && (
@@ -188,29 +226,12 @@ export default function Academy({ footerText, header, page, banner }) {
         ) : (
           paginatedData && (
             <>
-              <div className={`${styles['academy-buttons']} container`}>
-                <div className={styles['academy-types']}>
-                  {['all', ...articleNames].map(el => (
-                    <button
-                      className={`${styles['academy-types__item']} ${
-                        selectedType === el
-                          ? styles['academy-types__item_active']
-                          : ''
-                      }`}
-                      key={el}
-                      onClick={() => setSelectedType(el)}
-                    >
-                      {el}
-                    </button>
-                  ))}
-                </div>
-              </div>
               <div
                 ref={articleList}
                 className={`${styles['articles-list']} ${styles['articles-list_pagination']} container`}
               >
                 {paginatedData.results.map(el => {
-                  return <AcademyLink key={el.uid} article={el} />;
+                  return <AcademyLink key={el.uid} article={el}/>;
                 })}
               </div>
               {paginatedData?.results?.length > 5 && (
@@ -226,7 +247,7 @@ export default function Academy({ footerText, header, page, banner }) {
           )
         )}
       </div>
-      {footerText && <Footer data={footerText.data} />}
+      {footerText && <Footer data={footerText.data}/>}
     </>
   );
 }

@@ -10,6 +10,7 @@ import Script from 'next/script';
 
 const inter = Inter({
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-inter',
 });
 
@@ -92,6 +93,10 @@ export default function App({ Component, pageProps }) {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="600" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1 maximum-scale=1"
+        />
       </Head>
       <Script id="google-gtm">
         {`
