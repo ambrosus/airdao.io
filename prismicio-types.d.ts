@@ -81,7 +81,7 @@ interface AcademyDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   type_name: prismic.SelectField<
-    'AirDAO products guides' | 'Analytics' | 'Web3 guides'
+    'AirDAO products guides' | 'Governance 2.0' | 'Web3 guides'
   >;
 
   /**
