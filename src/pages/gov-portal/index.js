@@ -9,7 +9,7 @@ import Head from 'next/head';
 import { useState } from 'react';
 import Steps from '@/components/Landing/Steps';
 import styles from './landing.module.scss';
-import Cards from '@/components/Landing/Cards';
+// import Cards from '@/components/Landing/Cards';
 import ParticleIcon from '@/components/Icons/ParticleIcon';
 import BannerMap from '@/components/Landing/BannerMap';
 
@@ -43,7 +43,7 @@ export default function Landing({
               <span>Empower Your Influence:</span> Enhancing Decision-Making in
               AirDAO
             </h2>
-            <Cards />
+            {/* <Cards /> */}
           </div>
         </div>
         <div className={styles.cta}>
