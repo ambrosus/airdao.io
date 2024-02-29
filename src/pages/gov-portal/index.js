@@ -39,10 +39,7 @@ export default function Landing({ header, footerText }) {
             <h2 className={styles['page-title']}>
               Ready to begin your journey with AirDAO?
             </h2>
-            <Link
-              target="_blank"
-              href="https://airdao.io/gov-portal/connect-wallet"
-            >
+            <Link href="https://airdao.io/gov-portal/connect-wallet">
               <Button size="large" type="tetiary">
                 Get started
               </Button>

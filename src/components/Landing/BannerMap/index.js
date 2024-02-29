@@ -19,10 +19,7 @@ const BannerMap = () => {
           community member has voting rights and governance power according to
           their engagement via AirDAO Governor SBT
         </p>
-        <Link
-          target="_blank"
-          href="https://airdao.io/gov-portal/connect-wallet"
-        >
+        <Link href="https://airdao.io/gov-portal/connect-wallet">
           <Button size="large" type="tetiary">
             Get started
           </Button>
