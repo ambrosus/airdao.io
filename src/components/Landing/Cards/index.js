@@ -69,9 +69,11 @@ const Cards = () => {
           decision-making. As the AirDAO governor, you can collect various
           impact-based SBTs, increasing your voting power.
         </p>
-        {/* <Button size="large" type="tetiary">
-          Get started
-        </Button> */}
+        <Link href="https://airdao.io/gov-portal/connect-wallet">
+          <Button size="large" type="tetiary">
+            Get started
+          </Button>
+        </Link>
         <Link target="_blank" href="https://airdao.io/academy#governance">
           <Button size="large" type="primary">
             Learn more
