@@ -11,7 +11,6 @@ import Cards from '@/components/Landing/Cards';
 import ParticleIcon from '@/components/Icons/ParticleIcon';
 import BannerMap from '@/components/Landing/BannerMap';
 import { useEffect } from 'react';
-import { useWeb3React } from '@web3-react/core';
 
 export default function Landing({ header, footerText }) {
   useEffect(() => {
