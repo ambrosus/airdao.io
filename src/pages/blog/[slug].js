@@ -54,7 +54,6 @@ export default function BlogArticle({
   const { data } = blog;
 
   const renderBlogItem = itemData => {
-    console.log(itemData);
     switch (itemData.slice_type) {
       case 'blog_subtitle':
         return <BlogSubtitle key={itemData.id} data={itemData} />;

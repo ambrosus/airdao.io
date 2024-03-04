@@ -1,5 +1,18 @@
 .main-block {
   position: relative;
+  display: flex;
+  flex-direction: column;
+
+  button[class*="button__primary"] {
+    @media only screen and (max-width: 1024px) {
+      padding: 8px 16px;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 6px 12px;
+      font-size: 14px;
+    }
+  }
 }
 
 .main-block__title {
@@ -52,19 +65,18 @@
 }
 
 .main-block__link {
-  display: flex;
-  justify-content: center;
+  margin: 0 auto;
 }
 
 .main-block__label {
-  margin: 188px auto 25px;
+  margin: 155px auto 25px;
 
   @media screen and (max-width: 1024px) {
-    margin: 120px auto 30px;
+    margin: 58px auto 30px;
   }
 
   @media screen and (max-width: 768px) {
-    margin: 75px auto 16px;
+    margin: 27px auto 16px;
   }
 }
 

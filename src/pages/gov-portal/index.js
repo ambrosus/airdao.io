@@ -1,11 +1,10 @@
-import Footer from '@/components/Footer';
-import HeaderWrapper from '@/components/Header';
-
+import Link from 'next/link';
 import { Button } from '@airdao/ui-library';
 import { createClient } from '@/prismicio';
-import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
-import * as prismic from '@prismicio/client';
 import Head from 'next/head';
+
+import Footer from '@/components/Footer';
+import HeaderWrapper from '@/components/Header';
 import Steps from '@/components/Landing/Steps';
 import styles from './landing.module.scss';
 import Cards from '@/components/Landing/Cards';
@@ -40,9 +39,11 @@ export default function Landing({ header, footerText }) {
             <h2 className={styles['page-title']}>
               Ready to begin your journey with AirDAO?
             </h2>
-            <Button size="large" type="tetiary">
-              Get started
-            </Button>
+            <Link href="https://airdao.io/gov-portal/connect-wallet">
+              <Button size="large" type="tetiary">
+                Get started
+              </Button>
+            </Link>
           </div>
           <div className={styles.roundShadow} />
           <div className={styles.particle}>
