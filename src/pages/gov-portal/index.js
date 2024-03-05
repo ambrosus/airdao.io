@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@airdao/ui-library';
 import { createClient } from '@/prismicio';
 import Head from 'next/head';
 
+import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
 import Steps from '@/components/Landing/Steps';
@@ -11,13 +13,23 @@ import Cards from '@/components/Landing/Cards';
 import ParticleIcon from '@/components/Icons/ParticleIcon';
 import BannerMap from '@/components/Landing/BannerMap';
 
-export default function Landing({ header, footerText }) {
+export default function Landing({ page, header, banner, footerText }) {
+  const { data } = page;
+  const [showBanner, setShowBanner] = useState(data?.show_banner);
+
   return (
     <div className={styles.govPortalPage}>
       <Head>
         <meta property="og:image" content="https://airdao.io/og.png" />
         <meta name="twitter:image" content="https://airdao.io/og.png" />
       </Head>
+      {showBanner && (
+        <Banner
+          data={banner?.data}
+          setShowBanner={setShowBanner}
+          nextLink={false}
+        />
+      )}
       <HeaderWrapper header={header} showBanner={true} />
       <div className={styles.content}>
         <BannerMap />
@@ -61,7 +73,7 @@ export async function getStaticProps({ params, previewData }) {
 
   const page = await client.getSingle('homepage');
   const header = await client.getSingle('header');
-  const banner = await client.getSingle('banner');
+  const banner = await client.getSingle('govBanner');
   const footer = await client.getSingle('footer');
   return {
     props: {
