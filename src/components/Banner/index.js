@@ -23,6 +23,10 @@ export default function Banner({ data, setShowBanner, nextLink = true }) {
     }, 1000);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleRedirect = value => {
     if (typeof window === 'undefined' || window.innerWidth > 650) return null;
 
