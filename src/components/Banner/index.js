@@ -15,11 +15,11 @@ export default function Banner({ data, setShowBanner, nextLink = true }) {
   const router = useRouter();
 
   const type = data?.type;
-  const [intervalSize, setIntervalSize] = useState(2000);
+  const [intervalSize, setIntervalSize] = useState(500);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIntervalSize(3000);
+      setIntervalSize(2000);
     }, 1000);
 
     return () => {
@@ -68,67 +68,69 @@ export default function Banner({ data, setShowBanner, nextLink = true }) {
       >
         {data?.content?.map((item, index) => (
           <div className={styles['carousel-item']} key={index}>
-            <div className={styles['carousel-item-container']}>
-              <PrismicNextLink
-                field={item?.button_link}
-                className={styles['carousel-left-side']}
-              >
-                <Image
-                  className={styles['carousel-icon']}
-                  src={type === 'error' ? GlobeWhiteIcon : GlobeIcon}
-                  alt="globe"
-                />
-                <PrismicRichText
-                  field={item?.title}
-                  components={{
-                    paragraph: ({ children }) => (
-                      <h1
-                        className={styles['carousel-item-text']}
-                        style={{
-                          color: type === 'error' ? 'white' : 'black',
-                        }}
-                      >
-                        {children}
-                      </h1>
-                    ),
-                  }}
-                />
-              </PrismicNextLink>
-              <div className={styles['carousel-right-side']}>
-                {nextLink && (
-                  <PrismicNextLink
-                    field={item?.button_link}
-                    rel="nofollow"
-                    className={styles['carousel-right-side-button']}
-                    style={{
-                      background:
-                        type === 'error'
-                          ? '#FFF'
-                          : type === 'warning'
-                          ? '#F3DC6E'
-                          : '#B2D65D',
-                    }}
-                  >
-                    <PrismicRichText
-                      field={item?.button_title}
-                      components={{
-                        paragraph: ({ children }) => (
-                          <p className={styles['carousel-right-side-text']}>
-                            {children}
-                          </p>
-                        ),
-                      }}
-                    />
-                  </PrismicNextLink>
-                )}
-                <button
-                  className={styles['carousel-button']}
-                  onClick={() => setShowBanner(false)}
+            {intervalSize === 2000 && (
+              <div className={styles['carousel-item-container']}>
+                <PrismicNextLink
+                  field={item?.button_link}
+                  className={styles['carousel-left-side']}
                 >
-                  <Image src={CloseIcon} alt="close" />
-                </button>
+                  <Image
+                    className={styles['carousel-icon']}
+                    src={type === 'error' ? GlobeWhiteIcon : GlobeIcon}
+                    alt="globe"
+                  />
+                  <PrismicRichText
+                    field={item?.title}
+                    components={{
+                      paragraph: ({ children }) => (
+                        <h1
+                          className={styles['carousel-item-text']}
+                          style={{
+                            color: type === 'error' ? 'white' : 'black',
+                          }}
+                        >
+                          {children}
+                        </h1>
+                      ),
+                    }}
+                  />
+                </PrismicNextLink>
+                <div className={styles['carousel-right-side']}>
+                  {nextLink && (
+                    <PrismicNextLink
+                      field={item?.button_link}
+                      rel="nofollow"
+                      className={styles['carousel-right-side-button']}
+                      style={{
+                        background:
+                          type === 'error'
+                            ? '#FFF'
+                            : type === 'warning'
+                            ? '#F3DC6E'
+                            : '#B2D65D',
+                      }}
+                    >
+                      <PrismicRichText
+                        field={item?.button_title}
+                        components={{
+                          paragraph: ({ children }) => (
+                            <p className={styles['carousel-right-side-text']}>
+                              {children}
+                            </p>
+                          ),
+                        }}
+                      />
+                    </PrismicNextLink>
+                  )}
+                  <button
+                    className={styles['carousel-button']}
+                    onClick={() => setShowBanner(false)}
+                  >
+                    <Image src={CloseIcon} alt="close" />
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         ))}
       </Carousel>
