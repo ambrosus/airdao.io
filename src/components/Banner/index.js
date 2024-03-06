@@ -18,13 +18,17 @@ export default function Banner({ data, setShowBanner, nextLink = true }) {
   const [intervalSize, setIntervalSize] = useState(500);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setIntervalSize(2000);
     }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth', block: 'start' });
   }, []);
 
   const handleRedirect = value => {
