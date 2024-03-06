@@ -1,0 +1,41 @@
+{
+  "format": "custom",
+  "id": "govBanner",
+  "label": "Governance Banner",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "type": {
+        "type": "Select",
+        "config": {
+          "label": "type",
+          "placeholder": "",
+          "options": ["error", "warning", "announcement"]
+        }
+      },
+      "content": {
+        "type": "Group",
+        "config": {
+          "label": "content",
+          "repeat": true,
+          "fields": {
+            "title": {
+              "type": "StructuredText",
+              "config": {
+                "label": "title",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            }
+          }
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone"
+      }
+    }
+  }
+}

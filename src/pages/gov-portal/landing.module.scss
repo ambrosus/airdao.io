@@ -46,56 +46,93 @@
       padding-bottom: 220px;
     }
 
-    button[class*="button__tetiary"] {
-      padding: 32.953px 43.937px;
-      font-size: 43.937px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 65.906px;
-      letter-spacing: -0.439px;
-      color: var(--neutral-900);
-      background: var(--neutral-0);
-      transition: all 0.25s ease;
+    .ctaButtons {
+      display: flex;
+      gap: 32px;
 
       @media screen and (max-width: 767px) {
-        padding-top: 8px;
-        padding-bottom: 8px;
+        flex-direction: column;
+        gap: 24px;
       }
 
-      &:hover {
-        color: #fff;
-        background: rgba(255, 255, 255, 0.2);
-      }
-
-      @media only screen and (max-width: 1024px) {
-        padding: 21.969px 43.937px;
+      button[class*="button__tetiary"] {
+        padding: 32.953px 43.937px;
         font-size: 43.937px;
         font-style: normal;
         font-weight: 600;
-        line-height: 65.906px; /* 150% */
+        line-height: 65.906px;
+        letter-spacing: -0.439px;
+        color: var(--neutral-900);
+        background: var(--neutral-0);
+        transition: all 0.25s ease;
+
+        @media screen and (max-width: 767px) {
+          padding-top: 8px;
+          padding-bottom: 8px;
+        }
+
+        &:hover {
+          color: #fff;
+          background: rgba(255, 255, 255, 0.2);
+        }
+
+        @media only screen and (max-width: 1024px) {
+          padding: 21.969px 43.937px;
+          font-size: 43.937px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 65.906px; /* 150% */
+        }
+
+        @media only screen and (max-width: 767px) {
+          padding: 16.476px 32.953px;
+          font-size: 38.445px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 54.921px; /* 142.857% */
+          letter-spacing: -0.384px;
+        }
       }
 
-      @media only screen and (max-width: 767px) {
-        padding: 16.476px 32.953px;
-        font-size: 38.445px;
+      button[class*="button__primary"] {
+        padding: 32.953px 43.937px;
+        font-size: 43.937px;
         font-style: normal;
-        font-weight: 500;
-        line-height: 54.921px; /* 142.857% */
-        letter-spacing: -0.384px;
+        font-weight: 600;
+        line-height: 65.906px;
+        letter-spacing: -0.439px;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.2);
+        transition: all 0.25s ease;
+
+        @media screen and (max-width: 767px) {
+          padding-top: 8px;
+          padding-bottom: 8px;
+        }
+
+        &:hover {
+          color: var(--neutral-900);
+          background: var(--neutral-0);
+        }
+
+        @media only screen and (max-width: 1024px) {
+          padding: 21.969px 43.937px;
+          font-size: 43.937px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 65.906px; /* 150% */
+        }
+
+        @media only screen and (max-width: 767px) {
+          padding: 16.476px 32.953px;
+          font-size: 38.445px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 54.921px; /* 142.857% */
+          letter-spacing: -0.384px;
+        }
       }
     }
-
-    /* .roundShadow {
-      position: absolute;
-      right: -30%;
-      top: 15%;
-      border-radius: 821px;
-      opacity: 0.3;
-      background: #457eff;
-      filter: blur(282px);
-      width: 821px;
-      height: 821px;
-    } */
 
     .particle {
       position: absolute;
