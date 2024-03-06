@@ -54,7 +54,7 @@ export default function Landing({ page, header, banner, footerText }) {
             <div className={styles.ctaButtons}>
               <Link href="https://airdao.io/gov-portal/connect-wallet">
                 <Button size="large" type="tetiary">
-                  Get started
+                  Join AirDAO
                 </Button>
               </Link>
               <Link target="_blank" href="https://t.me/+z0x9kmmP9q5kMzcy">
