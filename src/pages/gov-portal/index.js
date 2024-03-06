@@ -51,11 +51,18 @@ export default function Landing({ page, header, banner, footerText }) {
             <h2 className={styles['page-title']}>
               Ready to begin your journey with AirDAO?
             </h2>
-            <Link href="https://airdao.io/gov-portal/connect-wallet">
-              <Button size="large" type="tetiary">
-                Get started
-              </Button>
-            </Link>
+            <div className={styles.ctaButtons}>
+              <Link href="https://airdao.io/gov-portal/connect-wallet">
+                <Button size="large" type="tetiary">
+                  Get started
+                </Button>
+              </Link>
+              <Link target="_blank" href="https://t.me/+z0x9kmmP9q5kMzcy">
+                <Button size="large" type="primary">
+                  Get support
+                </Button>
+              </Link>
+            </div>
           </div>
           <div className={styles.roundShadow} />
           <div className={styles.particle}>
