@@ -15,31 +15,31 @@ export default function Banner({ data, setShowBanner, nextLink = true }) {
   const router = useRouter();
 
   const type = data?.type;
-  const [intervalSize, setIntervalSize] = useState(500);
+  // const [intervalSize, setIntervalSize] = useState(500);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIntervalSize(2000);
-    }, 1000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setIntervalSize(2000);
+  //   }, 1000);
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, []);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth', block: 'start' });
   }, []);
 
-  const handleRedirect = value => {
-    if (typeof window === 'undefined' || window.innerWidth > 650) return null;
+  // const handleRedirect = value => {
+  //   if (typeof window === 'undefined' || window.innerWidth > 650) return null;
 
-    if (value.target === '_blank') {
-      window.open(value.url, '_blank');
-    } else {
-      router.push(value.url);
-    }
-  };
+  //   if (value.target === '_blank') {
+  //     window.open(value.url, '_blank');
+  //   } else {
+  //     router.push(value.url);
+  //   }
+  // };
 
   return (
     <div
@@ -58,7 +58,7 @@ export default function Banner({ data, setShowBanner, nextLink = true }) {
         infiniteLoop
         autoPlay
         autoFocus
-        interval={intervalSize}
+        // interval={intervalSize}
         axis="vertical"
         showArrows={false}
         stopOnHover
@@ -68,69 +68,67 @@ export default function Banner({ data, setShowBanner, nextLink = true }) {
       >
         {data?.content?.map((item, index) => (
           <div className={styles['carousel-item']} key={index}>
-            {intervalSize === 2000 && (
-              <div className={styles['carousel-item-container']}>
-                <PrismicNextLink
-                  field={item?.button_link}
-                  className={styles['carousel-left-side']}
-                >
-                  <Image
-                    className={styles['carousel-icon']}
-                    src={type === 'error' ? GlobeWhiteIcon : GlobeIcon}
-                    alt="globe"
-                  />
-                  <PrismicRichText
-                    field={item?.title}
-                    components={{
-                      paragraph: ({ children }) => (
-                        <h1
-                          className={styles['carousel-item-text']}
-                          style={{
-                            color: type === 'error' ? 'white' : 'black',
-                          }}
-                        >
-                          {children}
-                        </h1>
-                      ),
-                    }}
-                  />
-                </PrismicNextLink>
-                <div className={styles['carousel-right-side']}>
-                  {nextLink && (
-                    <PrismicNextLink
-                      field={item?.button_link}
-                      rel="nofollow"
-                      className={styles['carousel-right-side-button']}
-                      style={{
-                        background:
-                          type === 'error'
-                            ? '#FFF'
-                            : type === 'warning'
-                            ? '#F3DC6E'
-                            : '#B2D65D',
-                      }}
-                    >
-                      <PrismicRichText
-                        field={item?.button_title}
-                        components={{
-                          paragraph: ({ children }) => (
-                            <p className={styles['carousel-right-side-text']}>
-                              {children}
-                            </p>
-                          ),
+            <div className={styles['carousel-item-container']}>
+              <PrismicNextLink
+                field={item?.button_link}
+                className={styles['carousel-left-side']}
+              >
+                <Image
+                  className={styles['carousel-icon']}
+                  src={type === 'error' ? GlobeWhiteIcon : GlobeIcon}
+                  alt="globe"
+                />
+                <PrismicRichText
+                  field={item?.title}
+                  components={{
+                    paragraph: ({ children }) => (
+                      <h1
+                        className={styles['carousel-item-text']}
+                        style={{
+                          color: type === 'error' ? 'white' : 'black',
                         }}
-                      />
-                    </PrismicNextLink>
-                  )}
-                  <button
-                    className={styles['carousel-button']}
-                    onClick={() => setShowBanner(false)}
+                      >
+                        {children}
+                      </h1>
+                    ),
+                  }}
+                />
+              </PrismicNextLink>
+              <div className={styles['carousel-right-side']}>
+                {nextLink && (
+                  <PrismicNextLink
+                    field={item?.button_link}
+                    rel="nofollow"
+                    className={styles['carousel-right-side-button']}
+                    style={{
+                      background:
+                        type === 'error'
+                          ? '#FFF'
+                          : type === 'warning'
+                          ? '#F3DC6E'
+                          : '#B2D65D',
+                    }}
                   >
-                    <Image src={CloseIcon} alt="close" />
-                  </button>
-                </div>
+                    <PrismicRichText
+                      field={item?.button_title}
+                      components={{
+                        paragraph: ({ children }) => (
+                          <p className={styles['carousel-right-side-text']}>
+                            {children}
+                          </p>
+                        ),
+                      }}
+                    />
+                  </PrismicNextLink>
+                )}
+                <button
+                  className={styles['carousel-button']}
+                  onClick={() => setShowBanner(false)}
+                >
+                  <Image src={CloseIcon} alt="close" />
+                </button>
               </div>
-            )}
+            </div>
           </div>
         ))}
       </Carousel>
