@@ -13,15 +13,15 @@ import GlobeWhiteIcon from './icons/globeWhiteIcon.svg';
 export default function Banner({ data, setShowBanner, nextLink = true }) {
   const type = data?.type;
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     window.scrollTo({ top: 0, left: 0, behavior: 'smooth', block: 'start' });
-  //   }, 500);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth', block: 'start' });
+    }, 500);
 
-  //   return () => {
-  //     clearTimeout(timer);
-  //   };
-  // }, []);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   // const handleRedirect = value => {
   //   if (typeof window === 'undefined' || window.innerWidth > 650) return null;
