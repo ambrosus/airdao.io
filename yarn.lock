@@ -20,10 +20,10 @@
   resolved "https://registry.yarnpkg.com/@airdao/deployments/-/deployments-0.2.4.tgz#2e7b762a8edc9b46917a376d20bba0ddeea4aa48"
   integrity sha512-nrvuBBHjYjA4dfczcHNfWfPqrBTn+ZDopK2RhNEgKoFt6UDxAfVld4lzAEjMZ3PC/k1W0KC85AMaS+l7+eT4qw==
 
-"@airdao/ui-library@latest":
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/@airdao/ui-library/-/ui-library-1.3.3.tgz#b0ab39876dcae951567c60c9d0ac574ef4500ab2"
-  integrity sha512-hRt7bLvDrpNJJMISjcxEIZ2iz7XR4wXxGvD+JEKlGkMBZPI0hCS8i5rkquRhyvAqWrX5UrBKXcZXMKJe9prUBg==
+"@airdao/ui-library@^1.4.4":
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/@airdao/ui-library/-/ui-library-1.4.4.tgz#d7e6712b2f9ce2fec9a35087a1720ba846673b25"
+  integrity sha512-a0tRwXXOvbWWcuXjBwczDW9gAmZfY2YePzAJVETLKr2NaKQGPgDInwlsCgasmpQ//2BKGaU4a/ortdtFe+gZYg==
   dependencies:
     "@prismicio/client" "^7.1.1"
     "@prismicio/react" "^2.5.0"
