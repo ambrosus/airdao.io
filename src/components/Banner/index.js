@@ -16,7 +16,7 @@ export default function Banner({ data, setShowBanner, nextLink = true }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       window.scrollTo({ top: 0, left: 0, behavior: 'smooth', block: 'start' });
-    }, 0);
+    }, 1000);
 
     return () => {
       clearTimeout(timer);
