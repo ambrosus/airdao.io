@@ -61,7 +61,7 @@
         "config": {
           "label": "blog_type",
           "placeholder": "",
-          "options": ["news", "governance", "events"]
+          "options": ["news", "governance", "events", "tech"]
         }
       },
       "slices": {
