@@ -23,13 +23,13 @@ export default function Landing({ page, header, banner, footerText }) {
         <meta property="og:image" content="https://airdao.io/og.png" />
         <meta name="twitter:image" content="https://airdao.io/og.png" />
       </Head>
-      {showBanner && (
+      {/* {showBanner && (
         <Banner
           data={banner?.data}
           setShowBanner={setShowBanner}
           nextLink={false}
         />
-      )}
+      )} */}
       <HeaderWrapper header={header} showBanner={showBanner} />
       <div className={styles.content}>
         <BannerMap />
