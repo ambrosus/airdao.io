@@ -38,7 +38,7 @@ export default function Landing({ page, header, banner, footerText }) {
             <h3 className={styles['content-title']}>
               Embark on your Governance journey in 3 steps
             </h3>
-            {/* <Steps /> */}
+            <Steps />
             <h2 className={styles['section-title']}>
               <span>Empower Your Influence:</span> Enhancing Decision-Making in
               AirDAO
