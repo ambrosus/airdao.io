@@ -17,10 +17,6 @@ export default function Landing({ page, header, banner, footerText }) {
   const { data } = page;
   const [showBanner, setShowBanner] = useState(data?.show_banner);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth', block: 'start' });
-  }, []);
-
   return (
     <div className={styles.govPortalPage}>
       <Head>
