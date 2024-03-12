@@ -96,9 +96,11 @@
     }
 
     button[class*="button__tetiary"] {
-      background: #fff;
+      background-color: #fff;
       margin-right: 24px;
-      transition: all 0.25s ease;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      font-weight: 600;
+      font-family: var(--font-inter);
 
       @media screen and (max-width: 767px) {
         padding-top: 8px;
@@ -106,15 +108,20 @@
       }
 
       &:hover {
-        color: #fff;
-        background: rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.7);
+      }
+
+      &:active {
+        background-color: rgba(255, 255, 255, 0.5);
       }
     }
 
     button[class*="button__primary"] {
       background: rgba(255, 255, 255, 0.2);
       color: #fff;
-      transition: all 0.25s ease;
+      font-family: var(--font-inter);
+      font-weight: 500;
+      transition: background-color 0.25s ease, color 0.25s ease;
 
       @media screen and (max-width: 767px) {
         padding-top: 8px;
@@ -122,8 +129,7 @@
       }
 
       &:hover {
-        background: rgba(255, 255, 255, 1);
-        color: #0e0e0e;
+        background: rgba(255, 255, 255, 0.3);
       }
     }
   }
