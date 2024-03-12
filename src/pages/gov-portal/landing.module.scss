@@ -60,11 +60,12 @@
         font-size: 43.937px;
         font-style: normal;
         font-weight: 600;
+        font-family: var(--font-inter);
         line-height: 65.906px;
         letter-spacing: -0.439px;
         color: var(--neutral-900);
         background: var(--neutral-0);
-        transition: all 0.25s ease;
+        transition: background-color 0.25s ease, color 0.25s ease;
 
         @media screen and (max-width: 767px) {
           padding-top: 8px;
@@ -72,8 +73,11 @@
         }
 
         &:hover {
-          color: #fff;
-          background: rgba(255, 255, 255, 0.2);
+          background: rgba(255, 255, 255, 0.7);
+        }
+
+        &:active {
+          background-color: rgba(255, 255, 255, 0.5);
         }
 
         @media only screen and (max-width: 1024px) {
@@ -81,7 +85,7 @@
           font-size: 43.937px;
           font-style: normal;
           font-weight: 600;
-          line-height: 65.906px; /* 150% */
+          line-height: 65.906px;
         }
 
         @media only screen and (max-width: 767px) {
@@ -89,7 +93,7 @@
           font-size: 38.445px;
           font-style: normal;
           font-weight: 500;
-          line-height: 54.921px; /* 142.857% */
+          line-height: 54.921px;
           letter-spacing: -0.384px;
         }
       }
@@ -100,6 +104,7 @@
         font-style: normal;
         font-weight: 600;
         line-height: 65.906px;
+        font-family: var(--font-inter);
         letter-spacing: -0.439px;
         color: #fff;
         background: rgba(255, 255, 255, 0.2);
@@ -111,8 +116,7 @@
         }
 
         &:hover {
-          color: var(--neutral-900);
-          background: var(--neutral-0);
+          background: rgba(255, 255, 255, 0.3);
         }
 
         @media only screen and (max-width: 1024px) {
@@ -120,7 +124,7 @@
           font-size: 43.937px;
           font-style: normal;
           font-weight: 600;
-          line-height: 65.906px; /* 150% */
+          line-height: 65.906px;
         }
 
         @media only screen and (max-width: 767px) {
