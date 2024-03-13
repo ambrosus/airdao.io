@@ -61,7 +61,7 @@ const RoadmapNew = ({footerText, header, page, articles}) => {
           (accumulator, currentValue) =>
             accumulator + currentValue.items.length,
           0,
-        ) * 96
+        ) * 104
     );
   };
   console.log(page);
@@ -115,7 +115,7 @@ const RoadmapNew = ({footerText, header, page, articles}) => {
         title={asText(page.data.articles_title)}
         subtitle={asText(page.data.articles_subtitle)}
         goToText="Go to blog"
-        goToLink="/"
+        goToLink="/blog"
         articles={articles}
       />
       {footerText && <Footer data={footerText.data} />}
