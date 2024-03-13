@@ -2,7 +2,7 @@
 import { PrismicNextLink } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import styles from './banner.module.scss';
@@ -15,8 +15,8 @@ export default function Banner({ data, setShowBanner, nextLink = true }) {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth', block: 'start' });
-    }, 500);
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }, 1000);
 
     return () => {
       clearTimeout(timer);
