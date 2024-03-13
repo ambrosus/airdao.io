@@ -1,0 +1,8 @@
+.appPage {
+}
+
+.content {
+  & + footer[class*="footer"] {
+    margin-top: 70px;
+  }
+}
