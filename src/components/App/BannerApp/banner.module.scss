@@ -1,56 +1,63 @@
 .banner {
   overflow: hidden;
   position: relative;
-  padding-top: 230px;
-  background: linear-gradient(2deg, #fff 1.85%, #a4bbf0 96.84%);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding-top: 164px;
+  background: linear-gradient(2deg, #fff 7%, #a4bbf0 93%);
 
-  /* @media screen and (max-width: 1024px) {
-    padding-top: 170px;
-    padding-bottom: 160px;
+  @media only screen and (max-width: 1024px) {
+    padding-top: 194px;
   }
-
-  @media screen and (max-width: 767px) {
-    padding-top: 130px;
-    padding-bottom: 160px;
-  } */
-
-  /* &:before {
-    position: absolute;
-    z-index: 0;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    width: 1440px;
-    height: 952px;
-    background-image: url("/group-map.png");
-    background-position: center;
-    opacity: 0.4;
-    mix-blend-mode: soft-light;
-    background-repeat: no-repeat;
-    content: "";
-  } */
 
   .holder {
     position: relative;
-    max-width: 1120px;
+    max-width: 1320px;
     margin: 0 auto;
     text-align: center;
+
+    @media only screen and (max-width: 1024px) {
+      max-width: 805px;
+    }
 
     .block {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      background-image: url("/group-icons.svg");
+      padding-top: 50px;
+      padding-left: 130px;
+      padding-right: 120px;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      @media only screen and (max-width: 1024px) {
+        background-image: none;
+        padding-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+      }
 
       .blockLeft {
+        padding-top: 66px;
         max-width: 520px;
         width: 100%;
         text-align: left;
+
+        @media only screen and (max-width: 1024px) {
+          padding-top: 21px;
+          max-width: 357px;
+        }
       }
 
       .blockRight {
         position: relative;
         bottom: -3px;
         text-align: right;
+
+        @media only screen and (max-width: 1024px) {
+          img {
+            width: 248px;
+            height: 375px;
+          }
+        }
       }
 
       h3 {
@@ -61,6 +68,12 @@
         font-weight: 700;
         line-height: 72px;
         letter-spacing: -1.12px;
+
+        @media only screen and (max-width: 1024px) {
+          font-size: 40px;
+          line-height: 56px;
+          letter-spacing: -0.8px;
+        }
 
         span {
           color: #3568dd;
@@ -79,6 +92,12 @@
         font-weight: 500;
         line-height: 28px;
         letter-spacing: -0.28px;
+
+        @media only screen and (max-width: 1024px) {
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: -0.16px;
+        }
 
         &:not(:last-child) {
           margin-bottom: 24px;

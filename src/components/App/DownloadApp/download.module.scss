@@ -4,10 +4,19 @@
   margin: 0 auto;
   text-align: center;
   border-radius: 64px;
-  padding: 47px 120px 0 67px;
+  padding: 47px 135px 0 67px;
   background-image: url("/group.svg");
+  background-size: cover;
   background-color: #3668dd;
   mix-blend-mode: hard-light;
+  height: 561px;
+  overflow: hidden;
+
+  @media only screen and (max-width: 1024px) {
+    max-width: 705px;
+    height: 306px;
+    padding: 46px 63px 0 32px;
+  }
 
   .block {
     display: grid;
@@ -15,10 +24,15 @@
 
     .blockLeft {
       .content {
-        padding-top: 48px;
+        padding-top: 40px;
         max-width: 467px;
         width: 100%;
         text-align: left;
+
+        @media only screen and (max-width: 1024px) {
+          padding-top: 0;
+          max-width: 362px;
+        }
 
         .listsLinks {
           display: flex;
@@ -50,6 +64,12 @@
           &:not(:last-child) {
             margin-bottom: 24px;
           }
+
+          @media only screen and (max-width: 1024px) {
+            font-size: 32px;
+            line-height: 40px;
+            letter-spacing: -0.64px;
+          }
         }
 
         p {
@@ -64,6 +84,12 @@
           &:not(:last-child) {
             margin-bottom: 24px;
           }
+
+          @media only screen and (max-width: 1024px) {
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: -0.14px;
+          }
         }
       }
     }
@@ -72,6 +98,13 @@
       position: relative;
       bottom: -3px;
       text-align: right;
+
+      img {
+        @media only screen and (max-width: 1024px) {
+          width: 207px;
+          height: 343px;
+        }
+      }
     }
   }
 }

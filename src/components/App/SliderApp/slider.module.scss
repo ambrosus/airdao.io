@@ -2,6 +2,11 @@
   margin-top: 122px;
   margin-bottom: 163px;
 
+  @media only screen and (max-width: 1024px) {
+    margin-top: 72px;
+    margin-bottom: 138px;
+  }
+
   > h4 {
     text-align: center;
     color: #222426;
@@ -15,6 +20,15 @@
     &:not(:last-child) {
       margin-bottom: 56px;
     }
+
+    @media only screen and (max-width: 1024px) {
+      font-size: 32px;
+      line-height: 40px;
+
+      &:not(:last-child) {
+        margin-bottom: 40px;
+      }
+    }
   }
 }
 
@@ -22,6 +36,11 @@
   display: grid;
   grid-template-columns: 1fr 302px 1fr;
   grid-gap: 164px;
+
+  @media only screen and (max-width: 1024px) {
+    grid-template-columns: 1fr 188px 1fr;
+    grid-gap: 76px;
+  }
 
   .thumbs {
     display: flex;
@@ -38,7 +57,7 @@
         &:nth-child(1) {
           &:after {
             top: 27.5px;
-            right: -164px;
+            right: -174px;
             background-image: url("/slider/line-top.svg");
           }
         }
@@ -46,11 +65,15 @@
         &:nth-child(2) {
           &:not(:last-child) {
             margin-bottom: 77px;
+
+            @media only screen and (max-width: 1024px) {
+              margin-bottom: 42px;
+            }
           }
 
           &:after {
             top: 27.5px;
-            right: -164px;
+            right: -174px;
             background-image: url("/slider/line-middle.svg");
           }
         }
@@ -58,7 +81,7 @@
         &:nth-child(3) {
           &:after {
             top: -200px;
-            right: -164px;
+            right: -174px;
             background-image: url("/slider/line-bottom.svg");
           }
         }
@@ -111,7 +134,7 @@
         &:nth-child(1) {
           &:after {
             top: 27.5px;
-            left: -164px;
+            left: -174px;
             background-image: url("/slider/line-top.svg");
             transform: scaleX(-1);
           }
@@ -120,7 +143,7 @@
         &:nth-child(2) {
           &:after {
             top: 27.5px;
-            left: -164px;
+            left: -174px;
             background-image: url("/slider/line-middle.svg");
             transform: scaleX(-1);
           }
@@ -158,7 +181,7 @@
 
       &:after {
         position: absolute;
-        width: 165px;
+        width: 175px;
         height: 235px;
         background-repeat: no-repeat;
         content: "";
@@ -166,6 +189,10 @@
 
       &:not(:last-child) {
         margin-bottom: 57px;
+
+        @media only screen and (max-width: 1024px) {
+          margin-bottom: 26px;
+        }
       }
 
       &.active {
@@ -185,6 +212,10 @@
 
       .content {
         max-width: 330px;
+
+        @media only screen and (max-width: 1024px) {
+          max-width: 181px;
+        }
       }
 
       .icon {
@@ -203,6 +234,20 @@
         &:not(:last-child) {
           margin-bottom: 16px;
         }
+
+        @media only screen and (max-width: 1024px) {
+          width: 34px;
+          height: 34px;
+
+          svg {
+            width: 19px;
+            height: 19px;
+          }
+
+          &:not(:last-child) {
+            margin-bottom: 8px;
+          }
+        }
       }
 
       h6 {
@@ -218,6 +263,16 @@
         &:not(:last-child) {
           margin-bottom: 8px;
         }
+
+        @media only screen and (max-width: 1024px) {
+          font-size: 14px;
+          line-height: 20px;
+          letter-spacing: -0.14px;
+
+          &:not(:last-child) {
+            margin-bottom: 4px;
+          }
+        }
       }
 
       p {
@@ -229,24 +284,36 @@
         line-height: 24px;
         letter-spacing: -0.16px;
         transition: color 0.25s ease;
+
+        @media only screen and (max-width: 1024px) {
+          font-size: 12px;
+          line-height: 16px;
+          letter-spacing: -0.12px;
+        }
       }
     }
   }
 
   .border {
     position: relative;
+    z-index: 2;
     width: 302px;
     height: 630px;
-    /* background-image: url("/phone-border.svg");
-    background-repeat: no-repeat;
-    background-position: center; */
+
+    @media only screen and (max-width: 1024px) {
+      width: 188px;
+      height: 384px;
+    }
 
     .overflow {
       overflow: hidden;
       width: 100%;
       height: 100%;
       border-radius: 46px;
-      border: 12px solid #f2f2f2;
+      border-width: 12px;
+      border-style: solid;
+      border-color: rgba(242, 242, 242, 0.8);
+      backdrop-filter: blur(10px);
     }
 
     &:after {
@@ -257,9 +324,14 @@
       width: 100%;
       height: 57px;
       background-image: url("/slider/shadow.svg");
+      background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
       content: "";
+
+      @media only screen and (max-width: 1024px) {
+        bottom: -60px;
+      }
     }
 
     .carouselImages {
@@ -278,5 +350,12 @@
   .slide {
     min-width: 100%;
     height: 100%;
+
+    img {
+      @media only screen and (max-width: 1024px) {
+        width: 170px;
+        height: 369px;
+      }
+    }
   }
 }

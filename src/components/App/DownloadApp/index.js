@@ -31,7 +31,7 @@ const DownloadApp = ({ data }) => {
         </div>
         <div className={styles.blockRight}>
           <div className={styles.blockRight}>
-            <Image src={phone} width={347} height={525} alt="phone" />
+            <Image src={phone} alt="phone" />
           </div>
         </div>
       </div>

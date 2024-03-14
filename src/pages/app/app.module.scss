@@ -4,5 +4,9 @@
 .content {
   & + footer[class*="footer"] {
     margin-top: 70px;
+
+    @media only screen and (max-width: 1024px) {
+      margin-top: 52px;
+    }
   }
 }

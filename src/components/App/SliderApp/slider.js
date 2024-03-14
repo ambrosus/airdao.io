@@ -39,8 +39,7 @@ const Thumbs = ({ thumbs, onEvent, className, currentIndex }) => (
 
 const Slides = ({ currentIndex }) => {
   const constraintsRef = useRef(null);
-  const width =
-    (constraintsRef.current && constraintsRef.current.offsetWidth) || 282;
+  const width = constraintsRef.current && constraintsRef.current.offsetWidth;
 
   return (
     <div className={styles.border}>
@@ -50,6 +49,7 @@ const Slides = ({ currentIndex }) => {
             className={styles.swiper}
             drag="x"
             animate={{
+              transition: { type: 'spring', stiffness: 300, damping: 30 },
               x: -1 * currentIndex * width,
             }}
           >
