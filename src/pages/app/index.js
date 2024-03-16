@@ -1,24 +1,18 @@
-import { useState, useEffect } from 'react';
-// import Link from 'next/link';
-// import { Button } from '@airdao/ui-library';
 import { createClient } from '@/prismicio';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 
-import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
-// import Steps from '@/components/Landing/Steps';
 import styles from './app.module.scss';
-// import Cards from '@/components/Landing/Cards';
-// import ParticleIcon from '@/components/Icons/ParticleIcon';
 import BannerApp from '@/components/App/BannerApp';
 import DownloadApp from '@/components/App/DownloadApp';
-import SliderApp from '@/components/App/SliderApp';
 
-export default function App({ page, header, banner, footerText }) {
-  const { data } = page;
-  // const [showBanner, setShowBanner] = useState(data?.show_banner);
+const SliderApp = dynamic(() => import('@/components/App/SliderApp'), {
+  ssr: false,
+});
 
+export default function App({ header, footerText }) {
   return (
     <div className={styles.appPage}>
       <Head>
@@ -39,15 +33,11 @@ export default function App({ page, header, banner, footerText }) {
 export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
 
-  const page = await client.getSingle('homepage');
   const header = await client.getSingle('header');
-  const banner = await client.getSingle('govBanner');
   const footer = await client.getSingle('footer');
   return {
     props: {
-      page,
       header,
-      banner,
       footerText: footer,
     },
   };

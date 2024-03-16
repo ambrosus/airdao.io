@@ -19,8 +19,6 @@ const useInterval = (setCurrentIndex, interval = 1700, count = 4) => {
       }, interval);
     };
 
-    console.log('visible', visible);
-
     if (visible) {
       handleMouseLeave();
     } else {
@@ -36,7 +34,7 @@ const useInterval = (setCurrentIndex, interval = 1700, count = 4) => {
       sliderHolder.removeEventListener('mouseenter', handleMouseEnter);
       sliderHolder.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [visible]);
+  }, [visible, count, interval]);
 
   return sliderRef;
 };

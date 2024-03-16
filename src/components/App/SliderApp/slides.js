@@ -4,7 +4,7 @@ import BellIcon from '@/components/Icons/Bell';
 import TrackingIcon from '@/components/Icons/Tracking';
 import ShieldIcon from '@/components/Icons/Shield';
 
-const data = [
+const slides = [
   {
     id: 0,
     title: 'Create & Import wallet',
@@ -42,4 +42,4 @@ const data = [
   },
 ];
 
-export default data;
+export default slides;

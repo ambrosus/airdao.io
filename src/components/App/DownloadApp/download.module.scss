@@ -1,26 +1,51 @@
-.holder {
+.container {
   position: relative;
   max-width: 1120px;
   margin: 0 auto;
+  height: 561px;
+
+  @media only screen and (min-width: 767px) and (max-width: 1024px) {
+    max-width: 705px;
+    height: 306px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    max-width: 100%;
+    padding: 0 18px;
+  }
+}
+
+.holder {
   text-align: center;
   border-radius: 64px;
   padding: 47px 135px 0 67px;
   background-image: url("/group.svg");
   background-size: cover;
+  background-repeat: no-repeat;
   background-color: #3668dd;
   mix-blend-mode: hard-light;
-  height: 561px;
   overflow: hidden;
+  height: inherit;
 
-  @media only screen and (max-width: 1024px) {
-    max-width: 705px;
-    height: 306px;
+  @media only screen and (min-width: 767px) and (max-width: 1024px) {
+    border-radius: 48px;
     padding: 46px 63px 0 32px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    border-radius: 48px;
+    padding: 41px 32px 0 27px;
+    background-size: 180% 100%;
+    background-position: top;
   }
 
   .block {
     display: grid;
     grid-template-columns: 1fr 1fr;
+
+    @media only screen and (max-width: 767px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
 
     .blockLeft {
       .content {
@@ -39,16 +64,25 @@
           flex-direction: row;
           gap: 16px;
 
+          li {
+            &:first-child {
+              img {
+                width: 127px;
+              }
+            }
+            &:nth-child(2) {
+              img {
+                width: 140px;
+              }
+            }
+          }
+
           a {
             display: block;
 
             img {
               display: block;
             }
-          }
-
-          @media screen and (max-width: 610px) {
-            flex-direction: column;
           }
         }
 
@@ -92,12 +126,19 @@
           }
         }
       }
+
+      @media only screen and (max-width: 767px) {
+        margin-bottom: 40px;
+      }
     }
 
     .blockRight {
       position: relative;
       bottom: -3px;
-      text-align: right;
+
+      @media only screen and (min-width: 767px) {
+        text-align: right;
+      }
 
       img {
         @media only screen and (max-width: 1024px) {
