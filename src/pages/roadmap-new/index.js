@@ -11,15 +11,6 @@ import { formatDate } from '@/utils/formatDate';
 import ArticlesList from '@/components/ArticlesList';
 import * as prismic from '@prismicio/client';
 
-const dateOptions = {
-  year: 'numeric',
-  month: 'long',
-  day: '2-digit',
-  hour: '2-digit',
-  minute: '2-digit',
-  hour12: false
-};
-
 const getCurrentDay = () => {
   const now = new Date();
   const start = new Date(now.getFullYear(), 0, 0);
