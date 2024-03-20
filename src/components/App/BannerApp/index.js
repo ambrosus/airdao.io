@@ -30,7 +30,13 @@ const BannerApp = ({ data }) => {
             )}
           </div>
           <div className={styles.blockRight}>
-            <Image src={phone} width={347} height={525} alt="phone" />
+            <Image
+              src={phone}
+              quality={100}
+              width={347}
+              height={525}
+              alt="phone"
+            />
           </div>
         </div>
       </div>

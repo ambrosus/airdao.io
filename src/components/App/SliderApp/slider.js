@@ -7,7 +7,13 @@ import useInterval from '@/hooks/useInterval';
 
 const Slide = ({ slide }) => (
   <div className={styles.slide}>
-    <Image width={282} height={608} src={slide.src} alt={slide.title} />
+    <Image
+      width={282}
+      height={608}
+      src={slide.src}
+      alt={slide.title}
+      quality={100}
+    />
   </div>
 );
 
