@@ -3,6 +3,13 @@ import { useEffect, useState } from 'react';
 import styles from './mediaSlider.module.scss';
 import slider1 from './slider1.png';
 import slider2 from './slider2.png';
+import slider3 from './slider3.jpg';
+import slider4 from './slider4.jpg';
+import slider5 from './slider5.jpg';
+import slider6 from './slider6.jpg';
+import slider7 from './slider7.jpg';
+import slider8 from './slider8.jpg';
+import slider9 from './slider9.jpg';
 
 const TeamMediaSlider = () => {
   const [isWindows, setIsWindows] = useState(false);
@@ -37,52 +44,37 @@ const TeamMediaSlider = () => {
           />
           <Image
             className={styles['media-slider-image-block']}
-            src={slider1}
+            src={slider3}
             alt="slider image"
           />
           <Image
             className={styles['media-slider-image-block']}
-            src={slider2}
+            src={slider4}
             alt="slider image"
           />
           <Image
             className={styles['media-slider-image-block']}
-            src={slider1}
+            src={slider5}
             alt="slider image"
           />
           <Image
             className={styles['media-slider-image-block']}
-            src={slider2}
+            src={slider6}
             alt="slider image"
           />
           <Image
             className={styles['media-slider-image-block']}
-            src={slider1}
+            src={slider7}
             alt="slider image"
           />
           <Image
             className={styles['media-slider-image-block']}
-            src={slider2}
+            src={slider8}
             alt="slider image"
           />
           <Image
             className={styles['media-slider-image-block']}
-            src={slider1}
-            alt="slider image"
-          />
-          <Image
-            className={styles['media-slider-image-block']}
-            src={slider2}
-            alt="slider image"
-          />
-          <Image
-            className={styles['media-slider-image-block']}
-            src={slider1}
-            alt="slider image"
-          />
-          <Image
-            className={styles['media-slider-image-block']}
-            src={slider2}
+            src={slider9}
             alt="slider image"
           />
         </div>
