@@ -9,15 +9,27 @@ export const switchText = (text, color = 'white') => {
   switch (text) {
     case 'Download on the App Store':
       return color === 'white' ? (
-        <Image width={148} height={48} src={ios} alt={text} />
+        <Image width={148} quality={100} height={48} src={ios} alt={text} />
       ) : (
-        <Image width={155} height={55} src={iosBlack} alt={text} />
+        <Image
+          width={155}
+          quality={100}
+          height={55}
+          src={iosBlack}
+          alt={text}
+        />
       );
     case 'Get it on Google Play':
       return color === 'white' ? (
-        <Image width={161} height={48} src={android} alt={text} />
+        <Image width={161} quality={100} height={48} src={android} alt={text} />
       ) : (
-        <Image width={169} height={55} src={androidBlack} alt={text} />
+        <Image
+          width={169}
+          quality={100}
+          height={55}
+          src={androidBlack}
+          alt={text}
+        />
       );
     default:
       return text;

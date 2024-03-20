@@ -5,7 +5,6 @@ import slides from './slides';
 import styles from './slider.module.scss';
 import { splitArray } from '@/utils';
 import useCheckMobileScreen from '@/hooks/useCheckMobileScreen';
-// import useMobileDetect from '@/hooks/useMobileDetect';
 
 const [leftHalf, rightHalf] = splitArray(slides);
 
