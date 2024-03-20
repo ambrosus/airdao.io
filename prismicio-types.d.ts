@@ -723,7 +723,7 @@ interface BlogDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  blog_type: prismic.SelectField<'news' | 'governance' | 'events'>;
+  blog_type: prismic.SelectField<'news' | 'governance' | 'events' | 'tech'>;
 
   /**
    * Slice Zone field in *blog*
@@ -4026,6 +4026,21 @@ export interface TeamDocumentDataAmbassadorsImagesItem {
 type TeamDocumentDataSlices5Slice = FooterEventsSlice | FooterContactSlice;
 
 /**
+ * Item in *Team → item*
+ */
+export interface TeamDocumentDataItemItem {
+  /**
+   * img field in *Team → item*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.item[].img
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  img: prismic.ImageField<never>;
+}
+
+/**
  * Content for Team documents
  */
 interface TeamDocumentData {
@@ -4288,7 +4303,16 @@ interface TeamDocumentData {
    * - **Tab**: Footer
    * - **Documentation**: https://prismic.io/docs/field#slices
    */;
-  slices5: prismic.SliceZone<TeamDocumentDataSlices5Slice>;
+  slices5: prismic.SliceZone<TeamDocumentDataSlices5Slice> /**
+   * item field in *Team*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.item[]
+   * - **Tab**: SliderImages
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */;
+  item: prismic.GroupField<Simplify<TeamDocumentDataItemItem>>;
 }
 
 /**
@@ -5138,6 +5162,7 @@ declare module '@prismicio/client' {
       TeamDocumentDataStructureCardsItem,
       TeamDocumentDataAmbassadorsImagesItem,
       TeamDocumentDataSlices5Slice,
+      TeamDocumentDataItemItem,
       AllDocumentTypes,
       BlogImgSlice,
       BlogImgSliceDefaultPrimary,
