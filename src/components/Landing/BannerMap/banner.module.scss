@@ -95,7 +95,28 @@
       padding-right: 20px;
     }
 
-    button[class*="button__tetiary"] {
+    .button {
+      padding: 12px 16px;
+      gap: 8px;
+      height: fit-content;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      text-align: center;
+      font-size: 16px;
+      font-family: Inter, sans-serif;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: -0.16px;
+      border-radius: 1000px;
+      border: none;
+      box-shadow: none;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .button_tetiary {
       background-color: #fff;
       margin-right: 24px;
       transition: background-color 0.25s ease, color 0.25s ease;
@@ -116,7 +137,7 @@
       }
     }
 
-    button[class*="button__primary"] {
+    .button_primary {
       background: rgba(255, 255, 255, 0.2);
       color: #fff;
       font-family: var(--font-inter);
@@ -131,6 +152,12 @@
       &:hover {
         background: rgba(255, 255, 255, 0.3);
       }
+    }
+
+    button[class*="button__tetiary"] {
+    }
+
+    button[class*="button__primary"] {
     }
   }
 
