@@ -32,7 +32,7 @@ export default function Landing({ page, header, banner, footerText }) {
       )}
       <HeaderWrapper header={header} showBanner={showBanner} />
       <div className={styles.content}>
-        <BannerMap />
+        {/* <BannerMap /> */}
         <div className={styles.insetRound}>
           <div className="container">
             <h3 className={styles['content-title']}>
