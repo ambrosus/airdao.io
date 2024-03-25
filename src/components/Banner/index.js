@@ -13,6 +13,26 @@ import GlobeWhiteIcon from './icons/globeWhiteIcon.svg';
 export default function Banner({ data, setShowBanner, nextLink = true }) {
   const type = data?.type;
 
+  useEffect(() => {
+    // Restore scroll position from localStorage
+    const scrollPos = localStorage.getItem('scrollPos');
+    if (scrollPos) {
+      window.scrollTo(0, parseInt(scrollPos));
+    }
+
+    // Save scroll position to localStorage when leaving the page
+    window.addEventListener('beforeunload', () => {
+      localStorage.setItem('scrollPos', window.scrollY);
+    });
+
+    // Clean up event listener
+    return () => {
+      window.removeEventListener('beforeunload', () => {
+        localStorage.setItem('scrollPos', window.scrollY);
+      });
+    };
+  }, []);
+
   // useEffect(() => {
   //   const timer = setTimeout(() => {
   //     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
