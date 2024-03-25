@@ -30,7 +30,7 @@ export default function Landing({ page, header, banner, footerText }) {
           nextLink={false}
         />
       )} */}
-      <HeaderWrapper header={header} showBanner={showBanner} />
+      <HeaderWrapper header={header} />
       <div className={styles.content}>
         <BannerMap />
         <div className={styles.insetRound}>
