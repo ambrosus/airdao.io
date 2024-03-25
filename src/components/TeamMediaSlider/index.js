@@ -30,6 +30,14 @@ const TeamMediaSlider = ({ sliderImgs }) => {
               alt="slider image"
             />
           ))}
+          {sliderImgs.map((el) => (
+            <img
+              key={el.img.url}
+              className={styles['media-slider-image-block']}
+              src={el.img.url}
+              alt="slider image"
+            />
+          ))}
         </div>
       </div>
     </div>

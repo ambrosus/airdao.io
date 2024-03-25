@@ -14,6 +14,7 @@ import homePageStyles from '../../components/Homepage/homepage.module.scss';
 import articleStyles from '../blog/blog-list.module.scss';
 import BlogLink from '../blog/components/BlogLink';
 import styles from './events.module.scss';
+import ArticlesList from '@/components/ArticlesList';
 
 const getLastArticlesByType = async type => {
   const newClient = prismic.createClient('airdao-blog');
@@ -30,17 +31,26 @@ const getLastArticlesByType = async type => {
 
 export async function getStaticProps(context) {
   const client = createClient({ previewData: context.previewData });
+  const newClient = prismic.createClient('airdao-blog');
+
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
   const banner = await client.getSingle('banner');
   const page = await client.getSingle('events');
+  const latestArticles = await newClient.getAllByType('blog', {
+    limit: 3,
+    orderings: {
+      field: 'document.first_publication_date',
+      direction: 'desc',
+    },
+  });
 
   return {
-    props: { footerText: footer, header, page: page.data, banner },
+    props: { footerText: footer, header, page: page.data, banner, latestArticles },
   };
 }
 
-const Events = ({ header, footerText, page, banner }) => {
+const Events = ({ header, footerText, page, banner, latestArticles }) => {
   const [articles, setArticles] = useState({});
   const [articleNames, setArticleNames] = useState({});
   const [showBanner, setShowBanner] = useState(page?.show_banner);
@@ -92,33 +102,17 @@ const Events = ({ header, footerText, page, banner }) => {
           buttonText={page?.header_button_text}
         />
         <Calendar />
-        {/*<div className={styles.articlesContainer}>*/}
-        {/*  <div className={styles.articlesWrapper}>*/}
-        {/*    {Object.keys(articles).map(*/}
-        {/*      el =>*/}
-        {/*        !!articles[el].length && (*/}
-        {/*          <div key={el} className={articleStyles['articles-wrapper']}>*/}
-        {/*            <div className={articleStyles['articles-top-block']}>*/}
-        {/*              <h2 className={articleStyles['articles-title']}>*/}
-        {/*                {articleNames[el]}*/}
-        {/*              </h2>*/}
-        {/*              <Link*/}
-        {/*                href={'/blog#events'}*/}
-        {/*                className={articleStyles['articles-btn']}*/}
-        {/*              >*/}
-        {/*                See all*/}
-        {/*              </Link>*/}
-        {/*            </div>*/}
-        {/*            <div className={articleStyles['articles-list']}>*/}
-        {/*              {articles[el].map(article => (*/}
-        {/*                <BlogLink key={article.uid} article={article} />*/}
-        {/*              ))}*/}
-        {/*            </div>*/}
-        {/*          </div>*/}
-        {/*        ),*/}
-        {/*    )}*/}
-        {/*  </div>*/}
-        {/*</div>*/}
+        <div style={{ marginTop: 96 }}>
+          <ArticlesList
+            title={'Blog'}
+            subtitle={
+              'Discover articles, governance insights, events, and more'
+            }
+            goToText="Go to blog"
+            goToLink="/blog"
+            articles={latestArticles}
+          />
+        </div>
       </div>
 
       {footerText && <Footer data={footerText.data} />}
