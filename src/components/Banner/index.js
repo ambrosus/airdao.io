@@ -20,6 +20,11 @@ export default function Banner({ data, setShowBanner, nextLink = true }) {
       window.scrollTo(0, parseInt(scrollPos));
     }
 
+    // Scroll to top after a delay
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 1000); // Adjust delay as needed
+
     // Save scroll position to localStorage when leaving the page
     window.addEventListener('beforeunload', () => {
       localStorage.setItem('scrollPos', window.scrollY);
