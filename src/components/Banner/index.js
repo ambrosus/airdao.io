@@ -17,7 +17,9 @@ export default function Banner({ data, setShowBanner, nextLink = true }) {
     // Restore scroll position from localStorage
     const scrollPos = localStorage.getItem('scrollPos');
     if (scrollPos) {
-      window.scrollTo(0, parseInt(scrollPos));
+      setTimeout(() => {
+        window.scrollTo(0, parseInt(scrollPos));
+      }, 0);
     }
 
     // Scroll to top after a delay

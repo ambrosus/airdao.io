@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Button } from '@airdao/ui-library';
 
 import styles from './banner.module.scss';
 
