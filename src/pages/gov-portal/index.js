@@ -15,7 +15,7 @@ import BannerMap from '@/components/Landing/BannerMap';
 
 export default function Landing({ page, header, banner, footerText }) {
   const { data } = page;
-  const [showBanner, setShowBanner] = useState(data?.show_banner);
+  // const [showBanner, setShowBanner] = useState(data?.show_banner);
 
   return (
     <div className={styles.govPortalPage}>
@@ -23,16 +23,16 @@ export default function Landing({ page, header, banner, footerText }) {
         <meta property="og:image" content="https://airdao.io/og.png" />
         <meta name="twitter:image" content="https://airdao.io/og.png" />
       </Head>
-      {showBanner && (
+      {/* {showBanner && (
         <Banner
           data={banner?.data}
           setShowBanner={setShowBanner}
           nextLink={false}
         />
-      )}
+      )} */}
       <HeaderWrapper header={header} showBanner={showBanner} />
       <div className={styles.content}>
-        {/* <BannerMap /> */}
+        <BannerMap />
         <div className={styles.insetRound}>
           <div className="container">
             <h3 className={styles['content-title']}>
