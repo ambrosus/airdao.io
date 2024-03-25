@@ -15,7 +15,7 @@ import BannerMap from '@/components/Landing/BannerMap';
 
 export default function Landing({ page, header, banner, footerText }) {
   const { data } = page;
-  // const [showBanner, setShowBanner] = useState(data?.show_banner);
+  const [showBanner, setShowBanner] = useState(data?.show_banner);
 
   return (
     <div className={styles.govPortalPage}>
@@ -23,14 +23,14 @@ export default function Landing({ page, header, banner, footerText }) {
         <meta property="og:image" content="https://airdao.io/og.png" />
         <meta name="twitter:image" content="https://airdao.io/og.png" />
       </Head>
-      {/* {showBanner && (
+      {showBanner && (
         <Banner
           data={banner?.data}
           setShowBanner={setShowBanner}
           nextLink={false}
         />
-      )} */}
-      <HeaderWrapper header={header} />
+      )}
+      <HeaderWrapper header={header} showBanner={showBanner} />
       <div className={styles.content}>
         <BannerMap />
         <div className={styles.insetRound}>
@@ -46,7 +46,7 @@ export default function Landing({ page, header, banner, footerText }) {
             <Cards />
           </div>
         </div>
-        <div className={styles.cta}>
+        {/* <div className={styles.cta}>
           <div className="container">
             <h2 className={styles['page-title']}>
               Ready to begin your journey with AirDAO?
@@ -68,7 +68,7 @@ export default function Landing({ page, header, banner, footerText }) {
           <div className={styles.particle}>
             <ParticleIcon />
           </div>
-        </div>
+        </div> */}
       </div>
       <Footer data={footerText.data} footerBlock={''} />
     </div>
