@@ -20,15 +20,15 @@ const BannerMap = () => {
           their engagement via AirDAO Governor SBT
         </p>
         <Link href="https://airdao.io/gov-portal/connect-wallet">
-          <Button size="large" type="tetiary">
+          <button className={`${styles.button} ${styles.button_tetiary}`}>
             Get started
-          </Button>
+          </button>
         </Link>
         <Link target="_blank" href="https://airdao.io/academy#governance">
-          <Button size="large" type="primary">
+          <button className={`${styles.button} ${styles.button_primary}`}>
             Learn more
             <ChevronIcon />
-          </Button>
+          </button>
         </Link>
       </div>
     </div>
