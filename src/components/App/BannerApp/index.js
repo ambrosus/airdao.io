@@ -1,8 +1,6 @@
-import Image from 'next/image';
-
 import { switchText } from '@/components/Footer/utils';
 import styles from './banner.module.scss';
-import phone from '../../../assets/icons/phone-top.svg';
+import PhoneTopIcon from '@/components/Icons/PhoneTop';
 
 const BannerApp = ({ data }) => {
   return (
@@ -30,13 +28,7 @@ const BannerApp = ({ data }) => {
             )}
           </div>
           <div className={styles.blockRight}>
-            <Image
-              src={phone}
-              quality={100}
-              width={347}
-              height={525}
-              alt="phone"
-            />
+            <PhoneTopIcon />
           </div>
         </div>
       </div>

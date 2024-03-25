@@ -1,8 +1,6 @@
-import Image from 'next/image';
-
 import { switchText } from '@/components/Footer/utils';
 import styles from './download.module.scss';
-import phone from '../../../assets/icons/phone-bottom.svg';
+import PhoneBottomIcon from '@/components/Icons/PhoneBottom';
 
 const DownloadApp = ({ data }) => {
   return (
@@ -32,13 +30,7 @@ const DownloadApp = ({ data }) => {
           </div>
           <div className={styles.blockRight}>
             <div className={styles.blockRight}>
-              <Image
-                src={phone}
-                quality={100}
-                width={310}
-                height={510}
-                alt="phone"
-              />
+              <PhoneBottomIcon />
             </div>
           </div>
         </div>
