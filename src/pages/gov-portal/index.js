@@ -46,7 +46,7 @@ export default function Landing({ page, header, banner, footerText }) {
             <Cards />
           </div>
         </div>
-        {/* <div className={styles.cta}>
+        <div className={styles.cta}>
           <div className="container">
             <h2 className={styles['page-title']}>
               Ready to begin your journey with AirDAO?
@@ -68,7 +68,7 @@ export default function Landing({ page, header, banner, footerText }) {
           <div className={styles.particle}>
             <ParticleIcon />
           </div>
-        </div> */}
+        </div>
       </div>
       <Footer data={footerText.data} footerBlock={''} />
     </div>
