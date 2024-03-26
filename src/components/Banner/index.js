@@ -14,39 +14,14 @@ export default function Banner({ data, setShowBanner, nextLink = true }) {
   const type = data?.type;
 
   useEffect(() => {
-    // Restore scroll position from localStorage
-    const scrollPos = localStorage.getItem('scrollPos');
-    if (scrollPos) {
-      window.scrollTo(0, parseInt(scrollPos));
-    }
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }, 1000);
 
-    // Scroll to top after a delay
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 1000); // Adjust delay as needed
-
-    // Save scroll position to localStorage when leaving the page
-    window.addEventListener('beforeunload', () => {
-      localStorage.setItem('scrollPos', window.scrollY);
-    });
-
-    // Clean up event listener
     return () => {
-      window.removeEventListener('beforeunload', () => {
-        localStorage.setItem('scrollPos', window.scrollY);
-      });
+      clearTimeout(timer);
     };
   }, []);
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-  //   }, 1000);
-
-  //   return () => {
-  //     clearTimeout(timer);
-  //   };
-  // }, []);
 
   // const handleRedirect = value => {
   //   if (typeof window === 'undefined' || window.innerWidth > 650) return null;
