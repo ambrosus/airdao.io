@@ -39,23 +39,27 @@ const RoadmapNew = ({footerText, header, page, articles}) => {
     ];
     const currentSlices = `slices${currentTab ? currentTab : ''}`;
     page.data[currentSlices].forEach((el) => {
+      console.log(el);
       data[+el.primary.quarter - 1].items.push(el.primary);
     });
     return data;
   }, [page, currentTab]);
 
-  const getTopOffset = (index) => {
-    return (
-      currentTabData
-        .slice(0, index)
-        .reduce(
-          (accumulator, currentValue) =>
-            accumulator + currentValue.items.length,
-          0,
-        ) * 104
-    );
-  };
-  console.log(page);
+  const getTopOffset = (index) => index * 50;
+
+  const longTasks = useMemo(() => {
+    const arr = [];
+    currentTabData.forEach((el) => {
+      el.items.forEach((item) => {
+        if (item.length_in_quarters !== '1') {
+          console.log(item);
+          arr.push(item)
+        }
+      })
+    });
+    return arr;
+  }, [currentTabData])
+
   return (
     <>
       {header && <HeaderWrapper header={header} />}
@@ -78,6 +82,32 @@ const RoadmapNew = ({footerText, header, page, articles}) => {
       </div>
       <div className={styles.content__wrapper}>
         <div className={styles.content}>
+          {[1, 2, 3].map((el) => (
+            <div className={styles.border} key={el} style={{ left: `${el * 25}%` }} />
+          ))}
+          <p className={styles.updated}>
+            Last updated:{' '}
+            {page.last_publication_date && formatDate(new Date(page.last_publication_date))}
+          </p>
+          <div className={styles.grid}>
+            {currentTabData.map((el, i) => (
+              <div key={el.name} className={styles.item}>
+                <span className={styles.quarter}>{el.name}</span>
+                <div style={{ marginTop: getTopOffset(i) }} className={styles.wrapper}>
+                  {el.items.map((el) => el.length_in_quarters === '1' && (
+                    <Expand key={el.id} title={asText(el.title)} text={asText(el.text)} link={el.link.url}
+                            linkTarget={el.link.target} labelText={el.done ? 'Done' : ''}/>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          {longTasks.map((el, i) => (
+            <div key={el.name} className={styles.multi} style={{width: `${+el.length_in_quarters * 25}%`, left: `${(+el.quarter - 1) * 25 }%`}}>
+              <Expand key={el.id} title={asText(el.title)} text={asText(el.text)} link={el.link.url}
+                      linkTarget={el.link.target} labelText={el.done ? 'Done' : ''}/>
+            </div>
+          ))}
           <div className={styles.now} style={{ width: `${getCurrentDay() * 100 / 365}%` }}>
             <div className={styles.now__children}>
               <div className={styles.here}>
@@ -85,21 +115,6 @@ const RoadmapNew = ({footerText, header, page, articles}) => {
               </div>
             </div>
           </div>
-          <p className={styles.updated}>
-            Last updated:{' '}
-            {page.last_publication_date && formatDate(new Date(page.last_publication_date))}
-          </p>
-          {currentTabData.map((el, i) => (
-            <div key={el.name} className={styles.item}>
-              <span className={styles.quarter}>{el.name}</span>
-              <div style={{ marginTop: getTopOffset(i) }} className={styles.wrapper}>
-                {el.items.map((el) => (
-                  <Expand key={el.id} title={asText(el.title)} text={asText(el.text)} link={el.link.url}
-                          linkTarget={el.link.target} />
-                ))}
-              </div>
-            </div>
-          ))}
         </div>
       </div>
       <ArticlesList

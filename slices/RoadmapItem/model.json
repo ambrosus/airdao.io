@@ -51,6 +51,29 @@
             ],
             "default_value": "1"
           }
+        },
+        "length_in_quarters": {
+          "type": "Select",
+          "config": {
+            "label": "length in quarters",
+            "placeholder": "",
+            "options": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "default_value": "1"
+          }
+        },
+        "done": {
+          "type": "Boolean",
+          "config": {
+            "label": "done",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
         }
       },
       "items": {}

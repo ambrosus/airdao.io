@@ -3,14 +3,17 @@ import { useState } from 'react';
 import chevron from '../../assets/icons/expand.svg';
 import Link from 'next/link';
 
-const Expand = ({title, text, link, linkTarget = ''}) => {
+const Expand = ({title, text, link, linkTarget = '', labelText = ''}) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div className={styles.expand}>
       <p className={styles.title}>
         {title}
-        <button onClick={() => setIsExpanded((state) => !isExpanded)}>
+        {labelText && (
+          <span className={styles.label}>{labelText}</span>
+        )}
+        <button onClick={() => setIsExpanded((state) => !state)}>
           <img src={chevron.src} alt="open" className={isExpanded ? styles.rotate : ''}/>
         </button>
       </p>

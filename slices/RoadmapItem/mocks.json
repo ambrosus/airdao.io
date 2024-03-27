@@ -36,6 +36,15 @@
 				"__TYPE__": "FieldContent",
 				"value": "3",
 				"type": "Select"
+			},
+			"length_in_quarters": {
+				"__TYPE__": "FieldContent",
+				"value": "2",
+				"type": "Select"
+			},
+			"done": {
+				"__TYPE__": "BooleanContent",
+				"value": false
 			}
 		},
 		"items": []

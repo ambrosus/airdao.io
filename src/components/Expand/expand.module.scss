@@ -90,3 +90,20 @@
     height: 15px;
   }
 }
+
+.label {
+  margin-left: auto;
+  margin-right: 8px;
+  border-radius: 20px;
+  font-family: var(--font-inter);
+  border: 1px solid var(--Success-100, #C5EEE1);
+  background: var(--Success-50, #E5FFF7);
+  padding: 2px 8px;
+  color: var(--Success-700, #155742);
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; /* 133.333% */
+  letter-spacing: -0.12px;
+}

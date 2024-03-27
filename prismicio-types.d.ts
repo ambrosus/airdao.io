@@ -5020,6 +5020,28 @@ export interface RoadmapItemSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   quarter: prismic.SelectField<'1' | '2' | '3' | '4', 'filled'>;
+
+  /**
+   * length in quarters field in *RoadmapItem → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 1
+   * - **API ID Path**: roadmap_item.primary.length_in_quarters
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  length_in_quarters: prismic.SelectField<'1' | '2' | '3' | '4', 'filled'>;
+
+  /**
+   * done field in *RoadmapItem → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: roadmap_item.primary.done
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  done: prismic.BooleanField;
 }
 
 /**
