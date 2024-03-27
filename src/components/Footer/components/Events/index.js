@@ -19,10 +19,7 @@ const Events = () => (
         rel="nofollow"
         className={styles['footer-app__btn']}
       >
-        <Button
-          type="tetiary"
-          size="large"
-        >
+        <Button type="tetiary" size="large">
           Add to Calendar
         </Button>
       </a>
