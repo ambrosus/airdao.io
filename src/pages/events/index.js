@@ -1,5 +1,3 @@
-import blueCircle from '@/assets/img/blue-circle.svg';
-import orangeCircle from '@/assets/img/orange-circle.svg';
 import Banner from '@/components/Banner';
 import Calendar from '@/components/Events/Calendar';
 import EventsHeader from '@/components/Events/Header';
@@ -7,12 +5,8 @@ import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
 import { createClient } from '@/prismicio';
 import * as prismic from '@prismicio/client';
-import Image from 'next/image';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import homePageStyles from '../../components/Homepage/homepage.module.scss';
-import articleStyles from '../blog/blog-list.module.scss';
-import BlogLink from '../blog/components/BlogLink';
 import styles from './events.module.scss';
 import ArticlesList from '@/components/ArticlesList';
 
@@ -46,7 +40,13 @@ export async function getStaticProps(context) {
   });
 
   return {
-    props: { footerText: footer, header, page: page.data, banner, latestArticles },
+    props: {
+      footerText: footer,
+      header,
+      page: page.data,
+      banner,
+      latestArticles,
+    },
   };
 }
 
@@ -86,16 +86,6 @@ const Events = ({ header, footerText, page, banner, latestArticles }) => {
       )}
       {header && <HeaderWrapper header={header} showBanner={showBanner} />}
       <div className={styles.contentContainer}>
-        <Image
-          className={homePageStyles['blue-circle']}
-          src={blueCircle}
-          alt="blue circle"
-        />
-        <Image
-          className={homePageStyles['orange-circle']}
-          src={orangeCircle}
-          alt="orange circle"
-        />
         <EventsHeader
           headerText={page?.header_title}
           subText={page?.header_subtitle}
