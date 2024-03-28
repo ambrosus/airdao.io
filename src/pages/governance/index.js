@@ -51,7 +51,7 @@ const GovernancePage = ({
           text={page.data.council_text}
           council={page.data.council}
         />
-        <div style={{ marginTop: 96 }}>
+        <div className="bg-ellipse" style={{ marginTop: 96 }}>
           <ArticlesList
             title={'Blog'}
             subtitle={
