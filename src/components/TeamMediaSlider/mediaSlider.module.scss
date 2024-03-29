@@ -20,6 +20,9 @@
   align-items: center;
   gap: 16px;
   animation: scroll 40s linear infinite;
+  position: absolute;
+  left: 0;
+  top: 0;
   @keyframes scroll {
     from {
       transform: translateX(0);
@@ -39,4 +42,11 @@
   &_win span {
     font-family: var(--font-inter);
   }
+}
+
+.media-slider-container {
+  position: relative;
+  height: 410px;
+  width: 100vw;
+  overflow: hidden;
 }

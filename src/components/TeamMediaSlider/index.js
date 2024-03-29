@@ -15,30 +15,28 @@ const TeamMediaSlider = ({ sliderImgs }) => {
   }, []);
 
   return (
-    <div className={styles['media-slider-wrapper']}>
-      <div className={styles['media-slider-block-wrapper']}>
-        <div
-          className={`${styles['media-slider-block']} ${
-            isWindows ? styles['media-slider-block_win'] : ''
-          }`}
-        >
-          {sliderImgs.map((el) => (
-            <img
-              key={el.img.url}
-              className={styles['media-slider-image-block']}
-              src={el.img.url}
-              alt="slider image"
-            />
-          ))}
-          {sliderImgs.map((el) => (
-            <img
-              key={el.img.url}
-              className={styles['media-slider-image-block']}
-              src={el.img.url}
-              alt="slider image"
-            />
-          ))}
-        </div>
+    <div className={styles['media-slider-container']}>
+      <div
+        className={`${styles['media-slider-block']} ${
+          isWindows ? styles['media-slider-block_win'] : ''
+        }`}
+      >
+        {sliderImgs.map((el) => (
+          <img
+            key={el.img.url}
+            className={styles['media-slider-image-block']}
+            src={el.img.url}
+            alt="slider image"
+          />
+        ))}
+        {sliderImgs.map((el) => (
+          <img
+            key={el.img.url}
+            className={styles['media-slider-image-block']}
+            src={el.img.url}
+            alt="slider image"
+          />
+        ))}
       </div>
     </div>
   );
