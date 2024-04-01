@@ -10,7 +10,7 @@
   height: 410.57px;
   border-radius: 24px;
   @media screen and (max-width: 610px) {
-    height: 233.074px;
+    height: 233px;
     border-radius: 14px;
   }
 }
@@ -49,4 +49,8 @@
   height: 410px;
   width: 100vw;
   overflow: hidden;
+
+  @media screen and (max-width: 610px) {
+    height: 233px;
+  }
 }
