@@ -7,8 +7,8 @@ const useGtag = () => {
   const { account } = useWeb3React();
 
   useEffect(() => {
-    if (isFirstRender && account) {
-      dataLayer.push({ 'event': 'ga4event', 'event_category': 'connect_wallet' });
+    if (isFirstRender && account && typeof window !== 'undefined') {
+      window.dataLayer.push({ 'event': 'ga4event', 'event_category': 'connect_wallet' });
       isFirstRender = false;
     }
   }, [account]);
