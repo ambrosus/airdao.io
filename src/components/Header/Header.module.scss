@@ -327,6 +327,7 @@
 .header__address-text {
   margin-left: 8px;
   line-height: 24px;
+  font-family: var(--font-inter);
 
   @media screen and (max-width: 365px) {
     margin-left: 0;
@@ -364,6 +365,7 @@
   color: #0c0c0d;
 
   span {
+    font-family: var(--font-inter);
     font-weight: 500;
   }
 

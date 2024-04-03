@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['new-airdao-website.cdn.prismic.io'],
+    domains: ['new-airdao-website.cdn.prismic.io', 'images.prismic.io'],
   },
 }
 
