@@ -279,6 +279,435 @@ export type AcademyPageDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Aircon → heading_socials*
+ */
+export interface AirconDocumentDataHeadingSocialsItem {
+  /**
+   * img field in *Aircon → heading_socials*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.heading_socials[].img
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  img: prismic.ImageField<never>;
+
+  /**
+   * link field in *Aircon → heading_socials*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.heading_socials[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+type AirconDocumentDataSlicesSlice = never;
+
+/**
+ * Item in *Aircon → expect_list*
+ */
+export interface AirconDocumentDataExpectListItem {
+  /**
+   * title field in *Aircon → expect_list*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.expect_list[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * text field in *Aircon → expect_list*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.expect_list[].text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Item in *Aircon → partners_list*
+ */
+export interface AirconDocumentDataPartnersListItem {
+  /**
+   * title field in *Aircon → partners_list*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.partners_list[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * text field in *Aircon → partners_list*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.partners_list[].text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * learn_link field in *Aircon → partners_list*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.partners_list[].learn_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  learn_link: prismic.LinkField;
+}
+
+/**
+ * Item in *Aircon → footer_left*
+ */
+export interface AirconDocumentDataFooterLeftItem {
+  /**
+   * text field in *Aircon → footer_left*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.footer_left[].text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * link field in *Aircon → footer_left*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.footer_left[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Item in *Aircon → footer_right*
+ */
+export interface AirconDocumentDataFooterRightItem {
+  /**
+   * img field in *Aircon → footer_right*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.footer_right[].img
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  img: prismic.ImageField<never>;
+
+  /**
+   * link field in *Aircon → footer_right*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.footer_right[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Content for Aircon documents
+ */
+interface AirconDocumentData {
+  /**
+   * heading_text field in *Aircon*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.heading_text
+   * - **Tab**: Hero
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading_text: prismic.RichTextField;
+
+  /**
+   * heading_register_text field in *Aircon*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.heading_register_text
+   * - **Tab**: Hero
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading_register_text: prismic.RichTextField;
+
+  /**
+   * heading_register_url field in *Aircon*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.heading_register_url
+   * - **Tab**: Hero
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  heading_register_url: prismic.LinkField;
+
+  /**
+   * heading_socials field in *Aircon*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.heading_socials[]
+   * - **Tab**: Hero
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  heading_socials: prismic.GroupField<
+    Simplify<AirconDocumentDataHeadingSocialsItem>
+  >;
+
+  /**
+   * hero_text field in *Aircon*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.hero_text
+   * - **Tab**: Hero
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  hero_text: prismic.RichTextField;
+
+  /**
+   * hero_location field in *Aircon*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.hero_location
+   * - **Tab**: Hero
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  hero_location: prismic.RichTextField;
+
+  /**
+   * hero_date field in *Aircon*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.hero_date
+   * - **Tab**: Hero
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  hero_date: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Aircon*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.slices[]
+   * - **Tab**: Hero
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AirconDocumentDataSlicesSlice> /**
+   * expect_title field in *Aircon*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.expect_title
+   * - **Tab**: Expect
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */;
+  expect_title: prismic.RichTextField;
+
+  /**
+   * expect_list field in *Aircon*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.expect_list[]
+   * - **Tab**: Expect
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  expect_list: prismic.GroupField<
+    Simplify<AirconDocumentDataExpectListItem>
+  > /**
+   * about_title field in *Aircon*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.about_title
+   * - **Tab**: About
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */;
+  about_title: prismic.RichTextField;
+
+  /**
+   * about_text field in *Aircon*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.about_text
+   * - **Tab**: About
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  about_text: prismic.RichTextField;
+
+  /**
+   * about_primary_text field in *Aircon*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.about_primary_text
+   * - **Tab**: About
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  about_primary_text: prismic.RichTextField;
+
+  /**
+   * about_primary_link field in *Aircon*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.about_primary_link
+   * - **Tab**: About
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  about_primary_link: prismic.LinkField;
+
+  /**
+   * about_secondary_text field in *Aircon*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.about_secondary_text
+   * - **Tab**: About
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  about_secondary_text: prismic.RichTextField;
+
+  /**
+   * about_secondary_link field in *Aircon*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.about_secondary_link
+   * - **Tab**: About
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  about_secondary_link: prismic.LinkField /**
+   * partners_title field in *Aircon*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.partners_title
+   * - **Tab**: Partners
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */;
+  partners_title: prismic.RichTextField;
+
+  /**
+   * partners_list field in *Aircon*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.partners_list[]
+   * - **Tab**: Partners
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  partners_list: prismic.GroupField<
+    Simplify<AirconDocumentDataPartnersListItem>
+  > /**
+   * register_label field in *Aircon*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.register_label
+   * - **Tab**: Register
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */;
+  register_label: prismic.RichTextField;
+
+  /**
+   * register_title field in *Aircon*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.register_title
+   * - **Tab**: Register
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  register_title: prismic.RichTextField;
+
+  /**
+   * register_date field in *Aircon*
+   *
+   * - **Field Type**: Timestamp
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.register_date
+   * - **Tab**: Register
+   * - **Documentation**: https://prismic.io/docs/field#timestamp
+   */
+  register_date: prismic.TimestampField;
+
+  /**
+   * register_btn_text field in *Aircon*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.register_btn_text
+   * - **Tab**: Register
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  register_btn_text: prismic.RichTextField;
+
+  /**
+   * register_btn_url field in *Aircon*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.register_btn_url
+   * - **Tab**: Register
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  register_btn_url: prismic.LinkField /**
+   * footer_left field in *Aircon*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.footer_left[]
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */;
+  footer_left: prismic.GroupField<Simplify<AirconDocumentDataFooterLeftItem>>;
+
+  /**
+   * footer_right field in *Aircon*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.footer_right[]
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  footer_right: prismic.GroupField<Simplify<AirconDocumentDataFooterRightItem>>;
+}
+
+/**
+ * Aircon document from Prismic
+ *
+ * - **API ID**: `aircon`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AirconDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<AirconDocumentData>,
+    'aircon',
+    Lang
+  >;
+
 type AmbassadorDocumentDataSlicesSlice = never;
 
 /**
@@ -4186,6 +4615,7 @@ export type TeamDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | AcademyDocument
   | AcademyPageDocument
+  | AirconDocument
   | AmbassadorDocument
   | BannerDocument
   | BlogDocument
@@ -4848,6 +5278,14 @@ declare module '@prismicio/client' {
       AcademyPageDocumentData,
       AcademyPageDocumentDataTypesItem,
       AcademyPageDocumentDataSlicesSlice,
+      AirconDocument,
+      AirconDocumentData,
+      AirconDocumentDataHeadingSocialsItem,
+      AirconDocumentDataSlicesSlice,
+      AirconDocumentDataExpectListItem,
+      AirconDocumentDataPartnersListItem,
+      AirconDocumentDataFooterLeftItem,
+      AirconDocumentDataFooterRightItem,
       AmbassadorDocument,
       AmbassadorDocumentData,
       AmbassadorDocumentDataSlicesSlice,
