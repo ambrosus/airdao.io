@@ -1,14 +1,9 @@
-'use client';
-
 import { Button } from '@airdao/ui-library';
-import discord from './discord.svg';
-import twitter from './twitter.svg';
-import telegram from './telegram.svg';
 import styles from './aircon.module.scss';
 import hero_title from './hero__title.svg';
 import location from './location.svg';
+import calendar from './calendar.svg';
 import logo from './airdao.svg';
-import Link from 'next/link';
 import { createClient } from '@/prismicio';
 import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextLink } from '@prismicio/next';
@@ -109,7 +104,7 @@ const Aircon = ({page}) => {
             />
           </div>
           <div>
-            <img className={styles.location_img} src={location.src} alt="location" />
+            <img className={styles.location_img} src={calendar.src} alt="location" />
             <PrismicRichText
               field={page.hero_date}
               components={{
@@ -277,21 +272,27 @@ const Aircon = ({page}) => {
       </section>
       <footer className={`${styles.footer}`}>
         <div className={styles.footer__wrapper}>
-          <div className={styles.footer__left}>
-            {page.footer_left.map((el, i) => (
-              <PrismicNextLink field={el.link} key={i}>
-                <PrismicRichText
-                  field={el.text}
-                  components={{
-                    paragraph: ({ children }) => (
-                      <span className={styles.footer__link}>{children}</span>
-                    )
-                  }}
-                />
-              </PrismicNextLink>
-            ))}
-          </div>
-          <div className={styles.footer__right}>
+          <a href="mailto:aircon@airdao.io" className={styles.footer__mail}>
+            aircon@airdao.io
+          </a>
+          <div className={styles.footer__location}>
+            <img src={location.src} alt="location" />
+            <PrismicRichText
+              field={page.hero_location}
+              components={{
+                paragraph: ({ children }) => (
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Civic+Centre+Lagos+Nigeria"
+                    target="_blank"
+                    className={styles.footer__geo}
+                  >
+                    {children}
+                  </a>
+              ),
+            }}
+          />
+        </div>
+          <div className={styles.footer__socials}>
             {page.footer_right.map((el, i) => (
               <PrismicNextLink field={el.link} key={i}>
                 <img src={el.img.url} alt="" />
@@ -304,7 +305,7 @@ const Aircon = ({page}) => {
   )
 };
 
-const Timer = ({registerDate}) => {
+const Timer = ({ registerDate }) => {
   const [timerData, setTimerData] = useState({});
 
   useEffect(() => {

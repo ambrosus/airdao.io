@@ -334,6 +334,16 @@ button.about__btn {
   background: linear-gradient(#E9EFFB 40%, white 0%);
   padding-top: 30px;
 
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  ::-webkit-scrollbar {
+    width: 0; /* Hide scrollbar for Chrome, Safari and Opera */
+  }
+  & {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
   @media screen and (max-width: 1024px) {
     padding-top: 0;
   }
@@ -526,7 +536,7 @@ button.about__btn {
 }
 
 button.register__btn {
-  padding: 30px 66px;
+  padding: 50px 66px;
   color: var(--color-shades-grey-50, #FFF);
   text-align: center;
   font-family: var(--font-inter);
@@ -535,6 +545,10 @@ button.register__btn {
   font-weight: 500;
   line-height: 99.806px; /* 150% */
   letter-spacing: -0.665px;
+
+  &:hover {
+    background: #D24D0C;
+  }
 
   @media screen and (max-width: 700px) {
     padding: 22px 30px;
@@ -553,7 +567,7 @@ button.register__btn {
   }
 }
 
-.footer__link {
+.footer__mail, .footer__geo {
   color: var(--Neutrals-400---Tetiary-content, #9B9CA5);
   text-align: center;
   font-family: var(--font-inter);
@@ -562,6 +576,10 @@ button.register__btn {
   font-weight: 500;
   line-height: 24px; /* 150% */
   letter-spacing: -0.16px;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .footer__wrapper {
@@ -569,7 +587,7 @@ button.register__btn {
   max-width: 1300px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  gap: 50px;
 
   @media screen and (max-width: 650px) {
     flex-direction: column;
@@ -578,16 +596,36 @@ button.register__btn {
   }
 }
 
-.footer__left {
+.footer__location {
   display: flex;
-  gap: 35px;
+  align-items: center;
+  gap: 8px;
+
+  img {
+    width: 16px;
+  }
+
+  @media screen and (max-width: 650px) {
+    order: 1;
+  }
 }
 
-.footer__right {
+.footer__socials {
   display: flex;
   gap: 32px;
+  margin-left: auto;
 
   a:hover {
     opacity: .6;
+  }
+
+  @media screen and (max-width: 650px) {
+    margin-left: 0;
+    order: 2;
+  }
+}
+.footer__mail {
+  @media screen and (max-width: 650px) {
+    order: 3;
   }
 }
