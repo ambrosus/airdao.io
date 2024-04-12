@@ -18,6 +18,14 @@ const getTimeRemaining = (targetDate) => {
   const targetDateTime = new Date(targetDate);
   const currentTime = new Date();
   let timeDifference = targetDateTime - currentTime;
+  if (timeDifference < 0) {
+    return {
+      days: '00',
+      hours: '00',
+      minutes: '00',
+      seconds: '00'
+    };
+  }
   const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
   timeDifference -= days * (1000 * 60 * 60 * 24);
 
@@ -38,6 +46,7 @@ const getTimeRemaining = (targetDate) => {
 };
 
 const Aircon = ({page}) => {
+  console.log(page);
   return (
     <div className={styles.page}>
       <div className={styles.heading}>
@@ -57,10 +66,10 @@ const Aircon = ({page}) => {
                 paragraph: ({ children }) => (
                   <Button size="medium" type="tetiary" className={styles.heading__btn}>
                     {children}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="#29292D">
                       <path
                         d="M7.73271 4.20694C8.03263 3.92125 8.50737 3.93279 8.79306 4.23271L13.7944 9.48318C14.0703 9.77285 14.0703 10.2281 13.7944 10.5178L8.79306 15.7682C8.50737 16.0681 8.03263 16.0797 7.73271 15.794C7.43279 15.5083 7.42125 15.0336 7.70694 14.7336L12.2155 10.0005L7.70694 5.26729C7.42125 4.96737 7.43279 4.49264 7.73271 4.20694Z"
-                        fill="white" />
+                        fill="#29292D" />
                     </svg>
                   </Button>
                 ),
@@ -131,7 +140,7 @@ const Aircon = ({page}) => {
                 field={el.title}
                 components={{
                   paragraph: ({ children }) => (
-                    <p className={styles.expect__label}>Industry leaders</p>
+                    <p className={styles.expect__label}>{children}</p>
                   ),
                 }}
               />
@@ -223,7 +232,7 @@ const Aircon = ({page}) => {
                     ),
                   }}
                 />
-                <PrismicNextLink field={el.link} className={styles.partners__link}>
+                <PrismicNextLink field={el.learn_link} className={styles.partners__link}>
                   Learn more
                   <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -233,6 +242,7 @@ const Aircon = ({page}) => {
                 </PrismicNextLink>
               </div>
             ))}
+            <div style={{width: 1, padding: 1}}/>
           </div>
         </div>
       </section>
