@@ -352,9 +352,18 @@ button.about__btn {
 .parnters__list {
   display: flex;
   align-items: stretch;
+  justify-content: center;
   gap: 42px;
-  margin-left: calc((100vw - 1300px) / 2 + 30px);
+  //margin-left: calc((100vw - 1300px) / 2 + 30px);
   padding-bottom: 15px;
+
+  & > div:last-child {
+    display: none;
+
+    @media screen and (max-width: 650px) {
+      display: block;
+    }
+  }
 
   @media screen and (max-width: 1320px) {
     margin: 0 30px;
@@ -363,6 +372,7 @@ button.about__btn {
   @media screen and (max-width: 650px) {
     margin: 0 16px;
     gap: 16px;
+    justify-content: flex-start;
   }
 }
 
@@ -380,6 +390,7 @@ button.about__btn {
 .partners__logo {
   margin: 50px auto;
   display: block;
+  max-width: 100%;
 }
 
 .partners__title {

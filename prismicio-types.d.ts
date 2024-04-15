@@ -364,6 +364,16 @@ export interface AirconDocumentDataPartnersListItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   learn_link: prismic.LinkField;
+
+  /**
+   * icon field in *Aircon → partners_list*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aircon.partners_list[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
 }
 
 /**
