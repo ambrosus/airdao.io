@@ -387,6 +387,13 @@ button.about__btn {
   flex-direction: column;
 }
 
+.logo_wrapper {
+  height: 142px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .partners__logo {
   margin: 50px auto;
   display: block;

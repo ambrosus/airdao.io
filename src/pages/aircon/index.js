@@ -210,7 +210,9 @@ const Aircon = ({page}) => {
           <div className={styles.parnters__list}>
             {page.partners_list.map((el, i) => (
               <div className={styles.partners__item} key={i}>
-                <img src={el.icon.url} alt="airdao" className={styles.partners__logo} />
+                <div className={styles.logo_wrapper}>
+                  <img src={el.icon.url} alt="airdao" className={styles.partners__logo} />
+                </div>
                 <PrismicRichText
                   field={el.title}
                   components={{
