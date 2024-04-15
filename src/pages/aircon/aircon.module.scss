@@ -360,7 +360,7 @@ button.about__btn {
   & > div:last-child {
     display: none;
 
-    @media screen and (max-width: 650px) {
+    @media screen and (max-width: 1050px) {
       display: block;
     }
   }
@@ -369,7 +369,7 @@ button.about__btn {
     margin: 0 30px;
   }
 
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 1050px) {
     margin: 0 16px;
     gap: 16px;
     justify-content: flex-start;
