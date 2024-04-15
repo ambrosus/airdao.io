@@ -52,6 +52,10 @@
 }
 
 .heading__btn {
+  &:hover button {
+    background: rgb(255 255 255 / 67%);
+  }
+
   @media screen and (max-width: 650px) {
     margin: 0 auto;
   }
@@ -333,6 +337,7 @@ button.about__btn {
   padding-bottom: 80px;
   background: linear-gradient(#E9EFFB 40%, white 0%);
   padding-top: 30px;
+  scrollbar-width: none;
 
   &::-webkit-scrollbar {
     display: none;
