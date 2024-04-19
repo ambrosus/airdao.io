@@ -12,6 +12,7 @@ import { default as bottomBlockStyles } from './academy-list.module.scss';
 import styles from './academy.module.scss';
 import blogStyles from '../blog/blog.module.scss';
 import GoBackIcon from './goBack.svg';
+import Seo from '@/components/Seo';
 
 export async function getStaticProps(context) {
   const client = createClient({ previewData: context.previewData });
@@ -71,6 +72,7 @@ export default function AcademyArticle({
 
   return (
     <>
+      <Seo siteName="AirDAO Academy" data={data} />
       {header && <HeaderWrapper header={header} />}
       <div className={styles['academy-page']}>
         <Link href={'/academy'} className={styles['academy-back']}>
@@ -108,7 +110,10 @@ export default function AcademyArticle({
             <h2 className={bottomBlockStyles['articles-title']}>
               Related articles
             </h2>
-            <Link href="/src/pages/#academy" className={bottomBlockStyles['articles-btn']}>
+            <Link
+              href="/src/pages/#academy"
+              className={bottomBlockStyles['articles-btn']}
+            >
               See all
             </Link>
           </div>

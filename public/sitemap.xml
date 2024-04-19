@@ -3,86 +3,190 @@
     <url>
         <loc>https://airdao.io</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://airdao.io/team/</loc>
+        <loc>https://airdao.io/team</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://airdao.io/ambassador/</loc>
+        <loc>https://airdao.io/ambassador</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://airdao.io/contact-us/</loc>
+        <loc>https://airdao.io/contact-us</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://airdao.io/get-amb/</loc>
+        <loc>https://airdao.io/get-amb</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://airdao.io/governance/</loc>
+        <loc>https://airdao.io/governance</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://airdao.io/bridge/</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://airdao.io/staking/</loc>
+        <loc>https://airdao.io/bridge</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://airdao.io/firepot/swap/</loc>
+        <loc>https://airdao.io/staking</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://airdao.io/firepot/pool/</loc>
+        <loc>https://airdao.io/firepot/swap</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://airdao.io/firepot/farm/</loc>
+        <loc>https://airdao.io/firepot/pool</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://airdao.io/explorer/</loc>
+        <loc>https://airdao.io/firepot/farm</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://airdao.io/explorer/apollo/</loc>
+        <loc>https://airdao.io/explorer</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://airdao.io/explorer/atlas/</loc>
+        <loc>https://airdao.io/explorer/apollo</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://airdao.io/explorer/address/</loc>
+        <loc>https://airdao.io/explorer/atlas</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://airdao.io/explorer/blocks/</loc>
+        <loc>https://airdao.io/explorer/address</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://airdao.io/explorer/tx/</loc>
+        <loc>https://airdao.io/explorer/blocks</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/explorer/tx</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/bond-marketplace</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/events</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/gov-portal</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/builders</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/academy</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/academy/differences-between-cex-and-dex</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/academy/how-to-create-a-crypto-wallet</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/academy/what-is-staking</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/academy/what-is-a-crypto-wallet</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/academy/governance-platform-registration-guide</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/academy/airdao_constitution</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/academy/how-to-verify-your-identity-using-fractal-id</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/academy/airdao-node-setup-guide</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/academy/governance_model1</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+        <url>
+        <loc>https://airdao.io/academy/how-to-conduct-on-chain-analysis-with-airdaos-network-explorer</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/academy/what-are-airbonds</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+        <url>
+        <loc>https://airdao.io/academy/snapshot-voting-guide</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/academy/what-is-a-multi-signature-wallet</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/blog</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/roadmap</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://airdao.io/brand-materials</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
