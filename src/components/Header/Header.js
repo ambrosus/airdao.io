@@ -25,12 +25,15 @@ import TailArrow from '../Icons/TailArrow';
 import ArrowTop from '../Icons/ArrowTop';
 import MetaMaskIcon from '../Icons/MetaMaskIcon';
 import WalletConnectIcon from '../Icons/WalletConnectIcon';
+import useGtag from '@/hooks/useGtag';
 
 const ambNet = getCurrentAmbNetwork(process.env.NEXT_PUBLIC_CHAIN_ID);
 
 const readProvider = new providers.JsonRpcProvider(ambNet.rpcUrl);
 
 const Header = ({ header, showBanner = false }) => {
+  useGtag();
+
   const [address, setAddress] = useState('');
   const [isNavOpen, setIsNavOpen] = useState(true);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
