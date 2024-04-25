@@ -40,7 +40,11 @@ export default function Home({
         <meta name="twitter:image" content="https://airdao.io/og.png" />
       </Head>
       {showBanner && (
-        <Banner data={banner?.data} setShowBanner={setShowBanner} />
+        <Banner
+          data={banner?.data}
+          setShowBanner={setShowBanner}
+          nextLink={false}
+        />
       )}
       <HeaderWrapper header={header} showBanner={showBanner} />
       <div className={styles['main-block-wrapper']}>

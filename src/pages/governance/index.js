@@ -9,6 +9,8 @@ import { useState } from 'react';
 import Hero from 'src/components/Governance/Hero';
 import Council from '../../components/Governance/Council';
 import Proposals from '../../components/Governance/Proposals';
+import Image from 'next/image';
+import ArticlesList from '@/components/ArticlesList';
 
 const GovernancePage = ({
   header,
@@ -49,27 +51,17 @@ const GovernancePage = ({
           text={page.data.council_text}
           council={page.data.council}
         />
-        {/*<div className={styles['articles-wrapper']}>*/}
-        {/*  <Image*/}
-        {/*    className={styles['blue-circle']}*/}
-        {/*    src={blueCircle}*/}
-        {/*    alt="blue circle"*/}
-        {/*  />*/}
-        {/*  <Image*/}
-        {/*    className={styles['orange-circle']}*/}
-        {/*    src={orangeCircle}*/}
-        {/*    alt="orange circle"*/}
-        {/*  />*/}
-        {/*  <ArticlesList*/}
-        {/*    title={'Blog'}*/}
-        {/*    subtitle={*/}
-        {/*      'Discover articles, governance insights, events, and more'*/}
-        {/*    }*/}
-        {/*    goToText="Go to blog"*/}
-        {/*    goToLink="/blog"*/}
-        {/*    articles={latestArticles}*/}
-        {/*  />*/}
-        {/*</div>*/}
+        <div className="bg-ellipse" style={{ marginTop: 96 }}>
+          <ArticlesList
+            title={'Blog'}
+            subtitle={
+              'Discover articles, governance insights, events, and more'
+            }
+            goToText="Go to blog"
+            goToLink="/blog"
+            articles={latestArticles}
+          />
+        </div>
         {footerText && (
           <Footer data={footerText.data} footerBlock={footerSlice} />
         )}

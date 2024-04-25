@@ -23,3 +23,29 @@
     padding: 0 16px;
   }
 }
+
+.bg-ellipse {
+  position: relative;
+  width: 100%;
+
+  &:before {
+    position: absolute;
+    width: inherit;
+    height: 2251px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("/img/blue-orange-circle.svg");
+    z-index: -1;
+    top: -50%;
+    background-position: center;
+    content: "";
+
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+      top: -100%;
+    }
+
+    @media screen and (max-width: 767px) {
+      top: -160%;
+    }
+  }
+}

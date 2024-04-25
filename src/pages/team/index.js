@@ -14,7 +14,7 @@ import TextBlock from 'src/components/Team/TextBlock';
 const TeamPage = ({ header, footerText, page, banner }) => {
   const footerSlice = getFooterBlockSlice(page.data);
   const [showBanner, setShowBanner] = useState(page?.data?.show_banner);
-
+  console.log(page);
   return (
     <>
       <Head>
@@ -31,6 +31,7 @@ const TeamPage = ({ header, footerText, page, banner }) => {
           illustration={page.data.illustration}
           mission={page.data.mission}
           vision={page.data.vision}
+          sliderImgs={page.data.item}
         />
         <Team
           heading={page.data.team_heading}

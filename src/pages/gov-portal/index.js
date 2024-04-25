@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@airdao/ui-library';
 import { createClient } from '@/prismicio';
@@ -30,7 +30,7 @@ export default function Landing({ page, header, banner, footerText }) {
           nextLink={false}
         />
       )}
-      <HeaderWrapper header={header} showBanner={true} />
+      <HeaderWrapper header={header} showBanner={showBanner} />
       <div className={styles.content}>
         <BannerMap />
         <div className={styles.insetRound}>

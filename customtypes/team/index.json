@@ -400,6 +400,25 @@
           }
         }
       }
+    },
+    "SliderImages": {
+      "item": {
+        "type": "Group",
+        "config": {
+          "label": "item",
+          "repeat": true,
+          "fields": {
+            "img": {
+              "type": "Image",
+              "config": {
+                "label": "img",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
