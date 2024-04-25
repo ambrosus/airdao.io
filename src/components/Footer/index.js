@@ -45,6 +45,7 @@ const Footer = ({ data, footerBlock, className = '' }) => {
                       asText(item.footer_item_text)
                     ) : (
                       <a
+                        id="footer_link"
                         href={item.footer_item_url.url}
                         target={item.footer_item_url.target}
                         {...(item.footer_item_url?.url?.includes(

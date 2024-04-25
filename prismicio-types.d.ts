@@ -1162,7 +1162,7 @@ interface BlogDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  blog_type: prismic.SelectField<'news' | 'governance' | 'events'>;
+  blog_type: prismic.SelectField<'news' | 'governance' | 'events' | 'tech'>;
 
   /**
    * Slice Zone field in *blog*
@@ -4127,6 +4127,126 @@ export type RoadmapDocument<Lang extends string = string> =
     Lang
   >;
 
+type RoadmapnewDocumentDataSlicesSlice = RoadmapItemSlice;
+
+type RoadmapnewDocumentDataSlices1Slice = RoadmapItemSlice;
+
+type RoadmapnewDocumentDataSlices2Slice = RoadmapItemSlice;
+
+type RoadmapnewDocumentDataSlices3Slice = RoadmapItemSlice;
+
+type RoadmapnewDocumentDataSlices4Slice = RoadmapItemSlice;
+
+/**
+ * Content for RoadmapNew documents
+ */
+interface RoadmapnewDocumentData {
+  /**
+   * Slice Zone field in *RoadmapNew*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmapnew.slices[]
+   * - **Tab**: Layer1
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<RoadmapnewDocumentDataSlicesSlice> /**
+   * Slice Zone field in *RoadmapNew*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmapnew.slices1[]
+   * - **Tab**: DeFi
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */;
+  slices1: prismic.SliceZone<RoadmapnewDocumentDataSlices1Slice> /**
+   * Slice Zone field in *RoadmapNew*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmapnew.slices2[]
+   * - **Tab**: Mobile App
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */;
+  slices2: prismic.SliceZone<RoadmapnewDocumentDataSlices2Slice> /**
+   * Slice Zone field in *RoadmapNew*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmapnew.slices3[]
+   * - **Tab**: Governance
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */;
+  slices3: prismic.SliceZone<RoadmapnewDocumentDataSlices3Slice> /**
+   * Slice Zone field in *RoadmapNew*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmapnew.slices4[]
+   * - **Tab**: Others
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */;
+  slices4: prismic.SliceZone<RoadmapnewDocumentDataSlices4Slice> /**
+   * title field in *RoadmapNew*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmapnew.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */;
+  title: prismic.RichTextField;
+
+  /**
+   * subtitle field in *RoadmapNew*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmapnew.subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle: prismic.RichTextField;
+
+  /**
+   * articles_title field in *RoadmapNew*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmapnew.articles_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  articles_title: prismic.RichTextField;
+
+  /**
+   * articles_subtitle field in *RoadmapNew*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmapnew.articles_subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  articles_subtitle: prismic.RichTextField;
+}
+
+/**
+ * RoadmapNew document from Prismic
+ *
+ * - **API ID**: `roadmapnew`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type RoadmapnewDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<RoadmapnewDocumentData>,
+    'roadmapnew',
+    Lang
+  >;
+
 /**
  * Item in *Team → Council and Operations*
  */
@@ -4343,6 +4463,21 @@ export interface TeamDocumentDataAmbassadorsImagesItem {
 }
 
 type TeamDocumentDataSlices5Slice = FooterEventsSlice | FooterContactSlice;
+
+/**
+ * Item in *Team → item*
+ */
+export interface TeamDocumentDataItemItem {
+  /**
+   * img field in *Team → item*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.item[].img
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  img: prismic.ImageField<never>;
+}
 
 /**
  * Content for Team documents
@@ -4607,7 +4742,16 @@ interface TeamDocumentData {
    * - **Tab**: Footer
    * - **Documentation**: https://prismic.io/docs/field#slices
    */;
-  slices5: prismic.SliceZone<TeamDocumentDataSlices5Slice>;
+  slices5: prismic.SliceZone<TeamDocumentDataSlices5Slice> /**
+   * item field in *Team*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.item[]
+   * - **Tab**: SliderImages
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */;
+  item: prismic.GroupField<Simplify<TeamDocumentDataItemItem>>;
 }
 
 /**
@@ -4642,6 +4786,7 @@ export type AllDocumentTypes =
   | HomepageDocument
   | PolicyDocument
   | RoadmapDocument
+  | RoadmapnewDocument
   | TeamDocument;
 
 /**
@@ -5271,6 +5416,104 @@ export type NumericListSlice = prismic.SharedSlice<
   NumericListSliceVariation
 >;
 
+/**
+ * Primary content in *RoadmapItem → Primary*
+ */
+export interface RoadmapItemSliceDefaultPrimary {
+  /**
+   * title field in *RoadmapItem → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap_item.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * text field in *RoadmapItem → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap_item.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * link field in *RoadmapItem → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap_item.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * quarter field in *RoadmapItem → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 1
+   * - **API ID Path**: roadmap_item.primary.quarter
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  quarter: prismic.SelectField<'1' | '2' | '3' | '4', 'filled'>;
+
+  /**
+   * length in quarters field in *RoadmapItem → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 1
+   * - **API ID Path**: roadmap_item.primary.length_in_quarters
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  length_in_quarters: prismic.SelectField<'1' | '2' | '3' | '4', 'filled'>;
+
+  /**
+   * done field in *RoadmapItem → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: roadmap_item.primary.done
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  done: prismic.BooleanField;
+}
+
+/**
+ * Default variation for RoadmapItem Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RoadmapItemSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<RoadmapItemSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *RoadmapItem*
+ */
+type RoadmapItemSliceVariation = RoadmapItemSliceDefault;
+
+/**
+ * RoadmapItem Shared Slice
+ *
+ * - **API ID**: `roadmap_item`
+ * - **Description**: RoadmapItem
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RoadmapItemSlice = prismic.SharedSlice<
+  'roadmap_item',
+  RoadmapItemSliceVariation
+>;
+
 declare module '@prismicio/client' {
   interface CreateClient {
     (
@@ -5374,6 +5617,13 @@ declare module '@prismicio/client' {
       RoadmapDocumentDataExplorerListItem,
       RoadmapDocumentDataMultisigListItem,
       RoadmapDocumentDataOtherListItem,
+      RoadmapnewDocument,
+      RoadmapnewDocumentData,
+      RoadmapnewDocumentDataSlicesSlice,
+      RoadmapnewDocumentDataSlices1Slice,
+      RoadmapnewDocumentDataSlices2Slice,
+      RoadmapnewDocumentDataSlices3Slice,
+      RoadmapnewDocumentDataSlices4Slice,
       TeamDocument,
       TeamDocumentData,
       TeamDocumentDataCouncilAndOperationsItem,
@@ -5382,6 +5632,7 @@ declare module '@prismicio/client' {
       TeamDocumentDataStructureCardsItem,
       TeamDocumentDataAmbassadorsImagesItem,
       TeamDocumentDataSlices5Slice,
+      TeamDocumentDataItemItem,
       AllDocumentTypes,
       BlogImgSlice,
       BlogImgSliceDefaultPrimary,
@@ -5429,6 +5680,10 @@ declare module '@prismicio/client' {
       NumericListSliceDefaultItem,
       NumericListSliceVariation,
       NumericListSliceDefault,
+      RoadmapItemSlice,
+      RoadmapItemSliceDefaultPrimary,
+      RoadmapItemSliceVariation,
+      RoadmapItemSliceDefault,
     };
   }
 }

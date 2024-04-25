@@ -1,0 +1,109 @@
+.expand {
+  padding: 14px 16px;
+  margin-bottom: 50px;
+  border-radius: 32px;
+  border: 1px solid var(--Primary-50, #E9EFFB);
+  background: var(--Neutrals-50, #FFF);
+  box-shadow: 0px 6px 12px 0px rgba(47, 43, 67, 0.10);
+
+  @media screen and (max-width: 678px) {
+    padding: 10px 11px;
+    border-radius: 24px;
+  }
+}
+
+.title {
+  color: #1C1C1C;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: var(--font-inter);
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  button {
+    height: 24px;
+    img {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 678px) {
+    font-size: 12px;
+    line-height: 17.315px; /* 150% */
+    letter-spacing: -0.115px;
+
+    button {
+      height: 17px;
+      width: 17px;
+    }
+  }
+}
+
+.content {
+  transition: .3s;
+  max-height: 0;
+  overflow: hidden;
+  font-family: var(--font-inter);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
+}
+
+.content_expand {
+  max-height: 400px;
+}
+
+.text, .link {
+  color: var(--Neutrals-600---Secondary-content, #63636D);
+  font-size: 16px;
+  font-family: var(--font-inter);
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
+  margin-top: 16px;
+
+  @media screen and (max-width: 678px) {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 17.315px; /* 150% */
+    letter-spacing: -0.115px;
+  }
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  color: #3668DD;
+  margin-top: 22px;
+  width: fit-content;
+
+  svg {
+    stroke: #3668DD;
+    height: 15px;
+  }
+}
+
+.label {
+  margin-left: auto;
+  margin-right: 8px;
+  border-radius: 20px;
+  font-family: var(--font-inter);
+  border: 1px solid var(--Success-100, #C5EEE1);
+  background: var(--Success-50, #E5FFF7);
+  padding: 2px 8px;
+  color: var(--Success-700, #155742);
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; /* 133.333% */
+  letter-spacing: -0.12px;
+}

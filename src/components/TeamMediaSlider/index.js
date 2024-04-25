@@ -1,10 +1,7 @@
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import styles from './mediaSlider.module.scss';
-import slider1 from './slider1.png';
-import slider2 from './slider2.png';
 
-const TeamMediaSlider = () => {
+const TeamMediaSlider = ({ sliderImgs }) => {
   const [isWindows, setIsWindows] = useState(false);
 
   useEffect(() => {
@@ -18,74 +15,28 @@ const TeamMediaSlider = () => {
   }, []);
 
   return (
-    <div className={styles['media-slider-wrapper']}>
-      <div className={styles['media-slider-block-wrapper']}>
-        <div
-          className={`${styles['media-slider-block']} ${
-            isWindows ? styles['media-slider-block_win'] : ''
-          }`}
-        >
-          <Image
+    <div className={styles['media-slider-container']}>
+      <div
+        className={`${styles['media-slider-block']} ${
+          isWindows ? styles['media-slider-block_win'] : ''
+        }`}
+      >
+        {sliderImgs.map((el) => (
+          <img
+            key={el.img.url}
             className={styles['media-slider-image-block']}
-            src={slider1}
+            src={el.img.url}
             alt="slider image"
           />
-          <Image
+        ))}
+        {sliderImgs.map((el) => (
+          <img
+            key={el.img.url}
             className={styles['media-slider-image-block']}
-            src={slider2}
+            src={el.img.url}
             alt="slider image"
           />
-          <Image
-            className={styles['media-slider-image-block']}
-            src={slider1}
-            alt="slider image"
-          />
-          <Image
-            className={styles['media-slider-image-block']}
-            src={slider2}
-            alt="slider image"
-          />
-          <Image
-            className={styles['media-slider-image-block']}
-            src={slider1}
-            alt="slider image"
-          />
-          <Image
-            className={styles['media-slider-image-block']}
-            src={slider2}
-            alt="slider image"
-          />
-          <Image
-            className={styles['media-slider-image-block']}
-            src={slider1}
-            alt="slider image"
-          />
-          <Image
-            className={styles['media-slider-image-block']}
-            src={slider2}
-            alt="slider image"
-          />
-          <Image
-            className={styles['media-slider-image-block']}
-            src={slider1}
-            alt="slider image"
-          />
-          <Image
-            className={styles['media-slider-image-block']}
-            src={slider2}
-            alt="slider image"
-          />
-          <Image
-            className={styles['media-slider-image-block']}
-            src={slider1}
-            alt="slider image"
-          />
-          <Image
-            className={styles['media-slider-image-block']}
-            src={slider2}
-            alt="slider image"
-          />
-        </div>
+        ))}
       </div>
     </div>
   );

@@ -1,5 +1,28 @@
 .contentContainer {
   position: relative;
+  width: 100%;
+
+  &:before,
+  &:after {
+    position: absolute;
+    width: inherit;
+    height: 2251px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("/img/blue-orange-circle.svg");
+    z-index: -1;
+    content: "";
+  }
+
+  &:before {
+    bottom: -70%;
+    background-position: top;
+  }
+
+  &:after {
+    bottom: 0;
+    background-position: bottom;
+  }
 }
 .articlesContainer {
   width: 100%;
