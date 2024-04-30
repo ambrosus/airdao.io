@@ -6,7 +6,7 @@ import HeaderWrapper from '@/components/Header';
 import App from '@/components/Homepage/App';
 import homepageStyles from '@/components/Homepage/homepage.module.scss';
 import { createClient } from '@/prismicio';
-import { Button } from '@airdao/ui-library';
+import { Button, Notify } from '@airdao/ui-library';
 import { PrismicRichText } from '@prismicio/react';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -14,6 +14,9 @@ import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import arrow from './arrow.svg';
 import styles from './buy-amb.module.scss';
+import eth from './eth.svg';
+import bsc from './bsc.svg';
+import info from './info.svg';
 
 const options = [
   { title: 'AMB/USDT', value: 'usdt' },
@@ -31,9 +34,17 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
 
   // client side rendering because of nested links
   const [showChild, setShowChild] = useState(false);
+
   useEffect(() => {
     setShowChild(true);
   }, []);
+
+  const handleCopy = (e, address) => {
+    e.preventDefault();
+
+    navigator.clipboard.writeText(address);
+    Notify.info('Address copied', null, { autoClose: 1000 });
+  };
 
   if (!showChild) {
     return null;
@@ -166,6 +177,47 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
           src={orangeCircle}
           alt="orange circle"
         />
+        <h2 className={styles.title}>AMB token on other networks</h2>
+        <div className={`container ${styles.tokens}`}>
+          <a
+            className={styles.token}
+            href="https://bscscan.com/token/0x23c1C1cc14270B7Bd63677d1fe4790891b17A33d"
+            target="_blank"
+          >
+            <img src={bsc.src} alt="bsc" />
+            <p className={styles.token__name}>BSC Network</p>
+            <p className={styles.token__address}>
+              Token Contract Address:
+              <span
+                onClick={(e) =>
+                  handleCopy(e, '0x23c1C1cc14270B7Bd63677d1fe4790891b17A33d')
+                }
+              >
+                0x23c1C1cc14270B7Bd63677d1fe4790891b17A33d
+              </span>
+            </p>
+            <img src={info.src} alt="info" className={styles.info} />
+          </a>
+          <a
+            className={styles.token}
+            href="https://etherscan.io/token/0xf4fb9bf10e489ea3edb03e094939341399587b0c"
+            target="_blank"
+          >
+            <img src={eth.src} alt="bsc" />
+            <p className={styles.token__name}>ETH Network</p>
+            <p className={styles.token__address}>
+              Token Contract Address:
+              <span
+                onClick={(e) =>
+                  handleCopy(e, '0xf4fb9bf10e489ea3edb03e094939341399587b0c')
+                }
+              >
+                0xf4fb9bf10e489ea3edb03e094939341399587b0c
+              </span>
+            </p>
+            <img src={info.src} alt="info" className={styles.info} />
+          </a>
+        </div>
         <App
           title={page.app_title}
           list={page.app_list}
