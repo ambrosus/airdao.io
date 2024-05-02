@@ -179,25 +179,25 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
         />
         <h2 className={styles.title}>AMB token on other networks</h2>
         <div className={`container ${styles.tokens}`}>
-          <a
-            className={styles.token}
-            href="https://bscscan.com/token/0x23c1C1cc14270B7Bd63677d1fe4790891b17A33d"
-            target="_blank"
-          >
-            <img src={bsc.src} alt="bsc" />
-            <p className={styles.token__name}>BSC Network</p>
-            <p className={styles.token__address}>
-              Token Contract Address:
-              <span
-                onClick={(e) =>
-                  handleCopy(e, '0x23c1C1cc14270B7Bd63677d1fe4790891b17A33d')
-                }
-              >
-                0x23c1C1cc14270B7Bd63677d1fe4790891b17A33d
-              </span>
-            </p>
-            <img src={info.src} alt="info" className={styles.info} />
-          </a>
+          {/*<a*/}
+          {/*  className={styles.token}*/}
+          {/*  href="https://bscscan.com/token/0x23c1C1cc14270B7Bd63677d1fe4790891b17A33d"*/}
+          {/*  target="_blank"*/}
+          {/*>*/}
+          {/*  <img src={bsc.src} alt="bsc" />*/}
+          {/*  <p className={styles.token__name}>BSC Network</p>*/}
+          {/*  <p className={styles.token__address}>*/}
+          {/*    Token Contract Address:*/}
+          {/*    <span*/}
+          {/*      onClick={(e) =>*/}
+          {/*        handleCopy(e, '0x23c1C1cc14270B7Bd63677d1fe4790891b17A33d')*/}
+          {/*      }*/}
+          {/*    >*/}
+          {/*      0x23c1C1cc14270B7Bd63677d1fe4790891b17A33d*/}
+          {/*    </span>*/}
+          {/*  </p>*/}
+          {/*  <img src={info.src} alt="info" className={styles.info} />*/}
+          {/*</a>*/}
           <a
             className={styles.token}
             href="https://etherscan.io/token/0xf4fb9bf10e489ea3edb03e094939341399587b0c"
