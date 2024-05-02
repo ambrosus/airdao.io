@@ -20,42 +20,25 @@ const getCurrentDay = () => {
 };
 
 const tabs = [
-  {label: 'Layer1', value: 0},
-  {label: 'DeFi', value: 1},
-  {label: 'Mobile App', value: 2},
-  {label: 'Governance', value: 3},
-  {label: 'Others', value: 4},
+  { label: 'Layer1', value: 0 },
+  { label: 'DeFi', value: 1 },
+  { label: 'Mobile App', value: 2 },
+  { label: 'Governance', value: 3 },
+  { label: 'Others', value: 4 },
 ];
 
-const RoadmapNew = ({footerText, header, page, articles}) => {
+const quarters = ['Q1', 'Q2', 'Q3', 'Q4'];
+
+const RoadmapNew = ({ footerText, header, page, articles }) => {
   const [currentTab, setCurrentTab] = useState(0);
 
-  const currentTabData = useMemo(() => {
-    const data = [
-      { name: 'Q1', items: [] },
-      { name: 'Q2', items: [] },
-      { name: 'Q3', items: [] },
-      { name: 'Q4', items: [] },
-    ];
-    const currentSlices = `slices${currentTab ? currentTab : ''}`;
-    page.data[currentSlices].forEach((el) => {
-      data[+el.primary.quarter - 1].items.push(el.primary);
-    });
-    return data;
+  const activeTabData = useMemo(() => {
+    const currentSlice = `slices${currentTab ? currentTab : ''}`;
+    const sliceData = page.data[currentSlice];
+
+    return sliceData;
   }, [page, currentTab]);
 
-  const getTopOffset = (index) => {
-    return (
-      currentTabData
-        .slice(0, index)
-        .reduce(
-          (accumulator, currentValue) =>
-            accumulator + currentValue.items.length,
-          0,
-        ) * 104
-    );
-  };
-  console.log(page);
   return (
     <>
       {header && <HeaderWrapper header={header} />}
@@ -64,8 +47,9 @@ const RoadmapNew = ({footerText, header, page, articles}) => {
           <div>
             <h1 className={styles.title}>2024 roadmap</h1>
             <p className={styles.subtitle}>
-              Our product roadmap shows what’s coming to the AirDAO ecosystem in 2024. We’ll update the chart monthly to
-              reflect delivered products, new additions, and more.
+              Our product roadmap shows what’s coming to the AirDAO ecosystem in
+              2024. We’ll update the chart monthly to reflect delivered
+              products, new additions, and more.
             </p>
           </div>
           <div className={styles.img_wrapper}>
@@ -78,28 +62,56 @@ const RoadmapNew = ({footerText, header, page, articles}) => {
       </div>
       <div className={styles.content__wrapper}>
         <div className={styles.content}>
-          <div className={styles.now} style={{ width: `${getCurrentDay() * 100 / 365}%` }}>
+          <div
+            className={styles.now}
+            style={{ width: `${(getCurrentDay() * 100) / 365}%` }}
+          >
             <div className={styles.now__children}>
-              <div className={styles.here}>
-                We are here
-              </div>
+              <div className={styles.here}>We are here</div>
             </div>
           </div>
           <p className={styles.updated}>
             Last updated:{' '}
-            {page.last_publication_date && formatDate(new Date(page.last_publication_date))}
+            {page.last_publication_date &&
+              formatDate(new Date(page.last_publication_date))}
           </p>
-          {currentTabData.map((el, i) => (
-            <div key={el.name} className={styles.item}>
-              <span className={styles.quarter}>{el.name}</span>
-              <div style={{ marginTop: getTopOffset(i) }} className={styles.wrapper}>
-                {el.items.map((el) => (
-                  <Expand key={el.id} title={asText(el.title)} text={asText(el.text)} link={el.link.url}
-                          linkTarget={el.link.target} />
-                ))}
-              </div>
+          <div className={styles.quarters}>
+            <div className={styles.grid__borders}>
+              {quarters.map(quarter => (
+                <div key={quarter} />
+              ))}
             </div>
-          ))}
+            <div className={styles.quarters__head}>
+              {quarters.map(quarter => (
+                <div key={quarter} className={styles.quarter}>
+                  {quarter}
+                </div>
+              ))}
+            </div>
+            <div className={styles.quarters__body}>
+              {activeTabData.map(({ id, primary }, index) => (
+                <div
+                  key={id}
+                  style={{
+                    gridRowStart: index + 1,
+                    gridRowEnd: index + 1,
+                    gridColumnStart: Number(primary.quarter),
+                    gridColumnEnd:
+                      Number(primary.quarter) +
+                      Number(primary.length_in_quarters),
+                  }}
+                >
+                  <Expand
+                    title={asText(primary.title)}
+                    text={asText(primary.text)}
+                    link={primary.link.url}
+                    linkTarget={primary.link.target}
+                    isDone={primary.done}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       <ArticlesList

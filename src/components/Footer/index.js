@@ -28,55 +28,53 @@ const Footer = ({ data, footerBlock, className = '' }) => {
         {block()}
         <div className={styles.footer__lists}>
           {slices.map((el, i) => (
-            <ul key={i} className={styles.footer__list}>
+            <ul key={el.id} className={styles.footer__list}>
               {el.items.map((item, index) => (
-                <>
-                  <li
-                    key={asText(item.footer_item_text)}
-                    className={
-                      styles[
-                        item.footer_item_is_title
-                          ? 'footer__lists-title'
-                          : 'footer__lists-item'
-                      ]
-                    }
-                  >
-                    {item.footer_item_is_title ? (
-                      asText(item.footer_item_text)
-                    ) : (
-                      <a
-                        href={item.footer_item_url.url}
-                        target={item.footer_item_url.target}
-                        {...(item.footer_item_url?.url?.includes(
-                          'https://airdao.io',
-                        )
-                          ? { rel: 'nofollow' }
-                          : {})}
-                      >
-                        {asText(item.footer_item_text)}
-                      </a>
-                    )}
-                    {item.footer_item_is_soon && (
-                      <span className={styles['footer__lists-soon']}>
-                        COMING SOON
-                      </span>
-                    )}
-                    {i === 3 && index === el.items.length - 1 && (
-                      <ul className={styles['footer__lists-links']}>
-                        {downloadapp.map(item => (
-                          <li key={item.imageurl.alt}>
-                            <a
-                              href={item.linkurl.url}
-                              target={item.linkurl.target}
-                            >
-                              {switchText(item.imageurl.alt)}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </li>
-                </>
+                <li
+                  key={asText(item.footer_item_text)}
+                  className={
+                    styles[
+                      item.footer_item_is_title
+                        ? 'footer__lists-title'
+                        : 'footer__lists-item'
+                    ]
+                  }
+                >
+                  {item.footer_item_is_title ? (
+                    asText(item.footer_item_text)
+                  ) : (
+                    <a
+                      href={item.footer_item_url.url}
+                      target={item.footer_item_url.target}
+                      {...(item.footer_item_url?.url?.includes(
+                        'https://airdao.io',
+                      )
+                        ? { rel: 'nofollow' }
+                        : {})}
+                    >
+                      {asText(item.footer_item_text)}
+                    </a>
+                  )}
+                  {item.footer_item_is_soon && (
+                    <span className={styles['footer__lists-soon']}>
+                      COMING SOON
+                    </span>
+                  )}
+                  {i === 3 && index === el.items.length - 1 && (
+                    <ul className={styles['footer__lists-links']}>
+                      {downloadapp.map(item => (
+                        <li key={item.imageurl.alt}>
+                          <a
+                            href={item.linkurl.url}
+                            target={item.linkurl.target}
+                          >
+                            {switchText(item.imageurl.alt)}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
               ))}
             </ul>
           ))}
@@ -84,7 +82,7 @@ const Footer = ({ data, footerBlock, className = '' }) => {
         <div className={styles.footer__socials}>
           {socials.map((el, i) => (
             <a
-              key={i}
+              key={el.footer_social_link.url}
               href={el.footer_social_link.url}
               target={el.footer_social_link.target}
               rel="nofollow"

@@ -1,6 +1,5 @@
 .expand {
   padding: 14px 16px;
-  margin-bottom: 50px;
   border-radius: 32px;
   border: 1px solid var(--Primary-50, #E9EFFB);
   background: var(--Neutrals-50, #FFF);
@@ -89,4 +88,20 @@
     stroke: #3668DD;
     height: 15px;
   }
+}
+
+.done {
+  font-size: 12px;
+  padding: 2px 8px;
+  font-weight: 500;
+  margin-left: auto;
+  line-height: 16px;
+  margin-right: 8px;
+  text-align: center;
+  border-radius: 20px;
+  letter-spacing: -.12px;
+  font-family: var(--font-inter);
+  color: var(--Success-700, #155742);
+  background: var(--Success-50, #e5fff7);
+  border: 1px solid var(--Success-100, #c5eee1);
 }
