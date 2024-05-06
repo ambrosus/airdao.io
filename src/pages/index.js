@@ -17,10 +17,10 @@ import Marquee from '@/components/Marquee';
 import { createClient } from '@/prismicio';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
 import * as prismic from '@prismicio/client';
-import Head from 'next/head';
 import Image from 'next/image';
 import { useState } from 'react';
 import styles from '../components/Homepage/homepage.module.scss';
+import Seo from '@/components/Seo';
 
 export default function Home({
   page,
@@ -35,10 +35,11 @@ export default function Home({
 
   return (
     <div className={styles['homepage']}>
-      <Head>
-        <meta property="og:image" content="https://airdao.io/og.png" />
-        <meta name="twitter:image" content="https://airdao.io/og.png" />
-      </Head>
+      <Seo
+        title={page.data.meta_title}
+        description={page.data.meta_description}
+        image={page.data.meta_image.url}
+      />
       {showBanner && (
         <Banner
           data={banner?.data}

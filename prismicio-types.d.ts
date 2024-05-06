@@ -2827,6 +2827,8 @@ export interface HomepageDocumentDataPartnersItem {
   partner: prismic.ImageField<never>;
 }
 
+type HomepageDocumentDataSlicesSlice = never;
+
 /**
  * Item in *homepage → products*
  */
@@ -3042,7 +3044,18 @@ interface HomepageDocumentData {
    * - **Tab**: Hero
    * - **Documentation**: https://prismic.io/docs/field#boolean
    */
-  show_banner: prismic.BooleanField /**
+  show_banner: prismic.BooleanField;
+
+  /**
+   * `slices` field in *homepage*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.slices[]
+   * - **Tab**: Hero
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<HomepageDocumentDataSlicesSlice> /**
    * text field in *homepage*
    *
    * - **Field Type**: Rich Text
@@ -5600,6 +5613,7 @@ declare module '@prismicio/client' {
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataPartnersItem,
+      HomepageDocumentDataSlicesSlice,
       HomepageDocumentDataProductsItem,
       HomepageDocumentDataNetworkInfoItem,
       HomepageDocumentDataAmbassadorsImagesItem,

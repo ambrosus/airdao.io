@@ -3,9 +3,9 @@ import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
 import Ambassadors from '@/components/Homepage/Ambassadors';
 import Marquee from '@/components/Marquee';
+import Seo from '@/components/Seo';
 import { createClient } from '@/prismicio';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
-import Head from 'next/head';
 import { useState } from 'react';
 import Structure from 'src/components/Team/Structure';
 import Team from 'src/components/Team/Team';
@@ -14,13 +14,13 @@ import TextBlock from 'src/components/Team/TextBlock';
 const TeamPage = ({ header, footerText, page, banner }) => {
   const footerSlice = getFooterBlockSlice(page.data);
   const [showBanner, setShowBanner] = useState(page?.data?.show_banner);
-  console.log(page);
   return (
     <>
-      <Head>
-        <meta property="og:image" content="https://airdao.io/og-team.png" />
-        <meta name="twitter:image" content="https://airdao.io/og-team.png" />
-      </Head>
+      <Seo
+        title={page.data.meta_title}
+        description={page.data.meta_description}
+        image={page.data.meta_image.url}
+      />
       {showBanner && (
         <Banner data={banner?.data} setShowBanner={setShowBanner} />
       )}

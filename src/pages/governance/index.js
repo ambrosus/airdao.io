@@ -4,13 +4,12 @@ import HeaderWrapper from '@/components/Header';
 import { createClient } from '@/prismicio';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
 import * as prismic from '@prismicio/client';
-import Head from 'next/head';
 import { useState } from 'react';
 import Hero from 'src/components/Governance/Hero';
 import Council from '../../components/Governance/Council';
 import Proposals from '../../components/Governance/Proposals';
-import Image from 'next/image';
 import ArticlesList from '@/components/ArticlesList';
+import Seo from '@/components/Seo';
 
 const GovernancePage = ({
   header,
@@ -24,16 +23,11 @@ const GovernancePage = ({
 
   return (
     <>
-      <Head>
-        <meta
-          property="og:image"
-          content="https://airdao.io/og-governance.png"
-        />
-        <meta
-          name="twitter:image"
-          content="https://airdao.io/og-governance.png"
-        />
-      </Head>
+      <Seo
+        title={page.data.meta_title}
+        description={page.data.meta_description}
+        image={page.data.meta_image.url}
+      />
       {showBanner && (
         <Banner data={banner?.data} setShowBanner={setShowBanner} />
       )}

@@ -8,12 +8,12 @@ import homepageStyles from '@/components/Homepage/homepage.module.scss';
 import { createClient } from '@/prismicio';
 import { Button } from '@airdao/ui-library';
 import { PrismicRichText } from '@prismicio/react';
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import arrow from './arrow.svg';
 import styles from './buy-amb.module.scss';
+import Seo from '@/components/Seo';
 
 const options = [
   { title: 'AMB/USDT', value: 'usdt' },
@@ -41,10 +41,11 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
 
   return (
     <>
-      <Head>
-        <meta property="og:image" content="https://airdao.io/og-get-amb.png" />
-        <meta name="twitter:image" content="https://airdao.io/og-get-amb.png" />
-      </Head>
+      <Seo
+        title={page.meta_title}
+        description={page.meta_description}
+        image={page.meta_image.url}
+      />
       {showBanner && (
         <Banner data={banner?.data} setShowBanner={setShowBanner} />
       )}

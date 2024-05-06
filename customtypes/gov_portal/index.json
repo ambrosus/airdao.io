@@ -1,6 +1,6 @@
 {
-  "id": "builders_page",
-  "label": "Builders page",
+  "id": "gov_portal",
+  "label": "Gov portal",
   "format": "page",
   "repeatable": false,
   "status": true,
@@ -30,24 +30,6 @@
           "thumbnails": []
         },
         "type": "Image"
-      }
-    },
-    "Main": {
-      "show_banner": {
-        "type": "Boolean",
-        "config": {
-          "label": "show banner",
-          "placeholder_false": "false",
-          "placeholder_true": "true",
-          "default_value": true
-        }
-      },
-      "slices": {
-        "type": "Slices",
-        "fieldset": "Slice Zone",
-        "config": {
-          "choices": {}
-        }
       }
     }
   }

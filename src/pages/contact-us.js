@@ -3,6 +3,7 @@ import ContactUs from '@/components/ContactUs';
 import styles from '@/components/ContactUs/contact-us.module.scss';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
+import Seo from '@/components/Seo';
 import { createClient } from '@/prismicio';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
 import { useState } from 'react';
@@ -13,6 +14,11 @@ export default function ContactUsPage({ header, footerText, page, banner }) {
 
   return (
     <>
+      <Seo
+        title={page.meta_title}
+        description={page.meta_description}
+        image={page.meta_image.url}
+      />
       {showBanner && (
         <Banner data={banner?.data} setShowBanner={setShowBanner} />
       )}

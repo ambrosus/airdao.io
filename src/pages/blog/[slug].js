@@ -12,7 +12,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import bottomBlockStyles from './blog-list.module.scss';
 import styles from './blog.module.scss';
-import Seo from '../../components/Seo';
+import CustomSeo from '@/components/CustomSeo';
 
 export async function getStaticProps(context) {
   const client = createClient({ previewData: context.previewData });
@@ -73,7 +73,7 @@ export default function BlogArticle({
 
   return (
     <>
-      <Seo siteName="AirDAO Blog" data={data} />
+      <CustomSeo siteName="AirDAO Blog" data={data} />
       {header && <HeaderWrapper header={header} />}
       <div className={styles['blog-page']}>
         <Link href={'/blog'} className={styles.back}>
