@@ -76,7 +76,7 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
                 <Link
                   href={item.navitemlink.url || ''}
                   target={item.navitemlink.target || ''}
-                  key={asText(item.navitemlabel)}
+                  key={item.navitemlink.url}
                   className={styles['nav-item__list-item']}
                   {...(item.navitemimg.url.includes('https://airdao.io')
                     ? {}
