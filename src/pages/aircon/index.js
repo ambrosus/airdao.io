@@ -44,10 +44,9 @@ const getTimeRemaining = (targetDate) => {
 const Aircon = ({page}) => {
   return (
     <div className={styles.page}>
-
       <Head>
-        <meta property="og:image" content="https://airdao.io/og-get-amb.png" />
-        <meta name="twitter:image" content="https://airdao.io/og-get-amb.png" />
+        <meta property="og:image" content="https://airdao.io/og-aircon.png" />
+        <meta name="twitter:image" content="https://airdao.io/og-aircon.png" />
       </Head>
       <div className={styles.heading}>
         <div className={`${styles.container} ${styles.heading__container}`}>
