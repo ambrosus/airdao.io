@@ -8,6 +8,7 @@ import { createClient } from '@/prismicio';
 import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextLink } from '@prismicio/next';
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 
 const getTimeRemaining = (targetDate) => {
   const targetDateTime = new Date(targetDate);
@@ -41,9 +42,13 @@ const getTimeRemaining = (targetDate) => {
 };
 
 const Aircon = ({page}) => {
-  console.log(page);
   return (
     <div className={styles.page}>
+
+      <Head>
+        <meta property="og:image" content="https://airdao.io/og-get-amb.png" />
+        <meta name="twitter:image" content="https://airdao.io/og-get-amb.png" />
+      </Head>
       <div className={styles.heading}>
         <div className={`${styles.container} ${styles.heading__container}`}>
           <PrismicRichText
