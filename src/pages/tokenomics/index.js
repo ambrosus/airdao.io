@@ -18,8 +18,8 @@ import styles from './tokenomics.module.scss';
 
 const filters = [
   { labelKey: 'other_label', key: 'other' },
-  { labelKey: 'explorer_label', key: 'explorer' },
   { labelKey: 'apollo_label', key: 'apollo' },
+  { labelKey: 'explorer_label', key: 'explorer' },
   { labelKey: 'multisig_label', key: 'multisig' },
   { labelKey: 'soon_label', key: 'soon' },
 ];
@@ -76,7 +76,7 @@ const convertDate = date => {
 };
 
 const Roadmap = ({ header, footerText, page, banner }) => {
-  const [selectedFilter, setSelectedFilter] = useState('apollo');
+  const [selectedFilter, setSelectedFilter] = useState('explorer');
   const [showBanner, setShowBanner] = useState(page?.show_banner);
 
   return (
@@ -95,8 +95,6 @@ const Roadmap = ({ header, footerText, page, banner }) => {
                 paragraph: ({ children }) => (
                   <h1 className={styles.hero_title}>
                     {children}
-                    <br />
-                    <span className={styles.hero_blue}>15 Nov 2023</span>
                   </h1>
                 ),
               }}
@@ -180,6 +178,15 @@ const Roadmap = ({ header, footerText, page, banner }) => {
             ),
           }}
         />
+        <Link
+          href="https://drive.google.com/file/d/1_YebcfBaQa8i5V3JiF926fC1i16_Cqfc/view"
+          target="_blank"
+          className={styles.pdf}
+        >
+          <Button size="large" type="primary">
+            Read full Tokenomics paper
+          </Button>
+        </Link>
         <Slider {...settings}>
           {page.slider.map(el => (
             <div className={styles.slider_item_wrapper} key={asText(el.title)}>

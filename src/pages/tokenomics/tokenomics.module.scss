@@ -118,7 +118,7 @@
   line-height: 32px; /* 133.333% */
   letter-spacing: -0.384px;
   max-width: 970px;
-  margin: 0 auto 88px;
+  margin: 0 auto 24px;
 
   @media screen and (max-width: 610px) {
     margin-bottom: 110px;
@@ -156,11 +156,12 @@
   line-height: 24px; /* 150% */
   letter-spacing: -0.16px;
   border-radius: 101px;
-  background: var(--alpha-black-5, rgba(14, 14, 14, 0.05));
 
   &_active {
-    background: var(--yellow-500, #FF7A00);
-    color: white;
+    border-radius: 101px;
+    border: 1px solid var(--Primary-100, #C5D4F5);
+    background: var(--Primary-50, #E9EFFB);
+    color: var(--primary-500-base, #3668DD);
   }
 }
 
@@ -280,4 +281,10 @@
   @media screen and (max-width: 1050px) {
     display: none!important;
   }
+}
+
+.pdf {
+  margin: 0 auto 72px;
+  width: fit-content;
+  display: block;
 }
