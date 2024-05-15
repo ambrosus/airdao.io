@@ -44,7 +44,6 @@ export default function Home({
         <Banner
           data={banner?.data}
           setShowBanner={setShowBanner}
-          nextLink={false}
         />
       )}
       <HeaderWrapper header={header} showBanner={showBanner} />
