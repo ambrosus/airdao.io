@@ -652,3 +652,103 @@ button.register__btn {
     order: 3;
   }
 }
+
+.speakers {
+  margin-top: 166px;
+  margin-bottom: 97px;
+
+  @media screen and (max-width: 950px) {
+    padding: 0 32px;
+    margin-top: 144px;
+    margin-bottom: 200px;
+  }
+
+  @media screen and (max-width: 650px) {
+    padding-right: 0;
+    margin-top: 82px;
+    margin-bottom: 116px;
+  }
+}
+
+.speakers__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px 24px;
+  margin: 0 auto;
+  width: fit-content;
+  padding-right: 32px;
+
+  @media screen and (max-width: 950px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media screen and (max-width: 650px) {
+    width: auto;
+    overflow: auto;
+    display: flex;
+    gap: 40px;
+  }
+}
+
+.speakers__item {
+  width: 282px;
+
+  @media screen and (max-width: 950px) and (min-width: 651px) {
+    width: auto;
+    display: grid;
+    grid-template-columns: 188px 1fr;
+    gap: 24px;
+  }
+
+  @media screen and (max-width: 650px) {
+    width: 184px;
+  }
+}
+
+.speakers__img, .speakers__bg {
+  border-radius: 16px;
+  height: 233px;
+  background: #C4C4C4;
+  object-fit: cover;
+
+  @media screen and (max-width: 950px) {
+    width: 188px;
+    height: 180px;
+  }
+
+  @media screen and (max-width: 650px) {
+    width: 184px;
+    height: 174px;
+  }
+}
+
+.speakers__name {
+  color: var(--Neutrals-800---Primary-content, #29292D);
+  font-family: var(--font-inter);
+  font-size: 20px;
+  line-height: 28px; /* 140% */
+  letter-spacing: -0.28px;
+  margin-bottom: 4px;
+  margin-top: 24px;
+
+  @media screen and (max-width: 950px) and (min-width: 651px) {
+    margin-top: 0;
+  }
+}
+
+.speakers__spec {
+  color: var(--Neutrals-400---Tetiary-content, #9B9CA5);
+  font-family: var(--font-inter);
+  font-size: 18px;
+  line-height: 26px; /* 144.444% */
+  letter-spacing: -0.216px;
+  margin-bottom: 16px;
+}
+
+.speakers__descr {
+  color: var(--Neutrals-600---Secondary-content, #63636D);
+  font-family: var(--font-inter);
+  font-size: 16px;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
+}

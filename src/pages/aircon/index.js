@@ -9,6 +9,7 @@ import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextLink } from '@prismicio/next';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import { asText } from '@prismicio/client';
 
 const getTimeRemaining = (targetDate) => {
   const targetDateTime = new Date(targetDate);
@@ -42,6 +43,7 @@ const getTimeRemaining = (targetDate) => {
 };
 
 const Aircon = ({page}) => {
+  console.log(page);
   return (
     <div className={styles.page}>
       <Head>
@@ -199,6 +201,43 @@ const Aircon = ({page}) => {
               }}
             />
           </PrismicNextLink>
+        </div>
+      </section>
+      <section className={styles.speakers}>
+        <h2 className={styles.title}>Speakers</h2>
+        <div className={styles.speakers__list}>
+          {page.speaker.map((el) => (
+            <div className={styles.speakers__item} key={asText(el.name)}>
+              {el.img.url ? (
+                <img src={el.img.url} className={styles.speakers__img} alt="photo" />
+              ) : (
+                <div className={styles.speakers__bg} />
+              )}
+              <div>
+                <PrismicRichText
+                  field={el.name}
+                  components={{
+                    paragraph: ({ children }) => (
+                      <p className={styles.speakers__name}>{children}</p>),
+                  }}
+                />
+                <PrismicRichText
+                  field={el.spec}
+                  components={{
+                    paragraph: ({ children }) => (
+                      <p className={styles.speakers__spec}>{children}</p>),
+                  }}
+                />
+                <PrismicRichText
+                  field={el.descr}
+                  components={{
+                    paragraph: ({ children }) => (
+                      <p className={styles.speakers__descr}>{children}</p>),
+                  }}
+                />
+              </div>
+              </div>
+          ))}
         </div>
       </section>
       <section className={styles.partners}>
