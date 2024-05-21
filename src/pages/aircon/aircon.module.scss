@@ -359,6 +359,9 @@ button.about__btn {
   align-items: stretch;
   justify-content: center;
   gap: 42px;
+  width: fit-content;
+  padding-left: 32px;
+  padding-right: 32px;
   //margin-left: calc((100vw - 1300px) / 2 + 30px);
   padding-bottom: 15px;
 
@@ -371,6 +374,8 @@ button.about__btn {
   }
 
   @media screen and (max-width: 1320px) {
+    padding-left: 0;
+    padding-right: 0;
     margin: 0 30px;
   }
 
@@ -658,13 +663,11 @@ button.register__btn {
   margin-bottom: 97px;
 
   @media screen and (max-width: 950px) {
-    padding: 0 32px;
     margin-top: 144px;
     margin-bottom: 200px;
   }
 
   @media screen and (max-width: 650px) {
-    padding-right: 0;
     margin-top: 82px;
     margin-bottom: 116px;
   }
@@ -676,6 +679,7 @@ button.register__btn {
   gap: 32px 24px;
   margin: 0 auto;
   width: fit-content;
+  padding: 0 32px;
 
   @media screen and (max-width: 950px) {
     grid-template-columns: 1fr;
