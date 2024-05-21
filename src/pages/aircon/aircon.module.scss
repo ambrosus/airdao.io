@@ -676,13 +676,13 @@ button.register__btn {
   gap: 32px 24px;
   margin: 0 auto;
   width: fit-content;
-  padding-right: 32px;
 
   @media screen and (max-width: 950px) {
     grid-template-columns: 1fr;
   }
 
   @media screen and (max-width: 650px) {
+    padding-right: 32px;
     width: auto;
     overflow: auto;
     display: flex;
