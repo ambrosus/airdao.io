@@ -10,14 +10,7 @@ import Image from 'next/image';
 import homeStyles from '@/components/Homepage/homepage.module.scss';
 import blueCircle from '@/assets/img/blue-circle.svg';
 import orangeCircle from '@/assets/img/orange-circle.svg';
-
-const validateEmail = (email) => {
-  return String(email)
-    .toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    );
-};
+import { validateEmail } from '@/utils/checkEmail';
 
 export default function ContactUs({ page }) {
   const [formData, setFormData] = useState({

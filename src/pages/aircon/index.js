@@ -1,4 +1,4 @@
-import { Button } from '@airdao/ui-library';
+import { Button, Input, Notify } from '@airdao/ui-library';
 import styles from './aircon.module.scss';
 import hero_title from './hero__title.svg';
 import location from './location.svg';
@@ -10,6 +10,9 @@ import { PrismicNextLink } from '@prismicio/next';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { asText } from '@prismicio/client';
+import Select from '@/components/Select';
+import Textarea from '@/components/Textarea';
+import { validateEmail } from '@/utils/checkEmail';
 
 const getTimeRemaining = (targetDate) => {
   const targetDateTime = new Date(targetDate);
@@ -43,7 +46,70 @@ const getTimeRemaining = (targetDate) => {
 };
 
 const Aircon = ({page}) => {
-  console.log(page);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const setField = (field, value) => {
+    setErrors((state) => ({
+      ...state,
+      [field]: '',
+    }));
+
+    setFormData({
+      ...formData,
+      [field]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const errorsClone = { ...errors };
+
+    const keys = Object.keys(formData);
+
+    for (let i = 0; i < keys.length; i++) {
+      if (!formData[keys[i]]) {
+        errorsClone[keys[i]] = 'Required field';
+        break;
+      } else if (keys[i] === 'email' && !validateEmail(formData[keys[i]])) {
+        errorsClone[keys[i]] = 'Email is incorrect';
+        break;
+      }
+    }
+
+    if (Object.values(errorsClone).some((el) => el)) {
+      setErrors(errorsClone);
+      return;
+    }
+
+    const res = await fetch(
+      'https://hooks.zapier.com/hooks/catch/11186117/bdbj4w9',
+      {
+        method: 'POST',
+        body: JSON.stringify(formData),
+      }
+    ).then((res) => res.status);
+
+    if (res < 400) {
+      setFormData({
+        name: '',
+        email: '',
+        message: '',
+        category: null,
+      });
+      Notify.success('Request sent successfully!', null, { autoClose: 5000 });
+    }
+  };
+
   return (
     <div className={styles.page}>
       <Head>
@@ -286,34 +352,34 @@ const Aircon = ({page}) => {
           </div>
         </div>
       </section>
-      <section className={styles.register}>
-        <PrismicRichText
-          field={page.register_label}
-          components={{
-            paragraph: ({ children }) => (
-              <span className={styles.register__label}>{children}</span>
-            ),
-          }}
-        />
-        <PrismicRichText
-          field={page.register_title}
-          components={{
-            paragraph: ({ children }) => (
-              <h2 className={styles.register__title}>{children}</h2>
-            ),
-          }}
-        />
-        <Timer registerDate={page.register_date}/>
-        <PrismicNextLink field={page.register_btn_url}>
-          <PrismicRichText
-            field={page.register_btn_text}
-            components={{
-              paragraph: ({ children }) => (
-                <Button size="large" type="secondary" className={styles.register__btn}>{children}</Button>
-              )
-            }}
+      <section className={styles.contact_section}>
+        <h2 className={styles.title}>Contact us</h2>
+        <p className={styles.subtitle}>Get in touch to discover how sponsoring AirCON can benefit your brand:</p>
+        <form onSubmit={handleSubmit} className={styles.contact}>
+          <Input
+            placeholder={'Name'}
+            required
+            value={formData.name}
+            error={errors.name}
+            onChange={(e) => setField('name', e.target.value)}
           />
-        </PrismicNextLink>
+          <Input
+            placeholder={'Email'}
+            required
+            error={errors.email}
+            value={formData.email}
+            onChange={(e) => setField('email', e.target.value)}
+          />
+          <Textarea
+            placeholder={'Your message'}
+            value={formData.message}
+            error={errors.message}
+            onChange={(e) => setField('message', e.target.value)}
+          />
+          <Button type="primary" size="large">
+            Submit
+          </Button>
+        </form>
       </section>
       <footer className={`${styles.footer}`}>
         <div className={styles.footer__wrapper}>
@@ -333,10 +399,10 @@ const Aircon = ({page}) => {
                   >
                     {children}
                   </a>
-              ),
-            }}
-          />
-        </div>
+                ),
+              }}
+            />
+          </div>
           <div className={styles.footer__socials}>
             {page.footer_right.map((el, i) => (
               <PrismicNextLink field={el.link} key={i}>
