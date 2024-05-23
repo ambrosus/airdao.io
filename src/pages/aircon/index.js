@@ -353,7 +353,7 @@ const Aircon = ({page}) => {
         </div>
       </section>
       <section className={styles.contact_section}>
-        <h2 className={styles.title}>Contact us</h2>
+        <h2 className={`${styles.title} ${styles.title_contact}`}>Contact us</h2>
         <p className={styles.subtitle}>Get in touch to discover how sponsoring AirCON can benefit your brand:</p>
         <form onSubmit={handleSubmit} className={styles.contact}>
           <Input
