@@ -3,6 +3,7 @@ import EyeIcon from '@/components/Icons/Eye';
 import BellIcon from '@/components/Icons/Bell';
 import TrackingIcon from '@/components/Icons/Tracking';
 import ShieldIcon from '@/components/Icons/Shield';
+import StakingIcon from '@/components/Icons/Staking';
 
 const slides = [
   {
@@ -39,6 +40,13 @@ const slides = [
     icon: <ShieldIcon />,
     src: '/slider/slide-5.svg',
     desc: 'Keep your crypto safe with FaceID, fingerprint, and passcode security options.',
+  },
+  {
+    id: 5,
+    title: 'Staking',
+    icon: <StakingIcon />,
+    src: '/slider/slide-6.svg',
+    desc: 'Help secure the AirDAO network and earn AMB rewards.',
   },
 ];
 
