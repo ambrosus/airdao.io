@@ -4,12 +4,15 @@ import { asText } from '@prismicio/client';
 
 import Events from './components/Events';
 import Contact from './components/Contact';
+import MobileApps from './components/MobileApps';
 import { switchText } from './utils';
 
+// TODO: updates
 const Footer = ({ data, footerBlock, className = '' }) => {
   const slices = data.slices;
   const socials = data.footer_social;
-  const downloadapp = data.downloadapp;
+  console.log({ slices });
+  // const downloadapp = data.downloadapp;
 
   const block = () => {
     switch (footerBlock) {
@@ -17,6 +20,8 @@ const Footer = ({ data, footerBlock, className = '' }) => {
         return <Events />;
       case 'footer_contact':
         return <Contact />;
+      case 'footer_mobile_apps':
+        return <MobileApps />;
       default:
         return null;
     }
@@ -60,7 +65,7 @@ const Footer = ({ data, footerBlock, className = '' }) => {
                       COMING SOON
                     </span>
                   )}
-                  {i === 3 && index === el.items.length - 1 && (
+                  {/* {i === 3 && index === el.items.length - 1 && (
                     <ul className={styles['footer__lists-links']}>
                       {downloadapp.map(item => (
                         <li key={item.imageurl.alt}>
@@ -73,7 +78,7 @@ const Footer = ({ data, footerBlock, className = '' }) => {
                         </li>
                       ))}
                     </ul>
-                  )}
+                  )} */}
                 </li>
               ))}
             </ul>

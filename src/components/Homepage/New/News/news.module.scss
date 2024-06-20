@@ -1,0 +1,154 @@
+.news-container {
+  gap: 28px;
+  display: flex;
+  margin: 64px 0;
+  flex-direction: column;
+  
+  @media only screen and (max-width: 1024px) {
+    gap: 16px;
+    margin: 48px 0;
+  }
+  
+  @media only screen and (max-width: 767px) {
+    margin: 16px 0;
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  div {
+    gap: 24px;
+    display: flex;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    align-items: center;
+    font-family: var(--font-rationell);
+  }
+  
+  a {
+    gap: 8px;
+    display: flex;
+    font-size: 16px;
+    line-height: 24px;
+    align-items: center;
+    color: var(--primary-500-base, #3668DD);
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    div {
+      gap: 16px;
+      font-size: 28px;
+      line-height: 36px;
+
+      img {
+        width: 32px;
+        height: auto;
+      }
+    }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    div {
+      gap: 8px;
+      font-size: 20px;
+      line-height: 29.5px;
+
+      img {
+        width: 24px;
+        height: auto;
+      }
+    }
+  }
+}
+
+.news-list {
+  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media only screen and (max-width: 1024px) {
+    gap: 16px;
+  }
+  
+  @media only screen and (max-width: 767px) {
+    overflow-y: scroll;
+  }
+}
+
+.news-item {
+  gap: 12px;
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  transition: all 0.2s ease-in-out;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    gap: 8px;
+
+    img {
+      height: 224px;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    img {
+      width: 224px;
+      height: 224px;
+    }
+  }
+}
+
+.news-title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+  color: var(--Neutrals-800---Primary-content, #29292D);
+  
+  @media only screen and (max-width: 1024px) {
+    font-size: 16px;
+    line-height: 19.36px;
+  }
+  
+  @media only screen and (max-width: 767px) {
+    font-size: 14px;
+    line-height: 16.94px;
+  }
+}
+
+.news-date {
+  margin-top: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: rgba(14, 14, 14, 0.5);
+
+  @media only screen and (max-width: 1024px) {
+    font-size: 16px;
+    margin-top: 8px;
+    line-height: 19.36px;
+  }
+  
+  @media only screen and (max-width: 767px) {
+    font-size: 14px;
+    line-height: 16.94px;
+  }
+}

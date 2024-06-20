@@ -99,7 +99,7 @@ const BeInvolved = () => {
                   Deflation model reduces supply and supports AMB`s price.
                 </div>
                 <Link href="#">
-                  <Button size="large">Burn AMB</Button>
+                  <Button type="plain" size="large">Burn AMB</Button>
                 </Link>
               </div>
             </div>
