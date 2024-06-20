@@ -24,6 +24,10 @@ import styles from '@/components/Homepage/homepage.module.scss';
 import MainBlock from '@/components/Homepage/New/MainBlock';
 import BackedBy from '@/components/Homepage/New/BackedBy';
 import BannerRocket from '@/components/Homepage/New/Banner';
+import ExploreProducts from '@/components/Homepage/New/ExploreProducts';
+import BeInvolved from '@/components/Homepage/New/BeInvolved';
+import Mission from '@/components/Homepage/New/Mission';
+import RoadmapBlogAcademy from '@/components/Homepage/New/RoadmapBlogAcademy';
 
 export default function Home({
   page,
@@ -66,6 +70,10 @@ export default function Home({
       <MainBlock title={title} description={description} />
       <BackedBy />
       <BannerRocket />
+      <ExploreProducts />
+      <BeInvolved />
+      <Mission />
+      <RoadmapBlogAcademy />
       <Footer data={footerText.data} footerBlock={footerSlice} />
     </div>
   );

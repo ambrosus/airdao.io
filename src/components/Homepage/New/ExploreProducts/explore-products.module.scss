@@ -1,0 +1,231 @@
+.explore-products-container {
+  gap: 48px;
+  display: flex;
+  margin-top: 120px;
+  margin-bottom: 120px;
+  flex-direction: column;
+  
+  @media only screen and (max-width: 1024px) {
+    margin: 88px 0;
+  }
+  
+  @media only screen and (max-width: 767px) {
+    margin: 64px 0;
+  }
+}
+
+.title {
+  gap: 8px;
+  display: flex;
+  margin: 0 auto;
+  width: 611px;
+  max-width: 100%;
+  text-align: center;
+  flex-direction: column;
+
+  div {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: -1.4%;
+    color: var(--primary-500-base, #3668DD);
+  }
+  
+  h2 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    div {
+      font-size: 14px;
+      line-height: 22px;
+    }
+    
+    h2 {
+      font-size: 28px;
+      line-height: 36px;
+    }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    div {
+      line-height: 24px;
+    }
+    
+    h2 {
+      font-size: 20px;
+      line-height: 29.95px;
+    }
+  }
+}
+
+.list-and-video {
+  gap: 64px;
+  display: flex;
+  align-items: center;
+
+  @media only screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.list {
+  width: 394px;
+  max-width: 100%;
+
+  > div {
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+  }
+}
+
+.list-item {
+  gap: 16px;
+  display: flex;
+  cursor: pointer;
+  align-items: flex-start;
+  padding: 24px 20.75px 24px 24px;
+  border-bottom: 1px solid #F2F2F3;
+  
+  @media only screen and (max-width: 767px) {
+    border-bottom: none;
+  }
+}
+
+.icon-name {
+  display: flex;
+  align-items: center;
+}
+
+.name-description {
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (max-width: 1024px) {
+    flex: 1;
+  }
+
+  @media only screen and (max-width: 767px) {
+    gap: 4px;
+  }
+
+  div {
+    font-weight: 500;
+
+    &.name {
+      font-size: 24px;
+      margin-top: 4px;
+      line-height: 32px;
+      letter-spacing: -1.6%;
+      color: var(--Neutrals-400, #9b9ca5);
+      
+      @media only screen and (max-width: 1024px) {
+        margin-top: 6px;
+        font-size: 22px;
+        line-height: 28px;
+      }
+
+      @media only screen and (max-width: 767px) {
+        margin-top: 8px;
+        font-size: 20px;
+        line-height: 24.2px;
+        color: var(--Neutrals-800---Primary-content, #29292D);
+      }
+    }
+
+    &.description {
+      gap: 16px;
+      display: flex;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: -1%;
+      flex-direction: column;
+      color: var(--Neutrals-600---Secondary-content, #63636D);
+      
+      @media only screen and (max-width: 1024px) {
+        flex: 1;
+        font-size: 14px;
+        line-height: 22px;
+        
+        div {
+          &:first-child {
+            width: 293.25px;
+          }
+        }
+      }
+      
+      @media only screen and (max-width: 767px) {
+        line-height: 24px;
+
+        div {
+          &:first-child {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    &.video {
+      width: 100%;
+      display: none;
+      height: 385px;
+      margin-top: 8px;
+      overflow: hidden;
+      align-items: center;
+      border-radius: 24px;
+      justify-content: center;
+      background-color: var(--Neutrals-100, #F2F2F3);
+      
+      @media only screen and (max-width: 1024px) {
+        display: flex;
+      }
+
+      @media only screen and (max-width: 767px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.video-container {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  height: 586px;
+  overflow: hidden;
+  align-items: center;
+  border-radius: 24px;
+  justify-content: center;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("/img/homepage/video-bg.svg");
+
+  @media only screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.list-mobile {
+  display: none;
+
+  .list-item {
+    img {
+      &:last-child {
+        margin: auto 0;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    display: block;
+  }
+}
