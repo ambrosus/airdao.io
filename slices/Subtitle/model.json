@@ -1,0 +1,16 @@
+{
+  "id": "subtitle",
+  "type": "SharedSlice",
+  "name": "Subtitle",
+  "description": "Subtitle",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

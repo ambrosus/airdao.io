@@ -15,4 +15,5 @@ export const components = {
   nav_item: dynamic(() => import('./NavItem')),
   numeric_list: dynamic(() => import('./NumericList')),
   roadmap_item: dynamic(() => import('./RoadmapItem')),
+  subtitle: dynamic(() => import('./Subtitle')),
 };
