@@ -1,73 +1,47 @@
-import styles from './network.module.scss';
-import BlockLabel from '@/components/BlockLabel';
 import Image from 'next/image';
-import amb from './amb.svg';
-import { Button } from '@airdao/ui-library';
+import styles from './network.module.scss';
 import { PrismicRichText } from '@prismicio/react';
-import { asText } from '@prismicio/client';
-import Link from 'next/link';
 
-const Network = ({ label, title, primaryLink, primaryText, info }) => (
-  <div className={`container ${styles['network']}`}>
-    <div>
-      <PrismicRichText
-        field={label}
-        components={{
-          paragraph: ({ children }) => (
-            <BlockLabel className={styles.network__label}>
-              {children}
-            </BlockLabel>
-          ),
-        }}
-      />
-      <PrismicRichText
-        field={title}
-        components={{
-          paragraph: ({ children }) => (
-            <p className={styles['network__title']}>{children}</p>
-          ),
-        }}
-      />
-      <div className={styles['network__list']}>
-        {info.map((el) => (
-          <div key={asText(el.label)}>
-            <PrismicRichText
-              field={el.info}
-              components={{
-                paragraph: ({ children }) => (
-                  <p className={styles['network-list__value']}>{children}</p>
-                ),
-              }}
-            />
-            <PrismicRichText
-              field={el.label}
-              components={{
-                paragraph: ({ children }) => (
-                  <p className={styles['network-list__text']}>{children}</p>
-                ),
-              }}
-            />
-          </div>
-        ))}
+const Network = ({ smallTitle, title, list }) => {
+  return (
+    <section className={styles['network-container']}>
+      <div className="container">
+        <div className={styles['title']}>
+          <PrismicRichText
+            field={smallTitle}
+            components={{
+              paragraph: ({ children }) => <div>{children}</div>,
+            }}
+          />
+          <PrismicRichText
+            field={title}
+            components={{
+              paragraph: ({ children }) => <h2>{children}</h2>,
+            }}
+          />
+        </div>
+        <div className={styles['details']}>
+          {list.map(item => {
+            const title = item.network_item_title[0].text;
+            const value = item.network_item_value[0]?.text;
+            const icon = item.network_item_icon?.url || null;
+
+            return (
+              <div key={title} className={styles['detail']}>
+                <span>
+                  {icon && (
+                    <Image src={icon} alt={title} width={25} height={25} />
+                  )}
+                  {value && <span className={styles['value']}>{value}</span>}
+                  <span className={styles['value-title']}>{title}</span>
+                </span>
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <PrismicRichText
-        field={primaryText}
-        components={{
-          paragraph: ({ children }) => (
-            <Link
-              href={primaryLink.url.replace('https://', '')}
-              target={primaryLink.target}
-            >
-              <Button size="large" type="primary">
-                {children}
-              </Button>
-            </Link>
-          ),
-        }}
-      />
-    </div>
-    <Image src={amb} alt="amb" className={styles['network__img']} />
-  </div>
-);
+    </section>
+  );
+};
 
 export default Network;
