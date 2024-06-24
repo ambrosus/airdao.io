@@ -26,8 +26,6 @@ export default function Home({
   const { data } = page;
   const [showBanner, setShowBanner] = useState(data?.show_banner);
 
-  console.log('homepage-new', page);
-
   return (
     <div className={styles['homepage']}>
       <Head>
