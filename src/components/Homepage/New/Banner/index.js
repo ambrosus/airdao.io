@@ -1,22 +1,40 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@airdao/ui-library';
 import rocket from '@/assets/img/homepage/rocket.svg';
 import styles from './banner-rocket.module.scss';
+import { PrismicRichText } from '@prismicio/react';
+import { PrismicNextLink } from '@prismicio/next';
 
-// TODO: add texts from prismic
-const BannerRocket = () => {
+const BannerRocket = ({ title, buttonName, buttonLink }) => {
   return (
     <section className="container">
       <div className={styles['banner-rocket-container']}>
         <Image src={rocket} alt="rocket" />
         <div className={styles['banner-text-button']}>
-          <div className={styles['banner-text']}>Starfleet is the new era for our ecosystem</div>
-          <Link href="#">
-            <Button type="primary" size="large" className={styles['button']}>
-              Learn more
-            </Button>
-          </Link>
+          <PrismicRichText
+            field={title}
+            components={{
+              paragraph: ({ children }) => (
+                <div className={styles['banner-text']}>{children}</div>
+              ),
+            }}
+          />
+          <PrismicNextLink field={buttonLink}>
+            <PrismicRichText
+              field={buttonName}
+              components={{
+                paragraph: ({ children }) => (
+                  <Button
+                    type="primary"
+                    size="large"
+                    className={styles['button']}
+                  >
+                    {children}
+                  </Button>
+                ),
+              }}
+            />
+          </PrismicNextLink>
         </div>
       </div>
     </section>

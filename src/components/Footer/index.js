@@ -8,11 +8,14 @@ import MobileApps from './components/MobileApps';
 import { switchText } from './utils';
 
 // TODO: updates
-const Footer = ({ data, footerBlock, className = '' }) => {
+const Footer = ({
+  data,
+  footerBlock,
+  className = '',
+  additionalData = null,
+}) => {
   const slices = data.slices;
   const socials = data.footer_social;
-  console.log({ slices });
-  // const downloadapp = data.downloadapp;
 
   const block = () => {
     switch (footerBlock) {
@@ -21,7 +24,14 @@ const Footer = ({ data, footerBlock, className = '' }) => {
       case 'footer_contact':
         return <Contact />;
       case 'footer_mobile_apps':
-        return <MobileApps />;
+        return (
+          <MobileApps
+            title={additionalData.bannerTitle[0].text}
+            description={additionalData.bannerDescription[0].text}
+            googleLink={additionalData.googlePlay.url}
+            appleLink={additionalData.appStore.url}
+          />
+        );
       default:
         return null;
     }
@@ -39,9 +49,9 @@ const Footer = ({ data, footerBlock, className = '' }) => {
                   key={asText(item.footer_item_text)}
                   className={
                     styles[
-                      item.footer_item_is_title
-                        ? 'footer__lists-title'
-                        : 'footer__lists-item'
+                    item.footer_item_is_title
+                      ? 'footer__lists-title'
+                      : 'footer__lists-item'
                     ]
                   }
                 >

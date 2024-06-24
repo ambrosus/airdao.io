@@ -1,14 +1,15 @@
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 import newsIcon from '@/assets/icons/news.svg';
 import chevron from '@/assets/icons/chevron-blue.svg';
 import styles from './news.module.scss';
 import { PrismicRichText } from '@prismicio/react';
+import { formatDate } from '@/utils/formatDate';
+import { useRouter } from 'next/router';
 
-// TODO: add texts from prismic
 const News = ({ news }) => {
-  console.log('news', news);
-
+  const router = useRouter();
   if (!news.length) return null;
 
   return (
@@ -19,32 +20,35 @@ const News = ({ news }) => {
             <Image src={newsIcon} alt="News" />
             News
           </div>
-          <Link href="#">
+          <Link href="/blog#news">
             All News
             <Image src={chevron} alt="Continue button" />
           </Link>
         </div>
         <div className={styles['news-list']}>
           {news.map(newItem => (
-            <div key={newItem.uid} className={styles['news-item']}>
+            <div
+              key={newItem.uid}
+              className={styles['news-item']}
+              onClick={() => router.push(`/blog/${newItem.uid}`)}
+            >
               <Image
                 src={newItem.data.article_link_img.url}
                 width={417}
                 height={300}
-                alt=""
+                alt="News image"
               />
+              <div className={styles['news-date']}>
+                {formatDate(new Date(newItem.first_publication_date), true)}
+              </div>
               <PrismicRichText
-                field={newItem.description}
+                field={newItem.data.title}
                 components={{
                   paragraph: ({ children }) => (
                     <div className={styles['news-title']}>{children}</div>
                   ),
                 }}
               />
-              <div className={styles['news-date']}>03 January 2024</div>
-              <div className={styles['news-title']}>
-                Lorem ipsum dolor sit amet consectetur. Ac massa et eget lectus at.
-              </div>
             </div>
           ))}
         </div>

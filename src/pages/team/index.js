@@ -14,7 +14,7 @@ import TextBlock from 'src/components/Team/TextBlock';
 const TeamPage = ({ header, footerText, page, banner }) => {
   const footerSlice = getFooterBlockSlice(page.data);
   const [showBanner, setShowBanner] = useState(page?.data?.show_banner);
-  console.log(page);
+
   return (
     <>
       <Head>

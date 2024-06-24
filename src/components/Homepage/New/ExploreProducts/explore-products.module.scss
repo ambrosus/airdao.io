@@ -183,6 +183,11 @@
       border-radius: 24px;
       justify-content: center;
       background-color: var(--Neutrals-100, #F2F2F3);
+
+      video {
+        height: auto;
+        max-width: 100%;
+      }
       
       @media only screen and (max-width: 1024px) {
         display: flex;

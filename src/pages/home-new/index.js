@@ -2,7 +2,6 @@ import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
 import { createClient } from '@/prismicio';
-import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
 import * as prismic from '@prismicio/client';
 import Head from 'next/head';
 import { useState } from 'react';
@@ -25,25 +24,9 @@ export default function Home({
   latestBlogArticles,
 }) {
   const { data } = page;
-  const footerSlice = getFooterBlockSlice(data);
   const [showBanner, setShowBanner] = useState(data?.show_banner);
 
-  // TODO: title, description from prismic
-  const title = [
-    {
-      text: 'AirDAO is a transparent and accessible L1 blockchain for everyone',
-      type: 'paragraph',
-      spans: [],
-    },
-  ];
-
-  const description = [
-    {
-      text: 'Boost your Web3 experience using the ecosystem tools.',
-      type: 'paragraph',
-      spans: [],
-    },
-  ];
+  console.log('homepage-new', page);
 
   return (
     <div className={styles['homepage']}>
@@ -55,16 +38,57 @@ export default function Home({
         <Banner data={banner?.data} setShowBanner={setShowBanner} />
       )}
       <HeaderWrapper header={header} showBanner={showBanner} />
-      <MainBlock title={title} description={description} />
-      <BackedBy />
-      <BannerRocket />
-      <ExploreProducts />
-      <BeInvolved />
-      <Mission />
-      <RoadmapBlogAcademy />
-      <Network />
+      <MainBlock
+        title={data.title}
+        description={data.subtitle}
+        sections={data.sections}
+      />
+      <BackedBy title={data.backed_by_title} logos={data.logos} />
+      <BannerRocket
+        title={data.banner_title}
+        buttonName={data.banner_button_name}
+        buttonLink={data.banner_button_link}
+      />
+      <ExploreProducts
+        smallTitle={data.product_small_title}
+        title={data.product_title}
+        list={data.products}
+      />
+      <BeInvolved
+        smallTitle={data.involved_small_title}
+        title={data.involved_title}
+        main={data.involved_main}
+        socials={data.involved_socials}
+        sbt={data.involved_sbt}
+        events={data.involved_events}
+        ambassador={data.involved_ambassador}
+        burn={data.involved_burn}
+      />
+      <Mission
+        title={data.mission_title}
+        description={data.mission_description}
+        statistics={data.mission_statistic}
+        buttonName={data.mission_button_name}
+        buttonLink={data.statistic_button_link}
+        images={data.mission_images}
+      />
+      <RoadmapBlogAcademy list={data.more_about_us_pages} />
+      <Network
+        smallTitle={data.network_small_title}
+        title={data.network_title}
+        list={data.network_items}
+      />
       <News news={latestBlogArticles} />
-      <Footer data={footerText.data} footerBlock="footer_mobile_apps" />
+      <Footer
+        data={footerText.data}
+        footerBlock="footer_mobile_apps"
+        additionalData={{
+          bannerTitle: data.footer_banner_title,
+          bannerDescription: data.footer_banner_description,
+          googlePlay: data.google_play,
+          appStore: data.app_store,
+        }}
+      />
     </div>
   );
 }
@@ -73,7 +97,7 @@ export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
   const blogClient = prismic.createClient('airdao-blog');
 
-  const page = await client.getSingle('homepage');
+  const page = await client.getSingle('homepagenew');
   const header = await client.getSingle('header');
   const banner = await client.getSingle('banner');
   const footer = await client.getSingle('footer');

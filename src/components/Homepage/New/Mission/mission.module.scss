@@ -87,6 +87,7 @@
 
   img {
     width: auto;
+    height: auto;
     max-height: 610px;
   }
   
@@ -108,14 +109,8 @@
 }
 
 .marquee {
-  gap: 16px!important;
-  
-  > div {
-    gap: 16px!important;
-  }
-
-  .rfm-initial-child-container {
-    gap: 16px!important;
+  img {
+    margin: 0 8px;
   }
 }
 

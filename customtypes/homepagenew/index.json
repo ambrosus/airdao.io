@@ -177,6 +177,14 @@
           "label": "Products",
           "repeat": true,
           "fields": {
+            "product_icon": {
+              "type": "Image",
+              "config": {
+                "label": "Product icon",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
             "product_name": {
               "type": "StructuredText",
               "config": {

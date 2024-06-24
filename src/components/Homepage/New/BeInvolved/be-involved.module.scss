@@ -247,3 +247,19 @@
     }
   }
 }
+
+.socials {
+  display: flex;
+  gap: 32px 56px;
+  flex-wrap: wrap;
+  align-items: center;
+
+  a {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

@@ -5,8 +5,7 @@ import chevron from '@/assets/icons/chevron-additional.svg';
 import { PrismicRichText } from '@prismicio/react';
 import styles from './main-block.module.scss';
 
-// TODO: blocks and links from prismic array 
-const MainBlock = ({ title, description }) => {
+const MainBlock = ({ title, description, sections }) => {
   const router = useRouter();
 
   return (
@@ -27,42 +26,31 @@ const MainBlock = ({ title, description }) => {
           />
         </div>
         <div className={styles['main-block__additional-blocks']}>
-          <div
-            className={styles['main-block__additional-block']}
-            onClick={() => router.push('/gov-portal')}
-          >
-            <div className={styles['main-block__additional-block-title']}>
-              <div>Become a Governor</div>
-              <div>Play a key role in shaping the AirDAO`s future.</div>
+          {sections.map(section => (
+            <div
+              key={section.title[0].text}
+              className={styles['main-block__additional-block']}
+              onClick={() => router.push(section.link.url)}
+            >
+              <div className={styles['main-block__additional-block-title']}>
+                <PrismicRichText
+                  field={section.title}
+                  components={{
+                    paragraph: ({ children }) => <div>{children}</div>,
+                  }}
+                />
+                <PrismicRichText
+                  field={section.description}
+                  components={{
+                    paragraph: ({ children }) => <div>{children}</div>,
+                  }}
+                />
+              </div>
+              <div className={styles['main-block__continue-button']}>
+                <Image src={chevron} alt="Continue Button" />
+              </div>
             </div>
-            <div className={styles['main-block__continue-button']}>
-              <Image src={chevron} alt="Continue Button" />
-            </div>
-          </div>
-          <div
-            className={styles['main-block__additional-block']}
-            onClick={() => router.push('/ambassador')}
-          >
-            <div className={styles['main-block__additional-block-title']}>
-              <div>Become an Ambassador</div>
-              <div>Spread the word about our thriving ecosystem.</div>
-            </div>
-            <div className={styles['main-block__continue-button']}>
-              <Image src={chevron} alt="Continue Button" />
-            </div>
-          </div>
-          <div
-            className={styles['main-block__additional-block']}
-            onClick={() => router.push('/get-amb')}
-          >
-            <div className={styles['main-block__additional-block-title']}>
-              <div>Get AMB</div>
-              <div>AMB is the native token of AirDAO.</div>
-            </div>
-            <div className={styles['main-block__continue-button']}>
-              <Image src={chevron} alt="Continue Button" />
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

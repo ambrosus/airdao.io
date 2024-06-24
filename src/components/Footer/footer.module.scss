@@ -115,6 +115,18 @@
   display: flex;
   margin-top: 104px;
   justify-content: center;
+
+  a {
+    transition: all 0.2s ease-in-out;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+
+    img {
+      filter: brightness(0.4);
+    }
+  }
   
   @media screen and (max-width: 1024px) {
     gap: 64.57px;
