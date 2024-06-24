@@ -139,6 +139,28 @@
   }
 }
 
+.events-title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  color: var(--Neutrals-800---Primary-content, #29292D);
+  
+  strong {
+    font-weight: 500;
+    color: var(--Neutrals-800---Primary-content, #29292D);
+  }
+
+  @media only screen and (max-width: 1024px) {
+    font-size: 18px;
+    line-height: 21.78px;
+  }
+  
+  @media only screen and (max-width: 767px) {
+    font-size: 16px;
+    line-height: 19.36px;
+  }
+}
+
 .news-date {
   margin-top: 4px;
   font-size: 16px;

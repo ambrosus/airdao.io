@@ -1,61 +1,184 @@
-.mission {
-  background: var(--blue-600-primary, #3568DD);
-  padding: 68px 0;
-  margin-top: 130px;
+.mission-container {
+  gap: 64px;
+  display: flex;
+  flex-direction: column;
+  padding: 75.79px 0 246.16px 0;
+  background: linear-gradient(180deg, #3668DD 0%, #3993E7 100%);
 
-  @media screen and (max-width: 1024px) {
-    margin-top: 31px;
-    padding: 48px 0;
+  @media only screen and (max-width: 1024px) {
+    gap: 40px;
+    padding: 57.31px 0 219.9px 0;
   }
-
-  @media screen and (max-width: 768px) {
-    margin-top: 64px;
-    padding: 55px 0;
-  }
-}
-
-.mission__label {
-  color: #FFFFFF;
-  border: 1px solid var(--alpha-white-20, rgba(255, 255, 255, 0.20));
-  background: var(--alpha-white-10, rgba(255, 255, 255, 0.10));
-  margin-bottom: 45px;
-
-  @media screen and (max-width: 1024px) {
-    margin-bottom: 24px;
+  
+  @media only screen and (max-width: 767px) {
+    padding: 46.5px 0 296.16px 0;
   }
 }
 
-.mission__title {
-  color: #FFF;
-  font-family: var(--font-rationell);
-  font-size: 48px;
-  font-weight: 600;
-  line-height: 65px; /* 135.417% */
-  margin-bottom: 16px;
-  max-width: 990px;
+.mission-container-column {
+  gap: 64px;
+  display: flex;
+  flex-direction: column;
 
-  @media screen and (max-width: 1024px) {
-    margin-bottom: 24px;
-    font-size: 28px;
-    line-height: 40px; /* 142.857% */
+  button {
+    background-color: #FFFFFF;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
-  @media screen and (max-width: 768px) {
-    font-size: 28px;
-    line-height: 40px; /* 142.857% */
+  @media only screen and (max-width: 1024px) {
+    gap: 40px;
+  }  
+}
+
+.title {
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  
+  h3 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 48px;
+    letter-spacing: -2%;
+    font-family: var(--font-rationell);
+  }
+  
+  div {
+    font-size: 24px;
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 32px;
+    color: var(--Primary-100, #C5D4F5);
+  }
+
+  @media only screen and (max-width: 1024px) {
+    h3 {
+      font-size: 36px;
+      line-height: 44px;
+    }
+
+    div {
+      font-size: 22px;
+      line-height: 28px;  
+    }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    h3 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    div {
+      font-size: 14px;
+      line-height: 24px;  
+    }
   }
 }
 
-.mission__text {
-  color: #FFF;
-  font-family: var(--font-inter);
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px; /* 133.333% */
-  max-width: 990px;
+.mission-path {
+  height: 610px;
+  display: flex;
+  align-items: center;
 
-  @media screen and (max-width: 1024px) {
-    font-size: 18px;
-    line-height: 26px; /* 144.444% */
+  img {
+    width: auto;
+    height: auto;
+    max-height: 610px;
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    height: 528.14px;
+
+    img {
+      max-height: 528.14px;
+    }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    height: 364.69px;
+
+    img {
+      max-height: 364.69px;
+    }
+  }
+}
+
+.marquee {
+  img {
+    margin: 0 8px;
+  }
+}
+
+.statistics {
+  gap: 64px;
+  display: flex;
+  width: 100%;
+  max-width: 1023.71px;
+
+  > div {
+    flex: 1;
+    max-width: 212px;
+
+    div {
+      &:nth-child(1) {
+        font-size: 48px;
+        font-weight: 600;
+        letter-spacing: -2%;
+        line-height: 71.51px;
+        font-family: var(--font-rationell);
+        background: linear-gradient(180deg, #FFFFFF 0%, #31CEFF 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      &:nth-child(2) {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 26px;
+        letter-spacing: -1.2%;
+        color: var(--Primary-100, #C5D4F5);
+      }
+    }
+  } 
+
+  @media only screen and (max-width: 1024px) {
+    display: grid;
+    gap: 56px 32px;
+    max-width: 580px;
+    grid-template-columns: repeat(2, 1fr);
+
+    > div {
+      div { 
+        &:nth-child(2) {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    } 
+  }
+  
+  @media only screen and (max-width: 767px) {
+    gap: 56px 24px;
+    max-width: 338px;
+
+    > div {
+      div {
+        &:nth-child(1) {
+          font-size: 40px;
+          line-height: 59.59px;
+        }
+  
+        &:nth-child(2) {
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+    } 
   }
 }
