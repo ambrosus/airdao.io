@@ -6,13 +6,7 @@ import styles from './backed-by.module.scss';
 
 const BackedBy = ({ title, logos }) => {
   const logoMap = logos.map(logo => (
-    <Image
-      key={logo.logo.url}
-      src={logo.logo.url}
-      alt={logo.logo.alt}
-      width={100}
-      height={100}
-    />
+    <img key={logo.logo.url} src={logo.logo.url} alt={logo.logo.alt} />
   ));
 
   return (

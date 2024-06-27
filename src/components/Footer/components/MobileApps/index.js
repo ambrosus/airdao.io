@@ -11,10 +11,10 @@ const MobileApps = ({ title, description, googleLink, appleLink }) => (
       <span>{description}</span>
     </div>
     <div className={styles['download-app']}>
-      <a href={googleLink} target="_blank">
+      <a href={appleLink} target="_blank">
         <Image src={apple} alt="AppStore" />
       </a>
-      <a href={appleLink} target="_blank">
+      <a href={googleLink} target="_blank">
         <Image src={google} alt="Google Play" />
       </a>
     </div>

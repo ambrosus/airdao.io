@@ -55,14 +55,18 @@
     &:first-child {
       font-size: 24px;
       color: #FFFFFF;
+      font-weight: 500;
       line-height: 32px;
       letter-spacing: -1.6%;
+      font-family: var(--font-inter);
     }
-
+    
     &:last-child {
       font-size: 16px;
+      font-weight: 500;
       line-height: 24px;
       letter-spacing: -1%;
+      font-family: var(--font-inter);
       color: var(--Neutrals-400, #9b9ca5);
     }
   }

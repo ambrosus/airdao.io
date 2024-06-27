@@ -3,7 +3,7 @@
   padding: 120px 0 260px 0;
   background-repeat: no-repeat;
   background-position: center 50%;
-  background-image: url("/img/homepage/network-bg.jpg");
+  background-image: url("/img/homepage/network-bg.svg");
   
   
   @media only screen and (max-width: 1024px) {
@@ -32,6 +32,7 @@
     font-weight: 600;
     line-height: 24px;
     letter-spacing: -1.4%;
+    font-family: var(--font-inter);
     color: var(--primary-500-base, #3668DD);
   }
   
@@ -39,6 +40,8 @@
     font-size: 32px;
     font-weight: 700;
     line-height: 40px;
+    font-family: var(--font-rationell);
+    color: var(--Neutrals-800---Primary-content, #29292D);
   }
 
   @media only screen and (max-width: 1024px) {

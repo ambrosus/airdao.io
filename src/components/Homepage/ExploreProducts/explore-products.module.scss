@@ -16,9 +16,9 @@
 
 .title {
   gap: 8px;
+  width: 611px;
   display: flex;
   margin: 0 auto;
-  width: 611px;
   max-width: 100%;
   text-align: center;
   flex-direction: column;
@@ -28,6 +28,7 @@
     font-weight: 600;
     line-height: 24px;
     letter-spacing: -1.4%;
+    font-family: var(--font-inter);
     color: var(--primary-500-base, #3668DD);
   }
   
@@ -35,6 +36,8 @@
     font-size: 32px;
     font-weight: 700;
     line-height: 40px;
+    font-family: var(--font-rationell);
+    color: var(--Neutrals-800---Primary-content, #29292D);
   }
 
   @media only screen and (max-width: 1024px) {
@@ -93,7 +96,8 @@
   align-items: flex-start;
   padding: 24px 20.75px 24px 24px;
   border-bottom: 1px solid #F2F2F3;
-  
+  transition: color 0.25s ease;
+
   @media only screen and (max-width: 767px) {
     border-bottom: none;
   }
@@ -125,8 +129,9 @@
       margin-top: 4px;
       line-height: 32px;
       letter-spacing: -1.6%;
-      color: var(--Neutrals-400, #9b9ca5);
-      
+      font-family: var(--font-inter);
+      color: var(--Neutrals-800---Primary-content, #29292D);
+
       @media only screen and (max-width: 1024px) {
         margin-top: 6px;
         font-size: 22px;
@@ -137,23 +142,29 @@
         margin-top: 8px;
         font-size: 20px;
         line-height: 24.2px;
-        color: var(--Neutrals-800---Primary-content, #29292D);
       }
     }
 
     &.description {
       gap: 16px;
       display: flex;
-      font-size: 16px;
-      line-height: 24px;
-      letter-spacing: -1%;
       flex-direction: column;
-      color: var(--Neutrals-600---Secondary-content, #63636D);
+      
+      > div {
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -1%;
+        font-family: var(--font-inter);
+        color: var(--Neutrals-600---Secondary-content, #63636D);
+      } 
       
       @media only screen and (max-width: 1024px) {
         flex: 1;
-        font-size: 14px;
-        line-height: 22px;
+        
+        > div {
+          font-size: 14px;
+          line-height: 22px;
+        }
         
         div {
           &:first-child {
@@ -163,7 +174,9 @@
       }
       
       @media only screen and (max-width: 767px) {
-        line-height: 24px;
+        > div {
+          line-height: 24px;
+        }
 
         div {
           &:first-child {
