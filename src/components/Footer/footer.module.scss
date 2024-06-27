@@ -255,18 +255,18 @@
   background-position: top right;
   padding: 64.27px 83px 107.73px 83px;
   background-color:  var(--primary-500-base, #3668DD);
-  background-image: url("/img/homepage/downloadapp-bg.png");
+  background-image: url("/img/homepage/downloadapp-bg.svg");
   
   @media screen and (max-width: 1024px) {
     padding: 44px;
-    background-image: url("/img/homepage/downloadapp-tablet-bg.png");
+    background-image: url("/img/homepage/downloadapp-tablet-bg.svg");
   }
   
   @media screen and (max-width: 767px) {
     background-size: contain;
     background-position: bottom;
     padding: 29.79px 27px 267.89px 27px;
-    background-image: url("/img/homepage/downloadapp-mobile-bg.png");
+    background-image: url("/img/homepage/downloadapp-mobile-bg.svg");
   }
 }
 
@@ -333,6 +333,7 @@
   flex-direction: column;
   
   a {
+    width: fit-content;
     display: inline-flex;
     transition: all 0.2s ease-in-out;
 
@@ -353,5 +354,9 @@
     a {
       flex: 1;
     }
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
   }
 }

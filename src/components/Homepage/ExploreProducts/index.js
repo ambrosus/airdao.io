@@ -36,6 +36,7 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
             const isCurrent =
               currentProduct.product_name[0].text ===
               product.product_name[0].text;
+            const disabled = product.product_name[0].text === 'Astra';
 
             return (
               <div
@@ -54,7 +55,12 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
                     field={product.product_name}
                     components={{
                       paragraph: ({ children }) => (
-                        <div className={styles['name']}>{children}</div>
+                        <div
+                          className={styles['name']}
+                          style={disabled ? { color: '#9B9CA5' } : null}
+                        >
+                          {children}
+                        </div>
                       ),
                     }}
                   />
@@ -63,7 +69,11 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
                       <PrismicRichText
                         field={product.product_description}
                         components={{
-                          paragraph: ({ children }) => <div>{children}</div>,
+                          paragraph: ({ children }) => (
+                            <div style={disabled ? { color: '#9B9CA5' } : null}>
+                              {children}
+                            </div>
+                          ),
                         }}
                       />
                       <Link href={product.product_button_link?.url || ''}>
@@ -84,7 +94,7 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
                         />
                       </Link>
                       <div className={styles['video']}>
-                        <video controls={false} autoPlay muted>
+                        <video controls={false} autoPlay muted loop>
                           <source
                             src={product.product_video.url}
                             type="video/mp4"
@@ -105,6 +115,7 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
               controls={false}
               autoPlay
               muted
+              loop
               width={535}
             >
               <source src={currentProduct.product_video.url} type="video/mp4" />

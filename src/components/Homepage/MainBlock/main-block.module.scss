@@ -1,15 +1,15 @@
 .main-block-wrapper {
-  background-size: contain;
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/img/homepage/main/desktop.jpg");
+  background-image: url("/img/homepage/main/desktop.svg");
 
   @media only screen and (max-width: 1024px) {
-    background-image: url("/img/homepage/main/tablet.jpg");
+    background-image: url("/img/homepage/main/tablet.svg");
   }
   
   @media only screen and (max-width: 767px) {
-    background-image: url("/img/homepage/main/mobile.jpg");
+    background-image: url("/img/homepage/main/mobile.svg");
   }
 }
 
@@ -54,6 +54,7 @@
   
   div {
     font-size: 20px;
+    font-weight: 500;
     line-height: 28px;
     font-family: var(--font-inter);
     color: var(--Neutrals-600---Secondary-content, #63636D);
@@ -83,7 +84,6 @@
     }
 
     div {
-      font-size: 18px;
       line-height: 24px;
     }
   }

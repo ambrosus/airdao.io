@@ -4,14 +4,13 @@
   margin-bottom: 64px;
   flex-direction: column;
 
-  img {
-    width: auto;
-    height: auto;
-  }
-  
   @media only screen and (max-width: 767px) {
     gap: 16px;
     margin-bottom: 56px;
+
+    img {
+      transform: scale(0.75);
+    }
   }
 }
 
@@ -22,9 +21,6 @@
   text-align: center;
   font-style: italic;
   color: var(--Neutrals-600---Secondary-content, #63636D);
-  
-  @media only screen and (max-width: 1024px) {
-  }
   
   @media only screen and (max-width: 767px) {
     font-size: 14px;
