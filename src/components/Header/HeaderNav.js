@@ -9,6 +9,7 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
   const [activeList, setActiveList] = useState('');
 
   const ref = useRef(null);
+
   useClickOutside(
     ref,
     () => {
