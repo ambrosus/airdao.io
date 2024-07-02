@@ -4,6 +4,8 @@ import styles from './Header.module.scss';
 import { asText } from '@prismicio/client';
 import Link from 'next/link';
 import TailArrow from '../Icons/TailArrow';
+import ArrowTail from '../Icons/ArrowTail';
+import ArrowRight from '../Icons/ArrowRight';
 
 const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
   const [activeList, setActiveList] = useState('');
@@ -51,57 +53,52 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
             onClick={() => handleList(asText(el.primary.navlabel))}
           >
             {asText(el.primary.navlabel)}
-            <svg
-              width="21"
-              height="21"
-              viewBox="0 0 21 21"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className={styles['nav-item__label-img']}
-            >
-              <path
-                d="M5.87103 7.03223C5.03034 7.03223 4.56485 8.00656 5.09309 8.66056L8.90755 13.3832C9.50792 14.1266 10.641 14.1266 11.2414 13.3832L15.0558 8.66056C15.5841 8.00656 15.1186 7.03223 14.2779 7.03223H5.87103Z"
-                fill="#222426"
-              />
-            </svg>
+            <ArrowTail />
           </span>
           <div className={styles['nav-item__list-wrapper']}>
             <div
-              className={`${styles['nav-item__list']} ${
-                asText(el.primary.navlabel) === 'Community'
-                  ? styles['nav-item__list_socials']
-                  : ''
-              }`}
+              className={`
+                ${styles['nav-item__list']}
+                ${
+                  styles[
+                    'nav-item__list_' +
+                      asText(el.primary.navlabel).toLocaleLowerCase()
+                  ]
+                }
+              `}
             >
-              {el.items.map(item => (
-                <Link
-                  href={item.navitemlink.url || ''}
-                  target={item.navitemlink.target || ''}
-                  key={item.navitemlink.url}
-                  className={styles['nav-item__list-item']}
-                  {...(item.navitemimg.url.includes('https://airdao.io')
-                    ? {}
-                    : { rel: 'nofollow' })}
-                >
-                  <img
-                    src={item.navitemimg.url}
-                    width="40"
-                    height="40"
-                    className={styles['nav-item__list-img']}
-                    alt={asText(item.navitemlabel)}
-                  />
-                  <div>
-                    <p className={styles['nav-item__list-title']}>
-                      {asText(item.navitemlabel)}
-                    </p>
-                    {asText(item.navitemdescr) && (
-                      <p className={styles['nav-item__list-descr']}>
-                        {asText(item.navitemdescr)}
+              <div className={styles['nav-item__list-container']}>
+                {el.items.map(item => (
+                  <Link
+                    href={item.navitemlink.url || ''}
+                    target={item.navitemlink.target || ''}
+                    key={item.navitemlink.url}
+                    className={styles['nav-item__list-item']}
+                    {...(item.navitemimg.url.includes('https://airdao.io')
+                      ? {}
+                      : { rel: 'nofollow' })}
+                  >
+                    <img
+                      src={item.navitemimg.url}
+                      width="40"
+                      height="40"
+                      className={styles['nav-item__list-img']}
+                      alt={asText(item.navitemlabel)}
+                    />
+                    <div>
+                      <p className={styles['nav-item__list-title']}>
+                        {asText(item.navitemlabel)}
+                        <ArrowRight />
                       </p>
-                    )}
-                  </div>
-                </Link>
-              ))}
+                      {asText(item.navitemdescr) && (
+                        <p className={styles['nav-item__list-descr']}>
+                          {asText(item.navitemdescr)}
+                        </p>
+                      )}
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
