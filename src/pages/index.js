@@ -64,6 +64,7 @@ export default function Home({
         events={data.involved_events}
         ambassador={data.involved_ambassador}
         burn={data.involved_burn}
+        ambassadors={data.ambassadors_images}
       />
       <Mission
         title={data.mission_title}

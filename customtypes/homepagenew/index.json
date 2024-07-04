@@ -227,6 +227,23 @@
                 "placeholder": "",
                 "select": "media"
               }
+            },
+            "product_image": {
+              "type": "Image",
+              "config": {
+                "label": "Product image",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "coming_soon": {
+              "type": "Boolean",
+              "config": {
+                "label": "Coming soon",
+                "default_value": false,
+                "placeholder_true": "true",
+                "placeholder_false": "false"
+              }
             }
           }
         }
@@ -361,6 +378,14 @@
           "label": "Involved events",
           "repeat": true,
           "fields": {
+            "events_image": {
+              "type": "Image",
+              "config": {
+                "label": "Events image",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
             "events_title": {
               "type": "StructuredText",
               "config": {
@@ -405,14 +430,6 @@
           "label": "Involved Ambassador",
           "repeat": true,
           "fields": {
-            "ambassador_image": {
-              "type": "Image",
-              "config": {
-                "label": "Ambassador image",
-                "constraint": {},
-                "thumbnails": []
-              }
-            },
             "ambassador_title": {
               "type": "StructuredText",
               "config": {
@@ -498,6 +515,23 @@
                 "label": "Burn button link",
                 "placeholder": "",
                 "select": null
+              }
+            }
+          }
+        }
+      },
+      "ambassadors_images": {
+        "type": "Group",
+        "config": {
+          "label": "Ambassadors images",
+          "repeat": true,
+          "fields": {
+            "ambassador_image": {
+              "type": "Image",
+              "config": {
+                "label": "Ambassador image",
+                "constraint": {},
+                "thumbnails": []
               }
             }
           }

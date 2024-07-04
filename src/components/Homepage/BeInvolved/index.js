@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@airdao/ui-library';
-import governor from '@/assets/img/homepage/be-involved/governor.svg';
 import burnImage from '@/assets/img/homepage/be-involved/burn.svg';
-import ambassadors from '@/assets/img/homepage/be-involved/ambassadors.svg';
-import governorMobile from '@/assets/img/homepage/be-involved/governor-mobile.svg';
+import gradient from '@/assets/img/homepage/ambassadors-marquee-gradient.svg';
 import styles from './be-involved.module.scss';
 import { PrismicRichText } from '@prismicio/react';
+import Marquee from 'react-fast-marquee';
 
 const BeInvolved = ({
   smallTitle,
@@ -17,7 +16,12 @@ const BeInvolved = ({
   events,
   ambassador,
   burn,
+  ambassadors,
 }) => {
+  const ambassadorsMap = ambassadors.map(ambassador => (
+    <img key={ambassador.ambassador_image.url} src={ambassador.ambassador_image.url} alt="Ambassador" />
+  ));
+
   return (
     <section className={styles['be-involved-container']}>
       <div className="container">
@@ -60,13 +64,13 @@ const BeInvolved = ({
           </div>
           <div>
             <div>
-              <Image
-                src={governor}
+              <img
+                src={sbt[0].sbt_image.url}
                 alt="governor"
                 className={styles['desktop-governor']}
               />
-              <Image
-                src={governorMobile}
+              <img
+                src={sbt[0].sbt_image.url}
                 alt="governor"
                 className={styles['mobile-governor']}
               />
@@ -86,6 +90,13 @@ const BeInvolved = ({
             </div>
             <div>
               <div className={styles['block-title-description']}>
+                {events[0].events_image.url && (
+                  <img
+                    src={events[0].events_image.url}
+                    alt="events"
+                    className={styles['events-image']}
+                  />
+                )}
                 <h3>{events[0].events_title[0].text}</h3>
                 <div>{events[0].events_description[0].text}</div>
                 <Link href={events[0].events_button_link.url}>
@@ -101,25 +112,53 @@ const BeInvolved = ({
             </div>
           </div>
           <div>
-            <div>
-              <Image src={ambassadors} alt="ambassadors" />
-              <div className={styles['block-title-description']}>
-                <h3>{ambassador[0].ambassador_title[0].text}</h3>
-                <div>{ambassador[0].ambassador_description[0].text}</div>
-                <Link href={ambassador[0].ambassador_button_link.url}>
-                  <Button
-                    type="tetiary"
-                    size="large"
-                    className={styles['button']}
-                  >
-                    {ambassador[0].ambassador_button_name[0].text}
-                  </Button>
-                </Link>
+            <div
+              style={{
+                padding: '32px 0',
+              }}
+            >
+              <div
+                className={styles['block-title-description']}
+                style={{ height: '100%' }}
+              >
+                <div className={styles['marquee-container']}>
+                  <Marquee className={styles['marquee']}>
+                    {ambassadorsMap}
+                  </Marquee>
+                  <Image
+                    className={styles['gradient']}
+                    src={gradient}
+                    alt="gradient"
+                  />
+                </div>
+                <div
+                  style={{
+                    padding: '0 32px',
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                  }}
+                >
+                  <h3>{ambassador[0].ambassador_title[0].text}</h3>
+                  <div>{ambassador[0].ambassador_description[0].text}</div>
+                  <Link href={ambassador[0].ambassador_button_link.url}>
+                    <Button
+                      type="tetiary"
+                      size="large"
+                      className={styles['button']}
+                    >
+                      {ambassador[0].ambassador_button_name[0].text}
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
             <div>
               <Image src={burnImage} alt="burn" />
-              <div className={styles['block-title-description']}>
+              <div
+                className={styles['block-title-description']}
+                style={{ marginTop: '37.5px' }}
+              >
                 <h3>{burn[0].burn_title[0].text}</h3>
                 <div>{burn[0].burn_description[0].text}</div>
                 <a href={burn[0].burn_button_link.url} target="_blank">
