@@ -103,6 +103,22 @@
       line-height: 0;
       grid-template-columns: 3fr 2fr;
 
+      > div:first-child {
+        background: linear-gradient(214deg, #5098EC 0%, #3568DD 100%); 
+
+        h3, div {
+          color: #FFFFFF;
+        }
+
+        button {
+          background-color: #FFFFFF;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+
       div {
         gap: 24px;
         display: flex;
@@ -145,10 +161,6 @@
       gap: 20px;
       display: flex;
 
-      .block-title-description {
-        margin-top: 37.5px;
-      }
-      
       > div {
         flex: 1;
 
@@ -190,6 +202,7 @@
     }
 
     a {
+      line-height: 0;
       margin-top: auto;
       width: fit-content;
 
@@ -268,7 +281,37 @@
     transition: all 0.2s ease-in-out;
 
     &:hover {
-      opacity: 0.8;
+      opacity: 0.4;
+    }
+  }
+}
+
+.marquee {
+  img {
+    margin: 0 12.5px;
+    width: 150px!important;
+    
+    @media only screen and (max-width: 767px) {
+      margin: 0 5.2px;
+      width: 65px!important;
+    }
+  }
+}
+
+.marquee-container {
+  position: relative;
+
+  .gradient {
+    position: absolute;
+    top: -1px;
+    z-index: 9;
+    right: -1px;
+    width: 399px!important;
+    height: 170px!important;
+    
+    @media only screen and (max-width: 767px) {
+      width: 172.87px!important;
+      height: 73.65px!important;
     }
   }
 }

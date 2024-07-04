@@ -3896,6 +3896,27 @@ export interface HomepagenewDocumentDataProductsItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   product_video: prismic.LinkToMediaField;
+
+  /**
+   * Product image field in *Homepagenew → Products*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.products[].product_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  product_image: prismic.ImageField<never>;
+
+  /**
+   * Coming soon field in *Homepagenew → Products*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: homepagenew.products[].coming_soon
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  coming_soon: prismic.BooleanField;
 }
 
 /**
@@ -4008,6 +4029,16 @@ export interface HomepagenewDocumentDataInvolvedSbtItem {
  */
 export interface HomepagenewDocumentDataInvolvedEventsItem {
   /**
+   * Events image field in *Homepagenew → Involved events*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.involved_events[].events_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  events_image: prismic.ImageField<never>;
+
+  /**
    * Events title field in *Homepagenew → Involved events*
    *
    * - **Field Type**: Rich Text
@@ -4052,16 +4083,6 @@ export interface HomepagenewDocumentDataInvolvedEventsItem {
  * Item in *Homepagenew → Involved Ambassador*
  */
 export interface HomepagenewDocumentDataInvolvedAmbassadorItem {
-  /**
-   * Ambassador image field in *Homepagenew → Involved Ambassador*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: homepagenew.involved_ambassador[].ambassador_image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  ambassador_image: prismic.ImageField<never>;
-
   /**
    * Ambassador title field in *Homepagenew → Involved Ambassador*
    *
@@ -4156,6 +4177,21 @@ export interface HomepagenewDocumentDataInvolvedBurnItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   burn_button_link: prismic.LinkField;
+}
+
+/**
+ * Item in *Homepagenew → Ambassadors images*
+ */
+export interface HomepagenewDocumentDataAmbassadorsImagesItem {
+  /**
+   * Ambassador image field in *Homepagenew → Ambassadors images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.ambassadors_images[].ambassador_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  ambassador_image: prismic.ImageField<never>;
 }
 
 /**
@@ -4537,6 +4573,19 @@ interface HomepagenewDocumentData {
    */
   involved_burn: prismic.GroupField<
     Simplify<HomepagenewDocumentDataInvolvedBurnItem>
+  >;
+
+  /**
+   * Ambassadors images field in *Homepagenew*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.ambassadors_images[]
+   * - **Tab**: Be Involved
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  ambassadors_images: prismic.GroupField<
+    Simplify<HomepagenewDocumentDataAmbassadorsImagesItem>
   > /**
    * Mission title field in *Homepagenew*
    *
@@ -6795,6 +6844,7 @@ declare module '@prismicio/client' {
       HomepagenewDocumentDataInvolvedEventsItem,
       HomepagenewDocumentDataInvolvedAmbassadorItem,
       HomepagenewDocumentDataInvolvedBurnItem,
+      HomepagenewDocumentDataAmbassadorsImagesItem,
       HomepagenewDocumentDataMissionStatisticItem,
       HomepagenewDocumentDataMissionImagesItem,
       HomepagenewDocumentDataMoreAboutUsPagesItem,

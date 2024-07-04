@@ -29,6 +29,19 @@ const Mission = ({
             }}
           />
         </div>
+      </div>
+      <div className={styles['mission-path']}>
+        <Marquee autoFill className={styles['marquee']}>
+          {images.map(image => (
+            <img
+              key={image.mission_image.url}
+              src={image.mission_image.url}
+              alt="community"
+            />
+          ))}
+        </Marquee>
+      </div>
+      <div className={`container ${styles['mission-container-column']}`}>
         <div className={styles['statistics']}>
           {statistics.map(statistic => (
             <div key={statistic.mission_title[0].text}>
@@ -49,17 +62,6 @@ const Mission = ({
             }}
           />
         </Link>
-      </div>
-      <div className={styles['mission-path']}>
-        <Marquee autoFill className={styles['marquee']}>
-          {images.map(image => (
-            <img
-              key={image.mission_image.url}
-              src={image.mission_image.url}
-              alt="community"
-            />
-          ))}
-        </Marquee>
       </div>
     </section>
   );
