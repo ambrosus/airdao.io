@@ -30,7 +30,6 @@ const BackedBy = ({ title, logos }) => {
           alt="gradient"
         />
       </div>
-      <div className={styles['backed-by']}>{logoMap}</div>
     </section>
   );
 };

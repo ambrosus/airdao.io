@@ -4029,16 +4029,6 @@ export interface HomepagenewDocumentDataInvolvedSbtItem {
  */
 export interface HomepagenewDocumentDataInvolvedEventsItem {
   /**
-   * Events image field in *Homepagenew → Involved events*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: homepagenew.involved_events[].events_image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  events_image: prismic.ImageField<never>;
-
-  /**
    * Events title field in *Homepagenew → Involved events*
    *
    * - **Field Type**: Rich Text
@@ -4077,6 +4067,46 @@ export interface HomepagenewDocumentDataInvolvedEventsItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   events_button_link: prismic.LinkField;
+
+  /**
+   * Event item title field in *Homepagenew → Involved events*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.involved_events[].event_item_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  event_item_title: prismic.RichTextField;
+
+  /**
+   * Event item description field in *Homepagenew → Involved events*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.involved_events[].event_item_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  event_item_description: prismic.RichTextField;
+
+  /**
+   * Event item date field in *Homepagenew → Involved events*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.involved_events[].event_item_date
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  event_item_date: prismic.RichTextField;
+
+  /**
+   * Event item icon field in *Homepagenew → Involved events*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.involved_events[].event_item_icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  event_item_icon: prismic.ImageField<never>;
 }
 
 /**

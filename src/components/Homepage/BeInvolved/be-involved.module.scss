@@ -99,9 +99,12 @@
 
     &:nth-child(2) {
       gap: 20px;
-      display: grid;
+      display: flex;
       line-height: 0;
-      grid-template-columns: 3fr 2fr;
+
+      > div {
+        flex: 1;
+      }
 
       > div:first-child {
         background: linear-gradient(214deg, #5098EC 0%, #3568DD 100%); 
@@ -111,7 +114,7 @@
         }
 
         button {
-          background-color: #FFFFFF;
+          background-color: #F2F2F3;
 
           &:hover {
             opacity: 0.8;
@@ -126,18 +129,20 @@
 
       img {
         width: auto;
-        height: 100%;
         height: 288px;
         max-height: 288px;
-
+        
         &.mobile-governor {
           display: none;
+          height: unset;
+          margin: 0 auto;
+          width: unset!important;
         }
       }
 
       @media only screen and (max-width: 1024px) {
         gap: 17px;
-        grid-template-columns: 1fr;
+        flex-direction: column;
       }
 
       @media only screen and (max-width: 767px) {
@@ -159,11 +164,10 @@
     
     &:nth-child(3) {
       gap: 20px;
-      display: flex;
+      display: grid;
+      grid-template-columns: 3fr 2fr;
 
       > div {
-        flex: 1;
-
         img {
           width: 100%;
           height: auto;
@@ -197,7 +201,7 @@
 
       @media only screen and (max-width: 1024px) {
         gap: 17px;
-        flex-direction: column;
+        grid-template-columns: 1fr;
       }
     }
 
@@ -242,6 +246,7 @@
     font-weight: 500;
     line-height: 24px;
     letter-spacing: -1%;
+    font-family: var(--font-inter);
     color: var(--Neutrals-600---Secondary-content, #63636D);
   }
 
@@ -313,5 +318,133 @@
       width: 172.87px!important;
       height: 73.65px!important;
     }
+  }
+}
+
+.block-burn {
+  img {
+    object-fit: cover;
+    border-radius: 14px;
+    height: 171px!important;
+
+    @media only screen and (max-width: 767px) {
+      height: 89.92px!important;
+    }
+  }
+}
+
+.event-item {
+  width: 100%;
+  position: relative;
+  margin-bottom: 16px;
+  
+  > div {
+    z-index: 2;
+    padding: 12px;
+    display: flex;
+    max-width: 470px;
+    align-items: center;
+    gap: 16px!important;
+    border-radius: 16px;
+    background: #FFFFFF;
+    box-shadow: 0px 12px 36px rgba(47, 43, 67, 0.12);
+  }
+  
+  &:after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    z-index: 1;
+    left: 16px;
+    width: 100%;
+    height: 100%;
+    max-width: 461px;
+    border-radius: 16px;
+    background: #FFFFFF;
+    box-shadow: 0px 12px 36px rgba(47, 43, 67, 0.12);
+  }
+
+  img {
+    z-index: 2;
+    height: auto!important;
+    width: 49.77px!important;
+  }
+
+  @media only screen and (max-width: 767px) {
+    > div {
+      padding: 8.78px 7.9px;
+      gap: 10.57px!important;
+      flex-direction: row!important;
+    }
+
+    img {
+      display: block!important;
+    }
+  }
+}
+
+.event-item-title-date-description {
+  z-index: 2;
+  gap: 8px!important;
+  flex-direction: column;
+
+  @media only screen and (max-width: 767px) {
+    gap: 5.27px!important;
+  }
+}
+
+.event-item-title-date {
+  gap: 16px!important;
+  
+  @media only screen and (max-width: 767px) {
+    gap: 10.54px!important;
+    flex-direction: row!important;
+  }
+}
+
+.event-item-title {
+  font-size: 16px!important;
+  font-weight: 500!important;
+  line-height: 24px!important;
+  font-family: var(--font-inter)!important;
+  color: var(--Neutrals-800---Primary-content, #29292D)!important;
+
+  @media only screen and (max-width: 767px) {
+    font-size: 10.54px!important;
+    line-height: 15.8px!important;
+  }
+}
+
+.event-item-description {
+  font-size: 12px!important;
+  font-weight: 500!important;
+  line-height: 18px!important;
+  font-family: var(--font-inter)!important;
+  color: var(--Neutrals-600---Secondary-content, #63636D)!important;
+  
+  @media only screen and (max-width: 767px) {
+    font-size: 7.9px!important;
+    line-height: 11.85px!important;
+  }
+}
+
+.event-item-date {
+  display: flex;
+  padding: 0 8px;
+  border-radius: 8px;
+  align-items: center;
+  font-size: 12px!important;
+  font-weight: 500!important;
+  line-height: 18px!important;
+  font-family: var(--font-inter)!important;
+  background-color: var(--Primary-50, #E9EFFB);
+  color: var(--primary-500-base, #3668DD)!important;
+  
+  @media only screen and (max-width: 767px) {
+    padding: 0 5.27px;
+    border-radius: 5.27px;
+    font-size: 7.9px!important;
+    flex-direction: row!important;
+    line-height: 11.85px!important;
   }
 }

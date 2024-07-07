@@ -97,6 +97,28 @@ const BeInvolved = ({
                     className={styles['events-image']}
                   />
                 )}
+                <div className={styles['event-item']}>
+                  <div>
+                    <img
+                      src={events[0].event_item_icon.url}
+                      alt="event"
+                      className={styles['event-icon']}
+                    />
+                    <div className={styles['event-item-title-date-description']}>
+                      <div className={styles['event-item-title-date']}>
+                        <div className={styles['event-item-title']}>
+                          {events[0].event_item_title[0].text}
+                        </div>
+                        <div className={styles['event-item-date']}>
+                          {events[0].event_item_date[0].text}
+                        </div>
+                      </div>
+                      <div className={styles['event-item-description']}>
+                        {events[0].event_item_description[0].text}
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <h3>{events[0].events_title[0].text}</h3>
                 <div>{events[0].events_description[0].text}</div>
                 <Link href={events[0].events_button_link.url}>
@@ -132,6 +154,7 @@ const BeInvolved = ({
                   />
                 </div>
                 <div
+                  className={styles['block-title-description']}
                   style={{
                     padding: '0 32px',
                     height: '100%',
@@ -153,7 +176,7 @@ const BeInvolved = ({
                 </div>
               </div>
             </div>
-            <div>
+            <div className={styles['block-burn']}>
               <Image src={burnImage} alt="burn" />
               <div
                 className={styles['block-title-description']}
