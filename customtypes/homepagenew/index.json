@@ -378,14 +378,6 @@
           "label": "Involved events",
           "repeat": true,
           "fields": {
-            "events_image": {
-              "type": "Image",
-              "config": {
-                "label": "Events image",
-                "constraint": {},
-                "thumbnails": []
-              }
-            },
             "events_title": {
               "type": "StructuredText",
               "config": {
@@ -419,6 +411,41 @@
                 "label": "Events button link",
                 "placeholder": "",
                 "select": null
+              }
+            },
+            "event_item_title": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Event item title",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "event_item_description": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Event item description",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "event_item_date": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Event item date",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "event_item_icon": {
+              "type": "Image",
+              "config": {
+                "label": "Event item icon",
+                "constraint": {},
+                "thumbnails": []
               }
             }
           }

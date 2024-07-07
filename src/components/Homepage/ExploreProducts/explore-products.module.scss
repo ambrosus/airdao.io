@@ -6,6 +6,7 @@
   flex-direction: column;
   
   @media only screen and (max-width: 1024px) {
+    gap: 16px;
     margin: 88px 0;
   }
   
@@ -97,8 +98,9 @@
   padding: 24px 20.75px 24px 24px;
   border-bottom: 1px solid #F2F2F3;
   transition: color 0.25s ease;
-
+  
   @media only screen and (max-width: 767px) {
+    padding: 16px 0;
     border-bottom: none;
   }
 }

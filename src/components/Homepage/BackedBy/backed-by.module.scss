@@ -20,6 +20,7 @@
   line-height: 26px;
   text-align: center;
   font-style: italic;
+  font-family: var(--font-inter);
   color: var(--Neutrals-600---Secondary-content, #63636D);
   
   @media only screen and (max-width: 767px) {
@@ -34,15 +35,19 @@
   position: relative;
   align-items: center;
   filter: grayscale(1);
-
+  
   @media only screen and (max-width: 767px) {
-    display: none;
+    height: 50.53px;
   }
 }
 
 .marquee {
   img {
-    margin: 0 50px;
+    margin: 0 25px;
+    
+    @media only screen and (max-width: 767px) {
+      margin: 0 12px;
+    }
   }
 }
 
@@ -60,18 +65,4 @@
 .gradient-rotate {
   right: 0;
   transform: translateY(-50%) rotate(180deg);
-}
-
-.backed-by {
-  opacity: 0.6;
-  display: none;
-  gap: 40px 24px;
-  padding: 0 15px;
-  flex-wrap: wrap;
-  filter: grayscale(1);
-  justify-content: center;
-
-  @media only screen and (max-width: 767px) {
-    display: flex;
-  }
 }
