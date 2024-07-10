@@ -70,7 +70,7 @@ const BeInvolved = ({
                 className={styles['desktop-governor']}
               />
               <img
-                src={sbt[0].sbt_image.url}
+                src={sbt[0].sbt_image_mobile.url}
                 alt="governor"
                 className={styles['mobile-governor']}
               />

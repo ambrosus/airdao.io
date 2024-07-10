@@ -1,19 +1,15 @@
 .network-container {
-  background-size: 2500px;
-  padding: 120px 0 260px 0;
-  background-repeat: no-repeat;
-  background-position: center 50%;
-  background-image: url("/img/homepage/network-bg.svg");
-  
+  position: relative;
+  margin: 120px 0 44px 0;
   
   @media only screen and (max-width: 1024px) {
+    margin: 64px 0 21px 0;
     background-size: 1500px;
-    padding: 120px 0 60px 0;
     background-position: center 10%;
   }
   
   @media only screen and (max-width: 767px) {
-    padding: 120px 0 0 0;
+    margin: 64px 0 64px 0;
     background-position: center 40%;
   }
 }
@@ -168,16 +164,53 @@
 }
 
 .value, .value-title {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 26px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.28px;
+  font-family: var(--font-inter);
   color: var(--primary-500-base, #3668DD);
   
   @media only screen and (max-width: 1024px) {
     font-size: 14px;
+    line-height: 19.537px;
+    letter-spacing: -0.196px;
   }
 }
 
 .value-title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: -0.216px;
   color: var(--Neutrals-600---Secondary-content, #63636D);
+  
+  @media only screen and (max-width: 1024px) {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.14px;
+  }
+}
+
+.network-bg {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  top: -1090px;
+  height: 3000px;
+  background-size: 2500px;
+  background-repeat: no-repeat;
+  background-position: center 50%;
+  background-image: url("/img/homepage/network-bg.svg");
+  
+  @media only screen and (max-width: 1024px) {
+    top: -1145px;
+    background-size: 1510px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    top: -1249px;
+    background-size: 707.7px;
+    background-image: url("/img/homepage/network-bg-mobile.svg");
+  }
 }

@@ -334,6 +334,14 @@
                 "thumbnails": []
               }
             },
+            "sbt_image_mobile": {
+              "type": "Image",
+              "config": {
+                "label": "SBT image mobile",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
             "sbt_title": {
               "type": "StructuredText",
               "config": {
