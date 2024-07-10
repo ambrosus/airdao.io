@@ -90,7 +90,7 @@ const BeInvolved = ({
             </div>
             <div>
               <div className={styles['block-title-description']}>
-                {events[0].events_image.url && (
+                {events[0].events_image?.url && (
                   <img
                     src={events[0].events_image.url}
                     alt="events"
