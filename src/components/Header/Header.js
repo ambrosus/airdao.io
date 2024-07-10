@@ -172,6 +172,26 @@ const Header = ({ header, showBanner = false }) => {
                       }`}
                   />
                 </div>
+                <button
+                  onClick={handleMobileNav}
+                  className={styles['hamburger-btn']}
+                >
+                  {isMobileNavOpen ? (
+                    <Image
+                      src="/cross-dark.svg"
+                      width="24"
+                      height="24"
+                      alt="menu"
+                    />
+                  ) : (
+                    <Image
+                      src="/hamburger.svg"
+                      width="24"
+                      height="24"
+                      alt="menu"
+                    />
+                  )}
+                </button>
               </div>
 
               {isConnectedNavOpen && (
@@ -188,6 +208,14 @@ const Header = ({ header, showBanner = false }) => {
                   logout={handleLogout}
                   address={address}
                   close={handleAddressInfo}
+                />
+              )}
+              {isMobileNavOpen && (
+                <HeaderNav
+                  isOpen={isMobileNavOpen}
+                  close={handleMobileNav}
+                  headerInfo={header}
+                  className="nav-item-wrapper_not-desktop"
                 />
               )}
             </>

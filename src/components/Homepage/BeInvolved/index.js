@@ -144,7 +144,7 @@ const BeInvolved = ({
                 style={{ height: '100%' }}
               >
                 <div className={styles['marquee-container']}>
-                  <Marquee className={styles['marquee']}>
+                  <Marquee className={styles['marquee']} autoFill>
                     {ambassadorsMap}
                   </Marquee>
                   <Image

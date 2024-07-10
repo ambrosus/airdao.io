@@ -23,7 +23,9 @@ const BackedBy = ({ title, logos }) => {
       />
       <div className={styles['backed-by-path']}>
         <Image src={gradient} className={styles['gradient']} alt="gradient" />
-        <Marquee className={styles['marquee']}>{logoMap}</Marquee>
+        <Marquee className={styles['marquee']} autoFill>
+          {logoMap}
+        </Marquee>
         <Image
           src={gradient}
           className={styles['gradient-rotate']}
