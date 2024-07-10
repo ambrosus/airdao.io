@@ -136,17 +136,12 @@ const Header = ({ header, showBanner = false }) => {
           </Link>
           {address ? (
             <>
-              <div className={styles.header__products}>
-                {header.products.map(el => (
-                  <a
-                    key={asText(el.productname)}
-                    className={styles.header__product}
-                    href={el.producturl.url}
-                  >
-                    {asText(el.productname)}
-                  </a>
-                ))}
-              </div>
+              <HeaderNav
+                close={handleNav}
+                headerInfo={header}
+                className="nav-item-wrapper_desktop"
+                isOpen={isNavOpen}
+              />
               <div className={styles['header__buttons']}>
                 <Link
                   href={header.amburl.url}
@@ -177,26 +172,6 @@ const Header = ({ header, showBanner = false }) => {
                       }`}
                   />
                 </div>
-                <button
-                  className={styles.header__hamburger}
-                  onClick={handleConnectedNav}
-                >
-                  {isConnectedNavOpen ? (
-                    <Image
-                      src="/cross-dark.svg"
-                      width="24"
-                      height="24"
-                      alt="menu"
-                    />
-                  ) : (
-                    <Image
-                      src="/hamburger.svg"
-                      width="24"
-                      height="24"
-                      alt="menu"
-                    />
-                  )}
-                </button>
               </div>
 
               {isConnectedNavOpen && (
