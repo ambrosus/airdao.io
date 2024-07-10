@@ -8,7 +8,7 @@
   }
 
   @media screen and (max-width: 650px) {
-    padding: 32px;
+    padding: 48px 16px;
   }
 }
 
@@ -113,7 +113,7 @@
 .footer__socials {
   gap: 100px;
   display: flex;
-  margin-top: 104px;
+  margin-top: 72px;
   justify-content: center;
 
   a {
@@ -132,14 +132,15 @@
     gap: 64.57px;
     margin-top: 72px;
   }
-
+  
   @media screen and (max-width: 950px) {
     gap: 0;
     justify-content: space-between;
   }
-
+  
   @media screen and (max-width: 767px) {
     display: grid;
+    margin-top: 48px;
     grid-template-columns: repeat(4, 1fr);
 
     a {
@@ -247,25 +248,26 @@
   display: flex;
   margin: 0 auto;
   max-width: 100%;
+  padding: 48px 83px;
   margin-bottom: 72px;
   border-radius: 32px;
   flex-direction: column;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top right;
-  padding: 64.27px 83px 107.73px 83px;
   background-color:  var(--primary-500-base, #3668DD);
   background-image: url("/img/homepage/downloadapp-bg.svg");
   
   @media screen and (max-width: 1024px) {
-    padding: 44px;
+    margin-bottom: 48px;
+    padding: 44.38px 44.16px;
     background-image: url("/img/homepage/downloadapp-tablet-bg.svg");
   }
   
   @media screen and (max-width: 767px) {
     background-size: contain;
     background-position: bottom;
-    padding: 29.79px 27px 267.89px 27px;
+    padding: 29.79px 27px 262.86px 27px;
     background-image: url("/img/homepage/downloadapp-mobile-bg.svg");
   }
 }
@@ -284,13 +286,16 @@
       font-size: 32px;
       font-weight: 700;
       line-height: 40px;
+      letter-spacing: -0.64px;
       font-family: var(--font-rationell);
     }
-
+    
     &:last-child {
       font-size: 16px;
       font-weight: 500;
       line-height: 24px;
+      letter-spacing: -0.16px;
+      font-family: var(--font-inter);
     }
   }
 

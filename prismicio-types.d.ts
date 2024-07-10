@@ -3984,6 +3984,16 @@ export interface HomepagenewDocumentDataInvolvedSbtItem {
   sbt_image: prismic.ImageField<never>;
 
   /**
+   * SBT image mobile field in *Homepagenew → Involved SBT*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.involved_sbt[].sbt_image_mobile
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  sbt_image_mobile: prismic.ImageField<never>;
+
+  /**
    * SBT title field in *Homepagenew → Involved SBT*
    *
    * - **Field Type**: Rich Text

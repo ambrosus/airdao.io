@@ -5,6 +5,7 @@ import { PrismicRichText } from '@prismicio/react';
 const Network = ({ smallTitle, title, list }) => {
   return (
     <section className={styles['network-container']}>
+      <div className={styles['network-bg']} />
       <div className="container">
         <div className={styles['title']}>
           <PrismicRichText
