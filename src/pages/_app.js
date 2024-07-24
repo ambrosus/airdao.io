@@ -61,6 +61,11 @@ const rationell = localFont({
       weight: '700',
       style: 'bold',
     },
+    {
+      path: '../assets/fonts/Rationell-Black.otf',
+      weight: '900',
+      style: 'extra-bold',
+    },
   ],
   variable: '--font-rationell',
 });
