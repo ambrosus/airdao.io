@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { createClient } from '@/prismicio';
 
-import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
 import styles from './grants.module.scss';
@@ -9,33 +7,31 @@ import Seo from '@/components/Seo';
 import ContentBanner from './components/ContentBanner';
 import Grants from './components/Grants';
 
-export default function Landing({ page, portal, header, banner, footerText }) {
+export default function Landing({ page, grants, header, footerText }) {
   const { data } = page;
-  const [showBanner, setShowBanner] = useState(data?.show_banner);
-
   return (
     <>
       <Seo
-        title={portal.data.meta_title}
-        description={portal.data.meta_description}
-        image={portal.data.meta_image.url}
+        title={grants.data.meta_title}
+        description={grants.data.meta_description}
+        image={grants.data.meta_image.url}
       />
-      {showBanner && (
-        <Banner
-          data={banner?.data}
-          setShowBanner={setShowBanner}
-          nextLink={false}
-        />
-      )}
-      <div
-        className={`${styles.container} ${showBanner ? styles.hasBanner : ''}`}
-      >
-        <HeaderWrapper header={header} showBanner={showBanner} />
+      <div className={styles.container}>
+        <HeaderWrapper header={header} showBanner={false} />
         <div className="container">
           <ContentBanner />
           <Grants />
         </div>
-        <Footer data={footerText.data} footerBlock={''} />
+        <Footer
+          data={footerText.data}
+          footerBlock="footer_mobile_apps"
+          additionalData={{
+            bannerTitle: data.footer_banner_title,
+            bannerDescription: data.footer_banner_description,
+            googlePlay: data.google_play,
+            appStore: data.app_store,
+          }}
+        />
       </div>
     </>
   );
@@ -44,17 +40,15 @@ export default function Landing({ page, portal, header, banner, footerText }) {
 export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
 
-  const page = await client.getSingle('homepage');
-  const portal = await client.getSingle('gov_portal');
+  const page = await client.getSingle('homepagenew');
+  const grants = await client.getSingle('grants');
   const header = await client.getSingle('header');
-  const banner = await client.getSingle('govBanner');
   const footer = await client.getSingle('footer');
   return {
     props: {
       page,
-      portal,
+      grants,
       header,
-      banner,
       footerText: footer,
     },
   };
