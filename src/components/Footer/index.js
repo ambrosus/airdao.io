@@ -7,7 +7,6 @@ import Contact from './components/Contact';
 import MobileApps from './components/MobileApps';
 import { switchText } from './utils';
 
-// TODO: updates
 const Footer = ({
   data,
   footerBlock,
