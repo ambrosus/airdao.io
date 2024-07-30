@@ -31,30 +31,6 @@
           }
         }
       },
-      "downloadapp": {
-        "type": "Group",
-        "config": {
-          "label": "downloadApp",
-          "fields": {
-            "imageurl": {
-              "type": "Image",
-              "config": {
-                "label": "imageUrl",
-                "constraint": {},
-                "thumbnails": []
-              }
-            },
-            "linkurl": {
-              "type": "Link",
-              "config": {
-                "label": "linkurl",
-                "placeholder": "",
-                "select": null
-              }
-            }
-          }
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

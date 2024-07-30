@@ -2412,31 +2412,6 @@ export interface FooterDocumentDataFooterSocialItem {
   footer_social_link: prismic.LinkField;
 }
 
-/**
- * Item in *Footer → downloadApp*
- */
-export interface FooterDocumentDataDownloadappItem {
-  /**
-   * imageUrl field in *Footer → downloadApp*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.downloadapp[].imageurl
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  imageurl: prismic.ImageField<never>;
-
-  /**
-   * linkurl field in *Footer → downloadApp*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.downloadapp[].linkurl
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  linkurl: prismic.LinkField;
-}
-
 type FooterDocumentDataSlicesSlice = FooterItemSlice;
 
 /**
@@ -2455,17 +2430,6 @@ interface FooterDocumentData {
   footer_social: prismic.GroupField<
     Simplify<FooterDocumentDataFooterSocialItem>
   >;
-
-  /**
-   * downloadApp field in *Footer*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.downloadapp[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  downloadapp: prismic.GroupField<Simplify<FooterDocumentDataDownloadappItem>>;
 
   /**
    * Slice Zone field in *Footer*
@@ -2881,6 +2845,60 @@ export type GovernanceDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<
     Simplify<GovernanceDocumentData>,
     'governance',
+    Lang
+  >;
+
+/**
+ * Content for Grants documents
+ */
+interface GrantsDocumentData {
+  /**
+   * Meta Title field in *Grants*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: grants.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Grants*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: grants.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Grants*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grants.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Grants document from Prismic
+ *
+ * - **API ID**: `grants`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GrantsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<GrantsDocumentData>,
+    'grants',
     Lang
   >;
 
@@ -6041,6 +6059,7 @@ export type AllDocumentTypes =
   | GovBannerDocument
   | GovPortalDocument
   | GovernanceDocument
+  | GrantsDocument
   | HeaderDocument
   | HomepageDocument
   | HomepagenewDocument
@@ -6845,7 +6864,6 @@ declare module '@prismicio/client' {
       FooterDocument,
       FooterDocumentData,
       FooterDocumentDataFooterSocialItem,
-      FooterDocumentDataDownloadappItem,
       FooterDocumentDataSlicesSlice,
       GovBannerDocument,
       GovBannerDocumentData,
@@ -6858,6 +6876,8 @@ declare module '@prismicio/client' {
       GovernanceDocumentDataProposalsItem,
       GovernanceDocumentDataCouncilItem,
       GovernanceDocumentDataSlices3Slice,
+      GrantsDocument,
+      GrantsDocumentData,
       HeaderDocument,
       HeaderDocumentData,
       HeaderDocumentDataProductsItem,
