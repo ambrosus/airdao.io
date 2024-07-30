@@ -11,8 +11,9 @@ import { useEffect, useRef, useState } from 'react';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import styles from './academy-list.module.scss';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Seo from '@/components/Seo';
 
 const badges = ['All', 'Beginner', 'Intermediate', 'Pro'];
 
@@ -71,7 +72,7 @@ export default function Academy({ footerText, header, page, banner }) {
   const [articleNames, setArticleNames] = useState([]);
 
   useEffect(() => {
-    const currentType = academyTypes.find((el) => el.value === hash)
+    const currentType = academyTypes.find(el => el.value === hash);
     if (currentType) {
       setSelectedType(currentType.label);
     } else {
@@ -136,6 +137,11 @@ export default function Academy({ footerText, header, page, banner }) {
   };
   return (
     <>
+      <Seo
+        title={page.meta_title}
+        description={page.meta_description}
+        image={page.meta_image.url}
+      />
       <div
         className={
           styles[showBanner ? 'academy-gradient-banner' : 'academy-gradient']
@@ -150,7 +156,7 @@ export default function Academy({ footerText, header, page, banner }) {
           <PrismicRichText
             field={page?.title}
             components={{
-              paragraph: ({children}) => (
+              paragraph: ({ children }) => (
                 <p className={styles['academy-list-page__title']}>{children}</p>
               ),
             }}
@@ -158,7 +164,7 @@ export default function Academy({ footerText, header, page, banner }) {
           <PrismicRichText
             field={page?.subtitle}
             components={{
-              paragraph: ({children}) => (
+              paragraph: ({ children }) => (
                 <p className={styles['academy-list-page__subtitle']}>
                   {children}
                 </p>
@@ -231,7 +237,7 @@ export default function Academy({ footerText, header, page, banner }) {
                 className={`${styles['articles-list']} ${styles['articles-list_pagination']} container`}
               >
                 {paginatedData.results.map(el => {
-                  return <AcademyLink key={el.uid} article={el}/>;
+                  return <AcademyLink key={el.uid} article={el} />;
                 })}
               </div>
               {paginatedData?.results?.length > 5 && (
@@ -247,7 +253,7 @@ export default function Academy({ footerText, header, page, banner }) {
           )
         )}
       </div>
-      {footerText && <Footer data={footerText.data}/>}
+      {footerText && <Footer data={footerText.data} />}
     </>
   );
 }

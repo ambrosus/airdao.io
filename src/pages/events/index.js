@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import homePageStyles from '../../components/Homepage/homepage.module.scss';
 import styles from './events.module.scss';
 import ArticlesList from '@/components/ArticlesList';
+import Seo from '@/components/Seo';
 
 const getLastArticlesByType = async type => {
   const newClient = prismic.createClient('airdao-blog');
@@ -81,6 +82,11 @@ const Events = ({ header, footerText, page, banner, latestArticles }) => {
 
   return (
     <div className={homePageStyles['homepage']}>
+      <Seo
+        title={page.meta_title}
+        description={page.meta_description}
+        image={page.meta_image.url}
+      />
       {showBanner && (
         <Banner data={banner?.data} setShowBanner={setShowBanner} />
       )}
