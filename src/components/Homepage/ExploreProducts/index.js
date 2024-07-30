@@ -36,7 +36,6 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
             const isCurrent =
               currentProduct.product_name[0].text ===
               product.product_name[0].text;
-            const disabled = product.product_name[0].text === 'Astra';
 
             return (
               <div
@@ -56,12 +55,7 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
                       field={product.product_name}
                       components={{
                         paragraph: ({ children }) => (
-                          <div
-                            className={styles['name']}
-                            style={disabled ? { color: '#9B9CA5' } : null}
-                          >
-                            {children}
-                          </div>
+                          <div className={styles['name']}>{children}</div>
                         ),
                       }}
                     />
@@ -74,11 +68,7 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
                       <PrismicRichText
                         field={product.product_description}
                         components={{
-                          paragraph: ({ children }) => (
-                            <div style={disabled ? { color: '#9B9CA5' } : null}>
-                              {children}
-                            </div>
-                          ),
+                          paragraph: ({ children }) => <div>{children}</div>,
                         }}
                       />
                       {!currentProduct.coming_soon && (
