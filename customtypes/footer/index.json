@@ -31,6 +31,31 @@
           }
         }
       },
+      "downloadapp": {
+        "type": "Group",
+        "config": {
+          "label": "downloadApp",
+          "repeat": true,
+          "fields": {
+            "imageurl": {
+              "type": "Image",
+              "config": {
+                "label": "imageurl",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "linkurl": {
+              "type": "Link",
+              "config": {
+                "label": "linkurl",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
