@@ -62,7 +62,7 @@ const HeaderNav = ({ close, headerInfo, className, isOpen }) => {
                 ${
                   styles[
                     'nav-item__list_' +
-                      asText(el.primary.navlabel).toLocaleLowerCase()
+                      asText(el.primary.navlabel).toLocaleLowerCase().replace(' ', '-')
                   ]
                 }
               `}
