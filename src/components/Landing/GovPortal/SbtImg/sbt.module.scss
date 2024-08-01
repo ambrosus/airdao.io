@@ -1,0 +1,111 @@
+.sbtContainer {
+  text-align: center;
+  padding: 140px 0;
+  background-color: #EDF3FF;
+  box-shadow: 0 0 0 100vmax #EDF3FF;
+  clip-path: inset(0 -100vmax);
+  @media screen and (max-width: 992px) {
+    padding: 44px 0;
+  }
+  @media screen and (max-width: 768px) {
+    padding: 32px 0;
+  }
+
+  h2 {
+    color: #3668DD;
+    font-family: var(--font-rationell);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: -0.8px;
+    @media screen and (max-width: 992px) {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 32px;
+      letter-spacing: -0.48px;
+    }
+    @media screen and (max-width: 768px) {
+      font-size: 22px;
+      font-style: normal;
+      line-height: 28px;
+      letter-spacing: -0.44px;
+    }
+  }
+
+  h3 {
+    margin-top: 183px;
+    color: #29292D;
+    font-family: var(--font-rationell);
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: -0.64px;
+    @media screen and (max-width: 992px) {
+      margin-top: 64px;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 36px;
+      letter-spacing: -0.56px;
+    }
+    @media screen and (max-width: 768px) {
+      margin-top: 41px;
+      font-size: 24px;
+      line-height: 32px;
+      letter-spacing: -0.48px;
+    }
+  }
+
+  p {
+    margin-top: 16px;
+    color: #63636D;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: -0.216px;
+    @media screen and (max-width: 992px) {
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: -0.192px;
+    }
+    @media screen and (max-width: 768px) {
+      line-height: 22px;
+    }
+  }
+
+  .tokenWrapper {
+    margin-top: 56px;
+    display: flex;
+    gap: 30px;
+    overflow-x: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+
+    &::-webkit-scrollbar {
+      display: none;  /* Safari and Chrome */
+      width: 0;  /* Remove scrollbar space */
+      background: transparent;  /* Optional: just make scrollbar invisible */
+    }
+
+    .tokenItem {
+      .tokenImage {
+        @media screen and (min-width: 1024px) {
+          max-width: 190px;
+          max-height: 190px;
+        }
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
+          max-width: 100px;
+          max-height: 100px;
+        }
+        @media screen and (max-width: 767px) {
+          max-width: 110px;
+          max-height: 110px;
+        }
+      }
+    }
+  }
+}
+
+
