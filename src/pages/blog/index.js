@@ -147,34 +147,34 @@ export default function Blog({
           </p>
         </div>
       </div>
-
+      <div className={`${styles.buttons} container`}>
+        <div className={styles['blog-types']}>
+          <Link
+            className={`${styles['blog-types__item']} ${
+              selectedType === 'all'
+                ? styles['blog-types__item_active']
+                : ''
+            }`}
+            href={'/blog'}
+          >
+            All
+          </Link>
+          {activeTypes.map(el => (
+            <Link
+              className={`${styles['blog-types__item']} ${
+                selectedType === el ? styles['blog-types__item_active'] : ''
+              }`}
+              key={el}
+              href={'/blog#' + el}
+            >
+              {el}
+            </Link>
+          ))}
+        </div>
+      </div>
       {selectedType === 'all' ? (
         <>
-          <div className={`${styles.buttons} container`}>
-            <div className={styles['blog-types']}>
-              <Link
-                className={`${styles['blog-types__item']} ${
-                  selectedType === 'all'
-                    ? styles['blog-types__item_active']
-                    : ''
-                }`}
-                href={'/blog'}
-              >
-                All
-              </Link>
-              {activeTypes.map(el => (
-                <Link
-                  className={`${styles['blog-types__item']} ${
-                    selectedType === el ? styles['blog-types__item_active'] : ''
-                  }`}
-                  key={el}
-                  href={'/blog#' + el}
-                >
-                  {el}
-                </Link>
-              ))}
-            </div>
-          </div>
+
           {Object.keys(lastArticlesByType).map(
             el =>
               !!lastArticlesByType[el].length && (
@@ -204,33 +204,6 @@ export default function Blog({
       ) : (
         paginatedData && (
           <>
-            <div className={`${styles.buttons} container`}>
-              <div className={styles['blog-types']}>
-                <Link
-                  className={`${styles['blog-types__item']} ${
-                    selectedType === 'all'
-                      ? styles['blog-types__item_active']
-                      : ''
-                  }`}
-                  href={'/blog'}
-                >
-                  All
-                </Link>
-                {activeTypes.map(el => (
-                  <Link
-                    className={`${styles['blog-types__item']} ${
-                      selectedType === el
-                        ? styles['blog-types__item_active']
-                        : ''
-                    }`}
-                    key={el}
-                    href={'/blog#' + el}
-                  >
-                    {el}
-                  </Link>
-                ))}
-              </div>
-            </div>
             <div className={`${styles['slider-wrapper']} container`}>
               <Slider {...settings}>
                 {lastArticlesByType[selectedType].map(el => (
