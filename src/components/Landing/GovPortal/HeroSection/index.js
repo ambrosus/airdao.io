@@ -3,10 +3,10 @@ import ChevronIcon from '@/components/Icons/ChevronIcon';
 
 const Hero = () => (
   <section className={styles.hero}>
-    <h1>Experience AirDAO's enhanced governance system</h1>
+    <h1>Experience AirDAO&apos;s enhanced governance system</h1>
     <p>
-      Join our community and participate in shaping AirDAO's future. Become a
-      governor, share your ideas, and vote on important decisions.
+      Join our community and participate in shaping AirDAO&apos;s future. Become
+      a governor, share your ideas, and vote on important decisions.
     </p>
     <div className={styles.ctaBlock}>
       <a
