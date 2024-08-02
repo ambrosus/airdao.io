@@ -4,6 +4,7 @@ import Links from '@/components/BrandMaterials/Links';
 import Logo from '@/components/BrandMaterials/Logo';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
+import Seo from '@/components/Seo';
 import { createClient } from '@/prismicio';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
 import { useState } from 'react';
@@ -14,6 +15,11 @@ const BrandMaterialsPage = ({ header, footerText, page, banner }) => {
   const [showBanner, setShowBanner] = useState(page?.data?.show_banner);
   return (
     <>
+      <Seo
+        title={page.data.meta_title}
+        description={page.data.meta_description}
+        image={page.data.meta_image.url}
+      />
       {showBanner && (
         <Banner data={banner?.data} setShowBanner={setShowBanner} />
       )}

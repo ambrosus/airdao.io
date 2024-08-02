@@ -15,6 +15,7 @@ import starBlue from './star-blue.svg';
 import star from './star.svg';
 import striped from './striped.svg';
 import touch from './touch.svg';
+import Seo from '@/components/Seo';
 
 let _window;
 
@@ -82,6 +83,11 @@ const Builders = ({ header, footerText, page, banner }) => {
 
   return (
     <>
+      <Seo
+        title={page.meta_title}
+        description={page.meta_description}
+        image={page.meta_image.url}
+      />
       {showBanner && (
         <Banner data={banner?.data} setShowBanner={setShowBanner} />
       )}
