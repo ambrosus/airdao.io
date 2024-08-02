@@ -89,7 +89,7 @@ const Header = ({ header, showBanner = false }) => {
     };
   }, [account]);
 
-  const { loginMetamask, loginWalletConnect, logout } = useAuthorization(
+  const { loginMetamask, loginWalletConnect, loginSafepal, logout } = useAuthorization(
     metamaskConnector,
     walletconnectConnector,
   );
@@ -294,6 +294,7 @@ const Header = ({ header, showBanner = false }) => {
           isOpen={isLoginModalOpen}
           closeModal={handleLoginModal}
           loginMetamask={loginMetamask}
+          loginSafepal={loginSafepal}
           loginWalletConnect={loginWalletConnect}
         />
       )}
