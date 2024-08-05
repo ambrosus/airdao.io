@@ -97,10 +97,8 @@ export default function Blog({
 
   useEffect(() => {
     if (selectedType === 'all') {
-      // setPaginatedData(null);
-
-    } else {
       setPaginatedData(null);
+    } else {
       setPaginatedArticles(1);
     }
   }, [selectedType]);
