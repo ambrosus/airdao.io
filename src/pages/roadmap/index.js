@@ -1,252 +1,131 @@
-import chevron from '@/assets/icons/chevron.svg';
-import Banner from '@/components/Banner';
+import Head from 'next/head';
+import { createClient } from '@/prismicio';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
-import Post from '@/pages/roadmap/components/Post';
-import { createClient } from '@/prismicio';
-import { Button } from '@airdao/ui-library';
-import { asText } from '@prismicio/client';
-import { PrismicRichText } from '@prismicio/react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick-theme.css';
-import 'slick-carousel/slick/slick.css';
-import hero from './hero.svg';
 import styles from './roadmap.module.scss';
+import { useMemo, useState } from 'react';
+import Expand from '@/components/Expand';
+import { asText } from '@prismicio/client';
+import Tab from '@/components/Tab';
+import icon from './roadmap.svg';
+import { formatDate } from '@/utils/formatDate';
+import ArticlesList from '@/components/ArticlesList';
+import * as prismic from '@prismicio/client';
 
-const filters = [
-  { labelKey: 'other_label', key: 'other' },
-  { labelKey: 'explorer_label', key: 'explorer' },
-  { labelKey: 'apollo_label', key: 'apollo' },
-  { labelKey: 'multisig_label', key: 'multisig' },
-  { labelKey: 'soon_label', key: 'soon' },
+const getCurrentDay = () => {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 0);
+  const diff = now - start;
+  const oneDay = 1000 * 60 * 60 * 24;
+  return Math.floor(diff / oneDay);
+};
+
+const tabs = [
+  { label: 'Layer1', value: 0 },
+  { label: 'DeFi', value: 1 },
+  { label: 'Mobile App', value: 2 },
+  { label: 'Governance', value: 3 },
+  { label: 'Others', value: 4 },
 ];
 
-const settings = {
-  dots: true,
-  infinite: true,
-  useTransform: false,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  nextArrow: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="25"
-      height="25"
-      viewBox="0 0 25 25"
-      fill="none"
-    >
-      <path
-        d="M8.40715 4.45305C8.01663 4.84357 8.01663 5.47674 8.40715 5.86726L14.7 12.1602L8.40715 18.453C8.01663 18.8436 8.01663 19.4767 8.40715 19.8673C8.79768 20.2578 9.43084 20.2578 9.82137 19.8673L16.8214 12.8673C17.2119 12.4767 17.2119 11.8436 16.8214 11.453L9.82136 4.45305C9.43084 4.06253 8.79768 4.06253 8.40715 4.45305Z"
-        fill="#212121"
-      />
-    </svg>
-  ),
-  prevArrow: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="25"
-      height="25"
-      viewBox="0 0 25 25"
-      fill="none"
-    >
-      <path
-        d="M8.40715 4.45305C8.01663 4.84357 8.01663 5.47674 8.40715 5.86726L14.7 12.1602L8.40715 18.453C8.01663 18.8436 8.01663 19.4767 8.40715 19.8673C8.79768 20.2578 9.43084 20.2578 9.82137 19.8673L16.8214 12.8673C17.2119 12.4767 17.2119 11.8436 16.8214 11.453L9.82136 4.45305C9.43084 4.06253 8.79768 4.06253 8.40715 4.45305Z"
-        fill="#212121"
-      />
-    </svg>
-  ),
-};
+const quarters = ['Q1', 'Q2', 'Q3', 'Q4'];
 
-const convertDate = date => {
-  const dateFuture = new Date(date);
-  const dateNow = new Date();
+const RoadmapNew = ({ footerText, header, page, articles }) => {
+  const [currentTab, setCurrentTab] = useState(0);
 
-  let seconds = Math.floor((dateFuture - dateNow) / 1000);
-  let minutes = Math.floor(seconds / 60);
-  let hours = Math.floor(minutes / 60);
-  let days = Math.floor(hours / 24);
+  const activeTabData = useMemo(() => {
+    const currentSlice = `slices${currentTab ? currentTab : ''}`;
+    const sliceData = page.data[currentSlice];
 
-  hours = hours - days * 24;
-  minutes = minutes - days * 24 * 60 - hours * 60;
-  return `${days}d ${hours}h ${minutes}min`;
-};
-
-const Roadmap = ({ header, footerText, page, banner }) => {
-  const [selectedFilter, setSelectedFilter] = useState('apollo');
-  const [showBanner, setShowBanner] = useState(page?.show_banner);
+    return sliceData;
+  }, [page, currentTab]);
 
   return (
     <>
-      {showBanner && (
-        <Banner data={banner?.data} setShowBanner={setShowBanner} />
-      )}
-      {header && <HeaderWrapper header={header} showBanner={showBanner} />}
-      <div className={`container roadmap ${styles.roadmap}`}>
-        <div className={styles.hero}>
-          <Image src={hero} alt="hero" className={styles.hero_img} />
-          <div className={styles.hero_info}>
-            <PrismicRichText
-              field={page.tokenomic_title}
-              components={{
-                paragraph: ({ children }) => (
-                  <h1 className={styles.hero_title}>
-                    {children}
-                    <br />
-                    <span className={styles.hero_blue}>15 Nov 2023</span>
-                  </h1>
-                ),
-              }}
-            />
-            <PrismicRichText
-              field={page.tokenomic_text}
-              components={{
-                paragraph: ({ children }) => (
-                  <p className={styles.hero_descr}>{children}</p>
-                ),
-              }}
-            />
-            <p className={styles.hero_descr}>
-              Block number:{' '}
-              <PrismicRichText
-                field={page.tokenomic_block}
-                components={{
-                  paragraph: ({ children }) => (
-                    <span className={styles.hero_blue}>{children}</span>
-                  ),
-                }}
-              />
+      <Head>
+        <meta property="og:image" content="https://airdao.io/roadmap-og.png" />
+        <meta name="twitter:image" content="https://airdao.io/roadmap-og.png" />
+      </Head>
+      {header && <HeaderWrapper header={header} />}
+      <div className={styles.heading}>
+        <div className={styles.heading__wrapper}>
+          <div>
+            <h1 className={styles.title}>2024 roadmap</h1>
+            <p className={styles.subtitle}>
+              Our product roadmap shows what’s coming to the AirDAO ecosystem in
+              2024. We’ll update the chart monthly to reflect delivered
+              products, new additions, and more.
             </p>
-            <div className={styles.hero_btns}>
-              <PrismicRichText
-                field={page.tokenomic_link_text}
-                components={{
-                  paragraph: ({ children }) => (
-                    <Link
-                      href={page.tokenomic_link_url.url || ''}
-                      target={page.tokenomic_link_url.target || ''}
-                    >
-                      <Button
-                        className={styles.hero_btn}
-                        size="large"
-                        type="tetiary"
-                      >
-                        {children}
-                        <Image src={chevron} alt="chevron" />
-                      </Button>
-                    </Link>
-                  ),
-                }}
-              />
-              <PrismicRichText
-                field={page.tokenomic_second_link_text}
-                components={{
-                  paragraph: ({ children }) => (
-                    <Link
-                      href={page.tokenomic_second_link_url.url || ''}
-                      target={page.tokenomic_second_link_url.target || ''}
-                    >
-                      <Button
-                        className={styles.hero_btn}
-                        size="large"
-                        type="tetiary"
-                      >
-                        {children}
-                        <Image src={chevron} alt="chevron" />
-                      </Button>
-                    </Link>
-                  ),
-                }}
-              />
+          </div>
+          <div className={styles.img_wrapper}>
+            <img src={icon.src} alt="roadmap" className={styles.img} />
+          </div>
+        </div>
+      </div>
+      <div className={styles.tabs}>
+        <Tab tabs={tabs} onChange={setCurrentTab} selectedTab={currentTab} />
+      </div>
+      <div className={styles.content__wrapper}>
+        <div className={styles.content}>
+          <div
+            className={styles.now}
+            style={{ width: `${(getCurrentDay() * 100) / 365}%` }}
+          >
+            <div className={styles.now__children}>
+              <div className={styles.here}>We are here</div>
+            </div>
+          </div>
+          <p className={styles.updated}>
+            Last updated:{' '}
+            {page.last_publication_date &&
+              formatDate(new Date(page.last_publication_date))}
+          </p>
+          <div className={styles.quarters}>
+            <div className={styles.grid__borders}>
+              {quarters.map(quarter => (
+                <div key={quarter} />
+              ))}
+            </div>
+            <div className={styles.quarters__head}>
+              {quarters.map(quarter => (
+                <div key={quarter} className={styles.quarter}>
+                  {quarter}
+                </div>
+              ))}
+            </div>
+            <div className={styles.quarters__body}>
+              {activeTabData.map(({ id, primary }, index) => (
+                <div
+                  key={id}
+                  style={{
+                    gridRowStart: index + 1,
+                    gridRowEnd: index + 1,
+                    gridColumnStart: Number(primary.quarter),
+                    gridColumnEnd:
+                      Number(primary.quarter) +
+                      Number(primary.length_in_quarters),
+                  }}
+                >
+                  <Expand
+                    title={asText(primary.title)}
+                    text={asText(primary.text)}
+                    link={primary.link.url}
+                    linkTarget={primary.link.target}
+                    isDone={primary.done}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
-        <PrismicRichText
-          field={page.learn_more_title}
-          components={{
-            paragraph: ({ children }) => (
-              <h2 className={styles.list_title}>{children}</h2>
-            ),
-          }}
-        />
-        <PrismicRichText
-          field={page.learn_more_subtitle}
-          components={{
-            paragraph: ({ children }) => (
-              <p className={styles.list_subtitle}>{children}</p>
-            ),
-          }}
-        />
-        <Slider {...settings}>
-          {page.slider.map(el => (
-            <div className={styles.slider_item_wrapper} key={asText(el.title)}>
-              <div className={styles.slider_item}>
-                <img
-                  src={el.image.url}
-                  alt="image"
-                  className={styles.slider_image}
-                />
-                <div className={styles.slider_info}>
-                  <PrismicRichText
-                    field={el.title}
-                    components={{
-                      paragraph: ({ children }) => (
-                        <h2 className={styles.slider_title}>{children}</h2>
-                      ),
-                    }}
-                  />
-                  <PrismicRichText
-                    field={el.description}
-                    components={{
-                      paragraph: ({ children }) => (
-                        <p className={styles.slider_description}>{children}</p>
-                      ),
-                    }}
-                  />
-                  {/*<Link*/}
-                  {/*  href={el.link.url || ''}*/}
-                  {/*  target="_blank"*/}
-                  {/*  className={styles.slider_btn}*/}
-                  {/*>*/}
-                  {/*  <Button size="large" type="tetiary">*/}
-                  {/*    Learn more*/}
-                  {/*    <Image src={chevron} alt="chevron" />*/}
-                  {/*  </Button>*/}
-                  {/*</Link>*/}
-                </div>
-              </div>
-            </div>
-          ))}
-        </Slider>
-        <div className={styles.filters}>
-          {filters.map(el => (
-            <PrismicRichText
-              key={el.key}
-              field={el.label || page[el.labelKey]}
-              components={{
-                paragraph: ({ children }) => (
-                  <button
-                    className={`${styles.filter_btn} ${
-                      el.key === selectedFilter ? styles.filter_btn_active : ''
-                    }`}
-                    onClick={() => setSelectedFilter(el.key)}
-                  >
-                    {children}
-                  </button>
-                ),
-              }}
-            />
-          ))}
-        </div>
-        <div className={styles.posts}>
-          {page[selectedFilter + '_list'].map(el => (
-            <Post data={el} key={asText(el.title)} />
-          ))}
-        </div>
       </div>
+      <ArticlesList
+        title={asText(page.data.articles_title)}
+        subtitle={asText(page.data.articles_subtitle)}
+        goToText="Go to blog"
+        goToLink="/blog"
+        articles={articles}
+      />
       {footerText && <Footer data={footerText.data} />}
     </>
   );
@@ -254,28 +133,22 @@ const Roadmap = ({ header, footerText, page, banner }) => {
 
 export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
+  const blogClient = prismic.createClient('airdao-blog');
 
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
-  const banner = await client.getSingle('banner');
-  const page = await client.getSingle('roadmap');
-
-  const arr = [];
-
-  Object.keys(page.data).forEach(el => {
-    if (el.includes('_list')) {
-      page.data[el].forEach(post => {
-        if (post.upcoming) {
-          arr.push(post);
-        }
-      });
-    }
+  const page = await client.getSingle('roadmapnew');
+  const latestBlogArticles = await blogClient.getAllByType('blog', {
+    limit: 3,
+    orderings: {
+      field: 'document.first_publication_date',
+      direction: 'desc',
+    },
+    filters: [prismic.filter.at('my.blog.blog_type', 'tech')],
   });
-  page.data.soon_list = arr;
-
   return {
-    props: { header, footerText: footer, page: page.data, banner },
+    props: { header, footerText: footer, page, articles: latestBlogArticles },
   };
 }
 
-export default Roadmap;
+export default RoadmapNew;

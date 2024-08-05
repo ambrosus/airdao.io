@@ -12,7 +12,7 @@ const BannerApp = ({ data }) => {
               Take AirDAO <span>everywhere</span>
             </h3>
             <p>
-              Seamlessly Manage your portfolio, Transfer funds, and Watch
+              Seamlessly Manage your portfolio, Transfer funds, Stake and Watch
               addresses with AirDAO mobile app
             </p>
             {data.length > 0 && (

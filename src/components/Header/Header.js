@@ -89,7 +89,7 @@ const Header = ({ header, showBanner = false }) => {
     };
   }, [account]);
 
-  const { loginMetamask, loginWalletConnect, logout } = useAuthorization(
+  const { loginMetamask, loginWalletConnect, loginSafepal, logout } = useAuthorization(
     metamaskConnector,
     walletconnectConnector,
   );
@@ -124,172 +124,177 @@ const Header = ({ header, showBanner = false }) => {
         }`}
         ref={headerRef}
       >
-        <Link href="/">
-          <Image
-            src="/logo.svg"
-            width="160"
-            height="34"
-            className={styles.header__logo}
-            alt="logo"
-          />
-        </Link>
-        {address ? (
-          <>
-            <div className={styles.header__products}>
-              {header.products.map(el => (
-                <a
-                  key={asText(el.productname)}
-                  className={styles.header__product}
-                  href={el.producturl.url}
-                >
-                  {asText(el.productname)}
-                </a>
-              ))}
-            </div>
-            <div className={styles['header__buttons']}>
-              <Link
-                href={header.amburl.url}
-                className={styles['header__button-tetiary']}
-              >
-                <Button type="tetiary" size="medium">
-                  <span>Get AMB</span>
-                  <TailArrow />
-                </Button>
-              </Link>
-              <div
-                className={styles.header__address}
-                onClick={handleAddressInfo}
-              >
-                {connector instanceof WalletConnect ? (
-                  <WalletConnectIcon />
-                ) : (
-                  <MetaMaskIcon />
-                )}
-                <span className={styles['header__address-text']}>
-                  {`${address.substring(0, 5)}...${address.substring(
-                    address.length - 5,
-                    address.length,
-                  )}`}
-                </span>
-                <ArrowTop
-                  className={`${styles['header__address-arrow']} ${
-                    isAddressInfoOpen ? '' : styles['open']
-                  }`}
-                />
-              </div>
-              <button
-                className={styles.header__hamburger}
-                onClick={handleConnectedNav}
-              >
-                {isConnectedNavOpen ? (
-                  <Image
-                    src="/cross-dark.svg"
-                    width="24"
-                    height="24"
-                    alt="menu"
-                  />
-                ) : (
-                  <Image
-                    src="/hamburger.svg"
-                    width="24"
-                    height="24"
-                    alt="menu"
-                  />
-                )}
-              </button>
-            </div>
-
-            {isConnectedNavOpen && (
-              <HeaderConnectedNav
-                close={handleConnectedNav}
-                headerInfo={header}
-                isOpen={isConnectedNavOpen}
-              />
-            )}
-            {isAddressInfoOpen && (
-              <AddressInfo
-                isOpen={isAddressInfoOpen}
-                balance={balance}
-                logout={handleLogout}
-                address={address}
-                close={handleAddressInfo}
-              />
-            )}
-          </>
-        ) : (
-          <>
-            <HeaderNav
-              close={handleNav}
-              headerInfo={header}
-              className="nav-item-wrapper_desktop"
-              isOpen={isNavOpen}
+        <div className={styles['header-container']}>
+          <Link href="/">
+            <Image
+              src="/logo.svg"
+              width="160"
+              height="34"
+              className={styles.header__logo}
+              alt="logo"
             />
-
-            <div className={styles['header__buttons']}>
-              <Link
-                href={header.amburl.url}
-                className={styles['header__button-tetiary']}
-              >
-                <Button type="tetiary" size="medium">
-                  <span>Get AMB</span>
-                  <TailArrow />
-                </Button>
-              </Link>
-              <Button
-                type="secondary"
-                size="medium"
-                className={styles['connect-wallet']}
-                onClick={handleLoginModal}
-              >
-                <Image
-                  src="/pocket.svg"
-                  height="20"
-                  width="20"
-                  alt="connect wallet"
-                  className={styles['connect-wallet-img']}
-                />
-                <span className={styles['connect-wallet-text']}>
-                  Connect wallet
-                </span>
-              </Button>
-
-              <button
-                onClick={handleMobileNav}
-                className={styles['hamburger-btn']}
-              >
-                {isMobileNavOpen ? (
-                  <Image
-                    src="/cross-dark.svg"
-                    width="24"
-                    height="24"
-                    alt="menu"
-                  />
-                ) : (
-                  <Image
-                    src="/hamburger.svg"
-                    width="24"
-                    height="24"
-                    alt="menu"
-                  />
-                )}
-              </button>
-            </div>
-            {isMobileNavOpen && (
+          </Link>
+          {address ? (
+            <>
               <HeaderNav
-                isOpen={isMobileNavOpen}
-                close={handleMobileNav}
+                close={handleNav}
                 headerInfo={header}
-                className="nav-item-wrapper_not-desktop"
+                className="nav-item-wrapper_desktop"
+                isOpen={isNavOpen}
               />
-            )}
-          </>
-        )}
+              <div className={styles['header__buttons']}>
+                <Link
+                  href={header.amburl.url}
+                  className={styles['header__button-tetiary']}
+                >
+                  <Button type="tetiary" size="medium">
+                    <span>Get AMB</span>
+                    <TailArrow />
+                  </Button>
+                </Link>
+                <div
+                  className={styles.header__address}
+                  onClick={handleAddressInfo}
+                >
+                  {connector instanceof WalletConnect ? (
+                    <WalletConnectIcon />
+                  ) : (
+                    <MetaMaskIcon />
+                  )}
+                  <span className={styles['header__address-text']}>
+                    {`${address.substring(0, 5)}...${address.substring(
+                      address.length - 5,
+                      address.length,
+                    )}`}
+                  </span>
+                  <ArrowTop
+                    className={`${styles['header__address-arrow']} ${isAddressInfoOpen ? '' : styles['open']
+                      }`}
+                  />
+                </div>
+                <button
+                  onClick={handleMobileNav}
+                  className={styles['hamburger-btn']}
+                >
+                  {isMobileNavOpen ? (
+                    <Image
+                      src="/cross-dark.svg"
+                      width="24"
+                      height="24"
+                      alt="menu"
+                    />
+                  ) : (
+                    <Image
+                      src="/hamburger.svg"
+                      width="24"
+                      height="24"
+                      alt="menu"
+                    />
+                  )}
+                </button>
+              </div>
+
+              {isConnectedNavOpen && (
+                <HeaderConnectedNav
+                  close={handleConnectedNav}
+                  headerInfo={header}
+                  isOpen={isConnectedNavOpen}
+                />
+              )}
+              {isAddressInfoOpen && (
+                <AddressInfo
+                  isOpen={isAddressInfoOpen}
+                  balance={balance}
+                  logout={handleLogout}
+                  address={address}
+                  close={handleAddressInfo}
+                />
+              )}
+              {isMobileNavOpen && (
+                <HeaderNav
+                  isOpen={isMobileNavOpen}
+                  close={handleMobileNav}
+                  headerInfo={header}
+                  className="nav-item-wrapper_not-desktop"
+                />
+              )}
+            </>
+          ) : (
+            <>
+              <HeaderNav
+                close={handleNav}
+                headerInfo={header}
+                className="nav-item-wrapper_desktop"
+                isOpen={isNavOpen}
+              />
+
+              <div className={styles['header__buttons']}>
+                <Link
+                  href={header.amburl.url}
+                  className={styles['header__button-tetiary']}
+                >
+                  <Button type="tetiary" size="medium">
+                    <span>Get AMB</span>
+                    <TailArrow />
+                  </Button>
+                </Link>
+                <Button
+                  type="secondary"
+                  size="medium"
+                  className={styles['connect-wallet']}
+                  onClick={handleLoginModal}
+                >
+                  <Image
+                    src="/pocket.svg"
+                    height="20"
+                    width="20"
+                    alt="connect wallet"
+                    className={styles['connect-wallet-img']}
+                  />
+                  <span className={styles['connect-wallet-text']}>
+                    Connect wallet
+                  </span>
+                </Button>
+
+                <button
+                  onClick={handleMobileNav}
+                  className={styles['hamburger-btn']}
+                >
+                  {isMobileNavOpen ? (
+                    <Image
+                      src="/cross-dark.svg"
+                      width="24"
+                      height="24"
+                      alt="menu"
+                    />
+                  ) : (
+                    <Image
+                      src="/hamburger.svg"
+                      width="24"
+                      height="24"
+                      alt="menu"
+                    />
+                  )}
+                </button>
+              </div>
+              {isMobileNavOpen && (
+                <HeaderNav
+                  isOpen={isMobileNavOpen}
+                  close={handleMobileNav}
+                  headerInfo={header}
+                  className="nav-item-wrapper_not-desktop"
+                />
+              )}
+            </>
+          )}
+        </div>
       </header>
       {isLoginModalOpen && (
         <LoginModal
           isOpen={isLoginModalOpen}
           closeModal={handleLoginModal}
           loginMetamask={loginMetamask}
+          loginSafepal={loginSafepal}
           loginWalletConnect={loginWalletConnect}
         />
       )}

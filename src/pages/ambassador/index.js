@@ -6,13 +6,13 @@ import HeaderWrapper from '@/components/Header';
 import homeStyles from '@/components/Homepage/homepage.module.scss';
 import { createClient } from '@/prismicio';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
-import Head from 'next/head';
 import Image from 'next/image';
 import { useState } from 'react';
 import styles from './ambassador.module.scss';
 import Benefits from './components/Benefits';
 import Hero from './components/Hero';
 import Roles from './components/Roles';
+import Seo from '@/components/Seo';
 
 const AmbassadorPage = ({ header, footerText, page, banner }) => {
   const footerSlice = getFooterBlockSlice(page);
@@ -21,16 +21,11 @@ const AmbassadorPage = ({ header, footerText, page, banner }) => {
   return (
     page && (
       <div className={styles.ambassador}>
-        <Head>
-          <meta
-            property="og:image"
-            content="https://airdao.io/og-ambassador.png"
-          />
-          <meta
-            name="twitter:image"
-            content="https://airdao.io/og-ambassador.png"
-          />
-        </Head>
+        <Seo
+          title={page.meta_title}
+          description={page.meta_description}
+          image={page.meta_image.url}
+        />
         {showBanner && (
           <Banner data={banner?.data} setShowBanner={setShowBanner} />
         )}

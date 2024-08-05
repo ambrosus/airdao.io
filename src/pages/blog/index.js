@@ -16,6 +16,7 @@ import 'slick-carousel/slick/slick.css';
 import styles from './blog-list.module.scss';
 
 import { settings } from '@/config/settings';
+import Seo from '@/components/Seo';
 
 const articleTypes = ['news', 'governance', 'events', 'tech'];
 
@@ -128,6 +129,11 @@ export default function Blog({
 
   return (
     <>
+      <Seo
+        title={page.meta_title}
+        description={page.meta_description}
+        image={page.meta_image.url}
+      />
       <div className={styles['background_gray']}>
         {showBanner && (
           <Banner data={banner?.data} setShowBanner={setShowBanner} />

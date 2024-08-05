@@ -35,11 +35,12 @@
         "type": "Group",
         "config": {
           "label": "downloadApp",
+          "repeat": true,
           "fields": {
             "imageurl": {
               "type": "Image",
               "config": {
-                "label": "imageUrl",
+                "label": "imageurl",
                 "constraint": {},
                 "thumbnails": []
               }

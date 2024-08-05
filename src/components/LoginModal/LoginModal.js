@@ -8,6 +8,7 @@ const LoginModal = ({
   closeModal,
   loginMetamask,
   loginWalletConnect,
+  loginSafepal,
   isOpen,
 }) => {
   const ref = useRef(null);
@@ -36,6 +37,32 @@ const LoginModal = ({
               <p className={styles['login-modal__title']}>MetaMask</p>
               <p className={styles['login-modal__text']}>
                 Connect using your browser wallet
+              </p>
+            </div>
+            <Image
+              src="/arrow.svg"
+              width="16"
+              height="16"
+              className={styles['login-modal__arrow']}
+              alt="arrow"
+            />
+          </button>
+          <button
+            className={styles['login-modal__btn']}
+            style={{ marginTop: 16 }}
+            onClick={loginSafepal}
+          >
+            <Image
+              src="/safepal.svg"
+              width="28"
+              height="25"
+              className={styles['login-modal__img']}
+              alt="metamask"
+            />
+            <div className={styles['login-modal__block']}>
+              <p className={styles['login-modal__title']}>SafePal</p>
+              <p className={styles['login-modal__text']}>
+                Connect using your SafePal wallet
               </p>
             </div>
             <Image
