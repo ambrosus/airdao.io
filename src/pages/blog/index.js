@@ -97,8 +97,10 @@ export default function Blog({
 
   useEffect(() => {
     if (selectedType === 'all') {
-      setPaginatedData(null);
+      // setPaginatedData(null);
+
     } else {
+      setPaginatedData(null);
       setPaginatedArticles(1);
     }
   }, [selectedType]);
@@ -122,8 +124,7 @@ export default function Blog({
     }
   };
 
-  const handleSelectedType = type => {
-    setSelectedType(type);
+  const scrollTo = () => {
     window.scrollTo(0, 0);
   };
 
@@ -151,11 +152,10 @@ export default function Blog({
         <div className={styles['blog-types']}>
           <Link
             className={`${styles['blog-types__item']} ${
-              selectedType === 'all'
-                ? styles['blog-types__item_active']
-                : ''
+              selectedType === 'all' ? styles['blog-types__item_active'] : ''
             }`}
             href={'/blog'}
+            scroll={false}
           >
             All
           </Link>
@@ -174,19 +174,19 @@ export default function Blog({
       </div>
       {selectedType === 'all' ? (
         <>
-
           {Object.keys(lastArticlesByType).map(
             el =>
               !!lastArticlesByType[el].length && (
                 <div key={el} className={styles['articles-wrapper']}>
                   <div className={`${styles['articles-top-block']} container`}>
                     <h2 className={styles['articles-title']}>{el}</h2>
-                    <button
+                    <Link
+                      href={'/blog#' + el}
                       className={styles['articles-btn']}
-                      onClick={() => handleSelectedType(el)}
+                      onClick={scrollTo}
                     >
                       See all
-                    </button>
+                    </Link>
                   </div>
                   <div className={`${styles['articles-cards']} container`}>
                     {lastArticlesByType[el].slice(0, 3).map(article => (
