@@ -91,7 +91,7 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
                         </Link>
                       )}
                       <div className={styles['video']}>
-                        {currentProduct.product_video.url &&
+                        {window && window.innerWidth > 768 && currentProduct.product_video.url &&
                           !currentProduct.product_image.url && (
                             <video controls={false} autoPlay muted loop>
                               <source
