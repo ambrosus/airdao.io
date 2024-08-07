@@ -9,6 +9,12 @@ import { useState } from 'react';
 import { PrismicRichText } from '@prismicio/react';
 import { useRouter } from 'next/router';
 
+let _window;
+
+if (typeof window !== 'undefined') {
+  _window = window;
+}
+
 const ExploreProducts = ({ smallTitle, title, list }) => {
   const [currentProduct, setCurrentProduct] = useState(list[0]);
 
@@ -91,7 +97,9 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
                         </Link>
                       )}
                       <div className={styles['video']}>
-                        {window && window.innerWidth > 768 && currentProduct.product_video.url &&
+                        {_window &&
+                          _window.innerWidth > 768 &&
+                          currentProduct.product_video.url &&
                           !currentProduct.product_image.url && (
                             <video controls={false} autoPlay muted loop>
                               <source
@@ -115,7 +123,9 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
           })}
         </div>
         <div className={styles['video-container']}>
-          {currentProduct.product_video.url &&
+          {_window &&
+            _window.innerWidth > 768 &&
+            currentProduct.product_video.url &&
             !currentProduct.product_image.url && (
               <video
                 key={currentProduct.product_video.url}
