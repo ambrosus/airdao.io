@@ -1,10 +1,8 @@
-import blueCircle from '@/assets/img/blue-circle.svg';
-import orangeCircle from '@/assets/img/orange-circle.svg';
+'use client';
+import swap from '@/assets/img/get-amb/astra-swap.svg';
 import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
-import App from '@/components/Homepage/App';
-import homepageStyles from '@/components/Homepage/homepage.module.scss';
 import { createClient } from '@/prismicio';
 import { Button, Notify } from '@airdao/ui-library';
 import { PrismicRichText } from '@prismicio/react';
@@ -14,8 +12,6 @@ import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import arrow from './arrow.svg';
 import styles from './buy-amb.module.scss';
-import eth from './eth.svg';
-import bsc from './bsc.svg';
 import info from './info.svg';
 
 const options = [
@@ -28,11 +24,12 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
   const [selectedFilter, setSelectedFilter] = useState('usdt');
   const [showBanner, setShowBanner] = useState(page?.show_banner);
 
+  const networksList = useMemo(() => page.networks_list, [page]);
+
   const exchangeList = useMemo(() => {
     return page.links.filter(el => el.trade === selectedFilter);
   }, [page, selectedFilter]);
 
-  // client side rendering because of nested links
   const [showChild, setShowChild] = useState(false);
 
   useEffect(() => {
@@ -46,9 +43,7 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
     Notify.info('Address copied', null, { autoClose: 1000 });
   };
 
-  if (!showChild) {
-    return null;
-  }
+  if (!showChild) return null;
 
   return (
     <>
@@ -78,6 +73,62 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
               ),
             }}
           />
+          <div className={styles['banner-block']}>
+            <div className={styles['banner-block__image-container']}>
+              <Image src={swap} alt="swap" />
+            </div>
+            <div className={styles['banner-block__info']}>
+              <PrismicRichText
+                field={page.astra_label}
+                components={{
+                  paragraph: ({ children }) => (
+                    <div className={styles['banner-block__info-label']}>
+                      {children}
+                    </div>
+                  ),
+                }}
+              />
+              <div className={styles['banner-block__info-title-description']}>
+                <PrismicRichText
+                  field={page.astra_title}
+                  components={{
+                    paragraph: ({ children }) => (
+                      <div className={styles['banner-block__info-title']}>
+                        {children}
+                      </div>
+                    ),
+                  }}
+                />
+                <PrismicRichText
+                  field={page.astra_description}
+                  components={{
+                    paragraph: ({ children }) => (
+                      <div className={styles['banner-block__info-description']}>
+                        {children}
+                      </div>
+                    ),
+                  }}
+                />
+              </div>
+              <PrismicRichText
+                field={page.astra_button_name}
+                components={{
+                  paragraph: ({ children }) => (
+                    <Button
+                      type="primary"
+                      size="large"
+                      className={styles['button']}
+                      onClick={() =>
+                        window.open(page.astra_button_link.url, '_blank')
+                      }
+                    >
+                      {children}
+                    </Button>
+                  ),
+                }}
+              />
+            </div>
+          </div>
           <div className={styles['exchange-filter']}>
             {options.map(el => (
               <Button
@@ -94,7 +145,7 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
             ))}
           </div>
           <div className={styles['buy-amb__list']}>
-            {exchangeList.map((el, i) => (
+            {exchangeList.map(el => (
               <Link
                 key={el.link.url + el.trade}
                 href={el.link.url || ''}
@@ -118,11 +169,6 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
                           ),
                         }}
                       />
-                      <Image
-                        src={arrow}
-                        alt="arrow"
-                        className={styles.exchange__arrow}
-                      />
                     </div>
                     <PrismicRichText
                       field={el?.type}
@@ -143,16 +189,6 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
                       target={el.button_link?.target || ''}
                       rel="nofollow"
                     >
-                      <PrismicRichText
-                        field={el.button_name}
-                        components={{
-                          paragraph: ({ children }) => (
-                            <p className={styles.exchange__scan__text}>
-                              {children}
-                            </p>
-                          ),
-                        }}
-                      />
                       {el.button_icon?.url && (
                         <img
                           src={el.button_icon?.url || ''}
@@ -160,6 +196,11 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
                           className={styles.exchange__scan_icon}
                         />
                       )}
+                      <Image
+                        src={arrow}
+                        alt="arrow"
+                        className={styles.exchange__arrow}
+                      />
                     </Link>
                   </div>
                 )}
@@ -167,63 +208,59 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
             ))}
           </div>
         </div>
-        <Image
-          className={`${homepageStyles['blue-circle']} ${homepageStyles['blue-circle_buy']}`}
-          src={blueCircle}
-          alt="blue circle"
-        />
-        <Image
-          className={`${homepageStyles['orange-circle']} ${homepageStyles['orange-circle_buy']}`}
-          src={orangeCircle}
-          alt="orange circle"
-        />
-        <h2 className={styles.title}>AMB token on other networks</h2>
-        <div className={`container ${styles.tokens}`}>
-          {/*<a*/}
-          {/*  className={styles.token}*/}
-          {/*  href="https://bscscan.com/token/0x23c1C1cc14270B7Bd63677d1fe4790891b17A33d"*/}
-          {/*  target="_blank"*/}
-          {/*>*/}
-          {/*  <img src={bsc.src} alt="bsc" />*/}
-          {/*  <p className={styles.token__name}>BSC Network</p>*/}
-          {/*  <p className={styles.token__address}>*/}
-          {/*    Token Contract Address:*/}
-          {/*    <span*/}
-          {/*      onClick={(e) =>*/}
-          {/*        handleCopy(e, '0x23c1C1cc14270B7Bd63677d1fe4790891b17A33d')*/}
-          {/*      }*/}
-          {/*    >*/}
-          {/*      0x23c1C1cc14270B7Bd63677d1fe4790891b17A33d*/}
-          {/*    </span>*/}
-          {/*  </p>*/}
-          {/*  <img src={info.src} alt="info" className={styles.info} />*/}
-          {/*</a>*/}
-          <a
-            className={styles.token}
-            href="https://etherscan.io/token/0xf4fb9bf10e489ea3edb03e094939341399587b0c"
-            target="_blank"
-          >
-            <img src={eth.src} alt="bsc" />
-            <p className={styles.token__name}>ETH Network</p>
-            <p className={styles.token__address}>
-              Token Contract Address:
-              <span
-                onClick={(e) =>
-                  handleCopy(e, '0xf4fb9bf10e489ea3edb03e094939341399587b0c')
-                }
-              >
-                0xf4fb9bf10e489ea3edb03e094939341399587b0c
-              </span>
-            </p>
-            <img src={info.src} alt="info" className={styles.info} />
-          </a>
-        </div>
-        <App
-          title={page.app_title}
-          list={page.app_list}
-          appstore={page.app_appstore}
-          google={page.app_google}
-        />
+        {Boolean(networksList.length) && (
+          <>
+            <PrismicRichText
+              field={page.networks_title}
+              components={{
+                paragraph: ({ children }) => (
+                  <h2 className={styles.title}>{children}</h2>
+                ),
+              }}
+            />
+            <div className={`container ${styles.tokens}`}>
+              {networksList.map(networkList => (
+                <a
+                  className={styles.token}
+                  href={networkList.network_contract_address_link.url}
+                  target="_blank"
+                  key={networkList.network_contract_address.text}
+                >
+                  <img src={networkList.network_logo.url} className={styles.token__icon} alt="bsc" />
+                  <p className={styles.token__name}>
+                    <PrismicRichText
+                      field={networkList.network_name}
+                      components={{
+                        paragraph: ({ children }) => <>{children}</>,
+                      }}
+                    />
+                    <img src={info.src} className={styles.info} alt="info"  />
+                  </p>
+                  <p className={styles.token__address}>
+                    <PrismicRichText
+                      field={page.token_contract_address_title}
+                      components={{
+                        paragraph: ({ children }) => <>{children}</>,
+                      }}
+                    />
+                    <span
+                      onClick={e =>
+                        handleCopy(e, networkList.network_contract_address)
+                      }
+                    >
+                      <PrismicRichText
+                        field={networkList.network_contract_address}
+                        components={{
+                          paragraph: ({ children }) => <>{children}</>,
+                        }}
+                      />
+                    </span>
+                  </p>
+                </a>
+              ))}
+            </div>
+          </>
+        )}
       </div>
       {footerText && <Footer data={footerText.data} />}
     </>
@@ -237,6 +274,7 @@ export async function getStaticProps({ params, previewData }) {
   const footer = await client.getSingle('footer');
   const banner = await client.getSingle('banner');
   const page = await client.getSingle('buyamb');
+
   return {
     props: { header, footerText: footer, page: page.data, banner },
   };

@@ -19,7 +19,7 @@ const ContentBanner = () => {
     >
       <div className={styles.contentBanner}>
         <h1>
-          AirDAO’s <b>Grants</b>
+          AirDAO’s <span>Grants</span>
         </h1>
         <span>
           Announcement of a new grant program and funding opportunities from

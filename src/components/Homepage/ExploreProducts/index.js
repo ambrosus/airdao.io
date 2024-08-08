@@ -9,6 +9,12 @@ import { useState } from 'react';
 import { PrismicRichText } from '@prismicio/react';
 import { useRouter } from 'next/router';
 
+let _window;
+
+if (typeof window !== 'undefined') {
+  _window = window;
+}
+
 const ExploreProducts = ({ smallTitle, title, list }) => {
   const [currentProduct, setCurrentProduct] = useState(list[0]);
 
@@ -36,7 +42,6 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
             const isCurrent =
               currentProduct.product_name[0].text ===
               product.product_name[0].text;
-            const disabled = product.product_name[0].text === 'Astra';
 
             return (
               <div
@@ -56,12 +61,7 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
                       field={product.product_name}
                       components={{
                         paragraph: ({ children }) => (
-                          <div
-                            className={styles['name']}
-                            style={disabled ? { color: '#9B9CA5' } : null}
-                          >
-                            {children}
-                          </div>
+                          <div className={styles['name']}>{children}</div>
                         ),
                       }}
                     />
@@ -74,11 +74,7 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
                       <PrismicRichText
                         field={product.product_description}
                         components={{
-                          paragraph: ({ children }) => (
-                            <div style={disabled ? { color: '#9B9CA5' } : null}>
-                              {children}
-                            </div>
-                          ),
+                          paragraph: ({ children }) => <div>{children}</div>,
                         }}
                       />
                       {!currentProduct.coming_soon && (
@@ -101,7 +97,9 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
                         </Link>
                       )}
                       <div className={styles['video']}>
-                        {currentProduct.product_video.url &&
+                        {_window &&
+                          _window.innerWidth > 768 &&
+                          currentProduct.product_video.url &&
                           !currentProduct.product_image.url && (
                             <video controls={false} autoPlay muted loop>
                               <source
@@ -125,7 +123,9 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
           })}
         </div>
         <div className={styles['video-container']}>
-          {currentProduct.product_video.url &&
+          {_window &&
+            _window.innerWidth > 768 &&
+            currentProduct.product_video.url &&
             !currentProduct.product_image.url && (
               <video
                 key={currentProduct.product_video.url}

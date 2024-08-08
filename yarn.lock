@@ -9,10 +9,10 @@
   dependencies:
     ethers "^5.7.2"
 
-"@airdao/ui-library@^1.5.5":
-  version "1.5.9"
-  resolved "https://registry.yarnpkg.com/@airdao/ui-library/-/ui-library-1.5.9.tgz#32366880d6dc8f280b254d9ea01a338e6640f8e6"
-  integrity sha512-7odQ6My6L6/t7EWrGOjrThUO4DgEugo7ebNqOUvMPf8WHV/fUfmOqnnMWJ+p5qk8yxmGb4XHIYFQ4xEcqh0hFw==
+"@airdao/ui-library@^1.6.4":
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/@airdao/ui-library/-/ui-library-1.6.4.tgz#5d96bdbc773ea008c6884c26363676d4d9e863cd"
+  integrity sha512-C/7qpP/42iNNPqeYn0gBTF3ppeETuruqOdGjuO9+29K78QC6J/B4H/3A/VyCBb4XLrltOIp+2t8O2iJuzpWgiQ==
   dependencies:
     "@prismicio/client" "^7.1.1"
     "@prismicio/react" "^2.5.0"
