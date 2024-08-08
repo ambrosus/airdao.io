@@ -206,6 +206,115 @@
           }
         }
       }
+    },
+    "Astra DEX": {
+      "astra_label": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Astra label",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "astra_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Astra title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "astra_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Astra description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "astra_button_name": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Astra button name",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "astra_button_link": {
+        "type": "Link",
+        "config": {
+          "label": "Astra button link",
+          "placeholder": "",
+          "select": null
+        }
+      }
+    },
+    "Networks": {
+      "networks_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Networks title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "token_contract_address_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Token contract address title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "networks_list": {
+        "type": "Group",
+        "config": {
+          "label": "Networks list",
+          "repeat": true,
+          "fields": {
+            "network_logo": {
+              "type": "Image",
+              "config": {
+                "label": "Network logo",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "network_name": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Network name",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "network_contract_address": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Network contract address",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "network_contract_address_link": {
+              "type": "Link",
+              "config": {
+                "label": "Network contract address link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
