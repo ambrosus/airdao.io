@@ -1,5 +1,6 @@
 'use client';
 
+import { isBrowser, isMobile } from 'react-device-detect';
 import chevron from '@/assets/icons/chevron-blue.svg';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -46,7 +47,8 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
             return (
               <div
                 key={product.product_name[0].text}
-                onClick={() => setCurrentProduct(product)}
+                onMouseEnter={() => isBrowser && setCurrentProduct(product)}
+                onClick={() => isMobile && setCurrentProduct(product)}
                 className={styles['list-item']}
               >
                 <Image
