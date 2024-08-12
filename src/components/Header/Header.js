@@ -65,7 +65,7 @@ const Header = ({ header, showBanner = false }) => {
   }, [showBanner]);
 
   useEffect(() => {
-    if (window.innerWidth < 610) {
+    if (window.innerWidth < 1100) {
       const body = document.querySelector('body');
 
       if (body) {

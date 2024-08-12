@@ -6,6 +6,7 @@ import { NotificationContainer } from '@airdao/ui-library';
 import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
 import Script from 'next/script';
+import Head from 'next/head';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -75,6 +76,9 @@ export default function App({ Component, pageProps }) {
     <main
       className={`${inter.variable} ${mersad.variable} ${rationell.variable}`}
     >
+      <Head>
+        <link rel="icon" href="/favicon.svg" />
+      </Head>
       <Script id="google-gtm">
         {`
          (function (w, d, s, l, i) {

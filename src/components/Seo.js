@@ -3,7 +3,6 @@ import Head from 'next/head';
 const Seo = ({ title, description, image = 'https://airdao.io/og.png' }) => {
   return (
     <Head>
-      <link rel="icon" href="/favicon.svg" />
       {title && (
         <>
           <title>{title}</title>
