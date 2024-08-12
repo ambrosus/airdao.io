@@ -120,11 +120,15 @@
     transition: all 0.2s ease-in-out;
     
     &:hover {
-      opacity: 0.8;
+      img {
+        opacity: 1;
+        filter: contrast(1);
+      }
     }
 
     img {
-      filter: brightness(0.4);
+      opacity: 0.7;
+      filter: contrast(0.1);
     }
   }
   
@@ -140,6 +144,7 @@
   
   @media screen and (max-width: 767px) {
     display: grid;
+    gap: 24px 32px;
     margin-top: 48px;
     grid-template-columns: repeat(4, 1fr);
 
@@ -148,7 +153,7 @@
     }
   }
 
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 767px) {
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 24px 32px;

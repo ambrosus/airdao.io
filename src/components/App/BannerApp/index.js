@@ -1,8 +1,8 @@
-import { switchText } from '@/components/Footer/utils';
 import styles from './banner.module.scss';
 import PhoneTopIcon from '@/components/Icons/PhoneTop';
 
 const BannerApp = ({ data }) => {
+  console.log('data', data);
   return (
     <div className={styles.banner}>
       <div className={styles.holder}>
@@ -20,7 +20,7 @@ const BannerApp = ({ data }) => {
                 {data.map(item => (
                   <li key={item.imageurl.alt}>
                     <a href={item.linkurl.url} target={item.linkurl.target}>
-                      {switchText(item.imageurl.alt, 'black')}
+                      <img src={item.imageurl.url} alt={item.imageurl.alt} />
                     </a>
                   </li>
                 ))}

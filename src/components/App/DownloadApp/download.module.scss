@@ -63,19 +63,6 @@
           flex-direction: row;
           gap: 16px;
 
-          li {
-            &:first-child {
-              img {
-                width: 127px;
-              }
-            }
-            &:nth-child(2) {
-              img {
-                width: 140px;
-              }
-            }
-          }
-
           a {
             display: block;
 
