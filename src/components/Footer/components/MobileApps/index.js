@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import Image from 'next/image';
+import device from '@/assets/img/homepage/device.webp';
 import apple from '@/assets/img/homepage/apple-app.svg';
 import google from '@/assets/img/homepage/google-app.svg';
 import styles from '../../footer.module.scss';
@@ -18,6 +18,7 @@ const MobileApps = ({ title, description, googleLink, appleLink }) => (
         <Image src={apple} alt="AppStore" />
       </a>
     </div>
+    <Image src={device} alt="Device" className={styles['footer-device']} />
   </div>
 );
 
