@@ -90,6 +90,8 @@
       cursor: pointer;
       opacity: 1;
       transition: opacity .3s ease-in;
+      color: #29292D;
+      font-weight: 500;
       &:hover {
         opacity: 0.75;
         transition: opacity .3s ease-out;
