@@ -2,7 +2,6 @@ import styles from './banner.module.scss';
 import PhoneTopIcon from '@/components/Icons/PhoneTop';
 
 const BannerApp = ({ data }) => {
-  console.log('data', data);
   return (
     <div className={styles.banner}>
       <div className={styles.holder}>
