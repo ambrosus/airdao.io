@@ -17,7 +17,6 @@ if (typeof window !== 'undefined') {
 }
 
 const ExploreProducts = ({ smallTitle, title, list }) => {
-  console.log({ isBrowser, isMobile });
   const [currentProduct, setCurrentProduct] = useState(list[0]);
 
   const router = useRouter();
