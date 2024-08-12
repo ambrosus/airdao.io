@@ -1,35 +1,39 @@
 .sbtContainer {
-  text-align: center;
-  padding: 140px 0;
   background-color: #E9EFFB;
   box-shadow: 0 0 0 100vmax #E9EFFB;
   clip-path: inset(0 -100vmax);
-  @media screen and (max-width: 992px) {
+  text-align: center;
+  @media screen and (min-width: 1024px) {
+    padding: 140px 0;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
     padding: 44px 0;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     padding: 32px 0;
   }
 
   h2 {
     color: #3668DD;
     font-family: var(--font-rationell);
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 48px;
-    letter-spacing: -0.8px;
-    @media screen and (max-width: 992px) {
-      font-size: 24px;
+    @media screen and (min-width: 1024px) {
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 48px;
+      letter-spacing: -0.8px;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
       font-weight: 600;
+      font-size: 24px;
       line-height: 32px;
       letter-spacing: -0.48px;
     }
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
+      font-weight: 600;
       font-size: 22px;
-      font-style: normal;
       line-height: 28px;
       letter-spacing: -0.44px;
+      text-align: left;
     }
   }
 

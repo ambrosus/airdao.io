@@ -1,6 +1,4 @@
 import styles from './sbgInfo.module.scss';
-import governorImg from './VPBlock/assets/governor-card.png';
-import authenticate from './VPBlock/assets/authenticate.png';
 import VPList from './VPBlock/index';
 import lightningIcon from './VPBlock/assets/lightning.svg';
 import stars from './VPBlock/assets/stars.svg';
@@ -13,25 +11,15 @@ const VPBlock = () => {
   return (
     <>
       {VPList.map((item, index) => (
-        <div
-          key={index}
-          className={styles.vpBlock}
-          style={{ width: item.blockWidth }}
-        >
-          <div className={styles.vpPhoto}>
+        <div key={index} className={styles.vpBlock}>
+          <div className={styles.photo}>
             <img src={item.photo.src} alt={item.name} />
           </div>
-          <div className={styles.vpInfo}>
+          <div className={styles.info}>
             <span>{item.name}</span>
-            <div className={styles.progressbarBlock}>
+            <div className={styles.item}>
               <img src={lightningIcon.src} alt="lightning icon" />
-              <div className={styles.progressbar}>
-                <div
-                  className={styles.line}
-                  style={{ width: item.vp, backgroundColor: '#ffffff' }}
-                />
-              </div>
-              <span>{item.vp}</span>
+              <span>{item.votingPower}</span>
             </div>
           </div>
         </div>
@@ -44,11 +32,7 @@ const SbtInfo = () => (
   <div className={styles.cardBlock}>
     <InfoCard cN={styles.first}>
       <div className={styles.imgBlock}>
-        <img
-          className={styles.imgItem}
-          src={governorImg.src}
-          alt="Governor img"
-        />
+        <div className={styles.imgItem} />
       </div>
       <div className={styles.infoBlock}>
         <h3>Collect your first SBT to become AirDAO Governor</h3>
@@ -80,11 +64,7 @@ const SbtInfo = () => (
     </InfoCard>
     <InfoCard cN={styles.third}>
       <div className={styles.imgBlock}>
-        <img
-          className={styles.imgItem}
-          src={authenticate.src}
-          alt="Authenticate img"
-        />
+        <div className={styles.imgItem} />
       </div>
       <div className={styles.infoBlock}>
         <h3>Authenticate your identity with Fractal ID</h3>
