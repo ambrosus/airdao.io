@@ -1,12 +1,12 @@
-import photo1 from './assets/Michael-Grimwood.png';
-import photo2 from './assets/Alex-Yaniuk.png';
-import photo3 from './assets/Seth-Duodu.png';
-import photo4 from './assets/Igor-Stadnyk.png';
-import photo5 from './assets/Matthieu-Bourlon.png';
-import photo6 from './assets/Oleksii-Pyltsov.png';
-import photo7 from './assets/Alina-Tustanovska.png';
-import photo8 from './assets/Sophie-Bein-Mack.png';
-import photo9 from './assets/Oleksii-Dmytrenko.png';
+import photo1 from './assets/Michael-Grimwood.webp';
+import photo2 from './assets/Alex-Yaniuk.webp';
+import photo3 from './assets/Seth-Duodu.webp';
+import photo4 from './assets/Igor-Stadnyk.webp';
+import photo5 from './assets/Matthieu-Bourlon.webp';
+import photo6 from './assets/Oleksii-Pyltsov.webp';
+import photo7 from './assets/Alina-Tustanovska.webp';
+import photo8 from './assets/Sophie-Bein-Mack.webp';
+import photo9 from './assets/Oleksii-Dmytrenko.webp';
 
 const list = [
   {

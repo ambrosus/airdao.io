@@ -15,13 +15,12 @@ const SbtBlock = () => (
     </p>
     <div className={styles.tokenWrapper}>
       {sbtList.map((item, index) => (
-        <span key={index} className={styles.tokenItem}>
-          <img
-            className={styles.tokenImage}
-            src={item.token.src}
-            alt={item.name}
-          />
-        </span>
+        <img
+          key={index}
+          className={styles.tokenImage}
+          src={item.token.src}
+          alt={item.name}
+        />
       ))}
     </div>
   </section>
