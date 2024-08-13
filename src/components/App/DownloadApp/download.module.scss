@@ -65,6 +65,11 @@
 
           a {
             display: block;
+            transition: 0.2s ease all;
+
+            &:hover {
+              opacity: 0.8;
+            }
 
             img {
               display: block;
