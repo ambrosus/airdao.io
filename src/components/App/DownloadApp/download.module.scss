@@ -43,7 +43,7 @@
     grid-template-columns: 1fr 1fr;
 
     @media only screen and (max-width: 767px) {
-      grid-template-columns: repeat(1, 1fr);
+      display: block;
     }
 
     .blockLeft {
@@ -56,6 +56,10 @@
         @media only screen and (max-width: 1024px) {
           padding-top: 0;
           max-width: 362px;
+        }
+        
+        @media only screen and (max-width: 767px) {
+          max-width: 100%;
         }
 
         .listsLinks {
@@ -73,6 +77,11 @@
 
             img {
               display: block;
+
+              @media only screen and (max-width: 767px) {
+                width: auto;
+                height: 41.51px;
+              }
             }
           }
         }
