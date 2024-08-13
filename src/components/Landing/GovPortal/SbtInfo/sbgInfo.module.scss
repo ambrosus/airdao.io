@@ -292,6 +292,14 @@
               display: flex;
               gap: 2px;
               align-items: center;
+              span {
+                color: #FFF;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 16px;
+                letter-spacing: -0.12px;
+              }
             }
           }
         }
