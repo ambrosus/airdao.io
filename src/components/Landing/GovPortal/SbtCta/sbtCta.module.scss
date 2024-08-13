@@ -16,19 +16,19 @@
     @media screen and (min-width: 1024px) {
       max-width: 1024px;
       padding: 80px 46px;
-      background-image: url("assets/CTA_desktop.png");
+      background-image: url("assets/CTA_desktop.webp");
       height: 304px;
     }
     @media screen and (min-width: 768px) and (max-width: 1023px) {
       max-width: 704px;
       padding: 48px 46px;
-      background-image: url("assets/CTA_tablet.png");
+      background-image: url("assets/CTA_tablet.webp");
       height: 232px;
     }
     @media screen and (max-width: 767px) {
       max-width: 343px;
       padding: 27px 24px;
-      background-image: url("assets/CTA_mobile.png");
+      background-image: url("assets/CTA_mobile.webp");
       height: 424px;
     }
 
@@ -74,10 +74,9 @@
           box-shadow: 0px -1px 0px 0px rgba(47, 43, 67, 0.10) inset, 0px 1px 3px 0px rgba(47, 43, 67, 0.10);
           cursor: pointer;
           opacity: 1;
-          transition: opacity .3s ease-in;
+          transition: opacity .3s ease-in-out;
           &:hover {
             opacity: 0.75;
-            transition: opacity .3s ease-out;
           }
         }
 

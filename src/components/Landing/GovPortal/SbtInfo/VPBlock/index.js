@@ -1,6 +1,6 @@
-import photo1 from './assets/Peter-Bjarnason.png';
-import photo2 from './assets/Andrew-Garach.png';
-import photo3 from './assets/Shay-Clarke.png';
+import photo1 from './assets/Peter-Bjarnason.webp';
+import photo2 from './assets/Andrew-Garach.webp';
+import photo3 from './assets/Shay-Clarke.webp';
 
 const VPList = [
   {

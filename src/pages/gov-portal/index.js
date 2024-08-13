@@ -11,6 +11,7 @@ import SbtCta from '@/components/Landing/GovPortal/SbtCta';
 import SbtInfo from '@/components/Landing/GovPortal/SbtInfo';
 import HeroSection from '@/components/Landing/GovPortal/HeroSection';
 import Seo from '@/components/Seo';
+import HeroBg from '@/components/Landing/GovPortal/HeroSection/assets/background_desktop.webp';
 
 export default function Landing({ page, portal, header, banner, footerText }) {
   const { data } = page;
@@ -22,6 +23,7 @@ export default function Landing({ page, portal, header, banner, footerText }) {
         title={portal.data.meta_title}
         description={portal.data.meta_description}
         image={portal.data.meta_image.url}
+        preload={HeroBg}
       />
       {showBanner && (
         <Banner

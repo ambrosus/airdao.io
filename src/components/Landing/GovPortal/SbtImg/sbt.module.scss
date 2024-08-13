@@ -93,20 +93,18 @@
       background: transparent;  /* Optional: just make scrollbar invisible */
     }
 
-    .tokenItem {
-      .tokenImage {
-        @media screen and (min-width: 1024px) {
-          max-width: 190px;
-          max-height: 190px;
-        }
-        @media screen and (min-width: 768px) and (max-width: 1023px) {
-          max-width: 100px;
-          max-height: 100px;
-        }
-        @media screen and (max-width: 767px) {
-          max-width: 110px;
-          max-height: 110px;
-        }
+    .tokenImage {
+      @media screen and (min-width: 1024px) {
+        max-width: 190px;
+        max-height: 190px;
+      }
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
+        max-width: 100px;
+        max-height: 100px;
+      }
+      @media screen and (max-width: 767px) {
+        max-width: 110px;
+        max-height: 110px;
       }
     }
   }

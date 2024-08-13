@@ -1,9 +1,9 @@
-import token1 from './assets/Governor.svg';
-import token2 from './assets/Ambassador.svg';
-import token3 from './assets/GWG.svg';
-import token4 from './assets/External-Dev.svg';
-import token5 from './assets/Server-Node-Operator.svg';
-import token6 from './assets/Treasure-Keepers.svg';
+import token1 from './assets/Token1.webp';
+import token2 from './assets/Token2.webp';
+import token3 from './assets/Token3.webp';
+import token4 from './assets/Token4.webp';
+import token5 from './assets/Token5.webp';
+import token6 from './assets/Token6.webp';
 
 const sbtList = [
   {

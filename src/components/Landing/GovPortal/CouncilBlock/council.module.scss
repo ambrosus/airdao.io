@@ -70,7 +70,6 @@
       .itemImage {
         @media screen and (min-width: 1024px) {
           max-width: 300px;
-          background-color: chartreuse;
         }
         @media screen and (min-width: 768px) and (max-width: 1023px) {
           max-width: 224px;
@@ -146,9 +145,8 @@
             display: flex;
             align-items: center;
             opacity: 1;
-            transition: opacity .3s ease-in;
+            transition: opacity .3s ease-in-out;
             &:hover {
-              transition: opacity .3s ease-out;
               opacity: .75;
             }
           }
