@@ -1,7 +1,6 @@
 .buy-amb {
   margin-top: 40px;
   max-width: 100vw;
-  overflow: hidden;
   position: relative;
 
   @media only screen and (max-width: 1024px) {
@@ -259,6 +258,10 @@
 
   @media only screen and (max-width: 767px) {
     gap: 8px;
+
+    button {
+      font-size: 14px;
+    }
   }
 }
 
@@ -418,5 +421,27 @@
   @media only screen and (max-width: 767px) {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+.exchange__info__container {
+  gap: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.exchange__label {
+  font-size: 14px;
+  padding: 2px 8px;
+  font-weight: 500;
+  line-height: 20px;
+  border-radius: 8px;
+  letter-spacing: -0.14px;
+  font-family: var(--font-inter);
+  background: var(--Primary-50, #E9EFFB);
+  color: var(--primary-500-base, #3668DD);
+
+  @media only screen and (max-width: 767px) {
+    display: none;
   }
 }

@@ -169,6 +169,18 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
                           ),
                         }}
                       />
+                      {el.label && (
+                        <PrismicRichText
+                          field={el.label}
+                          components={{
+                            paragraph: ({ children }) => (
+                              <span className={styles.exchange__label}>
+                                {children}
+                              </span>
+                            ),
+                          }}
+                        />
+                      )}
                     </div>
                     <PrismicRichText
                       field={el?.type}
