@@ -1894,6 +1894,16 @@ export interface BuyambDocumentDataLinksItem {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   button_name: prismic.RichTextField;
+
+  /**
+   * label field in *BuyAmb → links*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.links[].label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  label: prismic.RichTextField;
 }
 
 type BuyambDocumentDataSlicesSlice = never;
