@@ -28,9 +28,7 @@ const DownloadApp = ({ data }) => {
             </div>
           </div>
           <div className={styles.blockRight}>
-            <div className={styles.blockRight}>
-              <PhoneBottomIcon />
-            </div>
+            <PhoneBottomIcon />
           </div>
         </div>
       </div>
