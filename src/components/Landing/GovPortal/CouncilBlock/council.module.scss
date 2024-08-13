@@ -41,32 +41,36 @@
   }
 
   .socialCards {
-    display: flex;
-    flex-flow: wrap;
+    display: grid;
     @media screen and (min-width: 1024px) {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       margin: 56px 0 120px;
       row-gap: 32px;
       column-gap: 32px;
     }
     @media screen and (min-width: 768px) and (max-width: 1023px) {
+      grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
       margin: 48px 0 64px;
       row-gap: 24px;
       column-gap: 8px;
     }
     @media screen and (max-width: 767px) {
+      grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
       margin: 48px 0 56px;
       row-gap: 24px;
       column-gap: 8px;
     }
 
+
     .gridItem {
+      justify-self: center;
       outline: 1px solid #F2F2F3;
       background-color: #FFF;
 
       .itemImage {
-        object-fit: cover;
         @media screen and (min-width: 1024px) {
           max-width: 300px;
+          background-color: chartreuse;
         }
         @media screen and (min-width: 768px) and (max-width: 1023px) {
           max-width: 224px;
