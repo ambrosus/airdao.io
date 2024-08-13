@@ -63,21 +63,13 @@
           flex-direction: row;
           gap: 16px;
 
-          li {
-            &:first-child {
-              img {
-                width: 127px;
-              }
-            }
-            &:nth-child(2) {
-              img {
-                width: 140px;
-              }
-            }
-          }
-
           a {
             display: block;
+            transition: 0.2s ease all;
+
+            &:hover {
+              opacity: 0.8;
+            }
 
             img {
               display: block;

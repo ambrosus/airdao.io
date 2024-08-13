@@ -1894,6 +1894,16 @@ export interface BuyambDocumentDataLinksItem {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   button_name: prismic.RichTextField;
+
+  /**
+   * label field in *BuyAmb → links*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.links[].label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  label: prismic.RichTextField;
 }
 
 type BuyambDocumentDataSlicesSlice = never;
@@ -1914,6 +1924,51 @@ export interface BuyambDocumentDataAppListItem {
 }
 
 type BuyambDocumentDataSlices3Slice = FooterEventsSlice | FooterContactSlice;
+
+/**
+ * Item in *BuyAmb → Networks list*
+ */
+export interface BuyambDocumentDataNetworksListItem {
+  /**
+   * Network logo field in *BuyAmb → Networks list*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.networks_list[].network_logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  network_logo: prismic.ImageField<never>;
+
+  /**
+   * Network name field in *BuyAmb → Networks list*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.networks_list[].network_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  network_name: prismic.RichTextField;
+
+  /**
+   * Network contract address field in *BuyAmb → Networks list*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.networks_list[].network_contract_address
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  network_contract_address: prismic.RichTextField;
+
+  /**
+   * Network contract address link field in *BuyAmb → Networks list*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.networks_list[].network_contract_address_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  network_contract_address_link: prismic.LinkField;
+}
 
 /**
  * Content for BuyAmb documents
@@ -2055,7 +2110,93 @@ interface BuyambDocumentData {
    * - **Tab**: Footer
    * - **Documentation**: https://prismic.io/docs/field#slices
    */;
-  slices3: prismic.SliceZone<BuyambDocumentDataSlices3Slice>;
+  slices3: prismic.SliceZone<BuyambDocumentDataSlices3Slice> /**
+   * Astra label field in *BuyAmb*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.astra_label
+   * - **Tab**: Astra DEX
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */;
+  astra_label: prismic.RichTextField;
+
+  /**
+   * Astra title field in *BuyAmb*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.astra_title
+   * - **Tab**: Astra DEX
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  astra_title: prismic.RichTextField;
+
+  /**
+   * Astra description field in *BuyAmb*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.astra_description
+   * - **Tab**: Astra DEX
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  astra_description: prismic.RichTextField;
+
+  /**
+   * Astra button name field in *BuyAmb*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.astra_button_name
+   * - **Tab**: Astra DEX
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  astra_button_name: prismic.RichTextField;
+
+  /**
+   * Astra button link field in *BuyAmb*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.astra_button_link
+   * - **Tab**: Astra DEX
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  astra_button_link: prismic.LinkField /**
+   * Networks title field in *BuyAmb*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.networks_title
+   * - **Tab**: Networks
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */;
+  networks_title: prismic.RichTextField;
+
+  /**
+   * Token contract address title field in *BuyAmb*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.token_contract_address_title
+   * - **Tab**: Networks
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  token_contract_address_title: prismic.RichTextField;
+
+  /**
+   * Networks list field in *BuyAmb*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: buyamb.networks_list[]
+   * - **Tab**: Networks
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  networks_list: prismic.GroupField<
+    Simplify<BuyambDocumentDataNetworksListItem>
+  >;
 }
 
 /**
@@ -6888,6 +7029,7 @@ declare module '@prismicio/client' {
       BuyambDocumentDataSlicesSlice,
       BuyambDocumentDataAppListItem,
       BuyambDocumentDataSlices3Slice,
+      BuyambDocumentDataNetworksListItem,
       ContactUsDocument,
       ContactUsDocumentData,
       ContactUsDocumentDataLinksItem,

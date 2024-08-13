@@ -120,11 +120,15 @@
     transition: all 0.2s ease-in-out;
     
     &:hover {
-      opacity: 0.8;
+      img {
+        opacity: 1;
+        filter: contrast(1);
+      }
     }
 
     img {
-      filter: brightness(0.4);
+      opacity: 0.7;
+      filter: contrast(0.1);
     }
   }
   
@@ -140,6 +144,7 @@
   
   @media screen and (max-width: 767px) {
     display: grid;
+    gap: 24px 32px;
     margin-top: 48px;
     grid-template-columns: repeat(4, 1fr);
 
@@ -148,7 +153,7 @@
     }
   }
 
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 767px) {
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 24px 32px;
@@ -248,6 +253,8 @@
   display: flex;
   margin: 0 auto;
   max-width: 100%;
+  overflow: hidden;
+  position: relative;
   padding: 48px 83px;
   margin-bottom: 72px;
   border-radius: 32px;
@@ -256,19 +263,19 @@
   background-repeat: no-repeat;
   background-position: top right;
   background-color:  var(--primary-500-base, #3668DD);
-  background-image: url("/img/homepage/downloadapp-bg.svg");
+  background-image: url("/img/homepage/downloadapp-bg-new.svg");
   
   @media screen and (max-width: 1024px) {
     margin-bottom: 48px;
     padding: 44.38px 44.16px;
-    background-image: url("/img/homepage/downloadapp-tablet-bg.svg");
+    background-image: url("/img/homepage/downloadapp-tablet-bg-new.svg");
   }
   
   @media screen and (max-width: 767px) {
     background-size: contain;
     background-position: bottom;
     padding: 29.79px 27px 262.86px 27px;
-    background-image: url("/img/homepage/downloadapp-mobile-bg.svg");
+    background-image: url("/img/homepage/downloadapp-mobile-bg-new.svg");
   }
 }
 
@@ -329,6 +336,27 @@
         line-height: 15.09px;
       }
     }
+  }
+}
+
+.footer-device {
+  top: 29px;
+  height: auto;
+  right: 116.17px;
+  width: 265.83px;
+  position: absolute;
+  
+  @media screen and (max-width: 1160px) {
+    top: 33px;
+    right: 39.82px;
+    width: 230.52px;
+  }
+  
+  @media screen and (max-width: 767px) {
+    left: 50%;
+    top: 225px;
+    right: unset;
+    transform: translateX(-50%);
   }
 }
 
