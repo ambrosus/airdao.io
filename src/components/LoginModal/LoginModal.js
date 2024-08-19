@@ -3,12 +3,14 @@ import Modal from '../Modal/Modal';
 import useClickOutside from '../../hooks/useClickOutside';
 import { useRef } from 'react';
 import styles from './LoginModal.module.scss';
+import bitgetIcon from '../Header/bitget.png';
 
 const LoginModal = ({
   closeModal,
   loginMetamask,
   loginWalletConnect,
   loginSafepal,
+  loginBitget,
   isOpen,
 }) => {
   const ref = useRef(null);
@@ -63,6 +65,28 @@ const LoginModal = ({
               <p className={styles['login-modal__title']}>SafePal</p>
               <p className={styles['login-modal__text']}>
                 Connect using your SafePal wallet
+              </p>
+            </div>
+            <Image
+              src="/arrow.svg"
+              width="16"
+              height="16"
+              className={styles['login-modal__arrow']}
+              alt="arrow"
+            />
+          </button>
+          <button className={styles['login-modal__btn']} style={{ marginTop: 16 }} onClick={loginBitget}>
+            <img
+              src={bitgetIcon.src}
+              width='28'
+              height='25'
+              className={styles['login-modal__img']}
+              alt='bitget'
+            />
+            <div className={styles['login-modal__block']}>
+              <p className={styles['login-modal__title']}>Bitget</p>
+              <p className={styles['login-modal__text']}>
+                Connect using your Bitget wallet
               </p>
             </div>
             <Image

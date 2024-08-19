@@ -11,6 +11,7 @@ import {
   getCurrentAmbNetwork,
   metamaskConnector,
   walletconnectConnector,
+  bitgetWalletConnector,
 } from 'airdao-components-and-tools/utils';
 import { ethers, providers } from 'ethers';
 import Image from 'next/image';
@@ -26,6 +27,7 @@ import ArrowTop from '../Icons/ArrowTop';
 import MetaMaskIcon from '../Icons/MetaMaskIcon';
 import WalletConnectIcon from '../Icons/WalletConnectIcon';
 import useGtag from '@/hooks/useGtag';
+import bitgetIcon from './bitget.png';
 
 const ambNet = getCurrentAmbNetwork(process.env.NEXT_PUBLIC_CHAIN_ID);
 
@@ -43,7 +45,8 @@ const Header = ({ header, showBanner = false }) => {
   const [isFixed, setIsFixed] = useState(false);
   const [balance, setBalance] = useState('0');
 
-  const isLoaded = useAutoLogin(metamaskConnector);
+  useAutoLogin(metamaskConnector, bitgetWalletConnector);
+
   const { account, connector, provider } = useWeb3React();
 
   const headerRef = useRef(null);
@@ -89,9 +92,10 @@ const Header = ({ header, showBanner = false }) => {
     };
   }, [account]);
 
-  const { loginMetamask, loginWalletConnect, loginSafepal, logout } = useAuthorization(
+  const { loginMetamask, loginWalletConnect, loginSafepal, loginBitget, logout } = useAuthorization(
     metamaskConnector,
     walletconnectConnector,
+    bitgetWalletConnector,
   );
 
   const getBalance = async () => {
@@ -114,6 +118,14 @@ const Header = ({ header, showBanner = false }) => {
   const handleConnectedNav = () => setIsConnectedNavOpen(state => !state);
   const handleNav = () => setIsNavOpen(state => !state);
   const handleMobileNav = () => setIsMobileNavOpen(state => !state);
+
+  let connectorIcon = <WalletConnectIcon />;
+
+  if (connector?.provider?.isBitKeep) {
+    connectorIcon = <img src={bitgetIcon.src} alt="bitget" className={styles["header__bitget"]}/>
+  } else if (connector?.provider?.isMetaMask) {
+    connectorIcon = <MetaMaskIcon />
+  }
 
   return (
     <>
@@ -156,11 +168,7 @@ const Header = ({ header, showBanner = false }) => {
                   className={styles.header__address}
                   onClick={handleAddressInfo}
                 >
-                  {connector instanceof WalletConnect ? (
-                    <WalletConnectIcon />
-                  ) : (
-                    <MetaMaskIcon />
-                  )}
+                  {connectorIcon}
                   <span className={styles['header__address-text']}>
                     {`${address.substring(0, 5)}...${address.substring(
                       address.length - 5,
@@ -296,6 +304,7 @@ const Header = ({ header, showBanner = false }) => {
           loginMetamask={loginMetamask}
           loginSafepal={loginSafepal}
           loginWalletConnect={loginWalletConnect}
+          loginBitget={loginBitget}
         />
       )}
     </>

@@ -7,11 +7,14 @@ import {
   metamaskHooks,
   walletconnectConnector,
   walletconnectHooks,
+  bitgetWalletConnector,
+  bitgetHooks,
 } from 'airdao-components-and-tools/utils';
 
 const connectors = [
   [metamaskConnector, metamaskHooks],
   [walletconnectConnector, walletconnectHooks],
+  [bitgetWalletConnector, bitgetHooks],
 ];
 
 const HeaderWrapper = ({ header, showBanner = false }) => {
