@@ -22,17 +22,11 @@ const ContentBanner = () => {
           AirDAO’s <span>Grants</span>
         </h1>
         <span>
-          Announcement of a new grant program and funding opportunities from
-          AirDAO coming soon.
-        </span>
-        <Button size="large" type="primary">
-          <Link target="_blank" href="https://t.me/airdao">
-            <div className={styles.buttonContent}>
-              <span>Stay tuned</span>
-              <ArrowRightSecondary />
-            </div>
+          Submit your proposals to{' '}
+          <Link href="mailto:builders@airdao.io" className={styles.link}>
+            builders@airdao.io
           </Link>
-        </Button>
+        </span>
       </div>
     </motion.div>
   );
