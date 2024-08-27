@@ -84,7 +84,7 @@ const LoginModal = ({
               alt='bitget'
             />
             <div className={styles['login-modal__block']}>
-              <p className={styles['login-modal__title']}>Bitget</p>
+              <p className={styles['login-modal__title']}>Bitget Waller</p>
               <p className={styles['login-modal__text']}>
                 Connect using your Bitget wallet
               </p>
