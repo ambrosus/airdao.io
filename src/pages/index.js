@@ -1,10 +1,10 @@
+import { useState } from 'react';
 import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
 import { createClient } from '@/prismicio';
 import * as prismic from '@prismicio/client';
 import Seo from '@/components/Seo';
-import { useState } from 'react';
 import styles from '@/components/Homepage/homepage.module.scss';
 import MainBlock from '@/components/Homepage/MainBlock';
 import BackedBy from '@/components/Homepage/BackedBy';
