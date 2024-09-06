@@ -55,16 +55,10 @@ export default function Home({
         title={data.product_title}
         list={data.products}
       />
-      <BeInvolved
-        smallTitle={data.involved_small_title}
-        title={data.involved_title}
-        main={data.involved_main}
-        socials={data.involved_socials}
-        sbt={data.involved_sbt}
-        events={data.involved_events}
-        ambassador={data.involved_ambassador}
-        burn={data.involved_burn}
-        ambassadors={data.ambassadors_images}
+      <Network
+        smallTitle={data.network_small_title}
+        title={data.network_title}
+        list={data.network_items}
       />
       <Mission
         title={data.mission_title}
@@ -75,10 +69,16 @@ export default function Home({
         images={data.mission_images}
       />
       <RoadmapBlogAcademy list={data.more_about_us_pages} />
-      <Network
-        smallTitle={data.network_small_title}
-        title={data.network_title}
-        list={data.network_items}
+      <BeInvolved
+        smallTitle={data.involved_small_title}
+        title={data.involved_title}
+        main={data.involved_main}
+        socials={data.involved_socials}
+        sbt={data.involved_sbt}
+        events={data.involved_events}
+        ambassador={data.involved_ambassador}
+        burn={data.involved_burn}
+        ambassadors={data.ambassadors_images}
       />
       <News news={latestNewsArticles} />
       <Events events={latestEventsArticles} />
