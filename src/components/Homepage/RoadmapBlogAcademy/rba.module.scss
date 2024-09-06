@@ -1,3 +1,7 @@
+.roadmap-blog-academy {
+  background: linear-gradient(to bottom, transparent 50%, var(--Primary-50, #E9EFFB) 50%);
+}
+
 .rba-container {
   gap: 16px;
   padding: 16px;
@@ -9,10 +13,10 @@
   border-radius: 24px;
   flex-direction: column;
   background-color: var(--Neutrals-800---Primary-content, #29292D);
-  
+
   @media only screen and (max-width: 1024px) {
   }
-  
+
   @media only screen and (max-width: 767px) {
   }
 }
@@ -36,7 +40,7 @@
   &:hover {
     opacity: 0.7;
   }
-  
+
   @media only screen and (max-width: 767px) {
     img {
       &:first-child {
@@ -60,7 +64,7 @@
       letter-spacing: -1.6%;
       font-family: var(--font-inter);
     }
-    
+
     &:last-child {
       font-size: 16px;
       font-weight: 500;
@@ -77,21 +81,21 @@
         font-size: 22px;
         line-height: 28px;
       }
-  
+
       &:last-child {
         font-size: 14px;
         line-height: 22px;
       }
     }
   }
-  
+
   @media only screen and (max-width: 767px) {
     div {
       &:first-child {
         font-size: 20px;
         line-height: 28px;
       }
-  
+
       &:last-child {
         font-size: 14px;
         line-height: 16.94px;
