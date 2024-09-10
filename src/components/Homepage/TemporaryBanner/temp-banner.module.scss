@@ -138,3 +138,12 @@
     padding-bottom: 6px!important;
   }
 }
+
+.logo {
+  @media screen and (max-width: 1200px) {
+    max-width: 128px;
+  }
+  @media screen and (max-width: 570px) {
+    max-width: 122px;
+  }
+}

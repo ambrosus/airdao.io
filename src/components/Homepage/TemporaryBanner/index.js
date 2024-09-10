@@ -31,7 +31,7 @@ const TemporaryBanner = () => {
           <span className={styles.day_text}>days left</span>
         </div>
         <div className={styles.right}>
-          <img src={sfIcon.src} alt="starfleet" />
+          <img src={sfIcon.src} alt="starfleet" className={styles.logo}/>
           <p className={styles.text}><span>Final warning!</span> Stakers must be aboard the ship</p>
           <Link href="https://star-fleet.io/staking" target="_blank">
             <Button type="primary" size="large" className={styles.btn}>
