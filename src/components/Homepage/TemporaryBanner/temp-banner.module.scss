@@ -23,8 +23,12 @@
   }
 
   @media screen and (max-width: 570px) {
+    background-image: linear-gradient(180deg, rgba(24, 21, 23, 0.00) 0%, rgba(24, 21, 23, 0.88) 73.55%, #181517 91.87%), url("./bg-mobile.jpg");
     padding: 43px 30px;
     justify-content: flex-start;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right bottom;
   }
 }
 
