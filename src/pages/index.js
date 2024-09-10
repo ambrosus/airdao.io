@@ -16,6 +16,7 @@ import RoadmapBlogAcademy from '@/components/Homepage/RoadmapBlogAcademy';
 import Network from '@/components/Homepage/Network';
 import News from '@/components/Homepage/News';
 import Events from '@/components/Homepage/Events';
+import TemporaryBanner from '@/components/Homepage/TemporaryBanner';
 
 export default function Home({
   page,
@@ -45,11 +46,12 @@ export default function Home({
         sections={data.sections}
       />
       <BackedBy title={data.backed_by_title} logos={data.logos} />
-      <BannerRocket
-        title={data.banner_title}
-        buttonName={data.banner_button_name}
-        buttonLink={data.banner_button_link}
-      />
+      {/*<BannerRocket*/}
+      {/*  title={data.banner_title}*/}
+      {/*  buttonName={data.banner_button_name}*/}
+      {/*  buttonLink={data.banner_button_link}*/}
+      {/*/>*/}
+      <TemporaryBanner />
       <ExploreProducts
         smallTitle={data.product_small_title}
         title={data.product_title}
