@@ -4,6 +4,7 @@ import Image from 'next/image';
 import chevron from '@/assets/icons/chevron-additional.svg';
 import { Button } from '@airdao/ui-library';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 const targetDate = '2024-09-15';
 
@@ -32,10 +33,12 @@ const TemporaryBanner = () => {
         <div className={styles.right}>
           <img src={sfIcon.src} alt="starfleet" />
           <p className={styles.text}><span>Final warning!</span> Stakers must be aboard the ship</p>
-          <Button type="primary" size="large" className={styles.btn}>
-            Learn more
-            <Image src={chevron} alt="Continue Button" />
-          </Button>
+          <Link href="https://star-fleet.io/staking" target="_blank">
+            <Button type="primary" size="large" className={styles.btn}>
+              Learn more
+              <Image src={chevron} alt="Continue Button" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
