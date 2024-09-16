@@ -3026,6 +3026,52 @@ export type GovernanceDocument<Lang extends string = string> =
   >;
 
 /**
+ * Item in *Grants → cards*
+ */
+export interface GrantsDocumentDataCardsItem {
+  /**
+   * illustration field in *Grants → cards*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grants.cards[].illustration
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  illustration: prismic.ImageField<never>;
+
+  /**
+   * heading field in *Grants → cards*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: heading
+   * - **API ID Path**: grants.cards[].heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * description field in *Grants → cards*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: description
+   * - **API ID Path**: grants.cards[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * color field in *Grants → cards*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: color
+   * - **Default Value**: blue
+   * - **API ID Path**: grants.cards[].color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  color: prismic.SelectField<'blue' | 'orange', 'filled'>;
+}
+
+/**
  * Content for Grants documents
  */
 interface GrantsDocumentData {
@@ -3060,7 +3106,58 @@ interface GrantsDocumentData {
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  meta_image: prismic.ImageField<never>;
+  meta_image: prismic.ImageField<never> /**
+   * heading field in *Grants*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: heading
+   * - **API ID Path**: grants.heading
+   * - **Tab**: heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */;
+  heading: prismic.RichTextField;
+
+  /**
+   * text field in *Grants*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: call to action text
+   * - **API ID Path**: grants.text
+   * - **Tab**: heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * email field in *Grants*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: email
+   * - **API ID Path**: grants.email
+   * - **Tab**: heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email: prismic.KeyTextField /**
+   * cards field in *Grants*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grants.cards[]
+   * - **Tab**: cards
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */;
+  cards: prismic.GroupField<Simplify<GrantsDocumentDataCardsItem>>;
+
+  /**
+   * cta_text field in *Grants*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: call to action (email)
+   * - **API ID Path**: grants.cta_text
+   * - **Tab**: cards
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  cta_text: prismic.RichTextField;
 }
 
 /**
@@ -7057,6 +7154,7 @@ declare module '@prismicio/client' {
       GovernanceDocumentDataSlices3Slice,
       GrantsDocument,
       GrantsDocumentData,
+      GrantsDocumentDataCardsItem,
       HeaderDocument,
       HeaderDocumentData,
       HeaderDocumentDataProductsItem,

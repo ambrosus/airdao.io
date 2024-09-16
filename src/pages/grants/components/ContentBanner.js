@@ -1,34 +1,20 @@
-import ArrowRightSecondary from '@/components/Icons/ArrowRightSecondary';
-import { Button } from '@airdao/ui-library';
-import { motion, useViewportScroll, useTransform } from 'framer-motion';
-
 import styles from '../grants.module.scss';
 import Link from 'next/link';
+import { PrismicRichText, PrismicText } from '@prismicio/react';
 
-const ContentBanner = () => {
-  const { scrollYProgress } = useViewportScroll();
-  const y = useTransform(scrollYProgress, [0, 0.1], [0, 27]);
-
+const ContentBanner = ({ heading, text, email }) => {
   return (
-    <motion.div
-      style={{
-        y,
-        position: 'sticky',
-        top: 0,
-      }}
-    >
+    <div className={'container'}>
       <div className={styles.contentBanner}>
-        <h1>
-          AirDAO’s <span>Grants</span>
-        </h1>
+        <PrismicRichText field={heading} />
         <span>
-          Submit your proposals to{' '}
-          <Link href="mailto:builders@airdao.io" className={styles.link}>
-            builders@airdao.io
+          <PrismicText field={text} />{' '}
+          <Link href={`mailto:${email}`} className={styles.link}>
+            {email}
           </Link>
         </span>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
