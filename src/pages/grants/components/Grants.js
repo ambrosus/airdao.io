@@ -5,12 +5,12 @@ import { PrismicRichText } from '@prismicio/react';
 
 import Image from 'next/image';
 
-const Grants = ({ cards, cta, email }) => {
+const Grants = ({ cards, cta, email } = { cards: [] }) => {
   return (
     <div className={styles.gridBanners}>
       <div className={`container ${styles['cards-container']}`}>
         <div className={styles.cards}>
-          {cards.map((card, index) => (
+          {cards?.map((card, index) => (
             <div key={index} className={`${styles.card} ${styles[card.color]}`}>
               <PrismicNextImage
                 field={card.illustration}
