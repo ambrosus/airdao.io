@@ -27,7 +27,7 @@ const TemporaryBanner = () => {
     <section className="container">
       <div className={styles.wrapper}>
         <div className={styles.left}>
-          <span className={styles.day}>{remainingDays}</span>
+          <span className={styles.day}>0</span>
           <span className={styles.day_text}>days left</span>
         </div>
         <div className={styles.right}>
