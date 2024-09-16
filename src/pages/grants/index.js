@@ -7,7 +7,7 @@ import Seo from '@/components/Seo';
 import ContentBanner from './components/ContentBanner';
 import Grants from './components/Grants';
 
-export default function Landing({ page, grants, header, footerText }) {
+export default function GrantsPage({ page, grants, header, footerText }) {
   const { data } = page;
   return (
     <>
@@ -18,10 +18,16 @@ export default function Landing({ page, grants, header, footerText }) {
       />
       <div className={styles.container}>
         <HeaderWrapper header={header} showBanner={false} />
-        <div className="container">
-          <ContentBanner />
-          <Grants />
-        </div>
+        <ContentBanner
+          heading={grants.data.heading}
+          text={grants.data.text}
+          email={grants.data.email}
+        />
+        <Grants
+          cards={grants.data.cards}
+          cta={grants.data.cta_text}
+          email={grants.data.email}
+        />
         <Footer
           data={footerText.data}
           footerBlock="footer_mobile_apps"

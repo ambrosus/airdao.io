@@ -31,6 +31,88 @@
         },
         "type": "Image"
       }
+    },
+    "heading": {
+      "heading": {
+        "type": "StructuredText",
+        "config": {
+          "label": "heading",
+          "placeholder": "heading",
+          "allowTargetBlank": false,
+          "single": "strong,heading1"
+        }
+      },
+      "text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "text",
+          "placeholder": "call to action text",
+          "allowTargetBlank": false,
+          "single": "paragraph"
+        }
+      },
+      "email": {
+        "type": "Text",
+        "config": {
+          "label": "email",
+          "placeholder": "email"
+        }
+      }
+    },
+    "cards": {
+      "cards": {
+        "type": "Group",
+        "config": {
+          "label": "cards",
+          "repeat": true,
+          "fields": {
+            "illustration": {
+              "type": "Image",
+              "config": {
+                "label": "illustration",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "heading": {
+              "type": "StructuredText",
+              "config": {
+                "label": "heading",
+                "placeholder": "heading",
+                "allowTargetBlank": false,
+                "single": "heading3"
+              }
+            },
+            "description": {
+              "type": "StructuredText",
+              "config": {
+                "label": "description",
+                "placeholder": "description",
+                "allowTargetBlank": false,
+                "single": "paragraph"
+              }
+            },
+            "color": {
+              "type": "Select",
+              "config": {
+                "label": "color",
+                "placeholder": "color",
+                "options": ["blue", "orange"],
+                "default_value": "blue"
+              }
+            }
+          }
+        }
+      },
+      "cta_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "cta_text",
+          "placeholder": "call to action (email)",
+          "allowTargetBlank": false,
+          "single": "paragraph"
+        }
+      }
     }
   }
 }
