@@ -3,7 +3,6 @@ import styles from '../grants.module.scss';
 import { PrismicNextImage } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
 
-import CtaBg from '../cta-bg.jpg';
 import Image from 'next/image';
 
 const Grants = ({ cards, cta, email }) => {
@@ -24,9 +23,11 @@ const Grants = ({ cards, cta, email }) => {
         </div>
         <span className={styles['cta-block']}>
           <Image
-            src={CtaBg}
+            src={'/grants-cta-bg.jpg'}
             alt={'cta background'}
             className={styles['cta-background']}
+            width={1440}
+            height={451}
           />
           <PrismicRichText field={cta} />{' '}
           <a href={`mailto:${email}`} className={styles.link}>
