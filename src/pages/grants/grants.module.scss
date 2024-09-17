@@ -1,12 +1,4 @@
 .container {
-  background-repeat: no-repeat;
-  background-position: center -10%;
-  background-image: url("/img/ellipse.svg");
-
-  > footer {
-    margin-top: 65px;
-  }
-
   &.hasBanner {
     .contentBanner {
       padding-top: 140px;
@@ -28,45 +20,42 @@
   margin: 0 auto;
   width: min(666px, calc(100vw - 40px));
   text-align: center;
-  padding-top: 210px;
-  padding-bottom: 100px;
+  padding-top: 70px;
+  padding-bottom: 70px;
 
   @media only screen and (max-width: 1024px) {
     row-gap: 18px;
     width: min(465px, calc(100vw - 40px));
-    padding-top: 140px;
-    padding-bottom: 70px;
+    padding-top: 60px;
+    padding-bottom: 40px;
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 600px) {
     row-gap: 16px;
-  }
-
-  &:not(:last-child) {
-    margin-bottom: 65px;
   }
 
   h1 {
     color: #3668dd;
-    font-family: var(--font-rationell);
+    font-family: Rationell, var(--font-rationell), sans-serif;
     font-size: 64px;
     font-weight: 400;
     line-height: 92.5px;
     letter-spacing: 1.28px;
     text-transform: uppercase;
-    
+
     @media only screen and (max-width: 1024px) {
       font-size: 40px;
+      line-height: normal;
       letter-spacing: 0.8px;
     }
-    
-    @media only screen and (max-width: 768px) {
+
+    @media only screen and (max-width: 600px) {
       font-size: 32px;
       line-height: 48px;
       letter-spacing: 0.64px;
     }
-    
-    span {
+
+    strong {
       color: inherit;
       font-weight: 900;
       font-family: inherit;
@@ -75,7 +64,7 @@
 
   > span {
     color: #63636d;
-    font-family: var(--font-inter);
+    font-family: Inter, var(--font-inter), sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -88,7 +77,7 @@
       letter-spacing: -0.288px;
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 600px) {
       font-size: 16px;
       line-height: 24px;
       letter-spacing: -0.16px;
@@ -98,7 +87,7 @@
 
   button {
     a, span {
-      font-family: var(--font-inter);
+      font-family: Inter, var(--font-inter), sans-serif;
     }
   }
 
@@ -115,35 +104,181 @@
 }
 
 .gridBanners {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-  gap: 20px;
-  width: 100%;
   position: relative;
-  z-index: -1;
+  background: var(--Neutrals-100, #F2F2F3);
+
+  overflow: hidden;
+}
+
+.gridBanners::before {
+  content: '';
+  position: absolute;
+  left: -9vw;
+  top: 30%;
+  width: 118vw;
+  height: 118vw;
+
+  border-radius: var(--Radius-radi-0, 1698px);
+  background: var(--primary-500-base, #3668DD);
+  filter: blur(100.6500015258789px);
+  transform: translate3d(0, 0, 0);
 
   @media only screen and (max-width: 1024px) {
-    grid-template-columns: 1fr;
+    width: 150vw;
+    height: 150vw;
+    left: -20vw;
+    top: 40%;
   }
 
-  > img {
-    width: 100%;
+  @media only screen and (max-width: 600px) {
+    width: 180vw;
+    height: 180vw;
+    left: -40vw;
+    top: 70%;
   }
 
-  &:after {
-    position: absolute;
-    left: -20px;
-    top: -20px;
-    right: -20px;
-    bottom: -20px;
-    width: 110%;
-    height: 110%;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(7.5px);
-    content: "";
-  }
 }
 
 .link {
   color: #3668dd;
+  user-select: auto;
+}
+
+.cards-container {
+  padding-top: 103px;
+  padding-bottom: 89px;
+
+  position: relative;
+
+  @media only screen and (max-width: 1024px) {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  column-gap: 20px;
+  row-gap: 30px;
+
+  margin-bottom: 48px;
+
+}
+
+.card {
+  width: calc((100% - (20px * 2)) / 3);
+  min-height: 408px;
+
+  display: flex;
+  padding: 32px;
+  flex-direction: column;
+  align-items: flex-start;
+
+  border-radius: 40px;
+  background: #FFF;
+
+  @media only screen and (max-width: 1024px) {
+    width: calc(100% / 2 - 20px);
+  }
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    min-height: unset;
+
+    align-items: flex-start;
+  }
+
+  &.blue h3 {
+    color: var(--primary-500-base, #3668DD);
+  }
+
+  &.orange h3 {
+    color: var(--secondary-500-base, #FF5E0D);
+  }
+
+  h3 {
+    font-family: Inter, var(--font-inter), sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px; /* 133.333% */
+    letter-spacing: -0.384px;
+
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: var(--Neutrals-700, #46464D);
+
+    font-family: Inter, var(--font-inter), sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+  }
+}
+
+.card_image {
+  width: 100%;
+  height: auto;
+
+  margin-bottom: 32px;
+
+  @media only screen and (max-width: 600px) {
+    width: 120px;
+  }
+}
+
+.cta-block {
+  position: relative;
+
+  width: 100%;
+  background: white;
+
+  display: inline-flex;
+  flex-flow: row wrap;
+  gap: 8px;
+  padding: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  color: var(--Neutrals-800---Primary-content, #29292D);
+
+  text-align: center;
+  font-size: 28px;
+  font-style: normal;
+  line-height: 36px; /* 128.571% */
+  letter-spacing: -0.56px;
+
+  a {
+    color: var(--primary-500-base, #3668DD);
+  }
+
+  p, a {
+    font-family: Rationell, var(--font-rationell), sans-serif;
+    font-weight: 400;
+    z-index: 5;
+  }
+}
+
+.cta-background {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  z-index: 0;
+  user-select: none;
+  touch-action: none;
+  pointer-events: none;
+}
+
+.grants__footer {
+  margin-top: unset !important;
 }
