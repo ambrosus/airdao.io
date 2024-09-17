@@ -7,8 +7,7 @@ import Seo from '@/components/Seo';
 import ContentBanner from './components/ContentBanner';
 import Grants from './components/Grants';
 
-export default function GrantsPage({ page, grants, header, footerText }) {
-  const { data } = page;
+export default function GrantsPage({ grants, header, footerText }) {
   return (
     <>
       <Seo
@@ -28,31 +27,20 @@ export default function GrantsPage({ page, grants, header, footerText }) {
           cta={grants.data.cta_text}
           email={grants.data.email}
         />
-        <Footer
-          data={footerText.data}
-          footerBlock="footer_mobile_apps"
-          additionalData={{
-            bannerTitle: data.footer_banner_title,
-            bannerDescription: data.footer_banner_description,
-            googlePlay: data.google_play,
-            appStore: data.app_store,
-          }}
-        />
+        <Footer data={footerText.data} className={styles['grants__footer']} />
       </div>
     </>
   );
 }
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
-  const page = await client.getSingle('homepagenew');
   const grants = await client.getSingle('grants');
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
   return {
     props: {
-      page,
       grants,
       header,
       footerText: footer,
