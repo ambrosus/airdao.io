@@ -121,6 +121,7 @@
   border-radius: var(--Radius-radi-0, 1698px);
   background: var(--primary-500-base, #3668DD);
   filter: blur(100.6500015258789px);
+  transform: translate3d(0, 0, 0);
 
   @media only screen and (max-width: 1024px) {
     width: 150vw;
