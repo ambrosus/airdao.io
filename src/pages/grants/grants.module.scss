@@ -276,6 +276,7 @@
   z-index: 0;
   user-select: none;
   touch-action: none;
+  pointer-events: none;
 }
 
 .grants__footer {
