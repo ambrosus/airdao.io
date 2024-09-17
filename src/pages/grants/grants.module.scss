@@ -1,8 +1,4 @@
 .container {
-  > footer {
-    margin-top: 65px;
-  }
-
   &.hasBanner {
     .contentBanner {
       padding-top: 140px;
@@ -133,10 +129,18 @@
     top: 40%;
   }
 
+  @media only screen and (max-width: 600px) {
+    width: 180vw;
+    height: 180vw;
+    left: -40vw;
+    top: 70%;
+  }
+
 }
 
 .link {
   color: #3668dd;
+  user-select: auto;
 }
 
 .cards-container {
@@ -169,7 +173,7 @@
   display: flex;
   padding: 32px;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 
   border-radius: 40px;
   background: #FFF;
@@ -269,4 +273,6 @@
   left: 0;
 
   z-index: 0;
+  user-select: none;
+  touch-action: none;
 }
