@@ -46,12 +46,11 @@ export default function Home({
         sections={data.sections}
       />
       <BackedBy title={data.backed_by_title} logos={data.logos} />
-      {/*<BannerRocket*/}
-      {/*  title={data.banner_title}*/}
-      {/*  buttonName={data.banner_button_name}*/}
-      {/*  buttonLink={data.banner_button_link}*/}
-      {/*/>*/}
-      <TemporaryBanner />
+      <BannerRocket
+        title={data.banner_title}
+        buttonName={data.banner_button_name}
+        buttonLink={data.banner_button_link}
+      />
       <ExploreProducts
         smallTitle={data.product_small_title}
         title={data.product_title}
