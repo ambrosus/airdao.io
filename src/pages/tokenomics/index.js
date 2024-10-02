@@ -79,6 +79,8 @@ const Roadmap = ({ header, footerText, page, banner }) => {
   const [selectedFilter, setSelectedFilter] = useState('explorer');
   const [showBanner, setShowBanner] = useState(page?.show_banner);
 
+  console.log({ page });
+
   return (
     <>
       {showBanner && (
@@ -253,6 +255,215 @@ const Roadmap = ({ header, footerText, page, banner }) => {
             <Post data={el} key={asText(el.title)} />
           ))}
         </div>
+        <section className={styles.tokenomics_docs}>
+          <div className={styles.tokenomics_docs_title_description}>
+            <PrismicRichText
+              field={page.tokenomics_doc_title}
+              components={{
+                paragraph: ({ children }) => (
+                  <h2 className={styles.list_title}>{children}</h2>
+                ),
+              }}
+            />
+            <PrismicRichText
+              field={page.tokenomics_doc_description}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className={styles.list_subtitle}>{children}</p>
+                ),
+              }}
+            />
+          </div>
+          <div className={styles.tokenomics_docs_paragraphs}>
+            <div className={styles.tokenomics_docs_paragraph}>
+              <PrismicRichText
+                field={page.tokenomics_doc_amb_token_title}
+                components={{
+                  paragraph: ({ children }) => (
+                    <h3 className={styles.tokenomics_docs_paragraph_title}>
+                      {children}
+                    </h3>
+                  ),
+                }}
+              />
+              {Boolean(page.tokenomics_doc_amb_token) && (
+                <div>
+                  {page.tokenomics_doc_amb_token.map(
+                    ({ subtitle, description }) => (
+                      <div key={subtitle[0].text}>
+                        <div
+                          className={styles.tokenomics_docs_paragraph_subtitle}
+                        >
+                          {subtitle[0].text}
+                        </div>
+                        <div
+                          className={
+                            styles.tokenomics_docs_paragraph_description
+                          }
+                        >
+                          {description[0].text}
+                        </div>
+                      </div>
+                    ),
+                  )}
+                </div>
+              )}
+            </div>
+            <div className={styles.tokenomics_docs_paragraph}>
+              <PrismicRichText
+                field={page.tokenomics_doc_derivative_title}
+                components={{
+                  paragraph: ({ children }) => (
+                    <h3 className={styles.tokenomics_docs_paragraph_title}>
+                      {children}
+                    </h3>
+                  ),
+                }}
+              />
+              <PrismicRichText
+                field={page.tokenomics_doc_derivative_desc}
+                components={{
+                  paragraph: ({ children }) => (
+                    <div
+                      className={styles.tokenomics_docs_paragraph_description}
+                    >
+                      {children}
+                    </div>
+                  ),
+                }}
+              />
+              {Boolean(page.tokenomics_doc_derivative) && (
+                <div>
+                  {page.tokenomics_doc_derivative.map(
+                    ({ subtitle, description, image }) => (
+                      <div key={description[0].text}>
+                        {Boolean(subtitle[0]?.text) && (
+                          <div
+                            className={
+                              styles.tokenomics_docs_paragraph_subtitle
+                            }
+                          >
+                            {subtitle[0].text}
+                          </div>
+                        )}
+                        {Boolean(description[0]?.text) && (
+                          <div
+                            className={
+                              styles.tokenomics_docs_paragraph_description
+                            }
+                          >
+                            {description[0].text}
+                          </div>
+                        )}
+                        {Boolean(image?.url) && (
+                          <img src={image.url} alt={image.alt} />
+                        )}
+                      </div>
+                    ),
+                  )}
+                </div>
+              )}
+            </div>
+            <div className={styles.tokenomics_docs_paragraph}>
+              <PrismicRichText
+                field={page.tokenomics_doc_distribution_title}
+                components={{
+                  paragraph: ({ children }) => (
+                    <h3 className={styles.tokenomics_docs_paragraph_title}>
+                      {children}
+                    </h3>
+                  ),
+                }}
+              />
+              <PrismicRichText
+                field={page.tokenomics_doc_distribution_desc}
+                components={{
+                  paragraph: ({ children }) => (
+                    <div
+                      className={styles.tokenomics_docs_paragraph_description}
+                    >
+                      {children}
+                    </div>
+                  ),
+                }}
+              />
+              {Boolean(page.tokenomics_doc_distribution) && (
+                <div>
+                  {page.tokenomics_doc_distribution.map(
+                    ({ subtitle, description, image }) => (
+                      <div key={description[0].text}>
+                        {Boolean(subtitle[0]?.text) && (
+                          <div
+                            className={
+                              styles.tokenomics_docs_paragraph_subtitle
+                            }
+                          >
+                            {subtitle[0].text}
+                          </div>
+                        )}
+                        {Boolean(description[0]?.text) && (
+                          <div
+                            className={
+                              styles.tokenomics_docs_paragraph_description
+                            }
+                          >
+                            {description[0].text}
+                          </div>
+                        )}
+                        {Boolean(image?.url) && (
+                          <img src={image.url} alt={image.alt} />
+                        )}
+                      </div>
+                    ),
+                  )}
+                </div>
+              )}
+            </div>
+            <div className={styles.tokenomics_docs_paragraph}>
+              <PrismicRichText
+                field={page.tokenomics_doc_breakdown_title}
+                components={{
+                  paragraph: ({ children }) => (
+                    <h3 className={styles.tokenomics_docs_paragraph_title}>
+                      {children}
+                    </h3>
+                  ),
+                }}
+              />
+              {Boolean(page.tokenomics_doc_breakdown) && (
+                <div>
+                  {page.tokenomics_doc_breakdown.map(
+                    ({ subtitle, description, image }) => (
+                      <div key={description[0].text}>
+                        {Boolean(subtitle[0]?.text) && (
+                          <div
+                            className={
+                              styles.tokenomics_docs_paragraph_subtitle
+                            }
+                          >
+                            {subtitle[0].text}
+                          </div>
+                        )}
+                        {Boolean(description[0]?.text) && (
+                          <div
+                            className={
+                              styles.tokenomics_docs_paragraph_description
+                            }
+                          >
+                            {description[0].text}
+                          </div>
+                        )}
+                        {Boolean(image?.url) && (
+                          <img src={image.url} alt={image.alt} />
+                        )}
+                      </div>
+                    ),
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
       </div>
       {footerText && <Footer data={footerText.data} />}
     </>
