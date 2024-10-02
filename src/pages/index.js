@@ -1,3 +1,6 @@
+'use client';
+
+import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
@@ -9,7 +12,6 @@ import styles from '@/components/Homepage/homepage.module.scss';
 import MainBlock from '@/components/Homepage/MainBlock';
 import BackedBy from '@/components/Homepage/BackedBy';
 import BannerRocket from '@/components/Homepage/Banner';
-import ExploreProducts from '@/components/Homepage/ExploreProducts';
 import BeInvolved from '@/components/Homepage/BeInvolved';
 import Mission from '@/components/Homepage/Mission';
 import RoadmapBlogAcademy from '@/components/Homepage/RoadmapBlogAcademy';
@@ -28,6 +30,13 @@ export default function Home({
 }) {
   const { data } = page;
   const [showBanner, setShowBanner] = useState(data?.show_banner);
+
+  const ExploreProductsNoSSR = dynamic(
+    () => import('@/components/Homepage/ExploreProducts'),
+    {
+      ssr: false,
+    },
+  );
 
   return (
     <div className={styles['homepage']}>
@@ -51,7 +60,7 @@ export default function Home({
         buttonName={data.banner_button_name}
         buttonLink={data.banner_button_link}
       />
-      <ExploreProducts
+      <ExploreProductsNoSSR
         smallTitle={data.product_small_title}
         title={data.product_title}
         list={data.products}
