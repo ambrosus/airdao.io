@@ -5355,6 +5355,136 @@ export interface RoadmapDocumentDataOtherListItem {
 }
 
 /**
+ * Item in *Roadmap → Tokenomics DOC AMB Token*
+ */
+export interface RoadmapDocumentDataTokenomicsDocAmbTokenItem {
+  /**
+   * Subtitle field in *Roadmap → Tokenomics DOC AMB Token*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_amb_token[].subtitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle: prismic.RichTextField;
+
+  /**
+   * Description field in *Roadmap → Tokenomics DOC AMB Token*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_amb_token[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Item in *Roadmap → Tokenomics DOC Derivative*
+ */
+export interface RoadmapDocumentDataTokenomicsDocDerivativeItem {
+  /**
+   * Subtitle field in *Roadmap → Tokenomics DOC Derivative*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_derivative[].subtitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle: prismic.RichTextField;
+
+  /**
+   * Description field in *Roadmap → Tokenomics DOC Derivative*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_derivative[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Image field in *Roadmap → Tokenomics DOC Derivative*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_derivative[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Item in *Roadmap → Tokenomics DOC Distribution*
+ */
+export interface RoadmapDocumentDataTokenomicsDocDistributionItem {
+  /**
+   * Subtitle field in *Roadmap → Tokenomics DOC Distribution*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_distribution[].subtitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle: prismic.RichTextField;
+
+  /**
+   * Description field in *Roadmap → Tokenomics DOC Distribution*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_distribution[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Image field in *Roadmap → Tokenomics DOC Distribution*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_distribution[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Item in *Roadmap → Tokenomics DOC Breakdown*
+ */
+export interface RoadmapDocumentDataTokenomicsDocBreakdownItem {
+  /**
+   * Subtitle field in *Roadmap → Tokenomics DOC Breakdown*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_breakdown[].subtitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle: prismic.RichTextField;
+
+  /**
+   * Description field in *Roadmap → Tokenomics DOC Breakdown*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_breakdown[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Image field in *Roadmap → Tokenomics DOC Breakdown*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_breakdown[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
  * Content for Roadmap documents
  */
 interface RoadmapDocumentData {
@@ -5626,7 +5756,145 @@ interface RoadmapDocumentData {
    * - **Tab**: Soon
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */;
-  soon_label: prismic.RichTextField;
+  soon_label: prismic.RichTextField /**
+   * Tokenomics DOC Title field in *Roadmap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_title
+   * - **Tab**: TokenomicsDOC
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */;
+  tokenomics_doc_title: prismic.RichTextField;
+
+  /**
+   * Tokenomics DOC Description field in *Roadmap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_description
+   * - **Tab**: TokenomicsDOC
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tokenomics_doc_description: prismic.RichTextField;
+
+  /**
+   * Tokenomics DOC AMB Token Title field in *Roadmap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_amb_token_title
+   * - **Tab**: TokenomicsDOC
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tokenomics_doc_amb_token_title: prismic.RichTextField;
+
+  /**
+   * Tokenomics DOC AMB Token field in *Roadmap*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_amb_token[]
+   * - **Tab**: TokenomicsDOC
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  tokenomics_doc_amb_token: prismic.GroupField<
+    Simplify<RoadmapDocumentDataTokenomicsDocAmbTokenItem>
+  >;
+
+  /**
+   * Tokenomics DOC Derivative Title  field in *Roadmap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_derivative_title
+   * - **Tab**: TokenomicsDOC
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tokenomics_doc_derivative_title: prismic.RichTextField;
+
+  /**
+   * Tokenomics DOC Derivative Desc field in *Roadmap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_derivative_desc
+   * - **Tab**: TokenomicsDOC
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tokenomics_doc_derivative_desc: prismic.RichTextField;
+
+  /**
+   * Tokenomics DOC Derivative field in *Roadmap*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_derivative[]
+   * - **Tab**: TokenomicsDOC
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  tokenomics_doc_derivative: prismic.GroupField<
+    Simplify<RoadmapDocumentDataTokenomicsDocDerivativeItem>
+  >;
+
+  /**
+   * Tokenomics DOC Distribution Title field in *Roadmap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_distribution_title
+   * - **Tab**: TokenomicsDOC
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tokenomics_doc_distribution_title: prismic.RichTextField;
+
+  /**
+   * Tokenomics DOC Distribution Desc field in *Roadmap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_distribution_desc
+   * - **Tab**: TokenomicsDOC
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tokenomics_doc_distribution_desc: prismic.RichTextField;
+
+  /**
+   * Tokenomics DOC Distribution field in *Roadmap*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_distribution[]
+   * - **Tab**: TokenomicsDOC
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  tokenomics_doc_distribution: prismic.GroupField<
+    Simplify<RoadmapDocumentDataTokenomicsDocDistributionItem>
+  >;
+
+  /**
+   * Tokenomics DOC Breakdown Title field in *Roadmap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_breakdown_title
+   * - **Tab**: TokenomicsDOC
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tokenomics_doc_breakdown_title: prismic.RichTextField;
+
+  /**
+   * Tokenomics DOC Breakdown field in *Roadmap*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roadmap.tokenomics_doc_breakdown[]
+   * - **Tab**: TokenomicsDOC
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  tokenomics_doc_breakdown: prismic.GroupField<
+    Simplify<RoadmapDocumentDataTokenomicsDocBreakdownItem>
+  >;
 }
 
 /**
@@ -7197,6 +7465,10 @@ declare module '@prismicio/client' {
       RoadmapDocumentDataExplorerListItem,
       RoadmapDocumentDataMultisigListItem,
       RoadmapDocumentDataOtherListItem,
+      RoadmapDocumentDataTokenomicsDocAmbTokenItem,
+      RoadmapDocumentDataTokenomicsDocDerivativeItem,
+      RoadmapDocumentDataTokenomicsDocDistributionItem,
+      RoadmapDocumentDataTokenomicsDocBreakdownItem,
       RoadmapnewDocument,
       RoadmapnewDocumentData,
       RoadmapnewDocumentDataSlicesSlice,

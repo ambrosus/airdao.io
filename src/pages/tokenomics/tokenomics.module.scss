@@ -287,3 +287,129 @@
   width: fit-content;
   display: block;
 }
+
+.tokenomics_docs_title_description {
+  margin-bottom: 124px;
+  
+  p {
+    max-width: 1024px;
+  }
+
+  @media screen and (max-width: 1050px) {
+    margin-bottom: 80px;
+  }
+  
+  @media screen and (max-width: 610px) {
+    margin-bottom: 64px;
+  }
+}
+
+.tokenomics_docs_paragraphs {
+  gap: 124px;
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  max-width: 860px;
+  flex-direction: column;
+  
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  @media screen and (max-width: 1050px) {
+    gap: 80px;
+  }
+  
+  @media screen and (max-width: 610px) {
+    gap: 64px;
+  }
+}
+
+.tokenomics_docs_paragraph {
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  
+  div {
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media screen and (max-width: 1050px) {
+    gap: 16px;
+    
+    div {
+      gap: 16px;
+    }
+  }
+  
+  @media screen and (max-width: 610px) {
+    gap: 16px;
+    
+    div {
+      gap: 16px;
+    }
+  }
+}
+
+.tokenomics_docs_paragraph_title {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 54px;
+  letter-spacing: -0.96px;
+  font-family: var(--font-inter);
+  color: var(--Neutral-700, #222426);
+
+  @media screen and (max-width: 1050px) {
+    font-size: 40px;
+  }
+  
+  @media screen and (max-width: 610px) {
+    font-size: 32px;
+  }
+}
+
+.tokenomics_docs_paragraph_subtitle {
+  color: #393B40;
+  font-size: 32px;
+  font-weight: 500;
+  margin-top: 32px;
+  line-height: 57px;
+  letter-spacing: -0.64px;
+  font-family: var(--font-rationell);
+  
+  @media screen and (max-width: 1050px) {
+    font-size: 28px;
+    margin-top: 24px;
+    line-height: 42px;
+  }
+  
+  @media screen and (max-width: 610px) {
+    font-size: 24px;
+    margin-top: 16px;
+    line-height: 32px;
+  }
+}
+
+.tokenomics_docs_paragraph_description {
+  color: #393B40;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: -0.32px;
+  font-family: var(--font-inter);
+
+  @media screen and (max-width: 610px) {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.14px;
+  }
+
+  @media screen and (max-width: 610px) {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.14px;
+  }
+}
