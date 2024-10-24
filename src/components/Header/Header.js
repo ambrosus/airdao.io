@@ -1,8 +1,6 @@
 import { createClient } from '@/prismicio';
 import { Button } from '@airdao/ui-library';
-import { asText } from '@prismicio/client';
 import { useWeb3React } from '@web3-react/core';
-import { WalletConnect } from '@web3-react/walletconnect-v2';
 import {
   useAuthorization,
   useAutoLogin,
@@ -92,7 +90,13 @@ const Header = ({ header, showBanner = false }) => {
     };
   }, [account]);
 
-  const { loginMetamask, loginWalletConnect, loginSafepal, loginBitget, logout } = useAuthorization(
+  const {
+    loginMetamask,
+    loginWalletConnect,
+    loginSafepal,
+    loginBitget,
+    logout,
+  } = useAuthorization(
     metamaskConnector,
     walletconnectConnector,
     bitgetWalletConnector,
@@ -122,9 +126,15 @@ const Header = ({ header, showBanner = false }) => {
   let connectorIcon = <WalletConnectIcon />;
 
   if (connector?.provider?.isBitKeep) {
-    connectorIcon = <img src={bitgetIcon.src} alt="bitget" className={styles["header__bitget"]}/>
+    connectorIcon = (
+      <img
+        src={bitgetIcon.src}
+        alt="bitget"
+        className={styles['header__bitget']}
+      />
+    );
   } else if (connector?.provider?.isMetaMask) {
-    connectorIcon = <MetaMaskIcon />
+    connectorIcon = <MetaMaskIcon />;
   }
 
   return (
@@ -176,8 +186,9 @@ const Header = ({ header, showBanner = false }) => {
                     )}`}
                   </span>
                   <ArrowTop
-                    className={`${styles['header__address-arrow']} ${isAddressInfoOpen ? '' : styles['open']
-                      }`}
+                    className={`${styles['header__address-arrow']} ${
+                      isAddressInfoOpen ? '' : styles['open']
+                    }`}
                   />
                 </div>
                 <button
