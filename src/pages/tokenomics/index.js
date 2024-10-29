@@ -79,8 +79,6 @@ const Roadmap = ({ header, footerText, page, banner }) => {
   const [selectedFilter, setSelectedFilter] = useState('explorer');
   const [showBanner, setShowBanner] = useState(page?.show_banner);
 
-  console.log({ page });
-
   return (
     <>
       {showBanner && (
