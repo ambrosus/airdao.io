@@ -13,7 +13,7 @@ import TextBlock from 'src/components/Team/TextBlock';
 
 const TeamPage = ({ header, footerText, page, banner }) => {
   const footerSlice = getFooterBlockSlice(page.data);
-  const [showBanner, setShowBanner] = useState(page?.data?.banner_title[0].text);
+  const [showBanner, setShowBanner] = useState(page?.data?.show_banner);
   return (
     <>
       <Seo

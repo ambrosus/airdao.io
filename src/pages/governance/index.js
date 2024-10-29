@@ -19,7 +19,7 @@ const GovernancePage = ({
   banner,
 }) => {
   const footerSlice = getFooterBlockSlice(page.data);
-  const [showBanner, setShowBanner] = useState(page?.data?.banner_title[0].text);
+  const [showBanner, setShowBanner] = useState(page?.data?.show_banner);
 
   return (
     <>

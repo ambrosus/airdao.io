@@ -15,7 +15,7 @@ import HeroBg from '@/components/Landing/GovPortal/HeroSection/assets/background
 
 export default function Landing({ page, portal, header, banner, footerText }) {
   const { data } = page;
-  const [showBanner, setShowBanner] = useState(data?.banner_title[0].text);
+  const [showBanner, setShowBanner] = useState(data?.show_banner);
 
   return (
     <>
