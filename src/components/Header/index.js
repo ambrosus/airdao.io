@@ -26,7 +26,7 @@ const config = createAirdaoConfigWithChainId(+chainId, WC_PARAMS);
 
 const HeaderWrapper = ({ header, showBanner = false }) => {
   return (
-    <WagmiProvider config={config}>
+    <WagmiProvider config={config} reconnectOnMount={false}>
       <QueryClientProvider client={queryClient}>
         <Header chainId={+chainId} />
       </QueryClientProvider>

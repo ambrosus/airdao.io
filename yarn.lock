@@ -12,10 +12,10 @@
   resolved "https://registry.yarnpkg.com/@adraffy/ens-normalize/-/ens-normalize-1.11.0.tgz#42cc67c5baa407ac25059fcd7d405cc5ecdb0c33"
   integrity sha512-/3DDPKHqqIqxUULp8yP4zODUY1i+2xvVWsv8A79xGWdCAG+8sb0hRh0Rk2QyOJUnnbyPUAZYcpBuRe3nS2OIUg==
 
-"@airdao/ui-library@2.0.0-beta.13":
-  version "2.0.0-beta.13"
-  resolved "https://registry.yarnpkg.com/@airdao/ui-library/-/ui-library-2.0.0-beta.13.tgz#65089730b8c6269ab8c748a9fa295ea31e58316c"
-  integrity sha512-v3eaCSyWqp+vDWIEIIJFHWe/2WQ/s2k21Zg9IigbvPIjvuP/ScjtlF7GUnMaX4BtADRmJymqxelBsh1aKT6/bQ==
+"@airdao/ui-library@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@airdao/ui-library/-/ui-library-2.0.0.tgz#c58eb4f4487d4e8cbda42a602cdc3b1eb60adc99"
+  integrity sha512-XKHE1UxUFp2IL463RxqC1Gn71F6lEJkruG8BbKbITH0EH6I8680chRM1tBInTvDrN2qa1w5cPuwh6iC8Gk5gxQ==
   dependencies:
     "@prismicio/client" "^7.1.1"
     "@prismicio/react" "^2.5.0"
@@ -2649,11 +2649,6 @@ decamelize@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
   integrity sha512-z2S+W9X73hAUUki+N+9Za2lBlun89zigOyGrsax+KUQ6wKW4ZoWpEYBkGhQjwAjjDCkWxhY0VKEhk8wzY7F5cA==
-
-decimal.js-light@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/decimal.js-light/-/decimal.js-light-2.5.1.tgz#134fd32508f19e208f4fb2f8dac0d2626a867934"
-  integrity sha512-qIMFpTMZmny+MMIitAB6D7iVPEorVw6YQRWkvarTkT4tBeSLLiHzcwj6q0MmYSFCiVpiqPJTJEYIrpcPzVEIvg==
 
 decode-uri-component@^0.2.2:
   version "0.2.2"
