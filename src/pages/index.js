@@ -29,7 +29,7 @@ export default function Home({
   latestEventsArticles,
 }) {
   const { data } = page;
-  const [showBanner, setShowBanner] = useState(data?.show_banner);
+  const [showBanner, setShowBanner] = useState(data?.banner_title[0].text);
 
   const ExploreProductsNoSSR = dynamic(
     () => import('@/components/Homepage/ExploreProducts'),
@@ -37,7 +37,7 @@ export default function Home({
       ssr: false,
     },
   );
-
+  console.log(data);
   return (
     <div className={styles['homepage']}>
       <Seo

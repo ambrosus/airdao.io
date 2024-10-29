@@ -12,7 +12,7 @@ import Hero from 'src/components/BrandMaterials/Hero';
 
 const BrandMaterialsPage = ({ header, footerText, page, banner }) => {
   const footerSlice = getFooterBlockSlice(page.data);
-  const [showBanner, setShowBanner] = useState(page?.data?.show_banner);
+  const [showBanner, setShowBanner] = useState(page?.data?.banner_title[0].text);
   return (
     <>
       <Seo
