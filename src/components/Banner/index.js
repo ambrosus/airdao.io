@@ -10,7 +10,7 @@ import CloseIcon from './icons/closeIcon.svg';
 import GlobeIcon from './icons/globeIcon.svg';
 import GlobeWhiteIcon from './icons/globeWhiteIcon.svg';
 
-export default function Banner({ data, setShowBanner, nextLink = true }) {
+export default function Banner({ data, setShowBanner, nextLink = false }) {
   const type = data?.type;
 
   useEffect(() => {
