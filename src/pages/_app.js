@@ -76,6 +76,13 @@ export default function App({ Component, pageProps }) {
     <main
       className={`${inter.variable} ${mersad.variable} ${rationell.variable}`}
     >
+      <style jsx global>
+        {`
+          html {
+            font-family: ${inter.style.fontFamily};
+          }
+        `}
+      </style>
       <Head>
         <link rel="icon" href="/favicon.svg" />
       </Head>
