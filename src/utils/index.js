@@ -4,3 +4,10 @@ export function splitArray(array) {
   const secondHalf = array.slice(halfLength);
   return [firstHalf, secondHalf];
 }
+
+export const collapseString = (string, symbolsToShow = 10) => {
+  return `${string.substring(0, symbolsToShow)}...${string.substring(
+    string.length - symbolsToShow,
+    string.length,
+  )}`;
+};
