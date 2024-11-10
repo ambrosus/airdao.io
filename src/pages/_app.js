@@ -1,7 +1,12 @@
 import '@/styles/base/index.scss';
 import '@/styles/bond-exchange.scss';
 import 'react-toastify/dist/ReactToastify.css';
-import { NotificationContainer } from '@airdao/ui-library';
+import {
+  NotificationContainer,
+  createAirdaoConfigWithChainId,
+} from '@airdao/ui-library';
+import { WagmiProvider } from 'wagmi';
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 
 import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
@@ -71,6 +76,23 @@ const rationell = localFont({
   variable: '--font-rationell',
 });
 
+const queryClient = new QueryClient();
+
+const chainId = +process.env.NEXT_PUBLIC_CHAIN_ID;
+const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID;
+
+const WC_PARAMS = {
+  projectId: projectId,
+  metadata: {
+    name: 'AirDAO',
+    description:
+      'AirDAO is a transparent and accessible L1 blockchain for everyone',
+    url: 'https://airdao.io/',
+    icons: ['https://airdao.io/favicon.svg'],
+  },
+};
+const config = createAirdaoConfigWithChainId(+chainId, WC_PARAMS);
+
 export default function App({ Component, pageProps }) {
   return (
     <main
@@ -113,7 +135,11 @@ export default function App({ Component, pageProps }) {
             gtag('config', 'G-Z4QJE54Z4R');`}
       </Script>
       <NotificationContainer />
-      <Component {...pageProps} />
+      <WagmiProvider config={config} reconnectOnMount={false}>
+        <QueryClientProvider client={queryClient}>
+          <Component {...pageProps} />
+        </QueryClientProvider>
+      </WagmiProvider>
     </main>
   );
 }

@@ -1,0 +1,209 @@
+.container {
+  padding-top: 130px;
+  padding-bottom: 150px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &.bg1 {
+    background-color: var(--primary-500-base, #7a9dec);
+    background-image: url("/bg-image-1.svg");
+  }
+
+  &.bg2 {
+    background-color: var(--primary-500-base, #7a9dec);
+    background-image: url("/bg-image-2.svg");
+  }
+
+  &.largeInset {
+    padding-top: 215px;
+    padding-bottom: 440px;
+  }
+}
+
+.innerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 24px;
+  max-width: 1080px;
+  margin-inline: auto;
+  padding: 24px;
+  border-radius: 24px;
+  background-color: #fff;
+  box-shadow: 0px 0px 1px 0px #c2c5cc, 0px 4px 8px 0px rgba(47, 43, 67, 0.1);
+}
+
+.connectContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 345px;
+  margin-inline: auto;
+  padding: 24px;
+  border-radius: 24px;
+  background-color: #fff;
+  box-shadow: 0px 0px 1px 0px #c2c5cc, 0px 4px 8px 0px rgba(47, 43, 67, 0.1);
+}
+
+.footer {
+  margin-top: 0 !important;
+}
+
+.title {
+  color: #29292d;
+  font-family: var(--font-rationell);
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: -0.56px;
+}
+
+.desc {
+  display: inline-flex;
+  margin-bottom: 8px;
+  font-family: var(--font-inter);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+  color: #63636d;
+}
+
+.formatted {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  color: #29292d;
+  font-family: var(--font-inter);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.24px;
+}
+
+.list {
+  display: flex;
+  width: 100%;
+  row-gap: 8px;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  padding: 24px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 16px;
+  border: 1px solid var(--Neutrals-100, #f2f2f3);
+
+  .heading {
+    margin-bottom: 8px;
+    color: var(--Neutrals-900, #0c0c0d);
+    font-family: var(--font-inter);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -0.28px;
+  }
+
+  .text {
+    color: var(--Neutrals-600---Secondary-content, #63636d);
+    font-family: var(--font-inter);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.16px;
+
+    span {
+      color: var(--Neutrals-900, #0c0c0d);
+      font-weight: 600;
+    }
+  }
+}
+
+.infoBlock {
+  display: inline-flex;
+  padding: 16px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 13px;
+  border: 1px solid var(--primitives-yellow-200-lighter, #ffe4a1);
+  background: var(--Primitives-Yellow-50, #fff8e5);
+  box-shadow: 0px -1px 0px 0px rgba(47, 43, 67, 0.1) inset,
+    0px 1px 3px 0px rgba(47, 43, 67, 0.1);
+
+  p {
+    color: var(--Warning-900, #48370c);
+    font-feature-settings: "liga" off, "clig" off;
+    font-family: var(--font-inter);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: -0.31px;
+  }
+}
+
+.button {
+  display: flex;
+  padding: 6px var(--space-6, 12px);
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-3, 4px);
+  border-radius: var(--Radius-radi-10, 1000px);
+  background: var(--Neutral-0, #fff);
+  box-shadow: 0px -1px 0px 0px rgba(47, 43, 67, 0.1) inset,
+    0px 1px 3px 0px rgba(47, 43, 67, 0.1);
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 16px;
+  text-align: center;
+
+  p {
+    line-height: 1.25rem;
+  }
+
+  .text {
+    font-size: 14px;
+    color: var(--Neutral-400, #676b73);
+  }
+
+  h4 {
+    color: var(--Neutrals-800---Primary-content, #29292d);
+    text-align: center;
+    font-family: var(--font-inter);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: -0.216px;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .loader {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.pagination {
+  justify-content: center;
+  margin-top: 20px;
+  display: flex;
+  items-align: center;
+  column-gap: 8px;
+}
