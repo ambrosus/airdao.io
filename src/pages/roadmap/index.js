@@ -11,6 +11,7 @@ import icon from './roadmap.svg';
 import { formatDate } from '@/utils/formatDate';
 import ArticlesList from '@/components/ArticlesList';
 import * as prismic from '@prismicio/client';
+import Seo from '@/components/Seo';
 
 const getCurrentDay = () => {
   const now = new Date();
@@ -46,6 +47,11 @@ const RoadmapNew = ({ footerText, header, page, articles }) => {
         <meta property="og:image" content="https://airdao.io/roadmap-og.png" />
         <meta name="twitter:image" content="https://airdao.io/roadmap-og.png" />
       </Head>
+      <Seo
+        title={page.data.meta_title}
+        description={page.data.meta_description}
+        image={page.data.meta_image.url}
+      />
       {header && <HeaderWrapper header={header} />}
       <div className={styles.heading}>
         <div className={styles.heading__wrapper}>

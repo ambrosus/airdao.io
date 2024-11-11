@@ -13,6 +13,7 @@ import { useEffect, useMemo, useState } from 'react';
 import arrow from './arrow.svg';
 import styles from './buy-amb.module.scss';
 import info from './info.svg';
+import Seo from '@/components/Seo';
 
 const options = [
   { title: 'AMB/USDT', value: 'usdt' },
@@ -51,6 +52,11 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
         <meta property="og:image" content="https://airdao.io/og-get-amb.png" />
         <meta name="twitter:image" content="https://airdao.io/og-get-amb.png" />
       </Head>
+      <Seo
+        title={page.meta_title}
+        description={page.meta_description}
+        image={page.meta_image.url}
+      />
       {showBanner && (
         <Banner data={banner?.data} setShowBanner={setShowBanner} />
       )}
@@ -238,7 +244,11 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
                   target="_blank"
                   key={networkList.network_contract_address.text}
                 >
-                  <img src={networkList.network_logo.url} className={styles.token__icon} alt="bsc" />
+                  <img
+                    src={networkList.network_logo.url}
+                    className={styles.token__icon}
+                    alt="bsc"
+                  />
                   <p className={styles.token__name}>
                     <PrismicRichText
                       field={networkList.network_name}
@@ -246,7 +256,7 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
                         paragraph: ({ children }) => <>{children}</>,
                       }}
                     />
-                    <img src={info.src} className={styles.info} alt="info"  />
+                    <img src={info.src} className={styles.info} alt="info" />
                   </p>
                   <p className={styles.token__address}>
                     <PrismicRichText
