@@ -8,19 +8,22 @@ import { Button, Notify, Loader } from '@airdao/ui-library';
 import { BigNumber } from '@ethersproject/bignumber';
 import { formatEther as ethersFormatEther } from '@ethersproject/units';
 import Image from 'next/image';
+import Link from 'next/link';
 
+import ArrowRight2Icon from '@/components/Icons/ArrowRight2';
 import RewardDistributionABI from '@/abis/RewardDistribution.json';
 import { AIRDAO_ADDRESSES } from '@/constants/addresses';
 import styles from './styles.module.scss';
 import useGetRewards from '@/hooks/useGetRewards';
-import Link from 'next/link';
-import ArrowRight2Icon from '@/components/Icons/ArrowRight2';
 import usePagination from '@/hooks/usePagination';
+import Pagination from './pagination';
 
 const sumRewardsAmount = rewards => {
   return rewards.reduce((total, reward) => {
-    if (!('status' in reward)) {
-      return total.add(BigNumber.from(reward.amount));
+    if ('status' in reward) {
+      if (reward.status === 'claim') {
+        return total.add(BigNumber.from(reward.amount));
+      }
     }
     return total;
   }, BigNumber.from(0));
@@ -28,8 +31,10 @@ const sumRewardsAmount = rewards => {
 
 const RewardsList = () => {
   const { address: account } = useAccount();
-  const { start, limit, currentPage, goToPage } = usePagination();
-  const { data: rewards, isLoading } = useGetRewards(account, start, limit);
+  const methods = usePagination();
+  const { start, limit } = methods;
+  const { data, isLoading } = useGetRewards(account, start, limit);
+  const { rewards } = data;
 
   return (
     <>
@@ -67,24 +72,7 @@ const RewardsList = () => {
                 <p className={styles.text}>No rewards found</p>
               </div>
             )}
-            <div className={styles.pagination}>
-              <Button
-                size="small"
-                type="secondary"
-                onClick={() => goToPage(Math.max(1, currentPage - 1))}
-                disabled={currentPage === 1}
-              >
-                Prev
-              </Button>
-              <Button
-                size="small"
-                type="secondary"
-                onClick={() => goToPage(currentPage + 1)}
-                disabled={rewards.length === 0}
-              >
-                Next
-              </Button>
-            </div>
+            <Pagination methods={methods} data={data} />
           </>
         ) : (
           <div className={styles.item}>
@@ -125,7 +113,7 @@ const RewardItem = ({ reward }) => {
     }
   }, [result.isSuccess]);
 
-  const onClaim = id => {
+  const onClaimHandler = id => {
     if (!id) {
       console.error('Reward ID is missing!');
       return;
@@ -172,7 +160,9 @@ const RewardItem = ({ reward }) => {
         </p>
       </div>
       <Button
-        onClick={() => onClaim(reward.id)}
+        onClick={
+          isDisabled(reward) ? undefined : () => onClaimHandler(reward.id)
+        }
         disabled={isDisabled(reward) || result.isFetching || result.isFetched}
         size="small"
         type="primary"

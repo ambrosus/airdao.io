@@ -4,24 +4,30 @@ import getRewards from '@/services/getRewards';
 
 const useGetRewards = (address, start = 0, limit = 10) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({
+    rewards: [],
+    total: 0,
+  });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const rewards = await getRewards(address, start, limit);
+        const { data, total } = await getRewards(address, start, limit);
 
-        if (rewards) {
-          const modifyRewards = rewards.map(reward => {
-            const status = 'status' in reward ? reward.status : '';
+        if (data) {
+          const modifyRewards = data.map(reward => {
+            const status = 'status' in reward ? reward.status : 'claim';
 
             return {
               status,
               ...Object.values(reward.rewardsByWallet)[0],
             };
           });
-          setData(modifyRewards);
+          setData({
+            rewards: modifyRewards,
+            total: total || 0,
+          });
         }
         setIsLoading(false);
       } catch (error) {
