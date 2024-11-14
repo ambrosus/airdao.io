@@ -7,7 +7,7 @@
   background-position: center;
 
   &.bg1 {
-    background-color: rgba(53, 104, 221, 1);
+    background-color: #f2f2f3;
     background-image: url("/bg-image-1.svg");
   }
 
@@ -111,6 +111,12 @@
     font-weight: 500;
     line-height: 28px;
     letter-spacing: -0.28px;
+
+    @media only screen and (max-width: 767px) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 200px;
+    }
   }
 
   .text {
