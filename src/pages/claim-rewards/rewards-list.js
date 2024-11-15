@@ -2,6 +2,7 @@ import {
   useWaitForTransactionReceipt,
   useWriteContract,
   useAccount,
+  useReadContract,
 } from 'wagmi';
 import { useEffect, useCallback } from 'react';
 import { Button, Notify, Loader } from '@airdao/ui-library';
@@ -10,7 +11,9 @@ import { formatEther as ethersFormatEther } from '@ethersproject/units';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import getUser from '@/services/getUser';
 import ArrowRight2Icon from '@/components/Icons/ArrowRight2';
+import HumanSbtABI from '@/abis/human-sbt.abi.json';
 import RewardDistributionABI from '@/abis/RewardDistribution.json';
 import { AIRDAO_ADDRESSES } from '@/constants/addresses';
 import styles from './styles.module.scss';
@@ -35,6 +38,13 @@ const RewardsList = () => {
   const { start, limit } = methods;
   const { data, isLoading } = useGetRewards(account, start, limit);
   const { rewards } = data;
+
+  const readMethods = useReadContract({
+    address: AIRDAO_ADDRESSES.HumanSBTAddress,
+    abi: HumanSbtABI,
+    functionName: 'sbtVerify',
+    args: [account],
+  });
 
   return (
     <>
@@ -65,7 +75,11 @@ const RewardsList = () => {
           <>
             {rewards.length > 0 ? (
               rewards.map(reward => (
-                <RewardItem reward={reward} key={reward.id} />
+                <RewardItem
+                  checkMethods={readMethods}
+                  reward={reward}
+                  key={reward.id}
+                />
               ))
             ) : (
               <div className={styles.item}>
@@ -84,11 +98,13 @@ const RewardsList = () => {
   );
 };
 
-const RewardItem = ({ reward }) => {
+const RewardItem = ({ checkMethods, reward }) => {
   const { writeContract, data: hash, isPending } = useWriteContract();
   const result = useWaitForTransactionReceipt({
     hash,
   });
+
+  const { isLoading, isError } = checkMethods;
 
   const isDisabled = useCallback(
     reward => {
@@ -102,9 +118,13 @@ const RewardItem = ({ reward }) => {
         return true;
       }
 
+      if (isLoading || isError) {
+        return true;
+      }
+
       return false;
     },
-    [isPending],
+    [isPending, isError, isLoading],
   );
 
   useEffect(() => {
@@ -120,7 +140,7 @@ const RewardItem = ({ reward }) => {
     }
 
     const contractParams = {
-      address: AIRDAO_ADDRESSES.RewardDistribution,
+      address: AIRDAO_ADDRESSES.RewardAddress,
       abi: RewardDistributionABI,
       functionName: 'claimRewards',
       args: [id],
