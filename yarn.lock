@@ -12,10 +12,10 @@
   resolved "https://registry.yarnpkg.com/@adraffy/ens-normalize/-/ens-normalize-1.11.0.tgz#42cc67c5baa407ac25059fcd7d405cc5ecdb0c33"
   integrity sha512-/3DDPKHqqIqxUULp8yP4zODUY1i+2xvVWsv8A79xGWdCAG+8sb0hRh0Rk2QyOJUnnbyPUAZYcpBuRe3nS2OIUg==
 
-"@airdao/ui-library@2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@airdao/ui-library/-/ui-library-2.0.1.tgz#b8afa14c0172a9a402011fc67d85b50fbf06f97c"
-  integrity sha512-MXqR4CwaiYjkbYj8BftH+dgIQ/nRpj696lNVVO0E8VXiSjlF6Hj07T1qAXgkLM749GqZQkjcgo4/JbnpRdb54A==
+"@airdao/ui-library@2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@airdao/ui-library/-/ui-library-2.0.5.tgz#a7f641ab377b4089038d1868727f2fa528f1a6c1"
+  integrity sha512-2qUEsemZjRm08e0crvELCFJj+kjkrqpAH0LYO9tBGI9WN7otem3vKxP66x6DlWZq6iyB7eJT9ObZrd12UL2Yrg==
   dependencies:
     "@prismicio/client" "^7.1.1"
     "@prismicio/react" "^2.5.0"
