@@ -4,6 +4,7 @@ export default async function getRewards(account, start, limit) {
     return {
       rewards: [],
       total: 0,
+      totalRewards: null,
     };
   }
 
@@ -14,6 +15,7 @@ export default async function getRewards(account, start, limit) {
     return {
       rewards: [],
       total: 0,
+      totalRewards: null,
     };
   }
 
@@ -39,15 +41,16 @@ export default async function getRewards(account, start, limit) {
       return {
         rewards: [],
         total: 0,
+        totalRewards: null,
       };
     }
-
     return response.json();
   } catch (error) {
     console.warn(error);
     return {
       rewards: [],
       total: 0,
+      totalRewards: null,
     };
   }
 }

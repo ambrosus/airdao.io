@@ -11,7 +11,6 @@ import { formatEther as ethersFormatEther } from '@ethersproject/units';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import getUser from '@/services/getUser';
 import ArrowRight2Icon from '@/components/Icons/ArrowRight2';
 import HumanSbtABI from '@/abis/human-sbt.abi.json';
 import RewardDistributionABI from '@/abis/RewardDistribution.json';
@@ -37,7 +36,7 @@ const RewardsList = () => {
   const methods = usePagination();
   const { start, limit } = methods;
   const { data, isLoading } = useGetRewards(account, start, limit);
-  const { rewards } = data;
+  const { rewards, totalRewards } = data;
 
   const readMethods = useReadContract({
     address: AIRDAO_ADDRESSES.HumanSBTAddress,
@@ -53,8 +52,8 @@ const RewardsList = () => {
         <span className={styles.desc}>Available to claim</span>
         <span className={styles.formatted}>
           <Image src="/airdao.svg" alt="airdao" width={28} height={28} />
-          {rewards && rewards.length > 0
-            ? ethersFormatEther(sumRewardsAmount(rewards))
+          {totalRewards && totalRewards > 0
+            ? ethersFormatEther(BigNumber.from(totalRewards))
             : '0'}{' '}
           AMB
         </span>

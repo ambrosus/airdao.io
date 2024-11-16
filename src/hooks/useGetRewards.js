@@ -13,7 +13,11 @@ const useGetRewards = (address, start = 0, limit = 10) => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const { data, total } = await getRewards(address, start, limit);
+        const { data, total, totalRewards } = await getRewards(
+          address,
+          start,
+          limit,
+        );
 
         if (data) {
           const modifyRewards = data.map(reward => {
@@ -27,6 +31,7 @@ const useGetRewards = (address, start = 0, limit = 10) => {
           setData({
             rewards: modifyRewards,
             total: total || 0,
+            totalRewards: totalRewards || null,
           });
         }
         setIsLoading(false);
