@@ -4774,7 +4774,130 @@ interface HomepagenewDocumentData {
    * - **Tab**: Banner
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  banner_button_link: prismic.LinkField /**
+  banner_button_link: prismic.LinkField;
+
+  /**
+   * Background field in *Homepagenew*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.banner_background
+   * - **Tab**: Banner
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  banner_background: prismic.ImageField<never>;
+
+  /**
+   * Illustration field in *Homepagenew*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.banner_illustration
+   * - **Tab**: Banner
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  banner_illustration: prismic.ImageField<never>;
+
+  /**
+   * Countdown title field in *Homepagenew*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.countdown_title
+   * - **Tab**: Banner
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  countdown_title: prismic.RichTextField;
+
+  /**
+   * Countdown link text field in *Homepagenew*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.countdown_link_text
+   * - **Tab**: Banner
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  countdown_link_text: prismic.RichTextField;
+
+  /**
+   * Countdown link field in *Homepagenew*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.countdown_link
+   * - **Tab**: Banner
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  countdown_link: prismic.LinkField;
+
+  /**
+   * Countdown date field in *Homepagenew*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.countdown_date
+   * - **Tab**: Banner
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  countdown_date: prismic.DateField;
+
+  /**
+   * Countdown bg field in *Homepagenew*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.countdown_bg
+   * - **Tab**: Banner
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  countdown_bg: prismic.ImageField<never>;
+
+  /**
+   * Countdown bg mobile field in *Homepagenew*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.countdown_bg_mobile
+   * - **Tab**: Banner
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  countdown_bg_mobile: prismic.ImageField<never>;
+
+  /**
+   * Countdown logo field in *Homepagenew*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepagenew.countdown_logo
+   * - **Tab**: Banner
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  countdown_logo: prismic.ImageField<never>;
+
+  /**
+   * Is banner active field in *Homepagenew*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: homepagenew.banner_is_active
+   * - **Tab**: Banner
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  banner_is_active: prismic.BooleanField;
+
+  /**
+   * Is countdown active field in *Homepagenew*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: homepagenew.countdown_is_active
+   * - **Tab**: Banner
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  countdown_is_active: prismic.BooleanField /**
    * Product small title field in *Homepagenew*
    *
    * - **Field Type**: Rich Text

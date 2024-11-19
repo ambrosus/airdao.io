@@ -10,7 +10,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/img/homepage/banner-rocket-bg.jpg");
+  margin-bottom: 20px;
 
   img {
     top: 50%;
@@ -35,6 +35,7 @@
   @media only screen and (max-width: 767px) {
     height: 128px;
     padding-left: 16px;
+    margin-bottom: 5px;
 
     img {
       left: unset;
