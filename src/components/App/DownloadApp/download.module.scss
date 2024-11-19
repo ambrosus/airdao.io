@@ -84,6 +84,12 @@
                 width: auto;
                 height: 41.51px;
               }
+
+              @media only screen and (max-width: 400px) {
+                width: 110px;
+                height: auto;
+
+              }
             }
           }
         }
