@@ -1,8 +1,8 @@
 .roadmap {
   padding-top: 184px;
 
-  @media screen and (max-width: 610px) {
-    padding-top: 138px;
+  @media screen and (max-width: 1050px) {
+    padding-top: 64px;
   }
 }
 
@@ -290,7 +290,7 @@
 
 .tokenomics_docs_title_description {
   margin-bottom: 124px;
-  
+
   p {
     max-width: 1024px;
   }
@@ -298,7 +298,7 @@
   @media screen and (max-width: 1050px) {
     margin-bottom: 80px;
   }
-  
+
   @media screen and (max-width: 610px) {
     margin-bottom: 64px;
   }
@@ -311,7 +311,7 @@
   margin: 0 auto;
   max-width: 860px;
   flex-direction: column;
-  
+
   img {
     width: 100%;
     max-width: 100%;
@@ -320,7 +320,7 @@
   @media screen and (max-width: 1050px) {
     gap: 80px;
   }
-  
+
   @media screen and (max-width: 610px) {
     gap: 64px;
   }
@@ -330,24 +330,24 @@
   gap: 24px;
   display: flex;
   flex-direction: column;
-  
+
   div {
     gap: 24px;
     display: flex;
     flex-direction: column;
   }
-  
+
   @media screen and (max-width: 1050px) {
     gap: 16px;
-    
+
     div {
       gap: 16px;
     }
   }
-  
+
   @media screen and (max-width: 610px) {
     gap: 16px;
-    
+
     div {
       gap: 16px;
     }
@@ -365,7 +365,7 @@
   @media screen and (max-width: 1050px) {
     font-size: 40px;
   }
-  
+
   @media screen and (max-width: 610px) {
     font-size: 32px;
   }
@@ -379,13 +379,13 @@
   line-height: 57px;
   letter-spacing: -0.64px;
   font-family: var(--font-rationell);
-  
+
   @media screen and (max-width: 1050px) {
     font-size: 28px;
     margin-top: 24px;
     line-height: 42px;
   }
-  
+
   @media screen and (max-width: 610px) {
     font-size: 24px;
     margin-top: 16px;
