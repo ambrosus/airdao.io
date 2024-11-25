@@ -4,7 +4,7 @@ import { Button } from '@airdao/ui-library';
 import styles from './styles.module.scss';
 
 const Pagination = ({ data, methods }) => {
-  const { total } = data || {
+  const { rewards, total } = data || {
     total: 0,
   };
   const { currentPage, goToPage, limit } = methods || {
@@ -48,7 +48,7 @@ const Pagination = ({ data, methods }) => {
         size="small"
         type="tetiary"
         onClick={() => goToPage(Math.max(1, currentPage - 1))}
-        disabled={currentPage === 1}
+        disabled={currentPage === 1 || rewards.length === 0}
       >
         Prev
       </Button>
@@ -57,7 +57,7 @@ const Pagination = ({ data, methods }) => {
         size="small"
         type="tetiary"
         onClick={() => goToPage(currentPage + 1)}
-        disabled={currentPage === tPages}
+        disabled={currentPage === tPages || rewards.length === 0}
       >
         Next
       </Button>
