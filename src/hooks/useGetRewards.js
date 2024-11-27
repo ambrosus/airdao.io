@@ -7,13 +7,16 @@ const useGetRewards = (address, start = 0, limit = 10) => {
   const [data, setData] = useState({
     rewards: [],
     total: 0,
+    availableRewards: null,
   });
+
+  console.log('data', data);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const { data, total, totalRewards } = await getRewards(
+        const { data, total, availableRewards } = await getRewards(
           address,
           start,
           limit,
@@ -31,7 +34,7 @@ const useGetRewards = (address, start = 0, limit = 10) => {
           setData({
             rewards: modifyRewards,
             total: total || 0,
-            totalRewards: totalRewards || null,
+            availableRewards: availableRewards || null,
           });
         }
         setIsLoading(false);

@@ -6,6 +6,7 @@ import styles from './styles.module.scss';
 const Pagination = ({ data, methods }) => {
   const { rewards, total } = data || {
     total: 0,
+    rewards: [],
   };
   const { currentPage, goToPage, limit } = methods || {
     currentPage: 1,
