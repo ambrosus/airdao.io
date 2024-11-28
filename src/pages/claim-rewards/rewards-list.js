@@ -20,23 +20,12 @@ import useGetRewards from '@/hooks/useGetRewards';
 import usePagination from '@/hooks/usePagination';
 import Pagination from './pagination';
 
-const sumRewardsAmount = rewards => {
-  return rewards.reduce((total, reward) => {
-    if ('status' in reward) {
-      if (reward.status === 'claim') {
-        return total.add(BigNumber.from(reward.amount));
-      }
-    }
-    return total;
-  }, BigNumber.from(0));
-};
-
 const RewardsList = () => {
   const { address: account } = useAccount();
   const methods = usePagination();
   const { start, limit } = methods;
   const { data, isLoading } = useGetRewards(account, start, limit);
-  const { rewards, totalRewards } = data;
+  const { rewards, availableRewards } = data;
 
   const readMethods = useReadContract({
     address: AIRDAO_ADDRESSES.HumanSBTAddress,
@@ -52,8 +41,8 @@ const RewardsList = () => {
         <span className={styles.desc}>Available to claim</span>
         <span className={styles.formatted}>
           <Image src="/airdao.svg" alt="airdao" width={28} height={28} />
-          {totalRewards && totalRewards > 0
-            ? ethersFormatEther(BigNumber.from(totalRewards))
+          {availableRewards
+            ? ethersFormatEther(BigNumber.from(availableRewards))
             : '0'}{' '}
           AMB
         </span>
