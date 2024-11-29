@@ -101,6 +101,7 @@ export default function Blog({
     } else {
       setPaginatedArticles(1);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedType]);
 
   const setPaginatedArticles = async (page, scrollTo) => {

@@ -11,7 +11,7 @@ const Slide = ({ slide }) => (
       width={282}
       height={608}
       src={slide.src}
-      alt={slide.title}
+      alt={slide?.title || 'slide'}
       quality={100}
     />
   </div>

@@ -5,7 +5,8 @@ import { asText } from '@prismicio/client';
 import Events from './components/Events';
 import Contact from './components/Contact';
 import MobileApps from './components/MobileApps';
-import { switchText } from './utils';
+
+// import { switchText } from './utils';
 
 const Footer = ({
   data,
@@ -41,16 +42,16 @@ const Footer = ({
       <div className={styles.footer__inner}>
         {block()}
         <div className={styles.footer__lists}>
-          {slices.map((el, i) => (
+          {slices.map(el => (
             <ul key={el.id} className={styles.footer__list}>
-              {el.items.map((item, index) => (
+              {el.items.map(item => (
                 <li
                   key={asText(item.footer_item_text)}
                   className={
                     styles[
-                    item.footer_item_is_title
-                      ? 'footer__lists-title'
-                      : 'footer__lists-item'
+                      item.footer_item_is_title
+                        ? 'footer__lists-title'
+                        : 'footer__lists-item'
                     ]
                   }
                 >
@@ -94,7 +95,7 @@ const Footer = ({
           ))}
         </div>
         <div className={styles.footer__socials}>
-          {socials.map((el, i) => (
+          {socials.map(el => (
             <a
               key={el.footer_social_link.url}
               href={el.footer_social_link.url}

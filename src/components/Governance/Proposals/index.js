@@ -45,7 +45,7 @@ export default function Proposals({ heading, lead, proposals, snapshot }) {
           >
             <Image
               src={proposalIcon}
-              alt={'proposal icon'}
+              alt="proposal icon"
               className={styles.icon}
             />
             <h3 className={styles.card_heading}>
@@ -54,7 +54,7 @@ export default function Proposals({ heading, lead, proposals, snapshot }) {
             </h3>
           </PrismicNextLink>
 
-          {proposals.map((proposal) => (
+          {proposals.map(proposal => (
             <Proposal
               key={proposal.id}
               active={proposal.active}
@@ -75,7 +75,7 @@ export default function Proposals({ heading, lead, proposals, snapshot }) {
   );
 }
 
-function Proposal({ active, date, content, link }) {
+function Proposal({ content, link }) {
   return (
     <PrismicNextLink field={link} className={styles.card} target={'_blank'}>
       <div className={styles.card_top}>

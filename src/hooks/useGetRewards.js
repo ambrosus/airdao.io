@@ -10,8 +10,6 @@ const useGetRewards = (address, start = 0, limit = 10) => {
     availableRewards: null,
   });
 
-  console.log('data', data);
-
   useEffect(() => {
     const fetchData = async () => {
       try {

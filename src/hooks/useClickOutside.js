@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 const useOutsideClick = (ref, callback, isOpen) => {
-  const handleClick = (event) => {
+  const handleClick = event => {
     if (ref.current && !ref.current.contains(event.target)) {
       callback();
     }
@@ -15,6 +15,7 @@ const useOutsideClick = (ref, callback, isOpen) => {
     return () => {
       document.removeEventListener('click', handleClick);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 };
 

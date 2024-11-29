@@ -3,7 +3,19 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     dangerouslyAllowSVG: true,
-    domains: ['new-airdao-website.cdn.prismic.io', 'images.prismic.io'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'new-airdao-website.cdn.prismic.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.prismic.io',
+      },
+    ],
+  },
+  sassOptions: {
+    silenceDeprecations: ['legacy-js-api'],
   },
 };
 

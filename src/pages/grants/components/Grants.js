@@ -24,7 +24,7 @@ const Grants = ({ cards, cta, email } = { cards: [] }) => {
         <span className={styles['cta-block']}>
           <Image
             src={'/grants-cta-bg.jpg'}
-            alt={'cta background'}
+            alt="cta background"
             className={styles['cta-background']}
             width={1440}
             height={451}

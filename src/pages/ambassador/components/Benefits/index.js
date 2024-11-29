@@ -1,5 +1,4 @@
 import styles from './benefits.module.scss';
-import img from './amb.svg';
 import { PrismicRichText } from '@prismicio/react';
 
 const Benefits = ({ title, list }) =>
@@ -14,7 +13,7 @@ const Benefits = ({ title, list }) =>
         }}
       />
       <div className={styles.benefits__list}>
-        {list.map((el) => (
+        {list.map(el => (
           <div key={el.image.url} className={styles.benefits__item}>
             <img src={el.image.url} alt="benefit" />
             <PrismicRichText

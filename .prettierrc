@@ -6,13 +6,5 @@
   "semi": true,
   "bracketSpacing": true,
   "arrowParens": "avoid",
-  "endOfLine": "lf",
-  "overrides": [
-    {
-      "files": "*.scss",
-      "options": {
-        "singleQuote": false
-      }
-    }
-  ]
+  "endOfLine": "lf"
 }
