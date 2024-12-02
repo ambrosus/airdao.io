@@ -24,7 +24,7 @@ const RewardsList = () => {
   const { address: account } = useAccount();
   const methods = usePagination();
   const { start, limit } = methods;
-  const { data, isLoading } = useGetRewards(account, start, limit);
+  const { data, isLoading, refetch } = useGetRewards(account, start, limit);
   const { rewards, availableRewards } = data;
 
   const readMethods = useReadContract({
@@ -65,6 +65,7 @@ const RewardsList = () => {
               rewards.map(reward => (
                 <RewardItem
                   checkMethods={readMethods}
+                  refetch={refetch}
                   reward={reward}
                   key={reward.id}
                 />
@@ -86,7 +87,7 @@ const RewardsList = () => {
   );
 };
 
-const RewardItem = ({ checkMethods, reward }) => {
+const RewardItem = ({ checkMethods, refetch, reward }) => {
   const { writeContract, data: hash, isPending } = useWriteContract();
   const result = useWaitForTransactionReceipt({
     hash,
@@ -120,8 +121,9 @@ const RewardItem = ({ checkMethods, reward }) => {
       Notify.success('Rewards successfully claimed!', '', {
         autoClose: 5000,
       });
+      refetch();
     }
-  }, [result.isSuccess]);
+  }, [result.isSuccess, refetch]);
 
   const onClaimHandler = id => {
     if (!id) {
@@ -129,23 +131,24 @@ const RewardItem = ({ checkMethods, reward }) => {
       return;
     }
 
-    const contractParams = {
-      address: AIRDAO_ADDRESSES.RewardAddress,
-      abi: RewardDistributionABI,
-      functionName: 'claimRewards',
-      args: [id],
-    };
-
-    writeContract(contractParams, {
-      onError: error => {
-        return console.error(error.message);
+    writeContract(
+      {
+        address: AIRDAO_ADDRESSES.RewardAddress,
+        abi: RewardDistributionABI,
+        functionName: 'claimRewards',
+        args: [id],
       },
-      onSuccess: () => {
-        Notify.success('You submitted to claim!', '', {
-          autoClose: 5000,
-        });
+      {
+        onError: error => {
+          return console.error(error.message);
+        },
+        onSuccess: () => {
+          Notify.success('You submitted to claim!', '', {
+            autoClose: 5000,
+          });
+        },
       },
-    });
+    );
   };
 
   const textStatus = () => {
