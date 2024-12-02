@@ -142,35 +142,32 @@ export default function Academy({ footerText, header, page, banner }) {
         description={page.meta_description}
         image={page.meta_image.url}
       />
-      <div
-        className={
-          styles[showBanner ? 'academy-gradient-banner' : 'academy-gradient']
-        }
-      />
       {showBanner && (
         <Banner data={banner?.data} setShowBanner={setShowBanner} />
       )}
       {header && <HeaderWrapper header={header} showBanner={showBanner} />}
       <div className={styles['academy-list-page']}>
-        <div className="container">
-          <PrismicRichText
-            field={page?.title}
-            components={{
-              paragraph: ({ children }) => (
-                <p className={styles['academy-list-page__title']}>{children}</p>
-              ),
-            }}
-          />
-          <PrismicRichText
-            field={page?.subtitle}
-            components={{
-              paragraph: ({ children }) => (
-                <p className={styles['academy-list-page__subtitle']}>
-                  {children}
-                </p>
-              ),
-            }}
-          />
+        <div className={styles['academy-gradient-banner']}>
+          <div className="container">
+            <PrismicRichText
+              field={page?.title}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className={styles['academy-list-page__title']}>{children}</p>
+                ),
+              }}
+            />
+            <PrismicRichText
+              field={page?.subtitle}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className={styles['academy-list-page__subtitle']}>
+                    {children}
+                  </p>
+                ),
+              }}
+            />
+          </div>
         </div>
         <div className={`${styles['academy-buttons']} container`}>
           <div className={styles['academy-types']}>

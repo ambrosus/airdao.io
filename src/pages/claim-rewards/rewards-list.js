@@ -106,11 +106,7 @@ const RewardItem = ({ checkMethods, reward }) => {
         return true;
       }
 
-      if (isLoading || isError) {
-        return true;
-      }
-
-      return false;
+      return !!(isLoading || isError);
     },
     [isPending, isError, isLoading],
   );
@@ -159,6 +155,7 @@ const RewardItem = ({ checkMethods, reward }) => {
   };
 
   const amountInWei = ethersFormatEther(BigNumber.from(reward.amount));
+
   return (
     <div key={reward.id} className={styles.item}>
       <div>
