@@ -12,10 +12,10 @@
   resolved "https://registry.yarnpkg.com/@adraffy/ens-normalize/-/ens-normalize-1.11.0.tgz#42cc67c5baa407ac25059fcd7d405cc5ecdb0c33"
   integrity sha512-/3DDPKHqqIqxUULp8yP4zODUY1i+2xvVWsv8A79xGWdCAG+8sb0hRh0Rk2QyOJUnnbyPUAZYcpBuRe3nS2OIUg==
 
-"@airdao/ui-library@2.0.10":
-  version "2.0.10"
-  resolved "https://registry.yarnpkg.com/@airdao/ui-library/-/ui-library-2.0.10.tgz#6e1789ceec088f8bf2f1954a5dcff22cbd059a87"
-  integrity sha512-i61xQvMHFAP07EnA6tUoVbRo0hJn9wdaViF5PyMEJGM7IPQXHxvFX31EbLpnErc5zAcmyJBZQ9j7qMIStOdcRg==
+"@airdao/ui-library@2.0.11":
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/@airdao/ui-library/-/ui-library-2.0.11.tgz#0fe49c2b649fa6c5ef37ceb8047bda41e24bcb41"
+  integrity sha512-pyw6/4YUHlLOZYOYS9CuYqyXxRvrWdiFfyT/Nx3cPgFsWjdNIV7x37qZSW6Lpz2CQV2hORoR8fgp4xTrE93uwA==
   dependencies:
     "@prismicio/client" "^7.1.1"
     "@prismicio/react" "^2.5.0"
@@ -1531,6 +1531,11 @@
   version "5.51.24"
   resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.51.24.tgz#da901637c8652ba5703b92bd07496e7c9ae27836"
   integrity sha512-qtIR0FMHUDIWyIQw87q4C+so7XaN59MsGfWrc6rgi2VTHrVZF3Hd0St2dbpqRetHf6XW5yY5lzTrXpTilPlxUg==
+
+"@tanstack/query-core@^5.60.6":
+  version "5.62.0"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.62.0.tgz#94022c9fde3b8c60e69828b726bd0df535dcacf9"
+  integrity sha512-sx38bGrqF9bop92AXOvzDr0L9fWDas5zXdPglxa9cuqeVSWS7lY6OnVyl/oodfXjgOGRk79IfCpgVmxrbHuFHg==
 
 "@tanstack/react-query@5.51.24":
   version "5.51.24"
