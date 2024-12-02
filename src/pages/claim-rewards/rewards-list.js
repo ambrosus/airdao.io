@@ -117,7 +117,9 @@ const RewardItem = ({ checkMethods, reward }) => {
 
   useEffect(() => {
     if (result.isSuccess) {
-      Notify.success('Rewards successfully claimed!', '', {});
+      Notify.success('Rewards successfully claimed!', '', {
+        autoClose: 5000,
+      });
     }
   }, [result.isSuccess]);
 
@@ -139,7 +141,9 @@ const RewardItem = ({ checkMethods, reward }) => {
         return console.error(error.message);
       },
       onSuccess: () => {
-        Notify.success('You submitted to claim!', '', {});
+        Notify.success('You submitted to claim!', '', {
+          autoClose: 5000,
+        });
       },
     });
   };
