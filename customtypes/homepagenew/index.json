@@ -150,6 +150,98 @@
           "allowTargetBlank": false,
           "select": null
         }
+      },
+      "banner_background": {
+        "type": "Image",
+        "config": {
+          "label": "Background",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "banner_illustration": {
+        "type": "Image",
+        "config": {
+          "label": "Illustration",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "countdown_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Countdown title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "countdown_link_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Countdown link text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "countdown_link": {
+        "type": "Link",
+        "config": {
+          "label": "Countdown link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "countdown_date": {
+        "type": "Date",
+        "config": {
+          "label": "Countdown date",
+          "placeholder": ""
+        }
+      },
+      "countdown_bg": {
+        "type": "Image",
+        "config": {
+          "label": "Countdown bg",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "countdown_bg_mobile": {
+        "type": "Image",
+        "config": {
+          "label": "Countdown bg mobile",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "countdown_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Countdown logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "banner_is_active": {
+        "type": "Boolean",
+        "config": {
+          "label": "Is banner active",
+          "placeholder_false": "false",
+          "placeholder_true": "true",
+          "default_value": false
+        }
+      },
+      "countdown_is_active": {
+        "type": "Boolean",
+        "config": {
+          "label": "Is countdown active",
+          "default_value": false,
+          "placeholder_true": "true",
+          "placeholder_false": "false"
+        }
       }
     },
     "Products": {

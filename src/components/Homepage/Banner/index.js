@@ -5,11 +5,14 @@ import styles from './banner-rocket.module.scss';
 import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextLink } from '@prismicio/next';
 
-const BannerRocket = ({ title, buttonName, buttonLink }) => {
+const BannerRocket = ({ title, buttonName, buttonLink, image, bgUrl }) => {
   return (
     <section className="container">
-      <div className={styles['banner-rocket-container']}>
-        <Image src={rocket} alt="rocket" />
+      <div
+        className={styles['banner-rocket-container']}
+        style={{ backgroundImage: `url(${bgUrl.url})` }}
+      >
+        <Image width={232} height={200} src={image.url} alt="rocket" />
         <div className={styles['banner-text-button']}>
           <PrismicRichText
             field={title}

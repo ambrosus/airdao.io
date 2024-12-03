@@ -2,16 +2,17 @@
   padding-top: 130px;
   padding-bottom: 150px;
 
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
 
   &.bg1 {
-    background-color: var(--primary-500-base, #7a9dec);
+    background-color: #f2f2f3;
     background-image: url("/bg-image-1.svg");
   }
 
   &.bg2 {
-    background-color: var(--primary-500-base, #7a9dec);
+    background-color: rgba(53, 104, 221, 1);
     background-image: url("/bg-image-2.svg");
   }
 
@@ -110,6 +111,12 @@
     font-weight: 500;
     line-height: 28px;
     letter-spacing: -0.28px;
+
+    @media only screen and (max-width: 767px) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 200px;
+    }
   }
 
   .text {
@@ -206,4 +213,9 @@
   display: flex;
   items-align: center;
   column-gap: 8px;
+
+  .pageButton {
+    width: 36px;
+    height: 36px;
+  }
 }

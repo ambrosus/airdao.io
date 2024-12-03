@@ -5,40 +5,61 @@ import chevron from '@/assets/icons/chevron-additional.svg';
 import { Button } from '@airdao/ui-library';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { PrismicRichText } from '@prismicio/react';
+import { PrismicNextLink } from '@prismicio/next';
 
 const targetDate = '2024-09-15';
 
-const TemporaryBanner = () => {
+const TemporaryBanner = ({ title, bg, link, linkText, date, bgMobile, logo }) => {
   const [remainingDays, setRemainingDays] = useState(0);
 
   useEffect(() => {
     const calculateRemainingDays = () => {
       const currentDate = new Date();
-      const target = new Date(targetDate);
+      const target = new Date(date);
       const timeDiff = target - currentDate;
       const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-      setRemainingDays(daysDiff);
+      setRemainingDays(daysDiff > 0 ? daysDiff : 0);
     };
 
     calculateRemainingDays();
   }, [targetDate]);
 
+  let isMobile = false;
+  if (typeof window !== 'undefined' && window.innerWidth < 768) {
+    isMobile = true;
+  }
+
   return (
     <section className="container">
-      <div className={styles.wrapper}>
+      <div className={styles.wrapper} style={{backgroundImage: `url(${isMobile ? bgMobile.url : bg.url})`}}>
         <div className={styles.left}>
-          <span className={styles.day}>0</span>
+          <span className={styles.day}>{remainingDays}</span>
           <span className={styles.day_text}>days left</span>
         </div>
         <div className={styles.right}>
-          <img src={sfIcon.src} alt="starfleet" className={styles.logo}/>
-          <p className={styles.text}><span>Final warning!</span> Stakers must be aboard the ship</p>
-          <Link href="https://star-fleet.io/staking" target="_blank">
-            <Button type="primary" size="large" className={styles.btn}>
-              Learn more
-              <Image src={chevron} alt="Continue Button" />
-            </Button>
-          </Link>
+          <img src={logo.url} alt="starfleet" className={styles.logo}/>
+          <PrismicRichText
+            field={title}
+            components={{
+              paragraph: ({ children }) => (
+                <p className={styles.text}>{children}</p>
+              ),
+            }}
+          />
+          <PrismicNextLink field={link}>
+            <PrismicRichText
+              field={linkText}
+              components={{
+                paragraph: ({ children }) => (
+                  <Button type="primary" size="large" className={styles.btn}>
+                    {children}
+                    <Image src={chevron} alt="Continue Button" />
+                  </Button>
+                ),
+              }}
+            />
+          </PrismicNextLink>
         </div>
       </div>
     </section>

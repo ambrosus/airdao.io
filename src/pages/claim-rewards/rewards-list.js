@@ -2,34 +2,37 @@ import {
   useWaitForTransactionReceipt,
   useWriteContract,
   useAccount,
+  useReadContract,
 } from 'wagmi';
 import { useEffect, useCallback } from 'react';
 import { Button, Notify, Loader } from '@airdao/ui-library';
 import { BigNumber } from '@ethersproject/bignumber';
 import { formatEther as ethersFormatEther } from '@ethersproject/units';
 import Image from 'next/image';
+import Link from 'next/link';
 
+import ArrowRight2Icon from '@/components/Icons/ArrowRight2';
+import HumanSbtABI from '@/abis/human-sbt.abi.json';
 import RewardDistributionABI from '@/abis/RewardDistribution.json';
 import { AIRDAO_ADDRESSES } from '@/constants/addresses';
 import styles from './styles.module.scss';
 import useGetRewards from '@/hooks/useGetRewards';
-import Link from 'next/link';
-import ArrowRight2Icon from '@/components/Icons/ArrowRight2';
 import usePagination from '@/hooks/usePagination';
-
-const sumRewardsAmount = rewards => {
-  return rewards.reduce((total, reward) => {
-    if (!('status' in reward)) {
-      return total.add(BigNumber.from(reward.amount));
-    }
-    return total;
-  }, BigNumber.from(0));
-};
+import Pagination from './pagination';
 
 const RewardsList = () => {
   const { address: account } = useAccount();
-  const { start, limit, currentPage, goToPage } = usePagination();
-  const { data: rewards, isLoading } = useGetRewards(account, start, limit);
+  const methods = usePagination();
+  const { start, limit } = methods;
+  const { data, isLoading, refetch } = useGetRewards(account, start, limit);
+  const { rewards, availableRewards } = data;
+
+  const readMethods = useReadContract({
+    address: AIRDAO_ADDRESSES.HumanSBTAddress,
+    abi: HumanSbtABI,
+    functionName: 'sbtVerify',
+    args: [account],
+  });
 
   return (
     <>
@@ -38,8 +41,8 @@ const RewardsList = () => {
         <span className={styles.desc}>Available to claim</span>
         <span className={styles.formatted}>
           <Image src="/airdao.svg" alt="airdao" width={28} height={28} />
-          {rewards && rewards.length > 0
-            ? ethersFormatEther(sumRewardsAmount(rewards))
+          {availableRewards
+            ? ethersFormatEther(BigNumber.from(availableRewards))
             : '0'}{' '}
           AMB
         </span>
@@ -60,31 +63,19 @@ const RewardsList = () => {
           <>
             {rewards.length > 0 ? (
               rewards.map(reward => (
-                <RewardItem reward={reward} key={reward.id} />
+                <RewardItem
+                  checkMethods={readMethods}
+                  refetch={refetch}
+                  reward={reward}
+                  key={reward.id}
+                />
               ))
             ) : (
               <div className={styles.item}>
                 <p className={styles.text}>No rewards found</p>
               </div>
             )}
-            <div className={styles.pagination}>
-              <Button
-                size="small"
-                type="secondary"
-                onClick={() => goToPage(Math.max(1, currentPage - 1))}
-                disabled={currentPage === 1}
-              >
-                Prev
-              </Button>
-              <Button
-                size="small"
-                type="secondary"
-                onClick={() => goToPage(currentPage + 1)}
-                disabled={rewards.length === 0}
-              >
-                Next
-              </Button>
-            </div>
+            <Pagination methods={methods} data={data} />
           </>
         ) : (
           <div className={styles.item}>
@@ -96,11 +87,13 @@ const RewardsList = () => {
   );
 };
 
-const RewardItem = ({ reward }) => {
+const RewardItem = ({ checkMethods, refetch, reward }) => {
   const { writeContract, data: hash, isPending } = useWriteContract();
   const result = useWaitForTransactionReceipt({
     hash,
   });
+
+  const { isLoading, isError } = checkMethods;
 
   const isDisabled = useCallback(
     reward => {
@@ -114,38 +107,44 @@ const RewardItem = ({ reward }) => {
         return true;
       }
 
-      return false;
+      return !!(isLoading || isError);
     },
-    [isPending],
+    [isPending, isError, isLoading],
   );
 
   useEffect(() => {
     if (result.isSuccess) {
-      Notify.success('Rewards successfully claimed!', '', {});
+      Notify.success('Rewards successfully claimed!', '', {
+        autoClose: 5000,
+      });
+      refetch();
     }
-  }, [result.isSuccess]);
+  }, [result.isSuccess, refetch]);
 
-  const onClaim = id => {
+  const onClaimHandler = id => {
     if (!id) {
       console.error('Reward ID is missing!');
       return;
     }
 
-    const contractParams = {
-      address: AIRDAO_ADDRESSES.RewardDistribution,
-      abi: RewardDistributionABI,
-      functionName: 'claimRewards',
-      args: [id],
-    };
-
-    writeContract(contractParams, {
-      onError: error => {
-        return console.error(error.message);
+    writeContract(
+      {
+        address: AIRDAO_ADDRESSES.RewardAddress,
+        abi: RewardDistributionABI,
+        functionName: 'claimRewards',
+        args: [id],
       },
-      onSuccess: () => {
-        Notify.success('You submitted to claim!', '', {});
+      {
+        onError: error => {
+          return console.error(error.message);
+        },
+        onSuccess: () => {
+          Notify.success('You submitted to claim!', '', {
+            autoClose: 5000,
+          });
+        },
       },
-    });
+    );
   };
 
   const textStatus = () => {
@@ -163,6 +162,7 @@ const RewardItem = ({ reward }) => {
   };
 
   const amountInWei = ethersFormatEther(BigNumber.from(reward.amount));
+
   return (
     <div key={reward.id} className={styles.item}>
       <div>
@@ -172,7 +172,9 @@ const RewardItem = ({ reward }) => {
         </p>
       </div>
       <Button
-        onClick={() => onClaim(reward.id)}
+        onClick={
+          isDisabled(reward) ? undefined : () => onClaimHandler(reward.id)
+        }
         disabled={isDisabled(reward) || result.isFetching || result.isFetched}
         size="small"
         type="primary"

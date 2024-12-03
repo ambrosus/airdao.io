@@ -1,10 +1,7 @@
 import '@/styles/base/index.scss';
 import '@/styles/bond-exchange.scss';
 import 'react-toastify/dist/ReactToastify.css';
-import {
-  NotificationContainer,
-  createAirdaoConfigWithChainId,
-} from '@airdao/ui-library';
+import { NotificationContainer, createAirdaoConfig } from '@airdao/ui-library';
 import { WagmiProvider } from 'wagmi';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 
@@ -91,7 +88,8 @@ const WC_PARAMS = {
     icons: ['https://airdao.io/favicon.svg'],
   },
 };
-const config = createAirdaoConfigWithChainId(+chainId, WC_PARAMS);
+
+const config = createAirdaoConfig(WC_PARAMS, +chainId);
 
 export default function App({ Component, pageProps }) {
   return (
@@ -135,7 +133,7 @@ export default function App({ Component, pageProps }) {
             gtag('config', 'G-Z4QJE54Z4R');`}
       </Script>
       <NotificationContainer />
-      <WagmiProvider config={config} reconnectOnMount={false}>
+      <WagmiProvider config={config}>
         <QueryClientProvider client={queryClient}>
           <Component {...pageProps} />
         </QueryClientProvider>

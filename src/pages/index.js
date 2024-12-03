@@ -55,11 +55,26 @@ export default function Home({
         sections={data.sections}
       />
       <BackedBy title={data.backed_by_title} logos={data.logos} />
-      <BannerRocket
-        title={data.banner_title}
-        buttonName={data.banner_button_name}
-        buttonLink={data.banner_button_link}
-      />
+      {data.banner_is_active && (
+        <BannerRocket
+          title={data.banner_title}
+          buttonName={data.banner_button_name}
+          buttonLink={data.banner_button_link}
+          bgUrl={data.banner_background}
+          image={data.banner_illustration}
+        />
+      )}
+      {data.countdown_is_active && (
+        <TemporaryBanner
+          title={data.countdown_title}
+          linkText={data.countdown_link_text}
+          logo={data.countdown_logo}
+          link={data.countdown_link}
+          bg={data.countdown_bg}
+          bgMobile={data.countdown_bg_mobile}
+          date={data.countdown_date}
+        />
+      )}
       <ExploreProductsNoSSR
         smallTitle={data.product_small_title}
         title={data.product_title}
