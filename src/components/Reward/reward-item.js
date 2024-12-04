@@ -5,6 +5,7 @@ import RewardDistributionABI from '@/abis/RewardDistribution.json';
 import { BigNumber } from '@ethersproject/bignumber';
 import { formatEther as ethersFormatEther } from '@ethersproject/units';
 
+import { AIRDAO_ADDRESSES } from '@/constants/addresses';
 import styles from './styles.module.scss';
 
 const RewardItem = ({ checkMethods, refetch, reward }) => {
