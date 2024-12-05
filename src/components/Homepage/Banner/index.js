@@ -11,13 +11,7 @@ const BannerRocket = ({ title, buttonName, buttonLink, image, bgUrl }) => {
         className={styles['banner-rocket-container']}
         style={{ backgroundImage: `url(${bgUrl.url})` }}
       >
-        <Image
-          width={232}
-          height={200}
-          src={image.url}
-          alt="rocket"
-          className={styles['banner-rocket-image']}
-        />
+        <Image width={232} height={200} src={image.url} alt="rocket" />
         <div className={styles['banner-text-button']}>
           <PrismicRichText
             field={title}

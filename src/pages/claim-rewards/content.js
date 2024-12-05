@@ -1,4 +1,4 @@
-import { useAccount } from 'wagmi';
+import { useAccount, useDisconnect } from 'wagmi';
 import { useEffect, useState } from 'react';
 import { ConnectWalletModalProvider } from '@airdao/ui-library';
 import { jwtDecode } from 'jwt-decode';
@@ -25,9 +25,29 @@ const isTokenExpired = token => {
 };
 
 const Content = () => {
-  const { address, isConnected, isActivating, chainId } = useAccount();
+  const { address, isConnected, isActivating, chainId, connector } =
+    useAccount();
+  const { disconnect } = useDisconnect();
   const [state, setState] = useState('connect');
   const provider = useEthersWeb3Provider({ chainId });
+
+  useEffect(() => {
+    if (window.ethereum) {
+      const handleAccountsChanged = () => {
+        localStorage.removeItem('airdao-session-token');
+        setState('sign');
+      };
+
+      window.ethereum.on('accountsChanged', handleAccountsChanged);
+
+      return () => {
+        window.ethereum.removeListener(
+          'accountsChanged',
+          handleAccountsChanged,
+        );
+      };
+    }
+  }, [disconnect]);
 
   useEffect(() => {
     const sessionToken = localStorage.getItem('airdao-session-token');

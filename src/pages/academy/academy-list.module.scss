@@ -1,14 +1,5 @@
 .academy-list-page {
-  padding-top: 100px;
   min-height: 100vh;
-
-  @media screen and (max-width: 950px) {
-    padding-top: 100px;
-  }
-
-  @media screen and (max-width: 610px) {
-    padding-top: 140px;
-  }
 }
 
 .academy-buttons {
@@ -17,11 +8,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  margin-top: 70px;
+  margin-top: 50px;
   margin-bottom: 50px;
-  @media screen and (max-width: 950px) {
-    margin-top: 100px;
-  }
   @media screen and (max-width: 610px) {
     margin-top: 70px;
   }
@@ -426,19 +414,16 @@
   }
 }
 .academy-gradient-banner {
-  content: "";
-  position: absolute;
   background: #0e0e0e0d;
-  height: 440px;
   width: 100%;
-  left: 0;
-  top: 0;
-  pointer-events: none;
-  z-index: -1;
+  padding-top: 100px;
+  padding-bottom: 20px;
+
   @media screen and (max-width: 950px) {
-    height: 380px;
+    padding-top: 100px;
   }
+
   @media screen and (max-width: 610px) {
-    height: 390px;
+    padding-top: 140px;
   }
 }

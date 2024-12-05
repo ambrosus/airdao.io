@@ -1,6 +1,6 @@
 import '@/styles/base/index.scss';
 import 'react-toastify/dist/ReactToastify.css';
-import { NotificationContainer, createAirdaoConfig } from '@airdao/ui-library';
+import { NotificationContainer } from '@airdao/ui-library';
 import { WagmiProvider } from 'wagmi';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 
@@ -8,6 +8,8 @@ import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
 import Script from 'next/script';
 import Head from 'next/head';
+
+import { config } from '../utils/config';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -73,22 +75,6 @@ const rationell = localFont({
 });
 
 const queryClient = new QueryClient();
-
-const chainId = +process.env.NEXT_PUBLIC_CHAIN_ID;
-const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID;
-
-const WC_PARAMS = {
-  projectId: projectId,
-  metadata: {
-    name: 'AirDAO',
-    description:
-      'AirDAO is a transparent and accessible L1 blockchain for everyone',
-    url: 'https://airdao.io/',
-    icons: ['https://airdao.io/favicon.svg'],
-  },
-};
-
-const config = createAirdaoConfig(WC_PARAMS, +chainId);
 
 export default function App({ Component, pageProps }) {
   return (
