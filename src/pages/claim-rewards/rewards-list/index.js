@@ -43,7 +43,7 @@ const RewardsList = () => {
       </div>
       <div className={styles.infoBlock}>
         <p>Governor SBT is required to claim rewards.</p>
-        <Link href="/">
+        <Link target="_blank" href="https://airdao.io/gov-portal">
           <button className={styles.button}>
             Learn more
             <ArrowRight2Icon />
