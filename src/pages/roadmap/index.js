@@ -22,11 +22,10 @@ const getCurrentDay = () => {
 };
 
 const tabs = [
-  { label: 'Layer1', value: 0 },
+  { label: 'L1', value: 0 },
   { label: 'DeFi', value: 1 },
-  { label: 'Mobile App', value: 2 },
+  { label: 'GameFi', value: 2 },
   { label: 'Governance', value: 3 },
-  { label: 'Others', value: 4 },
 ];
 
 const quarters = ['Q1', 'Q2', 'Q3', 'Q4'];
