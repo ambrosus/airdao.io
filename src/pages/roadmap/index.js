@@ -12,9 +12,14 @@ import { formatDate } from '@/utils/formatDate';
 import ArticlesList from '@/components/ArticlesList';
 import * as prismic from '@prismicio/client';
 import Seo from '@/components/Seo';
+import { PrismicRichText } from '@prismicio/react';
 
 const getCurrentDay = () => {
-  const now = new Date();
+  let now = new Date();
+  const d2025 = new Date('01-01-2025');
+  if (now.getTime() < d2025.getTime()) {
+    now = d2025;
+  }
   const start = new Date(now.getFullYear(), 0, 0);
   const diff = now - start;
   const oneDay = 1000 * 60 * 60 * 24;
@@ -55,12 +60,22 @@ const RoadmapNew = ({ footerText, header, page, articles }) => {
       <div className={styles.heading}>
         <div className={styles.heading__wrapper}>
           <div>
-            <h1 className={styles.title}>2024 roadmap</h1>
-            <p className={styles.subtitle}>
-              Our product roadmap shows what’s coming to the AirDAO ecosystem in
-              2024. We’ll update the chart monthly to reflect delivered
-              products, new additions, and more.
-            </p>
+            <PrismicRichText
+              field={page.data.title}
+              components={{
+                paragraph: ({ children }) => (
+                  <h1 className={styles.title}>{children}</h1>
+                ),
+              }}
+            />
+            <PrismicRichText
+              field={page.data.subtitle}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className={styles.subtitle}>{children}</p>
+                ),
+              }}
+            />
           </div>
           <div className={styles.img_wrapper}>
             <img src={icon.src} alt="roadmap" className={styles.img} />
