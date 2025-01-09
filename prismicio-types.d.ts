@@ -6044,8 +6044,6 @@ type RoadmapnewDocumentDataSlices2Slice = RoadmapItemSlice;
 
 type RoadmapnewDocumentDataSlices3Slice = RoadmapItemSlice;
 
-type RoadmapnewDocumentDataSlices4Slice = RoadmapItemSlice;
-
 /**
  * Content for RoadmapNew documents
  */
@@ -6087,7 +6085,7 @@ interface RoadmapnewDocumentData {
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
    * - **API ID Path**: roadmapnew.slices[]
-   * - **Tab**: Layer1
+   * - **Tab**: L1
    * - **Documentation**: https://prismic.io/docs/field#slices
    */;
   slices: prismic.SliceZone<RoadmapnewDocumentDataSlicesSlice> /**
@@ -6105,7 +6103,7 @@ interface RoadmapnewDocumentData {
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
    * - **API ID Path**: roadmapnew.slices2[]
-   * - **Tab**: Mobile App
+   * - **Tab**: GameFi
    * - **Documentation**: https://prismic.io/docs/field#slices
    */;
   slices2: prismic.SliceZone<RoadmapnewDocumentDataSlices2Slice> /**
@@ -6118,15 +6116,6 @@ interface RoadmapnewDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */;
   slices3: prismic.SliceZone<RoadmapnewDocumentDataSlices3Slice> /**
-   * Slice Zone field in *RoadmapNew*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: roadmapnew.slices4[]
-   * - **Tab**: Others
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */;
-  slices4: prismic.SliceZone<RoadmapnewDocumentDataSlices4Slice> /**
    * title field in *RoadmapNew*
    *
    * - **Field Type**: Rich Text
@@ -7598,7 +7587,6 @@ declare module '@prismicio/client' {
       RoadmapnewDocumentDataSlices1Slice,
       RoadmapnewDocumentDataSlices2Slice,
       RoadmapnewDocumentDataSlices3Slice,
-      RoadmapnewDocumentDataSlices4Slice,
       TeamDocument,
       TeamDocumentData,
       TeamDocumentDataCouncilAndOperationsItem,
