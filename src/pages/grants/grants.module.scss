@@ -36,7 +36,7 @@
 
   h1 {
     color: #3668dd;
-    font-family: Rationell, var(--font-rationell), sans-serif;
+    font-family: Rationell, var(--font-rationell);
     font-size: 64px;
     font-weight: 400;
     line-height: 92.5px;
@@ -261,7 +261,7 @@
   }
 
   p, a {
-    font-family: Rationell, var(--font-rationell), sans-serif;
+    font-family: Rationell, var(--font-rationell);
     font-weight: 400;
     z-index: 5;
   }
