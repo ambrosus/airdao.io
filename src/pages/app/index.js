@@ -30,7 +30,7 @@ export default function App({ header, footerText }) {
   );
 }
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
   const header = await client.getSingle('header');

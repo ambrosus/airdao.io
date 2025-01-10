@@ -20,7 +20,7 @@ const RoadmapBlogAcademy = ({ list }) => {
             >
               <Image
                 src={item.page_icon.url}
-                alt={item.page_title[0].text}
+                alt={item?.page_title[0].text || 'Roadmap Blog Academy'}
                 width={90}
                 height={56}
               />

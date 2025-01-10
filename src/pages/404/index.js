@@ -6,6 +6,7 @@ import img from './image.svg';
 import circles from './circles.svg';
 import styles from './404.module.scss';
 import Link from 'next/link';
+
 export async function getStaticProps(context) {
   const client = createClient({ previewData: context.previewData });
 
@@ -16,23 +17,18 @@ export async function getStaticProps(context) {
     props: { header, footerText },
   };
 }
+
 export default function Custom404({ header, footerText }) {
   return (
     <>
       {header && <HeaderWrapper header={header} />}
       <div className={styles['not-found']}>
         <Image
-          layout="fill"
           src={circles}
           alt="circles"
           className={styles['not-found__circles']}
         />
-        <Image
-          layout="fill"
-          src={img}
-          alt="not found"
-          className={styles['not-found__img']}
-        />
+        <Image src={img} alt="not found" className={styles['not-found__img']} />
         <p className={styles['not-found__text']}>
           The page you are looking for may have been moved, deleted, or possibly
           never existed

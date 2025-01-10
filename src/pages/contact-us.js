@@ -33,7 +33,7 @@ export default function ContactUsPage({ header, footerText, page, banner }) {
   );
 }
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
   const header = await client.getSingle('header');

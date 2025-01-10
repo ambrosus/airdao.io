@@ -8,7 +8,10 @@ const useGtag = () => {
 
   useEffect(() => {
     if (isFirstRender && account && typeof window !== 'undefined') {
-      window.dataLayer.push({ 'event': 'ga4event', 'event_category': 'connect_wallet' });
+      window.dataLayer.push({
+        event: 'ga4event',
+        event_category: 'connect_wallet',
+      });
       isFirstRender = false;
     }
   }, [account]);

@@ -13,7 +13,7 @@ const VPBlock = () => {
       {VPList.map((item, index) => (
         <div key={index} className={styles.vpBlock}>
           <div className={styles.photo}>
-            <img src={item.photo.src} alt={item.name} />
+            <img src={item.photo.src} alt={item?.name || 'VPBlock'} />
           </div>
           <div className={styles.info}>
             <span>{item.name}</span>

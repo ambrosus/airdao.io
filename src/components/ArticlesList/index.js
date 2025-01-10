@@ -21,7 +21,7 @@ const ArticlesList = ({
     </div>
     <div className={styles['articles__list-wrapper']}>
       <div className={styles['articles__list']}>
-        {articles.map((el) => (
+        {articles.map(el => (
           <BlogLink
             key={el.uid}
             article={el}

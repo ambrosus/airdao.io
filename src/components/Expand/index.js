@@ -1,6 +1,6 @@
 import styles from './expand.module.scss';
 import { useState } from 'react';
-import chevron from '../../assets/icons/expand.svg';
+import chevron from '@/assets/icons/expand.svg';
 import Link from 'next/link';
 
 const Expand = ({ title, text, link, linkTarget = '', isDone = false }) => {

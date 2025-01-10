@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
@@ -15,7 +14,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Seo from '@/components/Seo';
 
-const badges = ['All', 'Beginner', 'Intermediate', 'Pro'];
+// const badges = ['All', 'Beginner', 'Intermediate', 'Pro'];
 
 const getLastArticlesByType = async type => {
   const newClient = prismic.createClient('airdao-academy');
@@ -69,7 +68,6 @@ export default function Academy({ footerText, header, page, banner }) {
   const articleList = useRef(null);
 
   const [articles, setArticles] = useState({});
-  const [articleNames, setArticleNames] = useState([]);
 
   useEffect(() => {
     const currentType = academyTypes.find(el => el.value === hash);
@@ -84,7 +82,6 @@ export default function Academy({ footerText, header, page, banner }) {
   const updateAcademyCards = async () => {
     const lastArticlesByType = {};
     const types = [];
-    const names = [];
     page?.types?.map(item => {
       if (item.type_name[0].text !== 'Analytics') {
         types.push(item.type_name[0].text);
@@ -96,7 +93,6 @@ export default function Academy({ footerText, header, page, banner }) {
       lastArticlesByType[types[i]] = await getLastArticlesByType(types[i]);
     }
     setArticles(lastArticlesByType);
-    setArticleNames(names);
   };
 
   useEffect(() => {
@@ -110,6 +106,7 @@ export default function Academy({ footerText, header, page, banner }) {
     } else {
       setPaginatedArticles(1);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedType]);
 
   const setPaginatedArticles = async (page, scrollTo) => {
@@ -153,7 +150,9 @@ export default function Academy({ footerText, header, page, banner }) {
               field={page?.title}
               components={{
                 paragraph: ({ children }) => (
-                  <p className={styles['academy-list-page__title']}>{children}</p>
+                  <p className={styles['academy-list-page__title']}>
+                    {children}
+                  </p>
                 ),
               }}
             />

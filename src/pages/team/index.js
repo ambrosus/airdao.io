@@ -7,9 +7,9 @@ import Seo from '@/components/Seo';
 import { createClient } from '@/prismicio';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
 import { useState } from 'react';
-import Structure from 'src/components/Team/Structure';
-import Team from 'src/components/Team/Team';
-import TextBlock from 'src/components/Team/TextBlock';
+import Structure from '@/components/Team/Structure';
+import Team from '@/components/Team/Team';
+import TextBlock from '@/components/Team/TextBlock';
 
 const TeamPage = ({ header, footerText, page, banner }) => {
   const footerSlice = getFooterBlockSlice(page.data);
@@ -63,7 +63,7 @@ const TeamPage = ({ header, footerText, page, banner }) => {
   );
 };
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
   const header = await client.getSingle('header');

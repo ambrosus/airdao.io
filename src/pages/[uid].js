@@ -1,5 +1,5 @@
-import Head from 'next/head';
-import { isFilled, asLink } from '@prismicio/client';
+// import Head from 'next/head';
+// import { isFilled, asLink } from '@prismicio/client';
 
 import { createClient } from '@/prismicio';
 import HeaderWrapper from '@/components/Header';

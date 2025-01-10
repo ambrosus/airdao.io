@@ -3,8 +3,8 @@ import styles from './team.module.scss';
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
 import { useEffect, useRef, useState } from 'react';
 import Slider from 'react-slick';
-import twitterIcon from '../../../assets/icons/twitter.svg';
-import linkedinIcon from '../../../assets/icons/linkedin.svg';
+// import twitterIcon from '@/assets/icons/twitter.svg';
+// import linkedinIcon from '@/assets/icons/linkedin.svg';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -58,7 +58,7 @@ export default function Team({ heading, tech, council, community }) {
       <TeamSlider data={data} active={active} />
 
       <div className={styles.cards}>
-        {data[active].map((member) => (
+        {data[active].map(member => (
           <TeamCard key={member.id} {...member} />
         ))}
       </div>
@@ -76,7 +76,7 @@ function TeamSlider({ data, active }) {
     rows: 2,
     className: styles.slider,
     dotsClass: styles.dots,
-    customPaging: (i) => <div className={styles['nav-button']}>{i + 1}</div>,
+    customPaging: i => <div className={styles['nav-button']}>{i + 1}</div>,
     responsive: [
       {
         breakpoint: 800,
@@ -97,7 +97,7 @@ function TeamSlider({ data, active }) {
   return (
     <div>
       <Slider ref={ref} {...settings}>
-        {data[active].map((member) => (
+        {data[active].map(member => (
           <TeamCard key={member.id} {...member} />
         ))}
       </Slider>

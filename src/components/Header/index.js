@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const chainId = +process.env.NEXT_PUBLIC_CHAIN_ID;
 
-const HeaderWrapper = ({ header, showBanner = false }) => {
+const HeaderWrapper = () => {
   const { disconnect } = useDisconnect();
 
   const disconnectHandler = () => {

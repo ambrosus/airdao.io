@@ -1,10 +1,10 @@
+import Link from 'next/link';
 import styles from './council.module.scss';
 import Button from '@/components/Button';
 import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
-import twitterIcon from '@/assets/icons/twitter.svg';
-import linkedinIcon from '@/assets/icons/linkedin.svg';
-import Link from 'next/link';
+// import twitterIcon from '@/assets/icons/twitter.svg';
+// import linkedinIcon from '@/assets/icons/linkedin.svg';
 
 export default function Council({ heading, text, council }) {
   return (
@@ -26,7 +26,7 @@ export default function Council({ heading, text, council }) {
         }}
       />
       <div className={styles.cards}>
-        {council.map((member) => (
+        {council.map(member => (
           <TeamCard
             key={member.id}
             avatar={member.avatar}

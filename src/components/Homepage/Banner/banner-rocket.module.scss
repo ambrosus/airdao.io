@@ -12,32 +12,30 @@
   background-repeat: no-repeat;
   margin-bottom: 20px;
 
-  img {
+  .banner-rocket-image {
     top: 50%;
     left: 61px;
-    width: auto;
-    height: 209px;
     position: absolute;
     transform: translateY(-50%);
   }
-  
+
   @media only screen and (max-width: 1024px) {
     height: 143px;
     padding-right: 16px;
     padding-left: 216.74px;
-    
-    img {
+
+    .banner-rocket-image {
       left: 16px;
       height: 159.65px;
     }
   }
-  
+
   @media only screen and (max-width: 767px) {
     height: 128px;
     padding-left: 16px;
     margin-bottom: 5px;
 
-    img {
+    .banner-rocket-image {
       left: unset;
       right: 16px;
       height: 66.94px;
@@ -71,7 +69,7 @@
     font-size: 20px;
     line-height: 29.79px;
   }
-  
+
   @media only screen and (max-width: 767px) {
     font-size: 16px;
     line-height: 23.84px;

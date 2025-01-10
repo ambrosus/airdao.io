@@ -19,7 +19,11 @@ const BeInvolved = ({
   ambassadors,
 }) => {
   const ambassadorsMap = ambassadors.map(ambassador => (
-    <img key={ambassador.ambassador_image.url} src={ambassador.ambassador_image.url} alt="Ambassador" />
+    <img
+      key={ambassador.ambassador_image.url}
+      src={ambassador.ambassador_image.url}
+      alt="Ambassador"
+    />
   ));
 
   return (
@@ -104,7 +108,9 @@ const BeInvolved = ({
                       alt="event"
                       className={styles['event-icon']}
                     />
-                    <div className={styles['event-item-title-date-description']}>
+                    <div
+                      className={styles['event-item-title-date-description']}
+                    >
                       <div className={styles['event-item-title-date']}>
                         <div className={styles['event-item-title']}>
                           {events[0].event_item_title[0].text}

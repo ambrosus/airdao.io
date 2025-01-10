@@ -11,7 +11,7 @@ const AcademyLink = ({ article, className }) => {
       >
         <img
           src={article.data.article_link_img.url || '/article.png'}
-          alt={'article image'}
+          alt="article image"
           className={styles['academy-link__img']}
         />
         <PrismicRichText

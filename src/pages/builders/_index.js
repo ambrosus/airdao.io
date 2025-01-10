@@ -95,9 +95,9 @@ const Builders = ({ header, footerText, page, banner }) => {
       <div className={styles.builders}>
         <div className={styles.hero}>
           <Image src={striped} alt="background" className={styles.striped} />
-          <Image src={starBlue} className={styles.star_blue} />
-          <Image src={star} className={styles.star} />
-          <Image src={block} className={styles.block} />
+          <Image src={starBlue} alt="star-blue" className={styles.star_blue} />
+          <Image src={star} alt="star icon" className={styles.star} />
+          <Image src={block} alt="block icon" className={styles.block} />
           <h1 className={styles.hero_title}>
             The next frontier for web3 builders
           </h1>
@@ -181,7 +181,7 @@ const Builders = ({ header, footerText, page, banner }) => {
   );
 };
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
   const header = await client.getSingle('header');

@@ -3,7 +3,7 @@ import TeamMediaSlider from '@/components/TeamMediaSlider';
 import { PrismicRichText } from '@prismicio/react';
 import styles from './text-block.module.scss';
 
-export default function TextBlock({ story, illustration, mission, vision, sliderImgs }) {
+export default function TextBlock({ story, mission, vision, sliderImgs }) {
   return (
     <div className={`${styles.container}`}>
       <div className="container">

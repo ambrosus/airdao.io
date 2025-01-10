@@ -12,7 +12,7 @@ const BlogLink = ({ article, className }) => {
       >
         <img
           src={article.data.article_link_img.url || '/article.png'}
-          alt={'article image'}
+          alt="article image"
           className={styles['blog-link__img']}
         />
         <PrismicRichText

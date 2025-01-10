@@ -1,6 +1,6 @@
 import { Web3Provider } from '@ethersproject/providers';
 import { useMemo } from 'react';
-import { Config, useClient, useConnectorClient } from 'wagmi';
+import { useClient, useConnectorClient } from 'wagmi';
 
 const providers = new WeakMap();
 

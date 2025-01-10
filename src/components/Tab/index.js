@@ -5,7 +5,9 @@ const Tab = ({ tabs, onChange, selectedTab }) => {
     <div className={styles.tabs}>
       {tabs.map(({ value, label }) => (
         <button
-          className={`${styles.tabs__item} ${value === selectedTab ? styles.tabs__item_active : ''}`}
+          className={`${styles.tabs__item} ${
+            value === selectedTab ? styles.tabs__item_active : ''
+          }`}
           key={value}
           onClick={() => onChange(value)}
         >
@@ -13,7 +15,7 @@ const Tab = ({ tabs, onChange, selectedTab }) => {
         </button>
       ))}
     </div>
-  )
+  );
 };
 
 export default Tab;
