@@ -174,6 +174,10 @@
         border-radius: 20px;
         background: linear-gradient(105deg, #FFF -6.61%, #FFFACF 105.94%);
 
+        @media screen and (max-width: 765px) {
+          margin-top: 20px;
+        }
+
         .gridItem {
           display: inline-grid;
           gap: 10px;
