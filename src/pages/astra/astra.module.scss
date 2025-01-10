@@ -24,7 +24,7 @@
     .left {
       max-width: 690px;
 
-      @media screen and (max-width: 1440px) {
+      @media screen and (max-width: 1024px) {
         max-width: 340px;
       }
 
@@ -37,7 +37,7 @@
         line-height: 72px;
         letter-spacing: -1.12px;
 
-        @media screen and (max-width: 1440px) {
+        @media screen and (max-width: 1024px) {
           font-size: 32px;
           line-height: 40px;
           letter-spacing: -0.64px;
@@ -168,6 +168,10 @@
             @media screen and (max-width: 765px) {
               line-height: 22px;
               letter-spacing: -0.192px;
+
+              b {
+                font-weight: 500;
+              }
             }
           }
         }
@@ -272,6 +276,7 @@
 
   .flexCenter {
     justify-content: center;
+    color: #3668DD;
   }
 }
 

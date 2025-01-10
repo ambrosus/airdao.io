@@ -16,8 +16,8 @@
     display: flex;
     gap: 244px;
 
-    @media screen and (max-width: 1440px) {
-      gap: 100px;
+    @media screen and (max-width: 1155px) {
+      gap: 130px;
     }
 
     @media screen and (max-width: 1024px) {
@@ -28,7 +28,7 @@
     .left {
       max-width: 520px;
 
-      @media screen and (max-width: 1440px) {
+      @media screen and (max-width: 1024px) {
         max-width: 340px;
       }
 
@@ -41,7 +41,7 @@
         line-height: 72px;
         letter-spacing: -1.12px;
 
-        @media screen and (max-width: 1440px) {
+        @media screen and (max-width: 1024px) {
           font-size: 32px;
           line-height: 40px;
           letter-spacing: -0.64px;
@@ -62,7 +62,7 @@
         line-height: 28px;
         letter-spacing: -0.28px;
 
-        @media screen and (max-width: 1440px) {
+        @media screen and (max-width: 1024px) {
           font-size: 16px;
           line-height: 24px;
           letter-spacing: -0.16px;
@@ -239,6 +239,7 @@
             font-style: normal;
             font-weight: 700;
             line-height: 17.5px;
+            opacity: 0.5;
 
             @media screen and (max-width: 765px) {
               font-size: 8.876px;
