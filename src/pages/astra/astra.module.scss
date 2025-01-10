@@ -17,7 +17,7 @@
     gap: 75px;
 
     @media screen and (max-width: 1024px) {
-      gap: 30px;
+      gap: 0;
       flex-direction: column;
     }
 
@@ -51,6 +51,7 @@
 
     .right {
       @media screen and (max-width: 1024px) {
+        margin-top: 90px;
         justify-self: center;
       }
       img {
@@ -107,7 +108,7 @@
 
       @media screen and (max-width: 1024px) {
         padding: 17px 17px 0;
-        flex-direction: column;
+        border-radius: 13.314px;
       }
 
       img {
