@@ -27,7 +27,7 @@ export default function ContactUs({ page }) {
   });
 
   const setField = (field, value) => {
-    setErrors((state) => ({
+    setErrors(state => ({
       ...state,
       [field]: '',
     }));
@@ -38,7 +38,7 @@ export default function ContactUs({ page }) {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const errorsClone = { ...errors };
 
@@ -54,7 +54,7 @@ export default function ContactUs({ page }) {
       }
     }
 
-    if (Object.values(errorsClone).some((el) => el)) {
+    if (Object.values(errorsClone).some(el => el)) {
       setErrors(errorsClone);
       return;
     }
@@ -64,8 +64,8 @@ export default function ContactUs({ page }) {
       {
         method: 'POST',
         body: JSON.stringify(formData),
-      }
-    ).then((res) => res.status);
+      },
+    ).then(res => res.status);
 
     if (res < 400) {
       setFormData({
@@ -103,7 +103,7 @@ export default function ContactUs({ page }) {
         }}
       />
       <div className={styles.links}>
-        {page.links.map((el) => (
+        {page.links.map(el => (
           <div key={el.link_url.url} className={styles.link_item}>
             <PrismicRichText
               field={el.link_text}
@@ -152,14 +152,14 @@ export default function ContactUs({ page }) {
           required
           value={formData.name}
           error={errors.name}
-          onChange={(e) => setField('name', e.target.value)}
+          onChange={e => setField('name', e.target.value)}
         />
         <Input
           placeholder={'Email'}
           required
           error={errors.email}
           value={formData.email}
-          onChange={(e) => setField('email', e.target.value)}
+          onChange={e => setField('email', e.target.value)}
         />
         <Select
           placeholder="Select category"
@@ -170,14 +170,14 @@ export default function ContactUs({ page }) {
             'Other',
           ]}
           error={errors.category}
-          onChange={(value) => setField('category', value)}
+          onChange={value => setField('category', value)}
           value={formData.category}
         />
         <Textarea
           placeholder={'Your message'}
           value={formData.message}
           error={errors.message}
-          onChange={(e) => setField('message', e.target.value)}
+          onChange={e => setField('message', e.target.value)}
         />
         <Button type="primary" size="large">
           Submit

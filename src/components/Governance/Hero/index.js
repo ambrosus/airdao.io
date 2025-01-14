@@ -9,14 +9,14 @@ export default function Hero({ heading }) {
     <div className={styles.container}>
       <Image
         src={bg}
-        alt={'background'}
+        alt="background"
         className={styles.background}
         width={1439}
         height={952}
       />
       <Image
         src={mobileBg}
-        alt={'background'}
+        alt="background"
         className={styles.background_mobile}
       />
       <PrismicRichText

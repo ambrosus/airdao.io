@@ -1,10 +1,10 @@
 import useClickOutside from '@/hooks/useClickOutside';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
-import CopyIcon from '../../assets/icons/copyLink.svg';
-import ShareIcon from '../../assets/icons/share.svg';
-import LinkedInIcon from '../../assets/icons/shareLinkedIn.svg';
-import TwitterIcon from '../../assets/icons/shareTwitter.svg';
+import CopyIcon from '@/assets/icons/copyLink.svg';
+import ShareIcon from '@/assets/icons/share.svg';
+import LinkedInIcon from '@/assets/icons/shareLinkedIn.svg';
+import TwitterIcon from '@/assets/icons/shareTwitter.svg';
 import styles from './shareButton.module.scss';
 
 export default function ShareButton() {

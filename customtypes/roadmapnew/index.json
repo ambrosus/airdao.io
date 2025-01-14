@@ -32,7 +32,7 @@
         "type": "Image"
       }
     },
-    "Layer1": {
+    "L1": {
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
@@ -58,7 +58,7 @@
         }
       }
     },
-    "Mobile App": {
+    "GameFi": {
       "slices2": {
         "type": "Slices",
         "fieldset": "Slice Zone",
@@ -73,19 +73,6 @@
     },
     "Governance": {
       "slices3": {
-        "type": "Slices",
-        "fieldset": "Slice Zone",
-        "config": {
-          "choices": {
-            "roadmap_item": {
-              "type": "SharedSlice"
-            }
-          }
-        }
-      }
-    },
-    "Others": {
-      "slices4": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {

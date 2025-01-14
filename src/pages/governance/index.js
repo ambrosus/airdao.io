@@ -5,9 +5,9 @@ import { createClient } from '@/prismicio';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
 import * as prismic from '@prismicio/client';
 import { useState } from 'react';
-import Hero from 'src/components/Governance/Hero';
-import Council from '../../components/Governance/Council';
-import Proposals from '../../components/Governance/Proposals';
+import Hero from '@/components/Governance/Hero';
+import Council from '@/components/Governance/Council';
+import Proposals from '@/components/Governance/Proposals';
 import ArticlesList from '@/components/ArticlesList';
 import Seo from '@/components/Seo';
 
@@ -64,7 +64,7 @@ const GovernancePage = ({
   );
 };
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
   const newClient = prismic.createClient('airdao-blog');
 

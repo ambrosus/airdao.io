@@ -53,7 +53,7 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
               >
                 <Image
                   src={product.product_icon.url}
-                  alt={product.name}
+                  alt={product?.name || 'product icon'}
                   width={40}
                   height={40}
                 />
@@ -165,7 +165,7 @@ const ExploreProducts = ({ smallTitle, title, list }) => {
             >
               <Image
                 src={product.product_icon.url}
-                alt={product.name}
+                alt={product?.name || 'product icon'}
                 width={40}
                 height={40}
               />

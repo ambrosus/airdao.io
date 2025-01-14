@@ -6,7 +6,7 @@ import HeaderWrapper from '@/components/Header';
 import { createClient } from '@/prismicio';
 import * as prismic from '@prismicio/client';
 import { useEffect, useState } from 'react';
-import homePageStyles from '../../components/Homepage/homepage.module.scss';
+import homePageStyles from '@/components/Homepage/homepage.module.scss';
 import styles from './events.module.scss';
 import ArticlesList from '@/components/ArticlesList';
 import Seo from '@/components/Seo';
@@ -52,7 +52,9 @@ export async function getStaticProps(context) {
 }
 
 const Events = ({ header, footerText, page, banner, latestArticles }) => {
+  // eslint-disable-next-line unused-imports/no-unused-vars
   const [articles, setArticles] = useState({});
+  // eslint-disable-next-line unused-imports/no-unused-vars
   const [articleNames, setArticleNames] = useState({});
   const [showBanner, setShowBanner] = useState(page?.show_banner);
 

@@ -18,6 +18,7 @@
   top: -150px!important;
   transform: translateX(-50%);
   z-index: -1;
+  object-fit: fill;
 
   @media screen and (max-width: 950px) {
     top: -60px!important;
@@ -29,6 +30,7 @@
   max-width: 820px;
   display: block;
   margin: 374px auto 100px;
+  object-fit: fill;
 
   @media screen and (max-width: 950px) {
     margin-top: 288px;

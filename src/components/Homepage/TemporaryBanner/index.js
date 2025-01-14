@@ -1,16 +1,22 @@
 import styles from './temp-banner.module.scss';
-import sfIcon from './starfleet.svg';
 import Image from 'next/image';
 import chevron from '@/assets/icons/chevron-additional.svg';
 import { Button } from '@airdao/ui-library';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextLink } from '@prismicio/next';
 
 const targetDate = '2024-09-15';
 
-const TemporaryBanner = ({ title, bg, link, linkText, date, bgMobile, logo }) => {
+const TemporaryBanner = ({
+  title,
+  bg,
+  link,
+  linkText,
+  date,
+  bgMobile,
+  logo,
+}) => {
   const [remainingDays, setRemainingDays] = useState(0);
 
   useEffect(() => {
@@ -23,6 +29,7 @@ const TemporaryBanner = ({ title, bg, link, linkText, date, bgMobile, logo }) =>
     };
 
     calculateRemainingDays();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [targetDate]);
 
   let isMobile = false;
@@ -32,13 +39,16 @@ const TemporaryBanner = ({ title, bg, link, linkText, date, bgMobile, logo }) =>
 
   return (
     <section className="container">
-      <div className={styles.wrapper} style={{backgroundImage: `url(${isMobile ? bgMobile.url : bg.url})`}}>
+      <div
+        className={styles.wrapper}
+        style={{ backgroundImage: `url(${isMobile ? bgMobile.url : bg.url})` }}
+      >
         <div className={styles.left}>
           <span className={styles.day}>{remainingDays}</span>
           <span className={styles.day_text}>days left</span>
         </div>
         <div className={styles.right}>
-          <img src={logo.url} alt="starfleet" className={styles.logo}/>
+          <img src={logo.url} alt="starfleet" className={styles.logo} />
           <PrismicRichText
             field={title}
             components={{
@@ -63,7 +73,7 @@ const TemporaryBanner = ({ title, bg, link, linkText, date, bgMobile, logo }) =>
         </div>
       </div>
     </section>
-  )
+  );
 };
 
 export default TemporaryBanner;

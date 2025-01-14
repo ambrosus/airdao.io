@@ -21,7 +21,7 @@ const TeamMediaSlider = ({ sliderImgs }) => {
           isWindows ? styles['media-slider-block_win'] : ''
         }`}
       >
-        {sliderImgs.map((el) => (
+        {sliderImgs.map(el => (
           <img
             key={el.img.url}
             className={styles['media-slider-image-block']}
@@ -29,7 +29,7 @@ const TeamMediaSlider = ({ sliderImgs }) => {
             alt="slider image"
           />
         ))}
-        {sliderImgs.map((el) => (
+        {sliderImgs.map(el => (
           <img
             key={el.img.url}
             className={styles['media-slider-image-block']}

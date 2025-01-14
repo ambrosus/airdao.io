@@ -1,6 +1,6 @@
 import styles from './ambassarods.module.scss';
 import BlockLabel from '@/components/BlockLabel';
-import chevron from '../../../assets/icons/chevron.svg';
+import chevron from '@/assets/icons/chevron.svg';
 import Image from 'next/image';
 import { Button } from '@airdao/ui-library';
 import { PrismicRichText } from '@prismicio/react';
@@ -46,7 +46,7 @@ const Ambassadors = ({
     />
     <div className={styles['ambassadors__list']}>
       {images &&
-        images.map((el) => (
+        images.map(el => (
           <img
             width={96}
             height={85}
@@ -61,10 +61,7 @@ const Ambassadors = ({
         field={primaryText}
         components={{
           paragraph: ({ children }) => (
-            <Link
-              href={primaryLink.url}
-              target="_blank"
-            >
+            <Link href={primaryLink.url} target="_blank">
               <Button type="primary" size="large">
                 {children}
               </Button>

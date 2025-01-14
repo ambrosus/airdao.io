@@ -121,7 +121,7 @@ export default function Home({
   );
 }
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
   const blogClient = prismic.createClient('airdao-blog');
 

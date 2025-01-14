@@ -21,7 +21,7 @@ const App = ({ title, list, appstore, google }) => (
           />
         </p>
         <ul className={styles.app__list}>
-          {list.map((el) => (
+          {list.map(el => (
             <PrismicRichText
               field={el.item}
               key={asText(el.item)}

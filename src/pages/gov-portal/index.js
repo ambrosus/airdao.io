@@ -6,7 +6,7 @@ import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
 import CouncilBlock from '@/components/Landing/GovPortal/CouncilBlock';
-import SbtBlock from 'src/components/Landing/GovPortal/SbtImg';
+import SbtBlock from '@/components/Landing/GovPortal/SbtImg';
 import SbtCta from '@/components/Landing/GovPortal/SbtCta';
 import SbtInfo from '@/components/Landing/GovPortal/SbtInfo';
 import HeroSection from '@/components/Landing/GovPortal/HeroSection';
@@ -49,7 +49,7 @@ export default function Landing({ page, portal, header, banner, footerText }) {
   );
 }
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
   const page = await client.getSingle('homepage');

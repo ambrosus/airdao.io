@@ -31,7 +31,12 @@ const Network = ({ smallTitle, title, list }) => {
               <div key={title} className={styles['detail']}>
                 <span>
                   {icon && (
-                    <Image src={icon} alt={title} width={25} height={25} />
+                    <Image
+                      src={icon}
+                      alt={title || 'title'}
+                      width={25}
+                      height={25}
+                    />
                   )}
                   {value && <span className={styles['value']}>{value}</span>}
                   <span className={styles['value-title']}>{title}</span>

@@ -19,7 +19,10 @@ const DownloadApp = ({ data }) => {
                   {data.map(item => (
                     <li key={item.imageurl.alt}>
                       <a href={item.linkurl.url} target={item.linkurl.target}>
-                        <img src={item.imageurl.url} alt={item.imageurl.alt} />
+                        <img
+                          src={item.imageurl.url}
+                          alt={item?.imageurl.alt || 'image'}
+                        />
                       </a>
                     </li>
                   ))}

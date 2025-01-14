@@ -210,7 +210,7 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
                       {el.button_icon?.url && (
                         <img
                           src={el.button_icon?.url || ''}
-                          alt=""
+                          alt="button icon"
                           className={styles.exchange__scan_icon}
                         />
                       )}
@@ -289,7 +289,7 @@ const BuyAmb = ({ header, footerText, page, banner }) => {
   );
 };
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
   const header = await client.getSingle('header');

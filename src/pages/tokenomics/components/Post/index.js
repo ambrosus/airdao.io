@@ -8,7 +8,7 @@ import { asText } from '@prismicio/client';
 const Post = ({ data }) => {
   const [expanded, setExpanded] = useState(false);
 
-  const handleExpanded = () => setExpanded((state) => !state);
+  const handleExpanded = () => setExpanded(state => !state);
 
   return (
     data && (

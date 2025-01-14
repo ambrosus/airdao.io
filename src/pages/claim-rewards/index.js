@@ -28,7 +28,7 @@ export default function ClaimRewards({ portal, header, footerText }) {
   );
 }
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
   const page = await client.getSingle('homepage');

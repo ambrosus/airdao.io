@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { Button } from '@airdao/ui-library';
-import rocket from '@/assets/img/homepage/rocket.svg';
 import styles from './banner-rocket.module.scss';
 import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextLink } from '@prismicio/next';

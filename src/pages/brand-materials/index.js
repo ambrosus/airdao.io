@@ -8,7 +8,7 @@ import Seo from '@/components/Seo';
 import { createClient } from '@/prismicio';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
 import { useState } from 'react';
-import Hero from 'src/components/BrandMaterials/Hero';
+import Hero from '@/components/BrandMaterials/Hero';
 
 const BrandMaterialsPage = ({ header, footerText, page, banner }) => {
   const footerSlice = getFooterBlockSlice(page.data);

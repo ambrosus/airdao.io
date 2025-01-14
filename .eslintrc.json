@@ -4,6 +4,7 @@
     "prettier",
     "plugin:prettier/recommended"
   ],
+  "plugins": ["unused-imports"],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
@@ -12,6 +13,23 @@
       {
         "singleQuote": true
       }
-    ]
-  }
+    ],
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "@next/next/no-img-element": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "excludedFiles": ["*.js", "*.jsx"]
+    }
+  ]
 }
