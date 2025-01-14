@@ -9,7 +9,7 @@ const infoData = [
     icon: Icon1,
     title: 'Effortless staking',
     description:
-      'TStake $AMB tokens and receive stAMB, a liquid staking derivative token, in return.',
+      'Stake $AMB tokens and receive stAMB, a liquid staking derivative token, in return.',
   },
   {
     icon: Icon2,
