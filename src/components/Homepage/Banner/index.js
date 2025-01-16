@@ -11,32 +11,32 @@ const BannerRocket = ({ title, buttonName, buttonLink, image, bgUrl }) => {
         className={styles['banner-rocket-container']}
         style={{ backgroundImage: `url(${bgUrl.url})` }}
       >
-        <Image width={232} height={200} src={image.url} alt="rocket" />
-        <div className={styles['banner-text-button']}>
+        <div className={styles['banner-inner']}>
+          <div className={styles['banner-image']}>
+            <Image width={232} height={210} src={image.url} alt="rocket" />
+          </div>
           <PrismicRichText
             field={title}
             components={{
               paragraph: ({ children }) => (
-                <div className={styles['banner-text']}>{children}</div>
+                <div className={styles['banner-message']}>{children}</div>
               ),
             }}
           />
-          <PrismicNextLink field={buttonLink}>
-            <PrismicRichText
-              field={buttonName}
-              components={{
-                paragraph: ({ children }) => (
-                  <Button
-                    type="primary"
-                    size="large"
-                    className={styles['button']}
-                  >
-                    {children}
-                  </Button>
-                ),
-              }}
-            />
-          </PrismicNextLink>
+          <div className={styles['banner-button']}>
+            <PrismicNextLink field={buttonLink}>
+              <PrismicRichText
+                field={buttonName}
+                components={{
+                  paragraph: ({ children }) => (
+                    <Button type="primary" size="large">
+                      {children}
+                    </Button>
+                  ),
+                }}
+              />
+            </PrismicNextLink>
+          </div>
         </div>
       </div>
     </section>
