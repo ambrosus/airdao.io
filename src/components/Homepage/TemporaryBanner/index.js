@@ -3,8 +3,8 @@ import Image from 'next/image';
 import chevron from '@/assets/icons/chevron-additional.svg';
 import { Button } from '@airdao/ui-library';
 import { useEffect, useState } from 'react';
-import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextLink } from '@prismicio/next';
+import { PrismicRichText } from '@prismicio/react';
 
 const targetDate = '2024-09-15';
 
