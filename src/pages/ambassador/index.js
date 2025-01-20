@@ -1,12 +1,12 @@
-import blueCircle from '@/assets/img/blue-circle.svg';
-import orangeCircle from '@/assets/img/orange-circle.svg';
+// import blueCircle from '@/assets/img/blue-circle.svg';
+// import orangeCircle from '@/assets/img/orange-circle.svg';
 import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
 import homeStyles from '@/components/Homepage/homepage.module.scss';
 import { createClient } from '@/prismicio';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { useState } from 'react';
 import styles from './ambassador.module.scss';
 import Benefits from './components/Benefits';
@@ -45,16 +45,16 @@ const AmbassadorPage = ({ header, footerText, page, banner }) => {
           primaryLink={page.roles_primary_link}
         />
         <div className={homeStyles['articles-wrapper']}>
-          <Image
-            className={homeStyles['blue-circle']}
-            src={blueCircle}
-            alt="blue circle"
-          />
-          <Image
-            className={homeStyles['orange-circle']}
-            src={orangeCircle}
-            alt="orange circle"
-          />
+          {/*<Image*/}
+          {/*  className={homeStyles['blue-circle']}*/}
+          {/*  src={blueCircle}*/}
+          {/*  alt="blue circle"*/}
+          {/*/>*/}
+          {/*<Image*/}
+          {/*  className={homeStyles['orange-circle']}*/}
+          {/*  src={orangeCircle}*/}
+          {/*  alt="orange circle"*/}
+          {/*/>*/}
           <Benefits title={page.benefits_title} list={page.benefits_list} />
         </div>
         {footerText && (
