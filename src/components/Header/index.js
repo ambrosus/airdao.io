@@ -1,7 +1,7 @@
 import { useDisconnect } from 'wagmi';
 import { Header } from '@airdao/ui-library';
-// import PresentIcon from '@/components/Icons/Present';
-// import Link from 'next/link';
+import PresentIcon from '@/components/Icons/Present';
+import Link from 'next/link';
 
 const chainId = +process.env.NEXT_PUBLIC_CHAIN_ID;
 
@@ -15,11 +15,11 @@ const HeaderWrapper = () => {
 
   return (
     <Header
-      // customComponent={
-      //   <Link href="/claim-rewards">
-      //     <PresentIcon />
-      //   </Link>
-      // }
+      customComponent={
+        <Link href="/claim-rewards">
+          <PresentIcon />
+        </Link>
+      }
       chainId={+chainId}
       disconnect={disconnectHandler}
     />
