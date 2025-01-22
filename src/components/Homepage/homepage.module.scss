@@ -8,56 +8,6 @@
   position: relative;
 }
 
-.blue-circle {
-  position: absolute;
-  right: 50%;
-  transform: translateX(calc(50% + 1000px));
-  bottom: -1200px;
-  z-index: -1;
-
-  &_buy {
-    width: 100%;
-    transform: translateX(calc(50% + 600px));
-    bottom: -800px;
-    opacity: 0.6;
-
-    @media screen and (max-width: 1100px) {
-      bottom: -600px;
-      width: 120%;
-      transform: translateX(calc(50% + 400px));
-    }
-
-    @media screen and (max-width: 678px) {
-      display: none;
-    }
-  }
-}
-
-.orange-circle {
-  position: absolute;
-  left: 50%;
-  transform: translateX(calc(-50% - 1000px));
-  top: -1200px;
-  z-index: -1;
-
-  &_buy {
-    top: -700px;
-    transform: translateX(calc(-50% - 700px));
-    width: 100%;
-    opacity: 0.6;
-
-    @media screen and (max-width: 1100px) {
-      top: -700px;
-      width: 120%;
-      transform: translateX(calc(-50% - 400px));
-    }
-
-    @media screen and (max-width: 678px) {
-      display: none;
-    }
-  }
-}
-
 .main-block-wrapper {
   position: relative;
   overflow: hidden;

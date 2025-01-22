@@ -113,7 +113,9 @@ const Events = ({ header, footerText, page, banner, latestArticles }) => {
         </div>
       </div>
 
-      {footerText && <Footer data={footerText.data} />}
+      {footerText && (
+        <Footer data={footerText.data} className={styles.footer} />
+      )}
     </div>
   );
 };
