@@ -1,15 +1,11 @@
-import styles from './contact-us.module.scss';
-import Textarea from '@/components/Textarea';
-import Select from '@/components/Select';
 import React, { useState } from 'react';
-import { Notify, Input, Button } from '@airdao/ui-library';
 import Head from 'next/head';
 import Link from 'next/link';
 import { PrismicRichText } from '@prismicio/react';
-import Image from 'next/image';
-import homeStyles from '@/components/Homepage/homepage.module.scss';
-import blueCircle from '@/assets/img/blue-circle.svg';
-import orangeCircle from '@/assets/img/orange-circle.svg';
+import { Notify, Input, Button } from '@airdao/ui-library';
+import styles from './contact-us.module.scss';
+import Textarea from '@/components/Textarea';
+import Select from '@/components/Select';
 import { validateEmail } from '@/utils/checkEmail';
 
 export default function ContactUs({ page }) {
@@ -79,17 +75,7 @@ export default function ContactUs({ page }) {
   };
 
   return (
-    <section className={`container ${styles.contact}`}>
-      <Image
-        className={`${homeStyles['blue-circle']} ${styles.blue}`}
-        src={blueCircle}
-        alt="blue circle"
-      />
-      <Image
-        className={`${homeStyles['orange-circle']} ${styles.orange}`}
-        src={orangeCircle}
-        alt="orange circle"
-      />
+    <section className={styles.contact}>
       <Head>
         <meta property="og:image" content="https://airdao.io/og-contact.png" />
         <meta name="twitter:image" content="https://airdao.io/og-contact.png" />
