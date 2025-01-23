@@ -12,6 +12,7 @@ import 'slick-carousel/slick/slick.css';
 import styles from './academy-list.module.scss';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { AnimatePresence } from 'framer-motion';
 import Seo from '@/components/Seo';
 
 // const badges = ['All', 'Beginner', 'Intermediate', 'Pro'];
@@ -85,7 +86,6 @@ export default function Academy({ footerText, header, page, banner }) {
     page?.types?.map(item => {
       if (item.type_name[0].text !== 'Analytics') {
         types.push(item.type_name[0].text);
-        names.push(item.type_name[0].text);
       }
     });
 
@@ -212,15 +212,17 @@ export default function Academy({ footerText, header, page, banner }) {
                         See all
                       </button>
                     </div>
-                    <div className={`${styles['articles-cards']} container`}>
-                      {articles[el].map(article => (
-                        <AcademyLink
-                          className={styles['articles__card']}
-                          key={article.uid}
-                          article={article}
-                        />
-                      ))}
-                    </div>
+                    <AnimatePresence>
+                      <div className={`${styles['articles-cards']} container`}>
+                        {articles[el].map(article => (
+                          <AcademyLink
+                            className={styles['articles__card']}
+                            key={article.uid}
+                            article={article}
+                          />
+                        ))}
+                      </div>
+                    </AnimatePresence>
                   </div>
                 ),
             )}
@@ -228,14 +230,17 @@ export default function Academy({ footerText, header, page, banner }) {
         ) : (
           paginatedData && (
             <>
-              <div
-                ref={articleList}
-                className={`${styles['articles-list']} ${styles['articles-list_pagination']} container`}
-              >
-                {paginatedData.results.map(el => {
-                  return <AcademyLink key={el.uid} article={el} />;
-                })}
-              </div>
+              <AnimatePresence>
+                <div
+                  ref={articleList}
+                  className={`${styles['articles-list']} ${styles['articles-list_pagination']} container`}
+                >
+                  {paginatedData.results.map(el => (
+                    <AcademyLink key={el.uid} article={el} />
+                  ))}
+                </div>
+              </AnimatePresence>
+
               {paginatedData?.results?.length > 5 && (
                 <Pagination
                   currentPage={paginatedData.page}
