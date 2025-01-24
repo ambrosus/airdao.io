@@ -176,7 +176,7 @@ export default function Academy({ footerText, header, page, banner }) {
                   ? styles['academy-types__item_active']
                   : ''
               }`}
-              href="/academy"
+              href="/academy#all"
             >
               All
             </Link>
