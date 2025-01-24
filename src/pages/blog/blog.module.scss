@@ -5,11 +5,10 @@
   padding-top: 180px;
 
   @media screen and (max-width: 950px) {
-    padding-top: 150px;
+    padding-top: 80px;
   }
 
   @media screen and (max-width: 650px) {
-    padding-top: 140px;
     width: calc(100% - 30px);
   }
 }
@@ -65,7 +64,7 @@
     position: relative;
 
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       width: 7px;
       height: 7px;
@@ -127,7 +126,11 @@
   }
 }
 
-.blog-page__text, .blog__list-item, .blog__p-m0, .blog__ul, .blog__ol {
+.blog-page__text,
+.blog__list-item,
+.blog__p-m0,
+.blog__ul,
+.blog__ol {
   max-width: 860px;
   margin: 0 auto 48px;
   color: #393b40;

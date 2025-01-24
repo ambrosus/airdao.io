@@ -42,6 +42,11 @@ export async function getStaticProps({ previewData }) {
   const page = await client.getSingle('contact_us');
 
   return {
-    props: { header, footerText: footer, page: page.data, banner },
+    props: {
+      header,
+      footerText: footer,
+      page: page.data,
+      banner,
+    },
   };
 }

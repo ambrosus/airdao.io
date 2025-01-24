@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { createClient } from '@/prismicio';
 import Footer from '@/components/Footer';
+import Banner from '@/components/Banner';
 import HeaderWrapper from '@/components/Header';
 import styles from './roadmap.module.scss';
 import { useMemo, useState } from 'react';
@@ -36,8 +37,9 @@ const tabs = [
 
 const quarters = ['Q1', 'Q2', 'Q3', 'Q4'];
 
-const RoadmapNew = ({ footerText, header, page, articles }) => {
+const RoadmapNew = ({ footerText, header, page, banner, articles }) => {
   const [currentTab, setCurrentTab] = useState(0);
+  const [showBanner, setShowBanner] = useState(true);
 
   const activeTabData = useMemo(() => {
     const currentSlice = `slices${currentTab ? currentTab : ''}`;
@@ -57,6 +59,9 @@ const RoadmapNew = ({ footerText, header, page, articles }) => {
         description={page.data.meta_description}
         image={page.data.meta_image.url}
       />
+      {showBanner && (
+        <Banner data={banner?.data} setShowBanner={setShowBanner} />
+      )}
       {header && <HeaderWrapper header={header} />}
       <div className={styles.heading}>
         <div className={styles.heading__wrapper}>
@@ -158,6 +163,7 @@ export async function getStaticProps({ previewData }) {
 
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
+  const banner = await client.getSingle('banner');
   const page = await client.getSingle('roadmapnew');
   const latestBlogArticles = await blogClient.getAllByType('blog', {
     limit: 3,
@@ -168,7 +174,13 @@ export async function getStaticProps({ previewData }) {
     filters: [prismic.filter.at('my.blog.blog_type', 'tech')],
   });
   return {
-    props: { header, footerText: footer, page, articles: latestBlogArticles },
+    props: {
+      header,
+      footerText: footer,
+      page,
+      banner,
+      articles: latestBlogArticles,
+    },
   };
 }
 

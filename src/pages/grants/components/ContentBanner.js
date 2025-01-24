@@ -7,7 +7,7 @@ const ContentBanner = ({ heading, text, email }) => {
     <div className={'container'}>
       <div className={styles.contentBanner}>
         <PrismicRichText field={heading} />
-        <span>
+        <span className={styles.text}>
           <PrismicText field={text} />{' '}
           <Link href={`mailto:${email}`} className={styles.link}>
             {email}

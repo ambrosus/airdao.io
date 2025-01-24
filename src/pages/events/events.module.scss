@@ -1,12 +1,22 @@
 .contentContainer {
   position: relative;
   width: 100%;
+  overflow: hidden;
+  padding-bottom: 118px;
+
+  @media screen and (max-width: 950px) {
+    padding-bottom: 73px;
+  }
+
+  @media screen and (max-width: 610px) {
+    padding-bottom: 60px;
+  }
 
   &:before,
   &:after {
     position: absolute;
     width: inherit;
-    height: 2251px;
+    height: 100%;
     background-size: 100%;
     background-repeat: no-repeat;
     background-image: url("/img/blue-orange-circle.svg");
@@ -24,6 +34,7 @@
     background-position: bottom;
   }
 }
+
 .articlesContainer {
   width: 100%;
   display: flex;
@@ -33,6 +44,7 @@
     margin-top: 5vh;
   }
 }
+
 .articlesWrapper {
   width: calc(100% - 240px);
   max-width: 1300px;
@@ -40,4 +52,8 @@
   @media screen and (max-width: 610px) {
     width: calc(100% - 36px);
   }
+}
+
+.footer {
+  margin-top: 0!important;
 }
