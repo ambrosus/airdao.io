@@ -38,7 +38,7 @@ const grantTiers = {
     alt: 'game_changer_icon',
     heading: 'Game changer',
     description:
-      'Strategic alignment with AirDAO goals, co-funding, or resource-sharing agreements.',
+      'Strategic alignment with AirDAO goals, co-funding, or resource-sharing agreements. Collaborations with established companies or organizations possible.',
   },
 };
 
@@ -129,7 +129,11 @@ const Grants = ({ email }) => {
                 If you have questions before submitting your project
                 application, you can contact us via
                 <a href={`mailto:${email}`}> {email}</a> or {''}
-                <a href="t.me/airbuilders" rel="noopener noreferrer">
+                <a
+                  href="https://t.me/airbuilders"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   t.me/airbuilders.
                 </a>
               </p>
