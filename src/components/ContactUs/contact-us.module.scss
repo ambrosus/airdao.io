@@ -1,16 +1,32 @@
 .contact {
-  padding-top: 195px;
+  padding: 195px 0 267px;
   max-width: 100vw;
   position: relative;
-  padding-bottom: 100px;
 
   @media screen and (max-width: 1150px) {
-    padding-top: 180px;
+    padding: 180px 0 246px;
   }
 
   @media screen and (max-width: 650px) {
-    padding-top: 154px;
+    padding: 154px 0 168px;
   }
+
+  &::before {
+    width: 100vw;
+    height: 100%;
+    content: "";
+    position: absolute;
+    background-image: url('/bg-gradient/contactUs.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    inset: 0;
+    z-index: -1;
+
+    @media screen and (max-width: 650px) {
+      background-position: bottom;
+    }
+  }
+
 }
 
 .title {
@@ -18,7 +34,7 @@
   font-family: var(--font-rationell);
   font-size: 56px;
   font-weight: 700;
-  line-height: 68.5px; /* 122.321% */
+  line-height: 68.5px;
   letter-spacing: -1.12px;
   background: -webkit-linear-gradient(#457EFF, #3568DD);
   -webkit-text-fill-color: transparent;
@@ -28,13 +44,13 @@
 
   @media screen and (max-width: 1150px) {
     font-size: 40px;
-    line-height: 52.5px; /* 131.25% */
+    line-height: 52.5px;
     letter-spacing: -0.8px;
   }
 
   @media screen and (max-width: 650px) {
     font-size: 32px;
-    line-height: 44.5px; /* 139.063% */
+    line-height: 44.5px;
     letter-spacing: -0.64px;
   }
 }
@@ -78,20 +94,20 @@
   display: block;
   width: min-content;
   padding: 50px 66px;
-  color: var(--color-shades-grey-50, #FFF);
+  color: #ffffff;
   text-align: center;
   font-family: var(--font-inter);
   font-size: 66px;
   font-weight: 500;
-  line-height: 100px; /* 150% */
+  line-height: 100px;
   letter-spacing: -0.16px;
   border-radius: 4150.541px;
-  background: var(--yellow-500, #FF7A00);
-  box-shadow: 0px 1px 3px 0px rgba(47, 43, 67, 0.10), 0px -1px 0px 0px rgba(47, 43, 67, 0.10) inset;
+  background: #FF7A00;
+  box-shadow: 0 1px 3px 0 rgba(47, 43, 67, 0.10), 0px -1px 0px 0px rgba(47, 43, 67, 0.10) inset;
   transition: .3s;
 
   &:hover {
-    background: var(--yellow-600-accent, #FF5E0D);
+    background: #FF5E0D;
   }
 
   @media screen and (max-width: 1150px) {
@@ -104,12 +120,12 @@
 .link_text {
   text-align: center;
   margin-top: 24px;
-  color: var(--neutral-700, #222426);
+  color: #222426;
   font-family: var(--font-inter);
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 26px; /* 144.444% */
+  line-height: 26px;
   letter-spacing: -0.216px;
 
   @media screen and (max-width: 1150px) {
@@ -119,37 +135,37 @@
 }
 
 .form_title {
-  color: var(--neutral-700, #222426);
+  color: #222426;
   font-family: var(--font-rationell);
   font-size: 48px;
   font-weight: 500;
-  line-height: 57px; /* 118.75% */
+  line-height: 57px;
   letter-spacing: -0.96px;
   text-align: center;
   margin-bottom: 8px;
 
   @media screen and (max-width: 1150px) {
     font-size: 28px;
-    line-height: 40px; /* 142.857% */
+    line-height: 40px;
     letter-spacing: -0.56px;
   }
 }
 
 .form_subtitle {
-  color: var(--neutral-700, #222426);
+  color: #222426;
   text-align: center;
   font-family: var(--font-inter);
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 26px; /* 144.444% */
+  line-height: 26px;
   letter-spacing: -0.216px;
   max-width: 650px;
   margin: 0 auto;
 
   @media screen and (max-width: 1150px) {
     font-size: 14px;
-    line-height: 20px; /* 142.857% */
+    line-height: 20px;
     letter-spacing: -0.14px;
   }
 }
@@ -157,8 +173,8 @@
 .form_container {
   border-radius: 50px;
   padding: 40px;
-  background: var(--color-shades-grey-50, #FFF);
-  box-shadow: 0px 12px 36px 0px rgba(47, 43, 67, 0.12);
+  background: #ffffff;
+  box-shadow: 0 12px 36px 0 rgba(47, 43, 67, 0.12);
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -177,28 +193,6 @@
   }
 }
 
-img.blue {
-  top: 200px;
-  bottom: unset;
-
-  @media screen and (max-width: 1150px) {
-    top: -1300px;
-  }
-
-  @media screen and (max-width: 650px) {
-    top: -620px;
-  }
-}
-
-img.orange {
-  top: -800px;
-  bottom: unset;
-
-  @media screen and (max-width: 650px) {
-    top: -620px;
-  }
-}
-
 .footer {
-  margin-top: 0;
+  margin-top: 0!important;
 }

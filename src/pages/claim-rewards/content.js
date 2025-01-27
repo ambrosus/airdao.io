@@ -25,8 +25,7 @@ const isTokenExpired = token => {
 };
 
 const Content = () => {
-  const { address, isConnected, isActivating, chainId, connector } =
-    useAccount();
+  const { address, isConnected, isActivating, chainId } = useAccount();
   const { disconnect } = useDisconnect();
   const [state, setState] = useState('connect');
   const provider = useEthersWeb3Provider({ chainId });
