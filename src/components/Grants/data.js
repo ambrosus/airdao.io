@@ -1,36 +1,7 @@
-// import Img1 from './assets/group-photo.webp';
-// import Img2 from './assets/journey-illustration.svg';
-// import Img3 from './assets/challenge-illustration.svg';
-
 import Tier1 from './assets/tier-1.svg';
 import Tier2 from './assets/tier-2.svg';
 import Tier3 from './assets/tier-3.svg';
 import Tier4 from './assets/tier-4.svg';
-
-// export const grantInfo = {
-//   card1: {
-//     img: Img1,
-//     alt: 'group-photo',
-//     heading: 'Our journey together',
-//     description: 'Be nourished by our team of experts in various disciplines.',
-//   },
-//   card2: {
-//     img: Img2,
-//     alt: 'journey-illustration',
-//     heading: 'Be part of our hive of human talents',
-//   },
-//   card3: {
-//     heading: 'Ecosystem growth',
-//     description:
-//       'We encourage the development of innovative solutions that align with AirDAO goals and vision.',
-//   },
-//   card4: {
-//     img: Img3,
-//     alt: 'challenge-illustration',
-//     heading: 'Embrace the challenge:',
-//     description: 'Push boundaries, be bold. You are the future',
-//   },
-// };
 
 export const grantTiers = {
   card1: {

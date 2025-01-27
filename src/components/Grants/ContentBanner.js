@@ -1,6 +1,7 @@
-import styles from '../grants.module.scss';
 import Link from 'next/link';
 import { PrismicRichText, PrismicText } from '@prismicio/react';
+
+import styles from './grants.module.scss';
 
 const ContentBanner = ({ heading, text, email }) => {
   return (

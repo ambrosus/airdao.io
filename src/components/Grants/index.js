@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import styles from '../grants.module.scss';
+
+import styles from './grants.module.scss';
 import { grantTiers } from './data';
 
 import Logo from './assets/logo.svg';

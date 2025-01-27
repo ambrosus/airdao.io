@@ -2,9 +2,9 @@ import { createClient } from '@/prismicio';
 
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
-import styles from './grants.module.scss';
+import styles from '@/components/Grants/grants.module.scss';
 import Seo from '@/components/Seo';
-import Grants from './components/Grants';
+import Grants from '@/components/Grants';
 
 export default function GrantsPage({ grants, header, footerText }) {
   return (

@@ -99,7 +99,7 @@ export default function Home({
         title={data.involved_title}
         main={data.involved_main}
         socials={data.involved_socials}
-        sbt={data.involved_sbt}
+        // sbt={data.involved_sbt}
         events={data.involved_events}
         ambassador={data.involved_ambassador}
         burn={data.involved_burn}
