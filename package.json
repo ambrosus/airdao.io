@@ -22,7 +22,7 @@
     "framer-motion": "^11.0.5",
     "jwt-decode": "^4.0.0",
     "keccak256": "^1.0.6",
-    "next": "^15.0.3",
+    "next": "^15.1.2",
     "postcss": "^8.4.49",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
