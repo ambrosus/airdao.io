@@ -118,7 +118,7 @@ const Grants = ({ email }) => {
             </div>
             <div className={styles.ctaBlock}>
               <a
-                href="#"
+                href="https://forms.gle/TYWusNCkHqEmdEaS9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.applyNow}
