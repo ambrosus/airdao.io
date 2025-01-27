@@ -3071,6 +3071,8 @@ export interface GrantsDocumentDataCardsItem {
   color: prismic.SelectField<'blue' | 'orange', 'filled'>;
 }
 
+type GrantsDocumentDataSlices2Slice = never;
+
 /**
  * Content for Grants documents
  */
@@ -3158,6 +3160,17 @@ interface GrantsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   cta_text: prismic.RichTextField;
+
+  /**
+   * `slices2` field in *Grants*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grants.slices2[]
+   * - **Tab**: cards
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices2: prismic.SliceZone<GrantsDocumentDataSlices2Slice>;
 }
 
 /**
@@ -7455,6 +7468,17 @@ declare module '@prismicio/client' {
     ): prismic.Client<AllDocumentTypes>;
   }
 
+  interface CreateWriteClient {
+    (
+      repositoryNameOrEndpoint: string,
+      options: prismic.WriteClientConfig,
+    ): prismic.WriteClient<AllDocumentTypes>;
+  }
+
+  interface CreateMigration {
+    (): prismic.Migration<AllDocumentTypes>;
+  }
+
   namespace Content {
     export type {
       AcademyDocument,
@@ -7535,6 +7559,7 @@ declare module '@prismicio/client' {
       GrantsDocument,
       GrantsDocumentData,
       GrantsDocumentDataCardsItem,
+      GrantsDocumentDataSlices2Slice,
       HeaderDocument,
       HeaderDocumentData,
       HeaderDocumentDataProductsItem,
