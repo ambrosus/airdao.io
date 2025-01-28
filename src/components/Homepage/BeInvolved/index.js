@@ -12,7 +12,6 @@ const BeInvolved = ({
   title,
   main,
   socials,
-  sbt,
   events,
   ambassador,
   burn,
@@ -45,54 +44,29 @@ const BeInvolved = ({
         </div>
         <div className={styles['blocks']}>
           <div>
-            <div className={styles['block-title-description']}>
-              <h3>{main[0].involved_main_title[0].text}</h3>
-              <div>{main[0].involved_main_description[0].text}</div>
-            </div>
-            <div className={styles['socials']}>
-              {socials.map(social => (
-                <a
-                  href={social.social_link.url}
-                  key={social.social_icon.url}
-                  target="_blank"
-                >
-                  <Image
-                    src={social.social_icon.url}
-                    width={32}
-                    height={32}
-                    alt="social"
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
-          <div>
-            <div>
-              <img
-                src={sbt[0].sbt_image.url}
-                alt="governor"
-                className={styles['desktop-governor']}
-              />
-              <img
-                src={sbt[0].sbt_image_mobile.url}
-                alt="governor"
-                className={styles['mobile-governor']}
-              />
+            <div className={styles['main-block']}>
               <div className={styles['block-title-description']}>
-                <h3>{sbt[0].sbt_title[0].text}</h3>
-                <div>{sbt[0].sbt_description[0].text}</div>
-                <Link href={sbt[0].sbt_button_link.url}>
-                  <Button
-                    type="tetiary"
-                    size="large"
-                    className={styles['button']}
+                <h3>{main[0].involved_main_title[0].text}</h3>
+                <div>{main[0].involved_main_description[0].text}</div>
+              </div>
+              <div className={styles['socials']}>
+                {socials.map(social => (
+                  <a
+                    href={social.social_link.url}
+                    key={social.social_icon.url}
+                    target="_blank"
                   >
-                    {sbt[0].sbt_button_name[0].text}
-                  </Button>
-                </Link>
+                    <Image
+                      src={social.social_icon.url}
+                      width={50}
+                      height={50}
+                      alt="social"
+                    />
+                  </a>
+                ))}
               </div>
             </div>
-            <div>
+            <div className={styles['main-block']}>
               <div className={styles['block-title-description']}>
                 {events[0].events_image?.url && (
                   <img
@@ -139,6 +113,31 @@ const BeInvolved = ({
               </div>
             </div>
           </div>
+          {/* <div>
+              <img
+                src={sbt[0].sbt_image.url}
+                alt="governor"
+                className={styles['desktop-governor']}
+              />
+              <img
+                src={sbt[0].sbt_image_mobile.url}
+                alt="governor"
+                className={styles['mobile-governor']}
+              />
+              <div className={styles['block-title-description']}>
+                <h3>{sbt[0].sbt_title[0].text}</h3>
+                <div>{sbt[0].sbt_description[0].text}</div>
+                <Link href={sbt[0].sbt_button_link.url}>
+                  <Button
+                    type="tetiary"
+                    size="large"
+                    className={styles['button']}
+                  >
+                    {sbt[0].sbt_button_name[0].text}
+                  </Button>
+                </Link>
+              </div>
+            </div> */}
           <div>
             <div
               style={{
