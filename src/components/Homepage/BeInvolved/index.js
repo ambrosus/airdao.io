@@ -12,7 +12,6 @@ const BeInvolved = ({
   title,
   main,
   socials,
-  // sbt,
   events,
   ambassador,
   burn,
