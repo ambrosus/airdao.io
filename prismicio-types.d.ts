@@ -3162,7 +3162,7 @@ interface GrantsDocumentData {
   cta_text: prismic.RichTextField;
 
   /**
-   * `slices2` field in *Grants*
+   * Slice Zone field in *Grants*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*

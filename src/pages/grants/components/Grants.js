@@ -45,6 +45,7 @@ const grantTiers = {
 const Grants = ({ email }) => {
   return (
     <section className={styles.grant}>
+      {/*<div className={styles.fadeEffect} />*/}
       <div className={styles.inlineWrapper}>
         <div className={styles.grantHero}>
           <Image src={Logo} alt="Logo" height={275} width={275} />
