@@ -1,26 +1,28 @@
 import styles from '../harbor.module.scss';
-import Image from 'next/image';
-import Icon1 from '../assets/icon_1.svg';
-import Icon2 from '../assets/icon_2.svg';
-import Icon3 from '../assets/icon_3.svg';
+import Icon1 from './Icon1';
+import Icon2 from './Icon2';
+import Icon3 from './Icon3';
 
 const infoData = [
   {
-    icon: Icon1,
+    icon: <Icon1 />,
     title: 'Effortless staking',
-    description:
-      'Stake $AMB tokens and receive stAMB, a liquid staking derivative token, in return.',
+    description: (
+      <span>
+        <b>Stake $AMB</b> tokens and receive stAMB, a liquid staking derivative
+        token, in return. <b>Stake $HBR</b> to maximize $AMB Yield.
+      </span>
+    ),
   },
   {
-    icon: Icon2,
+    icon: <Icon2 />,
     title: 'Maintain liquidity',
-    description:
-      'Use $HBR to trade, lend, or borrow while still earning staking rewards.',
+    description: <span>Use $HBR while still earning staking rewards.</span>,
   },
   {
-    icon: Icon3,
+    icon: <Icon3 />,
     title: 'Hybrid rewards structure',
-    description: 'Earn rewards in $AMB and $BOND.',
+    description: <span>Earn rewards in $AMB and $BOND.</span>,
   },
 ];
 
@@ -28,16 +30,10 @@ const InfoBlock = () => (
   <>
     {infoData.map((item, index) => (
       <div className={styles.info} key={index}>
-        <Image
-          src={item.icon}
-          alt="icon"
-          width={56}
-          height={56}
-          className={styles.icon}
-        />
+        {item.icon}
         <div className={styles.text}>
           <h3>{item.title}</h3>
-          <span dangerouslySetInnerHTML={{ __html: item.description }} />
+          <span>{item.description}</span>
         </div>
       </div>
     ))}

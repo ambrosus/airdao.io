@@ -1,0 +1,76 @@
+.accordion {
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 24px;
+  background: #f2f2f3;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0px 6px 12px 0px rgba(47, 43, 67, 0.1);
+}
+
+.accordionItem {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
+
+.accordionButton {
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+
+  @media only screen and (max-width: 640px) {
+    padding: 16px;
+  }
+}
+
+.accordionTitle {
+  color: #29292d;
+  font-family: var(--font-inter);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.384px;
+
+  @media only screen and (max-width: 640px) {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -0.28px;
+  }
+}
+
+.accordionContent {
+  padding: 0 24px 24px;
+  will-change: height;
+
+  @media only screen and (max-width: 640px) {
+    padding: 0 16px 16px;
+  }
+}
+
+.accordionText {
+  color: #63636d;
+  font-family: var(--font-inter);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+
+  @media only screen and (max-width: 640px) {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.14px;
+  }
+}
