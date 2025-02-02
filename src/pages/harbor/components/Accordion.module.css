@@ -17,19 +17,19 @@
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.5);
   overflow: hidden;
-}
-
-.accordionButton {
-  width: 100%;
   padding: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: left;
 
   @media only screen and (max-width: 640px) {
     padding: 16px;
   }
+}
+
+.accordionButton {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
 }
 
 .accordionTitle {
@@ -51,12 +51,8 @@
 }
 
 .accordionContent {
-  padding: 0 24px 24px;
-  will-change: height;
-
-  @media only screen and (max-width: 640px) {
-    padding: 0 16px 16px;
-  }
+  position: relative;
+  top: 8px;
 }
 
 .accordionText {
