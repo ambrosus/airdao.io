@@ -40,7 +40,7 @@ export default function Harbor({ header, footerText }) {
                 target="_blank"
                 className={styles.link}
               >
-                Start with Harbor
+                Start with Harbor <span>now</span>
               </a>
               <a
                 href="https://docs.airdao.io/getting-started/ecosystem-products/harbor-liquid-staking"
