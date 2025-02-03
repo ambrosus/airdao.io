@@ -720,12 +720,11 @@
       background: #ffee52;
 
       .buttons {
+        flex-direction: column;
+        align-items: center;
+
         .link:not(.transparent) {
           width: 100%;
-        }
-
-        .link.transparent {
-          display: none;
         }
       }
     }
