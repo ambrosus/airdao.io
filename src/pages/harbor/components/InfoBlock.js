@@ -9,7 +9,7 @@ const infoData = [
     title: 'Effortless staking',
     description: (
       <span>
-        <b>Stake $AMB</b> tokens and receive stAMB, a liquid staking derivative
+        <b>Stake $AMB</b> tokens and receive $stAMB, a liquid staking derivative
         token, in return. <b>Stake $HBR</b> to maximize $AMB Yield.
       </span>
     ),
