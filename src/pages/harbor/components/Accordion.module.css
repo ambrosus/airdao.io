@@ -55,6 +55,19 @@
   top: 8px;
 }
 
+.accordionContent p {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+  color: #63636d;
+}
+
+.accordionContent p:not(:last-child) {
+  margin-bottom: 16px;
+}
+
 .accordionText {
   color: #63636d;
   font-family: var(--font-inter);

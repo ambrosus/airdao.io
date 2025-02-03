@@ -206,37 +206,6 @@ export default function Harbor({ header, footerText }) {
               </a>
             </div>
           </div>
-
-          {/* <div className={styles.left}>
-              <Image
-                src={HarborLogo}
-                alt="Harbor Logo"
-                width={191}
-                height={191}
-              />
-            </div>
-            <div className={styles.right}>
-              <p className={styles.text}>
-                $HBR is harbors utility tokens allowing users to participate in
-                exclusive liquid staking pools, governance of the platforms
-                yields and fees and lending and access to lending features.
-              </p>
-              <div className={`${styles.cta} ${styles.maxWidth}`}>
-                <a
-                  href="https://star-fleet.io/astra/swap?inputCurrency=AMB&outputCurrency=0xd09270E917024E75086e27854740871F1C8E0E10"
-                  target="_blank"
-                  className={styles.link}
-                >
-                  Buy $HBR token
-                  <Image
-                    src={chevronWhite}
-                    alt="arrow right"
-                    width={20}
-                    height={20}
-                  />
-                </a>
-              </div>
-            </div> */}
         </div>
         <div>
           <h4>FAQs</h4>

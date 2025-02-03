@@ -53,21 +53,25 @@ const items = [
   {
     title: 'What is liquid staking?',
     content:
-      'Liquid staking is a way to stake your cryptocurrency while still keeping it liquid and usable. Harbor allows users to stake $AMB tokens while retaining liquidity through liquid staking derivatives (stAMB). Harbor makes it easy for users to stake their tokens and earn rewards, while still being able to use their staked tokens to trade.',
+      'Liquid staking is a way to stake your cryptocurrency while still keeping it liquid and usable. Harbor allows users to stake $AMB tokens while retaining liquidity through liquid staking derivatives ($stAMB). Harbor makes it easy for users to stake their tokens and earn rewards, while still being able to use their staked tokens to trade.',
   },
   {
     title: 'What is stAMB, and why do I need it?',
     content: (
       <>
-        <b>stAMB</b> is a <b>liquid staking derivative</b> of the <b>$AMB</b>{' '}
-        token on the Harbor platform. When users stake their <b>$AMB</b> tokens
-        through Harbor, they receive <b>stAMB</b> in return. This token
-        represents their staked $AMB and allows them to continue participating
-        in DeFi activities like trading, while still earning staking rewards.
-        Essentially, <b>stAMB</b> provides liquidity to staked assets, meaning
-        users don’t have to wait for the standard unstaking period to use their
-        tokens. They can freely use <b>stAMB</b> while their original{' '}
-        <b>$AMB</b> remains staked and continues generating rewards.
+        <p>
+          stAMB is a liquid staking derivative of the $AMB token on the Harbor
+          platform. When users stake their $AMB tokens through Harbor, they
+          receive $stAMB in return. This token represents their staked $AMB and
+          allows them to continue participating in DeFi activities like trading,
+          while still earning staking rewards.
+        </p>
+        <p>
+          Essentially, $stAMB provides liquidity to staked assets, meaning users
+          don’t have to wait for the standard unstaking period to use their
+          tokens. They can freely use $stAMB while their original $AMB remains
+          staked and continues generating rewards.
+        </p>
       </>
     ),
   },
@@ -79,7 +83,7 @@ const items = [
   {
     title: 'Can I withdraw (unstake) my tokens at any time?',
     content:
-      'Users initiate the unstaking request and Harbor will automatically convert the stAMB back to its underlying components - $AMB. As with other liquid staking platforms, there is a predetermined unstaking period of 14 days before users receive their unlocked $AMB tokens.',
+      'Users initiate the unstaking request and Harbor will automatically convert the $stAMB back to its underlying components - $AMB. As with other liquid staking platforms, there is a predetermined unstaking period of 14 days before users receive their unlocked $AMB tokens.',
   },
   {
     title: 'Is there a minimum or maximum amount required for staking?',
