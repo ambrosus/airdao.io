@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useAccount, useReadContract } from 'wagmi';
 import { Loader } from '@airdao/ui-library';
 import { BigNumber } from '@ethersproject/bignumber';
@@ -28,6 +29,26 @@ const RewardsList = () => {
     args: [account],
   });
 
+  const { data: sbtVerify } = readMethods;
+
+  const message = useMemo(() => {
+    let text = 'Governor SBT is required to claim rewards.';
+
+    if (!!sbtVerify) {
+      text = 'You have a Governor SBT! You can now claim your rewards.';
+    }
+
+    return text;
+  }, [sbtVerify]);
+
+  const availableToClaim = useMemo(() => {
+    const rewards = availableRewards
+      ? ethersFormatEther(BigNumber.from(availableRewards))
+      : '0';
+
+    return `${rewards} AMB`;
+  }, [availableRewards]);
+
   return (
     <>
       <h3 className={styles.title}>Claim Rewards</h3>
@@ -35,14 +56,11 @@ const RewardsList = () => {
         <span className={styles.desc}>Available to claim</span>
         <span className={styles.formatted}>
           <Image src="/airdao.svg" alt="airdao" width={28} height={28} />
-          {availableRewards
-            ? ethersFormatEther(BigNumber.from(availableRewards))
-            : '0'}{' '}
-          AMB
+          {availableToClaim}
         </span>
       </div>
       <div className={styles.infoBlock}>
-        <p>Governor SBT is required to claim rewards.</p>
+        <p>{message}</p>
         <Link target="_blank" href="https://airdao.io/gov-portal">
           <button className={styles.button}>
             Learn more
