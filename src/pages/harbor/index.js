@@ -1,8 +1,10 @@
-import { createClient } from '@/prismicio';
+import { useState } from 'react';
 import Image from 'next/image';
+import { createClient } from '@/prismicio';
 
 import styles from './harbor.module.scss';
 import HeaderWrapper from '@/components/Header';
+import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
 import chevron from '@/assets/icons/chevron-blue.svg';
 import arrowAmb from './assets/arrow-amb.svg';
@@ -12,9 +14,13 @@ import QuestionMark from './assets/question_mark.svg';
 import AirDaoToken from './assets/token.svg';
 import Accordion from './components/Accordion';
 
-export default function Harbor({ header, footerText }) {
+export default function Harbor({ header, banner, footerText }) {
+  const [showBanner, setShowBanner] = useState(true);
   return (
     <>
+      {showBanner && (
+        <Banner data={banner?.data} setShowBanner={setShowBanner} />
+      )}
       <HeaderWrapper header={header} showBanner={false} />
       <div className={styles.hero}>
         <div className={styles.gradientElements}>
@@ -220,11 +226,13 @@ export default function Harbor({ header, footerText }) {
 export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
+  const banner = await client.getSingle('banner');
   const header = await client.getSingle('header');
   const footer = await client.getSingle('footer');
   return {
     props: {
       header,
+      banner,
       footerText: footer,
     },
   };

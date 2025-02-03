@@ -60,7 +60,7 @@ const items = [
     content: (
       <>
         <p>
-          stAMB is a liquid staking derivative of the $AMB token on the Harbor
+          $stAMB is a liquid staking derivative of the $AMB token on the Harbor
           platform. When users stake their $AMB tokens through Harbor, they
           receive $stAMB in return. This token represents their staked $AMB and
           allows them to continue participating in DeFi activities like trading,
