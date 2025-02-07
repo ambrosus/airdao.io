@@ -1,6 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { createClient } from '@/prismicio';
+import { BigNumber } from 'ethers';
+import { formatEther as ethersFormatEther } from '@ethersproject/units';
+import { useReadContract } from 'wagmi';
+import { erc20Abi } from 'viem';
 
 import styles from './harbor.module.scss';
 import HeaderWrapper from '@/components/Header';
@@ -13,9 +17,27 @@ import InfoBlock from './components/InfoBlock';
 import QuestionMark from './assets/question_mark.svg';
 import AirDaoToken from './assets/token.svg';
 import Accordion from './components/Accordion';
+import { AIRDAO_ADDRESSES } from '@/constants/addresses';
+import { formatNumber } from '@/utils';
 
 export default function Harbor({ header, banner, footerText }) {
   const [showBanner, setShowBanner] = useState(true);
+  const [ambPrice, setAmbPrice] = useState(0);
+
+  const { data: totalSupply } = useReadContract({
+    address: AIRDAO_ADDRESSES.StAMB,
+    abi: erc20Abi,
+    functionName: 'totalSupply',
+  });
+
+  useEffect(() => {
+    (async () => {
+      fetch('https://token.ambrosus.io/')
+        .then(res => res.json())
+        .then(res => setAmbPrice(res.data.price_usd));
+    })();
+  }, []);
+
   return (
     <>
       {showBanner && (
@@ -84,7 +106,16 @@ export default function Harbor({ header, banner, footerText }) {
                     height={60}
                   />
                   <div className={styles.statsContent}>
-                    <h4 className={styles.statsValue}>338M AMB</h4>
+                    <h4
+                      className={`${styles.statsValue} ${styles.statsFontMedium}`}
+                    >
+                      {totalSupply
+                        ? formatNumber(
+                            ethersFormatEther(BigNumber.from(totalSupply)),
+                          )
+                        : 0}{' '}
+                      AMB
+                    </h4>
                     <div className={styles.statsLabel}>
                       Total Staked on Harbor
                     </div>
@@ -94,7 +125,15 @@ export default function Harbor({ header, banner, footerText }) {
 
               <div className={`${styles.statsCard} ${styles.last}`}>
                 <div className={styles.statsContent}>
-                  <h4 className={styles.statsValue}>$2.15M</h4>
+                  <h4 className={styles.statsValue}>
+                    $
+                    {totalSupply
+                      ? formatNumber(
+                          ethersFormatEther(BigNumber.from(totalSupply)) *
+                            ambPrice,
+                        )
+                      : 0}
+                  </h4>
                   <div className={styles.statsLabel}>Total Value Locked</div>
                 </div>
               </div>
