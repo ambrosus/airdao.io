@@ -248,8 +248,11 @@
           font-style: normal;
           font-weight: 600;
           line-height: normal;
-          letter-spacing: -0.96px;
           gap: 4px;
+
+          &.statsFontMedium {
+            font-size: 36px;
+          }
 
           span {
             display: none;
