@@ -1,21 +1,20 @@
 import { useWaitForTransactionReceipt, useWriteContract } from 'wagmi';
-import { useEffect, useCallback } from 'react';
+import { useEffect, useMemo, useCallback } from 'react';
 import { Button, Notify } from '@airdao/ui-library';
-import RewardDistributionABI from '@/abis/RewardDistribution.json';
 import { BigNumber } from '@ethersproject/bignumber';
 import { formatEther as ethersFormatEther } from '@ethersproject/units';
 
+import RewardDistributionABI from '@/abis/RewardDistribution.json';
 import { AIRDAO_ADDRESSES } from '@/constants/addresses';
 import styles from './styles.module.scss';
 
-const RewardItem = ({ checkMethods, refetch, reward }) => {
+const RewardItem = ({ refetch, reward }) => {
   const { writeContract, data: hash, isPending } = useWriteContract();
   const result = useWaitForTransactionReceipt({
     hash,
   });
 
   const { id, amount, eventName } = reward || {};
-  const { isLoading, isError } = checkMethods || {};
 
   const isDisabled = useCallback(
     reward => {
@@ -29,9 +28,9 @@ const RewardItem = ({ checkMethods, refetch, reward }) => {
         return true;
       }
 
-      return !!(isLoading || isError);
+      return false;
     },
-    [isPending, isError, isLoading],
+    [isPending],
   );
 
   useEffect(() => {
@@ -69,7 +68,7 @@ const RewardItem = ({ checkMethods, refetch, reward }) => {
     );
   };
 
-  const textStatus = () => {
+  const textStatus = useMemo(() => {
     if (reward && 'status' in reward) {
       if (reward.status === 'reverted') {
         return 'Reverted';
@@ -81,7 +80,7 @@ const RewardItem = ({ checkMethods, refetch, reward }) => {
     }
 
     return 'Claim';
-  };
+  }, [reward]);
 
   const amountInWei = amount
     ? ethersFormatEther(BigNumber.from(amount))
@@ -101,7 +100,7 @@ const RewardItem = ({ checkMethods, refetch, reward }) => {
         size="small"
         type="primary"
       >
-        {textStatus()}
+        {textStatus}
       </Button>
     </div>
   );
