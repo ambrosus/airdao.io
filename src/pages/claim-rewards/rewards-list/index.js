@@ -4,9 +4,7 @@ import { Loader } from '@airdao/ui-library';
 import { BigNumber } from '@ethersproject/bignumber';
 import { formatEther as ethersFormatEther } from '@ethersproject/units';
 import Image from 'next/image';
-import Link from 'next/link';
 
-import ArrowRight2Icon from '@/components/Icons/ArrowRight2';
 import styles from '../styles.module.scss';
 import useGetRewards from '@/hooks/useGetRewards';
 import usePagination from '@/hooks/usePagination';
@@ -19,11 +17,6 @@ const RewardsList = () => {
   const { start, limit } = methods;
   const { data, isLoading, refetch } = useGetRewards(account, start, limit);
   const { rewards, availableRewards } = data;
-
-  const message = useMemo(() => {
-    let text = 'Governor SBT is required to claim rewards.';
-    return text;
-  }, []);
 
   const availableToClaim = useMemo(() => {
     const rewards = availableRewards
@@ -42,15 +35,6 @@ const RewardsList = () => {
           <Image src="/airdao.svg" alt="airdao" width={28} height={28} />
           {availableToClaim}
         </span>
-      </div>
-      <div className={styles.infoBlock}>
-        <p>{message}</p>
-        <Link target="_blank" href="https://airdao.io/gov-portal">
-          <button className={styles.button}>
-            Learn more
-            <ArrowRight2Icon />
-          </button>
-        </Link>
       </div>
       <div className={styles.list}>
         {isLoading ? (
