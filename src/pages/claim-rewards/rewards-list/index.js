@@ -1,14 +1,10 @@
 import { useMemo } from 'react';
-import { useAccount, useReadContract } from 'wagmi';
+import { useAccount } from 'wagmi';
 import { Loader } from '@airdao/ui-library';
 import { BigNumber } from '@ethersproject/bignumber';
 import { formatEther as ethersFormatEther } from '@ethersproject/units';
 import Image from 'next/image';
-import Link from 'next/link';
 
-import ArrowRight2Icon from '@/components/Icons/ArrowRight2';
-import HumanSbtABI from '@/abis/human-sbt.abi.json';
-import { AIRDAO_ADDRESSES } from '@/constants/addresses';
 import styles from '../styles.module.scss';
 import useGetRewards from '@/hooks/useGetRewards';
 import usePagination from '@/hooks/usePagination';
@@ -21,25 +17,6 @@ const RewardsList = () => {
   const { start, limit } = methods;
   const { data, isLoading, refetch } = useGetRewards(account, start, limit);
   const { rewards, availableRewards } = data;
-
-  const readMethods = useReadContract({
-    address: AIRDAO_ADDRESSES.HumanSBTAddress,
-    abi: HumanSbtABI,
-    functionName: 'sbtVerify',
-    args: [account],
-  });
-
-  const { data: sbtVerify } = readMethods;
-
-  const message = useMemo(() => {
-    let text = 'Governor SBT is required to claim rewards.';
-
-    if (!!sbtVerify) {
-      text = 'You have a Governor SBT! You can now claim your rewards.';
-    }
-
-    return text;
-  }, [sbtVerify]);
 
   const availableToClaim = useMemo(() => {
     const rewards = availableRewards
@@ -59,15 +36,6 @@ const RewardsList = () => {
           {availableToClaim}
         </span>
       </div>
-      <div className={styles.infoBlock}>
-        <p>{message}</p>
-        <Link target="_blank" href="https://airdao.io/gov-portal">
-          <button className={styles.button}>
-            Learn more
-            <ArrowRight2Icon />
-          </button>
-        </Link>
-      </div>
       <div className={styles.list}>
         {isLoading ? (
           <Loader className={styles.loader} />
@@ -75,12 +43,7 @@ const RewardsList = () => {
           <>
             {rewards.length > 0 ? (
               rewards.map(reward => (
-                <RewardItem
-                  checkMethods={readMethods}
-                  refetch={refetch}
-                  reward={reward}
-                  key={reward.id}
-                />
+                <RewardItem refetch={refetch} reward={reward} key={reward.id} />
               ))
             ) : (
               <div className={styles.item}>
