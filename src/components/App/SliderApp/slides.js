@@ -24,7 +24,7 @@ const slides = [
     id: 2,
     title: 'Price alerts',
     icon: <BellIcon />,
-    src: '/slider/slide-contactUs.svg',
+    src: '/slider/slide-3.svg',
     desc: 'Stay updated on your portfolio with personalized AMB price alerts.',
   },
   {
