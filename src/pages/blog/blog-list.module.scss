@@ -6,11 +6,10 @@
   min-height: 100vh;
 
   @media screen and (max-width: 950px) {
-    padding-top: 100px;
+    padding-top: 80px;
   }
 
   @media screen and (max-width: 610px) {
-    padding-top: 140px;
     width: calc(100% - 36px);
   }
 }
@@ -147,7 +146,7 @@
     position: relative;
 
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       right: 7px;
       top: 8px;
@@ -232,15 +231,16 @@
   gap: 40px;
 
   margin: 0 auto 56px;
-
-  width: 100vw;
-
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 
   scrollbar-width: none;
   -ms-overflow-style: none;
+
+  @media (max-width: 950px) {
+    flex-direction: column;
+  }
 }
 
 .articles-cards::-webkit-scrollbar {
@@ -457,7 +457,7 @@
   position: relative;
 
   &:first-child:after {
-    content: "";
+    content: '';
     position: absolute;
     right: -13px;
     top: 11px;
@@ -487,7 +487,7 @@
 }
 
 .background {
-  content: "";
+  content: '';
   position: absolute;
   background: #0e0e0e0d;
   height: 360px;
@@ -506,12 +506,11 @@
   padding-bottom: 70px;
 
   @media screen and (max-width: 950px) {
-    padding-top: 100px;
+    padding-top: 80px;
     padding-bottom: 40px;
   }
 
   @media screen and (max-width: 610px) {
-    padding-top: 140px;
     padding-bottom: 28px;
   }
 }

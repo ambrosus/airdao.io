@@ -1,13 +1,9 @@
-import blueCircle from '@/assets/img/blue-circle.svg';
-import orangeCircle from '@/assets/img/orange-circle.svg';
+import { useState } from 'react';
 import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
 import HeaderWrapper from '@/components/Header';
-import homeStyles from '@/components/Homepage/homepage.module.scss';
 import { createClient } from '@/prismicio';
 import { getFooterBlockSlice } from '@/utils/getFooterBlockSlice';
-import Image from 'next/image';
-import { useState } from 'react';
 import styles from './ambassador.module.scss';
 import Benefits from './components/Benefits';
 import Hero from './components/Hero';
@@ -44,21 +40,13 @@ const AmbassadorPage = ({ header, footerText, page, banner }) => {
           primaryText={page.roles_primary_text}
           primaryLink={page.roles_primary_link}
         />
-        <div className={homeStyles['articles-wrapper']}>
-          <Image
-            className={homeStyles['blue-circle']}
-            src={blueCircle}
-            alt="blue circle"
-          />
-          <Image
-            className={homeStyles['orange-circle']}
-            src={orangeCircle}
-            alt="orange circle"
-          />
-          <Benefits title={page.benefits_title} list={page.benefits_list} />
-        </div>
+        <Benefits title={page.benefits_title} list={page.benefits_list} />
         {footerText && (
-          <Footer footerBlock={footerSlice} data={footerText.data} />
+          <Footer
+            footerBlock={footerSlice}
+            data={footerText.data}
+            className={styles.footer}
+          />
         )}
       </div>
     )
@@ -72,8 +60,14 @@ export async function getStaticProps({ previewData }) {
   const footer = await client.getSingle('footer');
   const banner = await client.getSingle('banner');
   const page = await client.getSingle('ambassador');
+
   return {
-    props: { header, footerText: footer, page: page.data, banner },
+    props: {
+      header,
+      footerText: footer,
+      page: page.data,
+      banner,
+    },
   };
 }
 export default AmbassadorPage;
